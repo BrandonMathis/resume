@@ -1,0 +1,178 @@
+% Source: Brandon Resume 2026 Q3.pdf
+% Edit the content below; the commands here keep the layout consistent.
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[margin=0.5in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{helvet}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+
+\renewcommand{\familydefault}{\sfdefault}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\raggedright
+\raggedbottom
+\urlstyle{same}
+
+% Make generated PDFs searchable and copy/paste friendly with pdfLaTeX.
+\ifdefined\pdfgentounicode
+  \input{glyphtounicode}
+  \pdfgentounicode=1
+\fi
+
+\hypersetup{
+  pdftitle={Brandon Mathis Resume},
+  pdfauthor={Brandon Mathis}
+}
+
+% Formatting helpers: change these to update every entry at once.
+\newcommand{\resumesection}[1]{%
+  \par\addvspace{9pt}
+  {\centering\large\bfseries #1\par}
+  \vspace{5pt}
+}
+\newcommand{\resumeentry}[4]{%
+  \par\addvspace{6pt}
+  {\bfseries #1}\hfill #2\par
+  \textit{#3}\hfill \textit{#4}\par
+}
+\newenvironment{resumebullets}{%
+  \begin{itemize}[
+    leftmargin=1.5em,
+    label=\textbullet,
+    itemsep=1pt,
+    parsep=0pt,
+    topsep=3pt,
+    partopsep=0pt
+  ]
+}{%
+  \end{itemize}
+}
+
+\begin{document}
+
+% Contact details
+\begin{center}
+  {\LARGE\bfseries Brandon Mathis}\\[4pt]
+  {\small
+    Raleigh, NC -- USA \enspace\textbullet\enspace
+    \href{mailto:bemathis@gmail.com}{bemathis@gmail.com}
+    \enspace\textbullet\enspace
+    \href{https://linkedin.com/in/mathisbrandon}{linkedin.com/in/mathisbrandon}
+    \enspace\textbullet\enspace
+    \href{https://github.com/brandonmathis}{https://github.com/brandonmathis}
+  }
+\end{center}
+
+\resumesection{Recent Work Experience}
+
+\resumeentry{This Dot Labs}{Raleigh, NC (remote)}
+  {Engineering Lead}{Oct 2024 -- Current}
+\begin{resumebullets}
+  \item Lead Engineer for key This Dot Labs customer projects such as OpenAI, HUDL, Wikimedia, Primerica
+  \item Manager of mobile engineering team: mentoring, performing reviews and conducting one on ones
+  \item Led development client teams through complex refactors, rewrites, migrations, optimizations, and development sprints whose on-time completion was key for company strategic goals.
+  \item Presented on behalf of This Dot Labs at global technology conferences and in digital content on topics such as react-native, coding agents, LLM models, and change management for teams undergoing AI enablement initiatives
+\end{resumebullets}
+
+\resumeentry{vTestify}{Raleigh, NC}
+  {Principal Engineer \& CTO}{Aug 2019 -- Dec 2024}
+\begin{resumebullets}
+  \item Architected and built a WebRTC-based digital deposition platform for the U.S. legal industry
+  \item Built real-time, multi-channel testimony transcription using the Web Audio API and OpenAI Whisper
+  \item Drove 10x revenue growth by building enterprise white-label capabilities that enabled B2B sales
+  \item Partnered directly with Sales and Product as a forward-deployed engineer to design and deliver custom solutions for strategic customers
+  \item Built the engineering organization's hiring, interviewing, and team management processes
+  \item Led architecture, development, and code review across JavaScript, Ruby, Python, and Go systems
+\end{resumebullets}
+
+\resumeentry{Freelance Software Engineer}{Raleigh, NC}
+  {Self-Employed}{Nov 2017 -- Dec 2019}
+\begin{resumebullets}
+  \item Operated as an independent contract-for-hire software engineer specializing in building web and mobile products
+  \item Built custom software for companies such as McKesson, Dana-Farber, Duke Health, Adwerx and MAC Cosmetics
+  \item Sourced contract work, created SOWs and managed sub-contractors spanning across multiple projects
+  \item Provided expert training services for company teams looking to upskill their engineers into development tools
+\end{resumebullets}
+
+\resumeentry{Smashing Boxes}{Raleigh, NC}
+  {Lead Software Engineer -- Director of Technology}{Aug 2014 -- Nov 2017}
+\begin{resumebullets}
+  \item Hired as Lead Engineer of backend team, later promoted to Director of Technology overseeing an engineering team of 30+ individuals across 3 disciplines (Frontend, Backend, and Mobile)
+  \item Acted as a direct contributor to core company Web and Mobile App projects (React, iOS/Swift, Ruby on Rails)
+  \item Served as engineering team representative in company resourcing and sales meetings
+\end{resumebullets}
+
+\resumeentry{Assetricity LLC}{Raleigh, NC}
+  {Software Engineer}{July 2009 -- Aug 2014}
+\begin{resumebullets}
+  \item Built condition based maintenance software in Ruby on Rails and deployed in IBM Websphere via JRuby
+  \item Attended ISO standards committee meetings to report back to technical teams or answer questions when needed
+  \item Built an Ember.js powered P\&ID viewer for oil and gas refinery layout specifications
+  \item Created XML Schema documents to reinforce XML standard structure dictated by ISO standards committees
+  \item Maintained company internal software systems and web presence
+\end{resumebullets}
+
+% Keep education and community activities on the second page.
+\newpage
+
+\resumesection{Education}
+
+\resumeentry{East Carolina University}{Greenville, NC}
+  {BS, Major Computer Science with Business Minor}{2006--2009}
+
+\resumesection{Leadership \& Community Activities}
+
+\resumeentry{Triangle Developers}{Current}
+  {Founder -- Organizer}{}
+\begin{resumebullets}
+  \item Founded community meetup containing over 3,000 software engineers across the NC Triangle area
+  \item Tech community organizer since 2012 hosting regular community events, networking hours, and tech talks in partnership with companies across the NC RTP area
+  \item All Things Open talk selection committee member since 2014
+\end{resumebullets}
+
+\resumeentry{All Things Open}{Current}
+  {Speaker selection committee member and technical content producer}{}
+\begin{resumebullets}
+  \item Participate in All Things Open speaker selection process for engineering focused event tracks
+  \item Attended and spoke at several of All Things Open's conferences and meetups across the east coast
+  \item Fostered relationships between All Things Open and other local community meetups in Raleigh NC
+\end{resumebullets}
+
+\resumeentry{Rails Bridge}{2015--2018}
+  {Founder}{}
+\begin{resumebullets}
+  \item Founded Rails Bridge chapter alongside a team of engineers committed to increasing diversity in tech
+  \item Developed Rails Bridge curriculum where we took non-coders and immersed them in a day-long hackathon where they get to experience building a Ruby on Rails app from 0 to 100
+  \item Oversaw selection of volunteers that assist attendees with computer setup and problem solving
+\end{resumebullets}
+
+\resumeentry{The Iron Yard}{2015--2017}
+  {Advisory Board Member \& Guest Instructor}{}
+\begin{resumebullets}
+  \item Provided input to Iron Yard curriculum writers on which technologies were most relevant for students to learn
+  \item Guest speaker to students on emerging topics such as Docker and React.js
+  \item Mentored select students to provide a hands-on perspective of what being a Software Engineer is like
+\end{resumebullets}
+
+\resumeentry{Triangle Javascript}{2014--2019}
+  {Co-Organizer}{}
+\begin{resumebullets}
+  \item Attended and led meetups across the NC RTP Area
+  \item Presented talks to members on Javascript concept mostly tied to React and React Native (circa 2016)
+  \item Oversaw general coordination with speakers, location, and attendees
+\end{resumebullets}
+
+\resumeentry{Triangle Ruby}{2012--2019}
+  {Founder}{}
+\begin{resumebullets}
+  \item Formed Triangle Ruby meetup because I wanted there to be a strong Ruby community in my local city
+  \item Acted as sole organizer for over 6 years doing speaker selection and coordination between locations and meetup sponsors
+  \item Hosted and spoke at several local corporate headquarters across the NC Triangle area for Ruby developers such as Metlife, IBM, Bandwidth, Webassign, Microsoft, and Duke University
+\end{resumebullets}
+
+\end{document}
