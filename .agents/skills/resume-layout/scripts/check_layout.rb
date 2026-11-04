@@ -5,8 +5,14 @@ require 'open3'
 require 'optparse'
 require 'tmpdir'
 require 'fileutils'
-require 'rexml/document'
-require 'rexml/xpath'
+require 'yaml'
+begin
+  require 'rexml/document'
+  require 'rexml/xpath'
+rescue LoadError
+  warn 'BLOCKED: Install REXML for this Ruby installation (gem install rexml).'
+  exit 2
+end
 
 module ResumeLayout
   ROOT = File.expand_path('../../../..', __dir__)
@@ -40,11 +46,18 @@ module ResumeLayout
       document = REXML::Document.new(xml)
       pages = REXML::XPath.match(document, '/pdf2xml/page')
       raise 'PDF extraction produced no pages' if pages.empty?
-      raise 'Source has no literal resumesection headings to audit' if headings.empty?
+      raise 'Source has no section headings to audit' if headings.empty?
 
       fonts = {}
       REXML::XPath.each(document, '//fontspec') do |font|
         fonts[font.attributes['id']] = Float(font.attributes['size'])
+      end
+      if metrics['point_scale'] == 1
+        families = REXML::XPath.match(document, '//fontspec').map { |font| font.attributes['family'].to_s.split('+').last }
+        unexpected = families.uniq.reject { |family| family == @policy.fetch('font_family') }
+        unless unexpected.empty?
+          add.call('font_family', "Expected #{@policy.fetch('font_family')}; found #{unexpected.join(', ')}. Install the required font; do not accept silent fallback.")
+        end
       end
       add.call('page_count', "Expected #{@policy.fetch('pages')} pages; got #{pages.length}.") unless pages.length == @policy.fetch('pages')
       [:summary, :experience].each do |kind|
@@ -63,12 +76,12 @@ module ResumeLayout
         value = metrics.fetch(metric)
         expected = @policy.fetch(key)
         if (value - expected).abs > 0.05
-          add.call('readability', "Normal #{metric} is #{value} TeX pt; preserve #{expected} TeX pt.")
+          add.call('readability', "Normal #{metric} is #{value} pt; preserve #{expected} pt.")
         end
       end
       %w[left right top bottom].each do |side|
         # TeX points are 1/72.27 inch, unlike PDF's 1/72 inch.
-        inches = metrics.fetch(side) / 72.27
+        inches = metrics.fetch(side) / (72 / metrics.fetch('point_scale', 72 / 72.27))
         if inches < @policy.fetch('minimum_margin_inches') - 0.001
           add.call('margin', "#{side.capitalize} margin is #{inches.round(3)} in; minimum is #{@policy.fetch('minimum_margin_inches')} in.")
         end
@@ -82,6 +95,7 @@ module ResumeLayout
       misplaced = {}
       bad_fonts = {}
       bounds = []
+      body_line_positions = Hash.new { |hash, key| hash[key] = [] }
       pages.each_with_index do |page, index|
         number = index + 1
         width = Float(page.attributes['width'])
@@ -118,17 +132,32 @@ module ResumeLayout
                      end
           # Poppler reports integer PDF-point sizes. Allow only its rounding error.
           actual = fonts.fetch(node.attributes['font'])
-          expected = @policy.fetch(font_key) * 72 / 72.27
+          expected = @policy.fetch(font_key) * metrics.fetch('point_scale', 72 / 72.27)
           if (actual - expected).abs > 0.55
             bad_fonts[[section, actual, font_key]] ||= text[0, 120]
           end
           x = Float(node.attributes['left'])
           y = Float(node.attributes['top'])
+          body_line_positions[number] << y if font_key == 'body_tex_pt'
           right = x + Float(node.attributes['width'])
           bottom = y + Float(node.attributes['height'])
           margin = @policy.fetch('minimum_margin_inches') * 72
           # Integer-rounded extraction boxes can extend slightly past glyph edges.
           bounds << number if x < margin - 2 || y < margin - 2 || right > width - margin + 2 || bottom > height - margin + 2
+        end
+      end
+      if metrics['point_scale'] == 1
+        # Poppler caps zoom at 3x; normalize to 1/3pt precision.
+        # Adjacent body rows may have extra list/entry spacing, never less than 12pt.
+        gaps = body_line_positions.values.flat_map do |positions|
+          positions.uniq.sort.each_cons(2).map { |first, last| last - first }
+        end
+        baseline = @policy.fetch('baseline_tex_pt')
+        if gaps.any? { |gap| gap < baseline - 0.35 }
+          add.call('rendered_baseline', "Body rows are closer than the locked #{baseline} pt baseline.")
+        end
+        unless gaps.any? { |gap| (gap - baseline).abs <= 0.35 }
+          add.call('rendered_baseline', 'Could not verify the configured baseline in the rendered PDF.')
         end
       end
       headings.each do |heading|
@@ -141,7 +170,7 @@ module ResumeLayout
         add.call(code, "#{label} has content on page #{page}, not its assigned page.", page: page, excerpt: excerpt)
       end
       bad_fonts.each do |(label, actual, key), excerpt|
-        add.call('rendered_font', "#{label}: rendered size #{actual} PDF pt does not match locked #{@policy.fetch(key)} TeX pt.", excerpt: excerpt)
+        add.call('rendered_font', "#{label}: rendered size #{actual} PDF pt does not match locked #{@policy.fetch(key)} pt.", excerpt: excerpt)
       end
       bounds.uniq.each do |page|
         add.call('text_bounds', "Text on page #{page} intrudes into the minimum margin or is clipped.", page: page)
@@ -150,8 +179,9 @@ module ResumeLayout
         status: issues.empty? ? 'PASS_AUTOMATED' : 'FAIL',
         page_count: pages.length,
         sections: spans,
-        normal_font_tex_pt: metrics.fetch('font'),
-        normal_baseline_tex_pt: metrics.fetch('baseline'),
+        normal_font_pt: metrics.fetch('font'),
+        normal_baseline_pt: metrics.fetch('baseline'),
+        point_unit: metrics['point_scale'] == 1 ? 'Typst/PDF pt (1/72 inch)' : 'TeX pt (1/72.27 inch)',
         issues: issues,
         visual_review: 'Required; not performed by this script.'
       }
@@ -169,10 +199,108 @@ module ResumeLayout
     ENV.fetch('PATH', '').split(File::PATH_SEPARATOR).any? { |dir| File.executable?(File.join(dir, command)) }
   end
 
+  # Parse resolved values from generated Typst, not unvalidated YAML defaults.
+  def self.typst_points(value)
+    match = /\A(-?[\d.]+)(pt|in|cm|mm)\z/.match(value.strip)
+    raise "Unsupported Typst dimension: #{value.inspect}" unless match
+
+    Float(match[1]) * { 'pt' => 1, 'in' => 72, 'cm' => 72 / 2.54, 'mm' => 72 / 25.4 }.fetch(match[2])
+  end
+
+  def self.rendercv_metrics(typst)
+    value = lambda do |key|
+      typst[/^  #{Regexp.escape(key)}: ([^,]+),$/, 1] || raise("Missing generated Typst setting: #{key}")
+    end
+    font = typst_points(value.call('typography-font-size-body'))
+    edges = typst.scan(/set text\(top-edge: (-?[\d.]+)em, bottom-edge: (-?[\d.]+)em\)/)
+    raise 'Expected exactly one fixed text-frame rule in the RenderCV template.' unless edges.length == 1
+
+    top, bottom = edges.first.map { |edge| Float(edge) }
+    metrics = {
+      'font' => font,
+      'baseline' => (top - bottom) * font + typst_points(value.call('typography-line-spacing')),
+      'point_scale' => 1
+    }
+    %w[left right top bottom].each do |side|
+      metrics[side] = typst_points(value.call("page-#{side}-margin"))
+    end
+    metrics
+  end
+
+  def self.precise_xml(pdf, chdir:)
+    xml = run_command('pdftohtml', '-xml', '-i', '-stdout', '-zoom', '3', pdf, chdir: chdir)
+    normalize_zoomed_xml(xml)
+  end
+
+  def self.normalize_zoomed_xml(xml)
+    document = REXML::Document.new(xml)
+    REXML::XPath.each(document, '//page | //text | //fontspec') do |node|
+      %w[top left width height size].each do |key|
+        node.attributes[key] = (Float(node.attributes[key]) / 3).to_s if node.attributes[key]
+      end
+    end
+    document.to_s
+  end
+
+  def self.run_rendercv(source)
+    artifact_dir = File.join(ROOT, 'build', 'layout-audit', File.basename(source, '.*'))
+    FileUtils.mkdir_p(artifact_dir)
+    %w[resume.pdf resume.typ compile.log report.json].each { |file| FileUtils.rm_f(File.join(artifact_dir, file)) }
+    raise 'Install uv (brew install uv) to run the pinned RenderCV version.' unless available?('uv')
+
+    data = YAML.safe_load(File.read(source))
+    headings = data.fetch('cv').fetch('sections').keys
+    policy = JSON.parse(File.read(POLICY_PATH))
+    Dir.mktmpdir('resume-rendercv-') do |temp|
+      pdf_path = File.join(temp, 'resume.pdf')
+      typst_path = File.join(temp, 'resume.typ')
+      command = ['uv', 'tool', 'run', '--python', '3.13', '--from', 'rendercv[full]==2.8',
+                 'rendercv', 'render', source, '--output-folder', temp,
+                 '--pdf-path', pdf_path, '--typst-path', typst_path,
+                 '--dont-generate-markdown', '--dont-generate-html', '--dont-generate-png']
+      log = run_command(*command, chdir: File.dirname(source))
+      File.write(File.join(artifact_dir, 'compile.log'), log)
+      raise 'RenderCV did not produce a fresh PDF and Typst source.' unless File.file?(pdf_path) && File.file?(typst_path)
+
+      typst = File.read(typst_path)
+      metrics = rendercv_metrics(typst)
+      # The explicit break must split at the FIRST supporting section, exactly once.
+      supporting = headings.find { |heading| kind(heading) == :supporting }
+      split_heading = typst[/element\.body == \[([^\]]+)\]/, 1]
+      explicit_break = supporting == split_heading && typst.scan(/^  pagebreak\(\)$/).length == 1 &&
+                       typst.include?("resume-style(front.join())\n  pagebreak()\n  resume-style(back.join())")
+      pdf = File.join(artifact_dir, 'resume.pdf')
+      FileUtils.cp(pdf_path, pdf)
+      FileUtils.cp(typst_path, File.join(artifact_dir, 'resume.typ'))
+      xml = precise_xml(pdf, chdir: temp)
+      report = Audit.new(policy).analyze(xml: xml, headings: headings, metrics: metrics,
+                                        log: log, explicit_break: explicit_break)
+      report[:source] = source
+      report[:pdf] = pdf
+      report_path = File.join(artifact_dir, 'report.json')
+      File.write(report_path, JSON.pretty_generate(report) + "\n")
+      puts "#{report[:status]}: #{report[:page_count]} pages; body #{metrics['font']} pt / #{metrics['baseline']} pt baseline"
+      report[:sections].each { |label, pages| puts "  #{label}: page(s) #{pages.join(', ')}" }
+      report[:issues].each do |issue|
+        puts "  FAIL [#{issue[:code]}] #{issue[:message]}"
+        puts "    #{issue[:excerpt]}" if issue[:excerpt]
+      end
+      puts "PDF: #{pdf}\nReport: #{report_path}\nVisual inspection is still required."
+      report[:issues].empty? ? 0 : 1
+    end
+  rescue StandardError => error
+    if artifact_dir && File.directory?(artifact_dir)
+      File.write(File.join(artifact_dir, 'report.json'), JSON.pretty_generate({ status: 'BLOCKED', error: error.message }) + "\n")
+      File.write(File.join(artifact_dir, 'compile.log'), error.message + "\n") unless File.file?(File.join(artifact_dir, 'compile.log'))
+    end
+    warn "BLOCKED: #{error.message}"
+    2
+  end
+
   def self.run(arguments)
-    options = { source: File.join(ROOT, 'resume.tex') }
+    options = { source: File.join(ROOT, 'resume.yaml') }
     parser = OptionParser.new do |opts|
-      opts.banner = 'Usage: check_layout.rb [--source path/to/resume.tex]'
+      opts.banner = 'Usage: check_layout.rb [--source path/to/resume.yaml|resume.tex]'
       opts.on('--source PATH', 'Source to compile and audit') { |path| options[:source] = path }
     end
     parser.parse!(arguments)
@@ -180,6 +308,8 @@ module ResumeLayout
     source = File.expand_path(options.fetch(:source))
     raise "Source does not exist: #{source}" unless File.file?(source)
     raise 'Install Poppler (brew install poppler) for pdftohtml.' unless available?('pdftohtml')
+    return run_rendercv(source) if %w[.yaml .yml].include?(File.extname(source))
+    raise 'Expected a RenderCV .yaml/.yml or legacy .tex source.' unless File.extname(source) == '.tex'
     compiler = %w[tectonic pdflatex].find { |command| available?(command) }
     raise 'Install Tectonic or pdfLaTeX to build the source.' unless compiler
 
@@ -237,7 +367,7 @@ module ResumeLayout
       report[:pdf] = pdf
       report_path = File.join(artifact_dir, 'report.json')
       File.write(report_path, JSON.pretty_generate(report) + "\n")
-      puts "#{report[:status]}: #{report[:page_count]} pages; body #{report[:normal_font_tex_pt]} pt / #{report[:normal_baseline_tex_pt]} pt baseline"
+      puts "#{report[:status]}: #{report[:page_count]} pages; body #{report[:normal_font_pt]} pt / #{report[:normal_baseline_pt]} pt baseline"
       report[:sections].each { |label, pages| puts "  #{label}: page(s) #{pages.join(', ')}" }
       report[:issues].each do |issue|
         puts "  FAIL [#{issue[:code]}] #{issue[:message]}"

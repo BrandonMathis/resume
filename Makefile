@@ -1,24 +1,22 @@
-# Prefer Tectonic; fall back to an existing pdfLaTeX installation.
-.PHONY: pdf check-layout test-layout clean
+# RenderCV supplies Typst; no LaTeX installation is needed.
+RENDERCV = uv tool run --python 3.13 --from 'rendercv[full]==2.8' rendercv
+SOURCE ?= resume.yaml
+
+.PHONY: pdf watch check-layout test-layout clean
 
 pdf:
-	@mkdir -p build
-	@if command -v tectonic >/dev/null 2>&1; then \
-		tectonic --outdir build resume.tex; \
-	elif command -v pdflatex >/dev/null 2>&1; then \
-		pdflatex -interaction=nonstopmode -halt-on-error -output-directory=build resume.tex && \
-		pdflatex -interaction=nonstopmode -halt-on-error -output-directory=build resume.tex; \
-	else \
-		printf '%s\n' 'No LaTeX compiler found. Install Tectonic (brew install tectonic) or a TeX distribution.' >&2; \
-		exit 1; \
-	fi
+	$(RENDERCV) render "$(SOURCE)"
 
-# Fresh diagnostic build plus layout/readability checks; see the project skill.
+watch:
+	$(RENDERCV) render "$(SOURCE)" --watch
+
+# Fresh diagnostic render; never approves an old PDF.
 check-layout:
-	ruby .agents/skills/resume-layout/scripts/check_layout.rb
+	ruby .agents/skills/resume-layout/scripts/check_layout.rb --source "$(SOURCE)"
 
 test-layout:
 	ruby .agents/skills/resume-layout/scripts/test_check_layout.rb
+	ruby .agents/skills/resume-layout/scripts/test_rendercv.rb
 
 clean:
 	rm -rf build

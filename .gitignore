@@ -1,7 +1,8 @@
 # macOS
 .DS_Store
 
-# Generated resume and LaTeX build artifacts
+# Generated RenderCV output and legacy LaTeX build artifacts
+/rendercv_output/
 /build/
 *.aux
 *.fdb_latexmk

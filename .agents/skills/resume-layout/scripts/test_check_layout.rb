@@ -19,15 +19,15 @@ class ResumeLayoutTest < Minitest::Test
     ]
   end
 
-  def xml(pages)
+  def xml(pages, spacing: 15)
     document = REXML::Document.new
     root = document.add_element('pdf2xml')
-    [9, 10, 12, 17].each { |size| root.add_element('fontspec', { 'id' => size.to_s, 'size' => size.to_s }) }
+    [9, 10, 12, 17].each { |size| root.add_element('fontspec', { 'id' => size.to_s, 'size' => size.to_s, 'family' => 'ABCDEF+Helvetica' }) }
     pages.each_with_index do |lines, index|
       page = root.add_element('page', { 'number' => (index + 1).to_s, 'width' => '612', 'height' => '792' })
       lines.each_with_index do |(text, font), line|
         node = page.add_element('text', {
-          'top' => (36 + line * 15).to_s, 'left' => '36', 'width' => '400',
+          'top' => (36 + line * spacing).to_s, 'left' => '36', 'width' => '400',
           'height' => '12', 'font' => font.to_s
         })
         node.add_text(text)
@@ -127,6 +127,68 @@ class ResumeLayoutTest < Minitest::Test
   def test_name_missing
     @front.shift
     assert_includes codes(audit), 'name_placement'
+  end
+
+  def rendercv_typst(font: '10pt', leading: '2pt')
+    <<~TYPST
+      #let resume-style = rendercv.with(
+        typography-font-size-body: #{font},
+        typography-line-spacing: #{leading},
+        page-left-margin: 0.5in,
+        page-right-margin: 0.5in,
+        page-top-margin: 0.5in,
+        page-bottom-margin: 0.5in,
+      )
+      #show: doc => {
+        set text(top-edge: 0.8em, bottom-edge: -0.2em)
+      }
+    TYPST
+  end
+
+  def test_rendercv_dimensions_and_baseline_are_not_confused_with_leading
+    metrics = ResumeLayout.rendercv_metrics(rendercv_typst)
+    assert_equal 10, metrics['font']
+    assert_equal 12, metrics['baseline']
+    assert_equal 36, metrics['left']
+    assert_equal 1, metrics['point_scale']
+    assert_in_delta 72, ResumeLayout.typst_points('2.54cm'), 0.001
+  end
+
+  def test_rendercv_reduced_leading_is_a_readability_failure
+    metrics = ResumeLayout.rendercv_metrics(rendercv_typst(leading: '1pt'))
+    assert_includes codes(audit(metrics: metrics)), 'readability'
+  end
+
+  def test_rendercv_missing_or_unmeasurable_frame_fails_closed
+    assert_raises(RuntimeError) { ResumeLayout.rendercv_metrics(rendercv_typst.sub('top-edge: 0.8em', 'top-edge: auto')) }
+    assert_raises(RuntimeError) { ResumeLayout.typst_points('1em') }
+  end
+
+  def test_rendercv_rendered_baseline_and_font_family
+    metrics = ResumeLayout.rendercv_metrics(rendercv_typst)
+    report = audit(xml: xml([@front, @back], spacing: 12), metrics: metrics)
+    assert_equal 'PASS_AUTOMATED', report[:status]
+    assert_equal 'Typst/PDF pt (1/72 inch)', report[:point_unit]
+  end
+
+  def test_rendercv_locally_reduced_row_spacing
+    metrics = ResumeLayout.rendercv_metrics(rendercv_typst)
+    report = audit(xml: xml([@front, @back], spacing: 10), metrics: metrics)
+    assert_includes codes(report), 'rendered_baseline'
+  end
+
+  def test_rendercv_silent_font_fallback
+    metrics = ResumeLayout.rendercv_metrics(rendercv_typst)
+    extracted = xml([@front, @back], spacing: 12).gsub('ABCDEF+Helvetica', 'ABCDEF+Times')
+    assert_includes codes(audit(xml: extracted, metrics: metrics)), 'font_family'
+  end
+
+  def test_rendercv_precise_extraction_uses_poppler_maximum_zoom
+    zoomed = "<pdf2xml><page width='1836' height='2376'><fontspec id='0' size='30' family='Helvetica'/><text top='108' left='108' width='300' height='28' font='0'>Body</text></page></pdf2xml>"
+    extracted = REXML::Document.new(ResumeLayout.normalize_zoomed_xml(zoomed))
+    assert_equal '612.0', extracted.root.elements['page'].attributes['width']
+    assert_equal '10.0', REXML::XPath.first(extracted, '//fontspec').attributes['size']
+    assert_equal '36.0', REXML::XPath.first(extracted, '//text').attributes['top']
   end
 
   def test_unknown_heading_is_supporting_material
