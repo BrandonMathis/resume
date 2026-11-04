@@ -18,7 +18,7 @@ module ResumeVariant
     end
   end
 
-  def self.compose(name, root: ROOT)
+  def self.compose(name, root: ROOT, watch: false)
     validate_name(name, root: root)
     data = YAML.safe_load_file(File.join(root, 'resume.yaml'))
     overlay = YAML.safe_load_file(File.join(root, 'variants', "#{name}.yaml"))
@@ -60,6 +60,7 @@ module ResumeVariant
     { 'pdf' => 'pdf', 'typst' => 'typ', 'markdown' => 'md', 'html' => 'html' }.each do |kind, extension|
       outputs["#{kind}_path"] = "#{name}.#{extension}"
     end
+    outputs['pdf_path'] = 'watch.pdf' if watch
     source = File.join(directory, "#{name}.yaml")
     File.write(source, "# GENERATED from resume.yaml + variants/#{name}.yaml; do not edit.\n" + YAML.dump(data))
     source
@@ -83,27 +84,15 @@ module ResumeVariant
     launch_preview(path)
   end
 
-  def self.launch_preview(path, background: false)
-    arguments = ['open']
-    arguments << '-g' if background
-    system(*arguments, '-a', 'Preview', path, chdir: ROOT)
+  def self.launch_preview(path)
+    system('open', '-a', 'Preview', path, chdir: ROOT)
   end
 
-  def self.publish_watch_pdf(name)
-    # The auditor writes diagnostic PDFs even on failure. Keep a separate stable
-    # viewer file and replace it atomically only after an audit passes.
-    path = File.join(File.dirname(pdf_path(name)), 'watch.pdf')
-    temporary = "#{path}.#{Process.pid}.tmp"
-    begin
-      FileUtils.cp(pdf_path(name, audited: true), temporary)
-      File.rename(temporary, path)
-    ensure
-      FileUtils.rm_f(temporary)
-    end
-    path
+  def self.watch_pdf_path(name)
+    File.join(File.dirname(pdf_path(name)), 'watch.pdf')
   end
 
-  def self.execute(command, name)
+  def self.execute(command, name, watch: false)
     # Opening existing output must not compose, render, or alter any source.
     return open_pdf(name) if command == 'open'
     if command == 'preview'
@@ -113,7 +102,7 @@ module ResumeVariant
       return open_pdf(name, audited: true)
     end
 
-    source = compose(name)
+    source = compose(name, watch: watch)
     case command
     when 'compose'
       puts source
@@ -127,15 +116,16 @@ module ResumeVariant
     end
   end
 
-  def self.fingerprint(name)
-    paths = [File.join(ROOT, 'resume.yaml'), File.join(ROOT, 'variants', "#{name}.yaml"), __FILE__]
-    paths += Dir.glob(File.join(ROOT, 'classic', '**', '*')).select { |path| File.file?(path) }
+  def self.fingerprint(name, root: ROOT)
+    paths = [File.join(root, 'resume.yaml'), File.join(root, 'variants', "#{name}.yaml")]
+    paths += Dir.glob(File.join(root, 'classic', '**', '*')).select { |path| File.file?(path) }
     paths.sort.map { |path| [path, File.read(path)] }
   end
 
   def self.watch(name)
     validate_name(name)
-    warn "Watching #{name}; building and auditing before each Preview refresh. Ctrl-C to stop."
+    warn "Watching #{name}; rebuilding #{watch_pdf_path(name)} on edits. Ctrl-C to stop."
+    warn "Live output is an unaudited draft; run `make check-layout #{name}` before publishing."
     # Watch actual sources, not generated output. Capture before rendering so
     # edits made during a build are picked up on the next pass.
     previous = nil
@@ -145,16 +135,15 @@ module ResumeVariant
         current = fingerprint(name)
         if current != previous
           previous = current
-          if execute('pdf', name) && execute('check-layout', name)
-            path = publish_watch_pdf(name)
-            if launch_preview(path, background: opened)
-              opened = true
-              warn "Preview updated: #{path} (visual review still required)."
-            else
-              warn 'Preview launch failed; still watching for edits.'
+          if execute('pdf', name, watch: true)
+            path = watch_pdf_path(name)
+            unless opened
+              opened = launch_preview(path)
+              warn 'Preview launch failed; still watching for edits.' unless opened
             end
+            warn "Rebuilt: #{path} (unaudited draft)."
           else
-            warn 'Build/audit failed; keeping the last successful watch PDF. Still watching for edits.'
+            warn 'Build failed; still watching for corrected edits.'
           end
         end
       rescue ArgumentError, KeyError, Psych::Exception, SystemCallError => error

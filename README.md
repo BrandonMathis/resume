@@ -84,7 +84,7 @@ make pdf VARIANT=full-stack
 make pdf VARIANT=react-native
 make pdfs                             # Build every variant
 make compose VARIANT=full-stack       # Inspect resolved YAML without rendering
-make watch VARIANT=react-native       # Watch baseline, overlay, and shared templates
+make watch react-native               # Rebuild watch.pdf on edits; open Preview once
 make check-layout VARIANT=full-stack  # Fresh audit of the composed source
 make check-layouts                    # Audit every variant; stop on first failure
 make test-variants                    # Fast composition/guardrail regression tests
@@ -92,11 +92,27 @@ make test                             # Variant tests plus existing layout tests
 open build/variants/full-stack/full-stack.pdf
 ```
 
-For `preview`, `open`, `pdf`, `watch`, `check-layout`, and `compose`, you can use either `make <command> <variant>` or `make <command> VARIANT=<variant>`. For example, `make watch react-native` rebuilds as you edit. Use one command with a positional variant; for multiple commands, keep `VARIANT=...` (e.g. `make pdf check-layout VARIANT=full-stack`). Unknown variants and conflicting selections fail before running.
+For `preview`, `open`, `pdf`, `watch`, `check-layout`, and `compose`, you can use either `make <command> <variant>` or `make <command> VARIANT=<variant>`. For example, `make watch react-native` updates a live preview as you edit. Use one command with a positional variant; for multiple commands, keep `VARIANT=...` (e.g. `make pdf check-layout VARIANT=full-stack`). Unknown variants and conflicting selections fail before running.
 
 `preview` requires a variant and opens `build/layout-audit/<variant>/resume.pdf` only after both the build and fresh automated audit succeed. A failed audit never opens an old PDF. **Opening a preview is not visual approval:** inspect both pages before publishing. `open` also requires a variant; it opens `build/variants/<variant>/<variant>.pdf` as-is, which may be stale, and reports an error if missing. Both use macOS Preview and report launch failures. `previews` discovers variants automatically and stops at the first failed build, audit, or launch.
 
 `make pdf`, `make watch`, and `make check-layout` without `VARIANT` still operate on the authoritative baseline. `SOURCE=tailored.yaml` remains available for standalone/legacy sources; do not combine a custom `SOURCE` with `VARIANT`.
+
+### Live preview
+
+```sh
+make watch full-stack
+# Or: make watch react-native
+# Ctrl-C to stop
+```
+
+The variant watcher builds `build/variants/<variant>/watch.pdf` directly and opens it in macOS Preview once. It polls the baseline, selected overlay, and shared templates once per second and rebuilds that same PDF whenever their contents change. The watcher does not copy PDFs, replace them with audit artifacts, or repeatedly reopen the viewer. Preview can retain a stale view even after a successful rebuild; close and reopen `watch.pdf` if changes are not visible. For dependable automatic reloads, Skim supports checking for file changes and reloading automatically; the current watcher still opens Preview.
+
+Live output is an **unaudited working draft**: layout failures do not suppress updates. Use `make preview <variant>` or `make check-layout <variant>` and inspect both pages before publishing. Invalid YAML and renderer errors are logged, and the watcher keeps running so corrected edits can rebuild. Edits made during a build are picked up on the next poll. Restart the watcher after changing the watcher script itself; an already-running Ruby process otherwise keeps its old code.
+
+Variant section overrides still apply: changes to an overridden section in `resume.yaml` will not change that variant's copy. Shared design changes and non-overridden sections are inherited normally.
+
+No extra viewer or dependencies are required. This live-preview behavior applies to **variant** watch commands; plain `make watch` still uses RenderCV's baseline render-only watcher.
 
 **When copy changes are requested later:**
 

@@ -213,60 +213,47 @@ class ResumeVariantTest < Minitest::Test
     end
   end
 
-  def test_watch_builds_initially_and_on_edits_but_not_unchanged_polls
+  def test_watch_rebuilds_directly_on_edits_and_opens_preview_only_once
     commands = []
     launches = []
-    publisher = ->(name) { assert_equal 'full-stack', name; '/tmp/watch.pdf' }
-    runner = ->(command, name) { commands << [command, name]; true }
-    launcher = ->(path, background: false) { launches << [path, background]; true }
+    runner = ->(command, name, watch: false) { commands << [command, name, watch]; true }
+    launcher = ->(path) { launches << path; true }
     _output, errors = capture_io do
       stub_variant(:execute, runner) do
-        stub_variant(:publish_watch_pdf, publisher) do
-          stub_variant(:launch_preview, launcher) do
-            with_watch_snapshots([:initial, :initial, :edited]) do
-              assert ResumeVariant.watch('full-stack')
-            end
+        stub_variant(:launch_preview, launcher) do
+          with_watch_snapshots([:initial, :initial, :edited]) do
+            assert ResumeVariant.watch('full-stack')
           end
         end
       end
     end
-    assert_equal [%w[pdf full-stack], %w[check-layout full-stack]] * 2, commands
-    assert_equal [['/tmp/watch.pdf', false], ['/tmp/watch.pdf', true]], launches
+    assert_equal [['pdf', 'full-stack', true]] * 2, commands
+    assert_equal [ResumeVariant.watch_pdf_path('full-stack')], launches
     assert_includes errors, 'Ctrl-C to stop'
+    assert_includes errors, 'unaudited draft'
   end
 
-  def test_watch_keeps_last_good_pdf_on_build_and_audit_failure_and_recovers
-    %w[pdf check-layout].each do |failed_command|
-      attempts = 0
-      publications = 0
-      launches = []
-      runner = lambda do |command, _name|
-        attempts += 1 if command == 'pdf'
-        !(attempts == 2 && command == failed_command)
-      end
-      publisher = ->(_name) { publications += 1; '/tmp/watch.pdf' }
-      launcher = ->(_path, background: false) { launches << background; true }
-      _output, errors = capture_io do
-        stub_variant(:execute, runner) do
-          stub_variant(:publish_watch_pdf, publisher) do
-            stub_variant(:launch_preview, launcher) do
-              with_watch_snapshots([:initial, :broken, :fixed]) do
-                assert ResumeVariant.watch('full-stack')
-              end
-            end
+  def test_watch_recovers_from_a_failed_build_without_reopening_preview
+    attempts = 0
+    launches = 0
+    runner = ->(_command, _name, watch: false) { attempts += 1; attempts != 2 }
+    _output, errors = capture_io do
+      stub_variant(:execute, runner) do
+        stub_variant(:launch_preview, ->(_path) { launches += 1; true }) do
+          with_watch_snapshots([:initial, :broken, :fixed]) do
+            assert ResumeVariant.watch('full-stack')
           end
         end
       end
-      assert_equal 3, attempts
-      assert_equal 2, publications
-      assert_equal [false, true], launches
-      assert_includes errors, 'keeping the last successful watch PDF'
     end
+    assert_equal 3, attempts
+    assert_equal 1, launches
+    assert_includes errors, 'Build failed; still watching'
   end
 
   def test_watch_recovers_from_transient_file_and_yaml_errors
     attempts = 0
-    runner = lambda do |_command, _name|
+    runner = lambda do |_command, _name, watch: false|
       attempts += 1
       raise Psych::Exception, 'Synthetic invalid YAML' if attempts == 1
 
@@ -275,11 +262,9 @@ class ResumeVariantTest < Minitest::Test
     launches = 0
     _output, errors = capture_io do
       stub_variant(:execute, runner) do
-        stub_variant(:publish_watch_pdf, '/tmp/watch.pdf') do
-          stub_variant(:launch_preview, ->(*) { launches += 1; true }) do
-            with_watch_snapshots([Errno::ENOENT.new('Synthetic file save'), :broken, :fixed]) do
-              assert ResumeVariant.watch('full-stack')
-            end
+        stub_variant(:launch_preview, ->(_path) { launches += 1; true }) do
+          with_watch_snapshots([Errno::ENOENT.new('Synthetic file save'), :broken, :fixed]) do
+            assert ResumeVariant.watch('full-stack')
           end
         end
       end
@@ -289,51 +274,72 @@ class ResumeVariantTest < Minitest::Test
     assert_includes errors, 'Synthetic invalid YAML'
   end
 
-  def test_watch_retries_foreground_launch_if_first_launch_fails
-    launches = []
-    launcher = lambda do |_path, background: false|
-      launches << background
-      launches.length > 1
-    end
+  def test_watch_retries_failed_initial_launch_but_stops_launching_after_success
+    launches = 0
+    launcher = ->(_path) { launches += 1; launches > 1 }
     _output, errors = capture_io do
       stub_variant(:execute, true) do
-        stub_variant(:publish_watch_pdf, '/tmp/watch.pdf') do
-          stub_variant(:launch_preview, launcher) do
-            with_watch_snapshots([:initial, :edited]) { assert ResumeVariant.watch('full-stack') }
+        stub_variant(:launch_preview, launcher) do
+          with_watch_snapshots([:initial, :edited, :another_edit]) do
+            assert ResumeVariant.watch('full-stack')
           end
         end
       end
     end
-    assert_equal [false, false], launches
+    assert_equal 2, launches
     assert_includes errors, 'Preview launch failed'
   end
 
-  def test_publish_watch_pdf_atomically_copies_audit_output_and_preserves_last_good_on_error
-    Dir.mktmpdir('resume-watch-') do |directory|
-      audit = File.join(directory, 'audit.pdf')
-      built = File.join(directory, 'full-stack.pdf')
-      path = File.join(directory, 'watch.pdf')
-      File.write(audit, 'Synthetic successful audit')
-      File.write(path, 'Previous successful audit')
-      lookup = ->(_name, audited: false) { audited ? audit : built }
-      stub_variant(:pdf_path, lookup) do
-        assert_equal path, ResumeVariant.publish_watch_pdf('full-stack')
-        assert_equal File.read(audit), File.read(path)
-        File.unlink(audit)
-        assert_raises(Errno::ENOENT) { ResumeVariant.publish_watch_pdf('full-stack') }
-        assert_equal 'Synthetic successful audit', File.read(path)
-        assert_empty Dir.glob("#{path}.*.tmp")
-      end
+  def test_watch_composition_changes_only_the_pdf_output_path
+    with_project do |root|
+      regular = load_yaml(ResumeVariant.compose('full-stack', root: root))
+      watched = load_yaml(ResumeVariant.compose('full-stack', root: root, watch: true))
+      regular['settings']['render_command']['pdf_path'] = 'watch.pdf'
+      assert_equal regular, watched
+      assert_equal 'watch.pdf', watched['settings']['render_command']['pdf_path']
     end
   end
 
-  def test_background_preview_refresh_does_not_request_focus
-    calls = []
-    runner = ->(*arguments, **options) { calls << arguments; true }
-    stub_variant(:system, runner) do
-      assert ResumeVariant.launch_preview('/tmp/watch.pdf', background: true)
+  def test_watch_renderer_writes_the_displayed_file_without_copying_or_auditing
+    with_project do |root|
+      composer = ResumeVariant.method(:compose)
+      compose_fixture = ->(name, watch: false) { composer.call(name, root: root, watch: watch) }
+      builds = []
+      runner = lambda do |*arguments, **options|
+        assert_equal ResumeVariant::RENDER, arguments[0...-2]
+        assert_equal 'render', arguments[-2]
+        source = arguments.last
+        settings = load_yaml(source)['settings']['render_command']
+        path = File.join(File.dirname(source), settings['pdf_path'])
+        File.write(path, 'Synthetic renderer output')
+        builds << path
+        true
+      end
+      stub_variant(:compose, compose_fixture) do
+        stub_variant(:system, runner) do
+          assert ResumeVariant.execute('pdf', 'full-stack', watch: true)
+        end
+      end
+      expected = File.join(root, 'build/variants/full-stack/watch.pdf')
+      assert_equal [expected], builds
+      assert_equal 'Synthetic renderer output', File.read(expected)
+      refute File.exist?(File.join(root, 'build/variants/full-stack/full-stack.pdf'))
     end
-    assert_equal [['open', '-g', '-a', 'Preview', '/tmp/watch.pdf']], calls
+  end
+
+  def test_watch_detects_baseline_overlay_and_template_edits_but_ignores_generated_output
+    with_project do |root|
+      previous = ResumeVariant.fingerprint('full-stack', root: root)
+      ['resume.yaml', 'variants/full-stack.yaml', 'classic/Header.j2.typ'].each do |relative|
+        File.open(File.join(root, relative), 'a') { |file| file.puts "\n# Synthetic fixture edit" }
+        current = ResumeVariant.fingerprint('full-stack', root: root)
+        refute_equal previous, current, "Must notice edits to #{relative}"
+        previous = current
+      end
+      FileUtils.mkdir_p(File.join(root, 'build/variants/full-stack'))
+      File.write(File.join(root, 'build/variants/full-stack/watch.pdf'), 'Synthetic generated PDF')
+      assert_equal previous, ResumeVariant.fingerprint('full-stack', root: root)
+    end
   end
 
   def make_dry_run(*arguments)
