@@ -12,11 +12,14 @@ module ResumeVariant
     Dir.glob(File.join(root, 'variants', '*.yaml')).map { |path| File.basename(path, '.yaml') }.sort
   end
 
-  def self.compose(name, root: ROOT)
-    unless /\A[a-z0-9]+(?:-[a-z0-9]+)*\z/.match?(name) && names(root).include?(name)
+  def self.validate_name(name, root: ROOT)
+    unless name.is_a?(String) && /\A[a-z0-9]+(?:-[a-z0-9]+)*\z/.match?(name) && names(root).include?(name)
       raise ArgumentError, "Unknown variant #{name.inspect}; choose: #{names(root).join(', ')}"
     end
+  end
 
+  def self.compose(name, root: ROOT)
+    validate_name(name, root: root)
     data = YAML.safe_load_file(File.join(root, 'resume.yaml'))
     overlay = YAML.safe_load_file(File.join(root, 'variants', "#{name}.yaml"))
     unless overlay.is_a?(Hash) && overlay.keys == ['sections'] && overlay['sections'].is_a?(Hash)
@@ -51,7 +54,54 @@ module ResumeVariant
     source
   end
 
+  def self.pdf_path(name, audited: false)
+    if audited
+      File.join(ROOT, 'build', 'layout-audit', name, 'resume.pdf')
+    else
+      File.join(ROOT, 'build', 'variants', name, "#{name}.pdf")
+    end
+  end
+
+  def self.open_pdf(name, audited: false)
+    validate_name(name)
+    path = pdf_path(name, audited: audited)
+    unless File.file?(path)
+      raise ArgumentError, "PDF not found: #{path}. Run `make preview #{name}` to build and audit it."
+    end
+
+    launch_preview(path)
+  end
+
+  def self.launch_preview(path, background: false)
+    arguments = ['open']
+    arguments << '-g' if background
+    system(*arguments, '-a', 'Preview', path, chdir: ROOT)
+  end
+
+  def self.publish_watch_pdf(name)
+    # The auditor writes diagnostic PDFs even on failure. Keep a separate stable
+    # viewer file and replace it atomically only after an audit passes.
+    path = File.join(File.dirname(pdf_path(name)), 'watch.pdf')
+    temporary = "#{path}.#{Process.pid}.tmp"
+    begin
+      FileUtils.cp(pdf_path(name, audited: true), temporary)
+      File.rename(temporary, path)
+    ensure
+      FileUtils.rm_f(temporary)
+    end
+    path
+  end
+
   def self.execute(command, name)
+    # Opening existing output must not compose, render, or alter any source.
+    return open_pdf(name) if command == 'open'
+    if command == 'preview'
+      return false unless execute('pdf', name) && execute('check-layout', name)
+
+      # Open the exact fresh audit artifact, never stale build output.
+      return open_pdf(name, audited: true)
+    end
+
     source = compose(name)
     case command
     when 'compose'
@@ -73,17 +123,31 @@ module ResumeVariant
   end
 
   def self.watch(name)
-    # Watch actual sources, not the generated YAML. Recompose before each render.
+    validate_name(name)
+    warn "Watching #{name}; building and auditing before each Preview refresh. Ctrl-C to stop."
+    # Watch actual sources, not generated output. Capture before rendering so
+    # edits made during a build are picked up on the next pass.
     previous = nil
+    opened = false
     loop do
-      current = fingerprint(name)
-      if current != previous
-        begin
-          execute('pdf', name)
-        rescue ArgumentError, Psych::Exception => error
-          warn error.message
+      begin
+        current = fingerprint(name)
+        if current != previous
+          previous = current
+          if execute('pdf', name) && execute('check-layout', name)
+            path = publish_watch_pdf(name)
+            if launch_preview(path, background: opened)
+              opened = true
+              warn "Preview updated: #{path} (visual review still required)."
+            else
+              warn 'Preview launch failed; still watching for edits.'
+            end
+          else
+            warn 'Build/audit failed; keeping the last successful watch PDF. Still watching for edits.'
+          end
         end
-        previous = current
+      rescue ArgumentError, KeyError, Psych::Exception, SystemCallError => error
+        warn "Watch update failed: #{error.message}; still watching for edits."
       end
       sleep 1
     end
@@ -97,11 +161,9 @@ module ResumeVariant
       puts names
       return true
     end
-    unless name && extra.empty? && %w[compose pdf check-layout watch].include?(command)
-      raise ArgumentError, 'Usage: resume_variant.rb list | {compose|pdf|check-layout|watch} VARIANT'
+    unless name && extra.empty? && %w[compose pdf check-layout watch preview open].include?(command)
+      raise ArgumentError, 'Usage: resume_variant.rb list | {compose|pdf|check-layout|watch|preview|open} VARIANT'
     end
-    # Validate the name before entering a watch loop.
-    compose(name) if command == 'watch'
     command == 'watch' ? watch(name) : execute(command, name)
   rescue ArgumentError, KeyError, Psych::Exception, SystemCallError => error
     warn "ERROR: #{error.message}"

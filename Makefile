@@ -2,7 +2,34 @@
 RENDERCV = uv tool run --python 3.13 --from 'rendercv[full]==2.8' rendercv
 SOURCE ?= resume.yaml
 
-.PHONY: pdf watch check-layout test-layout variants compose pdfs check-layouts test-variants test clean
+.DEFAULT_GOAL := pdf
+COMMANDS := pdf watch check-layout preview open variants compose pdfs check-layouts previews test-variants test-layout test clean
+VARIANT_COMMANDS := pdf watch check-layout preview open compose
+VARIANTS := $(basename $(notdir $(wildcard variants/*.yaml)))
+
+# Accept `make preview full-stack` without swallowing typos or changing normal
+# multi-target invocations such as `make pdf check-layout VARIANT=full-stack`.
+ifneq ($(filter $(firstword $(MAKECMDGOALS)),$(VARIANT_COMMANDS)),)
+POSITIONAL_VARIANT := $(filter-out $(COMMANDS),$(word 2,$(MAKECMDGOALS)))
+ifneq ($(POSITIONAL_VARIANT),)
+ifneq ($(words $(MAKECMDGOALS)),2)
+$(error Use one command and one positional variant)
+endif
+ifeq ($(filter $(POSITIONAL_VARIANT),$(VARIANTS)),)
+$(error Unknown variant '$(POSITIONAL_VARIANT)'; choose: $(VARIANTS))
+endif
+ifneq ($(strip $(VARIANT)),)
+ifneq ($(VARIANT),$(POSITIONAL_VARIANT))
+$(error Positional variant conflicts with VARIANT=$(VARIANT))
+endif
+endif
+VARIANT := $(POSITIONAL_VARIANT)
+.PHONY: $(POSITIONAL_VARIANT)
+$(POSITIONAL_VARIANT): ;
+endif
+endif
+
+.PHONY: $(COMMANDS)
 
 # VARIANT selects a content-only overlay; SOURCE remains available for standalone YAML.
 ifneq ($(strip $(VARIANT)),)
@@ -26,13 +53,13 @@ endif
 variants:
 	@ruby scripts/resume_variant.rb list
 
-compose:
-	ruby scripts/resume_variant.rb compose "$(VARIANT)"
+compose preview open:
+	ruby scripts/resume_variant.rb $@ "$(VARIANT)"
 
 # Discover variants rather than maintaining a second list in the Makefile.
-pdfs check-layouts:
+pdfs check-layouts previews:
 	@set -e; for variant in $$(ruby scripts/resume_variant.rb list); do \
-		$(MAKE) $(if $(filter pdfs,$@),pdf,check-layout) VARIANT="$$variant"; \
+		$(MAKE) $(if $(filter pdfs,$@),pdf,$(if $(filter previews,$@),preview,check-layout)) VARIANT="$$variant"; \
 	done
 
 test-variants:

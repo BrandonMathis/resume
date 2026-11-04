@@ -77,6 +77,9 @@ The two active variants are `full-stack` and `react-native`. Their overlays star
 
 ```sh
 make variants                         # List available variants
+make preview full-stack               # Build, audit, then open the fresh audit PDF in Preview
+make open react-native                # Open existing build PDF without rebuilding or auditing
+make previews                         # Build, audit, and open every variant; stop on failure
 make pdf VARIANT=full-stack
 make pdf VARIANT=react-native
 make pdfs                             # Build every variant
@@ -88,6 +91,10 @@ make test-variants                    # Fast composition/guardrail regression te
 make test                             # Variant tests plus existing layout tests
 open build/variants/full-stack/full-stack.pdf
 ```
+
+For `preview`, `open`, `pdf`, `watch`, `check-layout`, and `compose`, you can use either `make <command> <variant>` or `make <command> VARIANT=<variant>`. For example, `make watch react-native` rebuilds as you edit. Use one command with a positional variant; for multiple commands, keep `VARIANT=...` (e.g. `make pdf check-layout VARIANT=full-stack`). Unknown variants and conflicting selections fail before running.
+
+`preview` requires a variant and opens `build/layout-audit/<variant>/resume.pdf` only after both the build and fresh automated audit succeed. A failed audit never opens an old PDF. **Opening a preview is not visual approval:** inspect both pages before publishing. `open` also requires a variant; it opens `build/variants/<variant>/<variant>.pdf` as-is, which may be stale, and reports an error if missing. Both use macOS Preview and report launch failures. `previews` discovers variants automatically and stops at the first failed build, audit, or launch.
 
 `make pdf`, `make watch`, and `make check-layout` without `VARIANT` still operate on the authoritative baseline. `SOURCE=tailored.yaml` remains available for standalone/legacy sources; do not combine a custom `SOURCE` with `VARIANT`.
 
