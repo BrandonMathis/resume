@@ -16,7 +16,7 @@ ruby knowledge-base/tools/validate.rb       # Check evidence references and arch
 ## Files
 
 - `resume.yaml` — authoritative baseline copy, shared identity, design, and settings.
-- `variants/full-stack.yaml`, `variants/react-native.yaml` — content-only section overrides; both currently inherit all baseline copy unchanged.
+- `variants/full-stack.yaml`, `variants/react-native.yaml` — content-only overrides. `full-stack` overrides Summary, Recent Work Experience, and Leadership & Community Activities and sets a headline; `react-native` inherits all baseline copy unchanged.
 - `scripts/resume_variant.rb` — composes overlays with the baseline and runs the shared build/audit workflow.
 - `classic/Preamble.j2.typ` — local RenderCV template override for the explicit page break before Education and fixed body line height. Other templates use RenderCV's defaults.
 - `resume.tex` — retained pre-migration reference; do not edit it for new resumes.
@@ -73,7 +73,7 @@ resume.yaml + variants/<name>.yaml + classic/ (shared templates)
     → fresh layout audit → visual inspection → publish
 ```
 
-The two active variants are `full-stack` and `react-native`. Their overlays start as `sections: {}`, so **no copy differs yet**. Identity/contact information, section order/headings, design, locale, templates, and PDF title always come from the baseline. Only generated output filenames differ.
+The two active variants are `full-stack` and `react-native`. New overlays start as `sections: {}`. An overlay may also set an optional single-line `headline:` (for example `headline: Full Stack Software Engineer`), rendered under the name at the shared 12 pt bold headline style in `resume.yaml` and checked by the auditor (`headline_tex_pt`). The baseline has no headline. Name/contact information, section order/headings, design, locale, templates, and PDF title always come from the baseline. Only generated output filenames differ.
 
 ```sh
 make variants                         # List available variants
@@ -112,7 +112,7 @@ For `preview`, `open`, `pdf`, `watch`, `check-layout`, and `compose`, you can us
    ```
 
 3. A section override **replaces its whole list**; arrays are never concatenated or merged by position. Untouched sections continue to inherit. Once overridden, a section no longer receives baseline copy updates: review it deliberately when shared facts change. Delete an override to restore inheritance.
-4. New/renamed headings belong in the baseline and shared template/audit policy, not individual overlays. Unknown headings, empty section lists, and variant-level design/settings/identity overrides are rejected. RenderCV validates the entries themselves.
+4. New/renamed headings belong in the baseline and shared template/audit policy, not individual overlays. Unknown headings, empty section lists, empty or multi-line headlines, and variant-level design/settings/name/contact overrides are rejected. RenderCV validates the entries themselves.
 5. Build, audit, and visually inspect each changed variant before publishing. Different copy lengths can overflow even though the layout is identical. Never fix a variant by introducing a private layout or shrinking type.
 
 To add another audience, create `variants/<lowercase-hyphenated-name>.yaml` with `sections: {}`. The list and bulk commands discover it automatically. No Makefile or shared-layout copy is needed. Generated YAML and template copies under `build/` are disposable; never edit them. `make clean` removes them without touching overlays.

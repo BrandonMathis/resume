@@ -135,6 +135,8 @@ design:
   colors:
     body: black
     name: black
+    # Optional per-variant headline (variants/<name>.yaml `headline:`); baseline has none.
+    headline: black
     connections: black
     section_titles: black
     links: black
@@ -145,6 +147,9 @@ design:
       name: 17.28pt
       connections: 9pt
       section_titles: 12pt
+      headline: 12pt
+    bold:
+      headline: true
     # Fixed 10pt text frame in classic/Preamble.j2.typ + 2pt leading = 12pt baselines.
     line_spacing: 2pt
     alignment: left
@@ -153,6 +158,7 @@ design:
     show_external_link_icon: false
   header:
     space_below_name: 8pt
+    space_below_headline: 6pt
     space_below_connections: 9pt
     connections:
       show_icons: false

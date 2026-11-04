@@ -10,6 +10,8 @@ class ResumeVariantTest < Minitest::Test
     Dir.mktmpdir('resume-variants-') do |root|
       FileUtils.cp(File.join(ResumeVariant::ROOT, 'resume.yaml'), root)
       %w[classic variants].each { |directory| FileUtils.cp_r(File.join(ResumeVariant::ROOT, directory), root) }
+      # Test composition mechanics against empty overlays, independent of live tailored copy.
+      Dir.glob(File.join(root, 'variants', '*.yaml')).each { |path| File.write(path, "sections: {}\n") }
       yield root
     end
   end
@@ -22,7 +24,7 @@ class ResumeVariantTest < Minitest::Test
     File.write(File.join(root, 'variants/full-stack.yaml'), YAML.dump(data))
   end
 
-  def test_both_initial_variants_preserve_all_copy_and_shared_configuration
+  def test_empty_overlays_preserve_all_copy_and_shared_configuration
     with_project do |root|
       base_path = File.join(root, 'resume.yaml')
       before = Digest::SHA256.file(base_path).hexdigest
@@ -63,6 +65,19 @@ class ResumeVariantTest < Minitest::Test
     end
   end
 
+  def test_optional_headline_is_variant_specific
+    with_project do |root|
+      base = load_yaml(File.join(root, 'resume.yaml'))
+      write_overlay(root, { 'headline' => 'Synthetic Headline', 'sections' => {} })
+      result = load_yaml(ResumeVariant.compose('full-stack', root: root))
+      expected = Marshal.load(Marshal.dump(base['cv']))
+      expected['headline'] = 'Synthetic Headline'
+      assert_equal expected, result['cv']
+      assert_equal base['design'], result['design']
+      refute load_yaml(ResumeVariant.compose('react-native', root: root))['cv'].key?('headline')
+    end
+  end
+
   def test_shared_changes_and_template_updates_propagate_on_recompose
     with_project do |root|
       source = ResumeVariant.compose('full-stack', root: root)
@@ -85,7 +100,10 @@ class ResumeVariantTest < Minitest::Test
       invalid = [nil, [], {}, { 'cv' => {} }, { 'sections' => nil },
                  { 'sections' => {}, 'design' => {} }, { 'sections' => {}, 'settings' => {} },
                  { 'sections' => { 'Renamed Education' => ['Test'] } },
-                 { 'sections' => { 'Summary' => [] } }, { 'sections' => { 'Summary' => 'Test' } }]
+                 { 'sections' => { 'Summary' => [] } }, { 'sections' => { 'Summary' => 'Test' } },
+                 { 'headline' => 'Test' }, { 'sections' => {}, 'headline' => '' },
+                 { 'sections' => {}, 'headline' => ['Test'] }, { 'sections' => {}, 'headline' => "Two\nlines" },
+                 { 'sections' => {}, 'name' => 'Test' }]
       invalid.each do |overlay|
         write_overlay(root, overlay)
         assert_raises(ArgumentError) { ResumeVariant.compose('full-stack', root: root) }

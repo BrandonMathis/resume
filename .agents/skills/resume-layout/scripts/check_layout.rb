@@ -38,7 +38,7 @@ module ResumeLayout
       @policy = policy
     end
 
-    def analyze(xml:, headings:, metrics:, log:, explicit_break:)
+    def analyze(xml:, headings:, metrics:, log:, explicit_break:, headline: nil)
       issues = []
       add = lambda do |code, message, details = {}|
         issues << { code: code, message: message }.merge(details)
@@ -92,6 +92,7 @@ module ResumeLayout
       spans = Hash.new { |hash, key| hash[key] = [] }
       observed_headings = []
       name_pages = []
+      headline_pages = []
       misplaced = {}
       bad_fonts = {}
       bounds = []
@@ -123,10 +124,16 @@ module ResumeLayout
           end
           name = normalized == ResumeLayout.normalize(@policy.fetch('name'))
           name_pages << number if name
+          # An optional single-line headline under the name uses the section-title size.
+          headline_line = section == 'Header' && headline && normalized == ResumeLayout.normalize(headline)
+          headline_pages << number if headline_line
           font_key = if heading
                        'section_tex_pt'
                      elsif section == 'Header'
-                       name ? 'name_tex_pt' : 'contact_tex_pt'
+                       if name then 'name_tex_pt'
+                       elsif headline_line then 'headline_tex_pt'
+                       else 'contact_tex_pt'
+                       end
                      else
                        'body_tex_pt'
                      end
@@ -165,6 +172,9 @@ module ResumeLayout
       end
       add.call('rendered_order', 'Rendered headings are duplicated or out of source order.') unless observed_headings == headings
       add.call('name_placement', 'The name must appear exactly once, on page 1.') unless name_pages == [1]
+      if headline && headline_pages != [1]
+        add.call('headline_placement', 'The headline must render exactly once, as one line in the page 1 header.')
+      end
       misplaced.each do |(label, page), excerpt|
         code = ResumeLayout.kind(label) == :experience ? 'experience_overflow' : 'section_placement'
         add.call(code, "#{label} has content on page #{page}, not its assigned page.", page: page, excerpt: excerpt)
@@ -250,6 +260,7 @@ module ResumeLayout
 
     data = YAML.safe_load(File.read(source))
     headings = data.fetch('cv').fetch('sections').keys
+    headline = data.fetch('cv')['headline']
     policy = JSON.parse(File.read(POLICY_PATH))
     Dir.mktmpdir('resume-rendercv-') do |temp|
       pdf_path = File.join(temp, 'resume.pdf')
@@ -274,7 +285,7 @@ module ResumeLayout
       FileUtils.cp(typst_path, File.join(artifact_dir, 'resume.typ'))
       xml = precise_xml(pdf, chdir: temp)
       report = Audit.new(policy).analyze(xml: xml, headings: headings, metrics: metrics,
-                                        log: log, explicit_break: explicit_break)
+                                        log: log, explicit_break: explicit_break, headline: headline)
       report[:source] = source
       report[:pdf] = pdf
       report_path = File.join(artifact_dir, 'report.json')

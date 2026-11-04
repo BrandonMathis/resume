@@ -22,8 +22,19 @@ module ResumeVariant
     validate_name(name, root: root)
     data = YAML.safe_load_file(File.join(root, 'resume.yaml'))
     overlay = YAML.safe_load_file(File.join(root, 'variants', "#{name}.yaml"))
-    unless overlay.is_a?(Hash) && overlay.keys == ['sections'] && overlay['sections'].is_a?(Hash)
-      raise ArgumentError, 'A variant must contain only a sections mapping; design, identity, locale, and settings are shared.'
+    unless overlay.is_a?(Hash) && overlay.key?('sections') && (overlay.keys - %w[sections headline]).empty? &&
+           overlay['sections'].is_a?(Hash)
+      raise ArgumentError, 'A variant may contain only a sections mapping and an optional headline; design, identity, locale, and settings are shared.'
+    end
+
+    if overlay.key?('headline')
+      headline = overlay['headline']
+      unless headline.is_a?(String) && !headline.strip.empty? && !headline.include?("\n")
+        raise ArgumentError, 'A variant headline must be a nonempty single-line string.'
+      end
+
+      # The headline is audience-specific copy shown under the name; contact details stay shared.
+      data.fetch('cv')['headline'] = headline.strip
     end
 
     sections = data.fetch('cv').fetch('sections')

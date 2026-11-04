@@ -129,6 +129,19 @@ class ResumeLayoutTest < Minitest::Test
     assert_includes codes(audit), 'name_placement'
   end
 
+  def test_headline_uses_section_title_size_in_header
+    @front.insert(1, ['Synthetic Headline', 12])
+    assert_equal 'PASS_AUTOMATED', audit(headline: 'Synthetic Headline')[:status]
+    # Without a declared headline, the same line is unexpected header text.
+    assert_includes codes(audit), 'rendered_font'
+  end
+
+  def test_headline_must_render_in_header_at_locked_size
+    assert_includes codes(audit(headline: 'Synthetic Headline')), 'headline_placement'
+    @front.insert(1, ['Synthetic Headline', 9])
+    assert_includes codes(audit(headline: 'Synthetic Headline')), 'rendered_font'
+  end
+
   def rendercv_typst(font: '10pt', leading: '2pt')
     <<~TYPST
       #let resume-style = rendercv.with(
