@@ -44,6 +44,64 @@ class RenderCVIntegrationTest < Minitest::Test
     end
   end
 
+  def pdf_xml(artifact)
+    xml, error, status = Open3.capture3('pdftohtml', '-xml', '-hidden', '-stdout', File.join(artifact, 'resume.pdf'))
+    assert status.success?, error
+    REXML::Document.new(xml)
+  end
+
+  def test_header_link_policy_preserves_escaping_icons_and_body_link_styles
+    [false, true].each do |show_icons|
+      with_source do |source, artifact, data|
+        data['cv']['email'] = ['header_test+resume@example.com', 'second@example.com']
+        data['design']['colors']['links'] = '#123456'
+        data['design']['header']['connections']['hyperlink'] = true
+        data['design']['header']['connections']['show_icons'] = show_icons
+        data['cv']['sections']['Summary'][0] += ' [Body link](https://example.com/body).'
+        File.write(source, YAML.dump(data))
+        result, report = render(source, artifact)
+        if show_icons
+          # Font Awesome is intentionally outside this project's Helvetica-only
+          # layout policy. This fixture tests rendering, not publishable layout.
+          assert_equal 1, result, report.inspect
+          assert_equal %w[font_family rendered_font], report['issues'].map { |issue| issue['code'] }.uniq.sort
+        else
+          assert_equal 0, result, report.inspect
+        end
+        document = pdf_xml(artifact)
+        links = REXML::XPath.match(document, '//a')
+        refute links.any? { |link| link.attributes['href'].start_with?('mailto:') }
+        text = REXML::XPath.match(document, '//text//text()').map(&:value).join(' ')
+        data['cv']['email'].each { |email| assert_includes text, email }
+        data['cv']['social_networks'].each do |social|
+          host = social['network'] == 'GitHub' ? 'github.com' : 'linkedin.com/in'
+          matching_links = links.select { |node| node.attributes['href'] == "https://#{host}/#{social['username']}" }
+          refute_empty matching_links
+          # With icons, Poppler can split one link into separate icon/text nodes.
+          link = matching_links.find { |node| node.elements['b'] }
+          refute_nil link, 'Header link text must be bold'
+          font = REXML::XPath.first(document, "//fontspec[@id='#{link.parent.attributes['font']}']")
+          assert_equal '#123456', font.attributes['color']
+        end
+        body_link = links.find { |node| node.attributes['href'] == 'https://example.com/body' }
+        refute_nil body_link
+        assert_nil body_link.elements['b'], 'Header override must not make body links bold'
+        typst = File.read(File.join(artifact, 'resume.typ'))
+        assert_includes typst, '#connection-with-icon(' if show_icons
+      end
+    end
+  end
+
+  def test_disabled_header_hyperlinks_are_not_reintroduced
+    with_source do |source, artifact, data|
+      data['design']['header']['connections']['hyperlink'] = false
+      File.write(source, YAML.dump(data))
+      result, report = render(source, artifact)
+      assert_equal 0, result, report.inspect
+      assert_empty REXML::XPath.match(pdf_xml(artifact), '//a')
+    end
+  end
+
   def test_invalid_yaml_removes_stale_success_artifacts
     with_source do |source, artifact, _|
       FileUtils.mkdir_p(artifact)

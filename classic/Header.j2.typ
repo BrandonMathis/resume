@@ -32,11 +32,25 @@
   #headline([{{ cv.headline }}])
 
 {% endif %}
-#connections(
+#{
+  // Override link rendering only within the contact header. Leave RenderCV's
+  // escaped content, icons, ordering, and generated connection markup intact.
+  let rendercv-link = link
+  let link(destination, body, ..options) = {
+    if type(destination) == str and destination.starts-with("mailto:") {
+      body
+    } else {
+      let options = options.named()
+      options.insert("if-color", true)
+      rendercv-link(destination, strong(body), ..options)
+    }
+  }
+  connections(
 {% for connection in cv._connections %}
-  [{{ connection }}],
+    [{{ connection }}],
 {% endfor %}
-)
+  )
+}
 {% if cv.photo %}
 {% if design.header.photo_position == "left" %}
   ]

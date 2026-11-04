@@ -18,7 +18,8 @@ ruby knowledge-base/tools/validate.rb       # Check evidence references and arch
 - `resume.yaml` — authoritative baseline copy, shared identity, design, and settings.
 - `variants/full-stack.yaml`, `variants/react-native.yaml` — content-only overrides. `full-stack` overrides Summary, Recent Work Experience, and Leadership & Community Activities and sets a headline; `react-native` inherits all baseline copy unchanged.
 - `scripts/resume_variant.rb` — composes overlays with the baseline and runs the shared build/audit workflow.
-- `classic/Preamble.j2.typ` — local RenderCV template override for the explicit page break before Education and fixed body line height. Other templates use RenderCV's defaults.
+- `classic/Preamble.j2.typ` — local RenderCV template override for the explicit page break before Education and fixed body line height.
+- `classic/Header.j2.typ` — header rule and a scoped Typst link renderer: plain email, bold contact links using `design.colors.links`. RenderCV still supplies escaped contact text, icons, and ordering; no generated-code string parsing is used. Body links keep RenderCV's normal styling. Review the link wrapper when upgrading RenderCV.
 - `resume.tex` — retained pre-migration reference; do not edit it for new resumes.
 - `Brandon Resume 2026 Q3.pdf`, `Fullstack Brandon Resume 2026.pdf` — original references, unchanged.
 - `phantom wallet suggested-changes.md` — existing notes, unchanged.
