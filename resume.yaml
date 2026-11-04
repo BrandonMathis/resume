@@ -139,7 +139,7 @@ design:
     headline: black
     connections: black
     section_titles: black
-    links: black
+    links: '#0000EE'
   typography:
     font_family: Helvetica
     font_size:
@@ -161,6 +161,7 @@ design:
     space_below_headline: 6pt
     space_below_connections: 9pt
     connections:
+      hyperlink: true
       show_icons: false
       display_urls_instead_of_usernames: true
       separator: '•'
