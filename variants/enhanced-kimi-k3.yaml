@@ -1,0 +1,122 @@
+# Content-only overlay on ../resume.yaml.
+# Enhanced edition of the baseline: adds knowledge-base-corroborated specifics
+# (HUDL FastModel migrations, Skylight native/OTA delivery, eLitigate/Esquire
+# product naming, artifact-backed open-source record) while retaining all
+# approved baseline facts. Flagged unverified metrics are deliberately excluded.
+# Overridden sections replace the whole baseline list and no longer inherit
+# baseline copy updates. Education is intentionally inherited (identical copy).
+sections:
+  Summary:
+    - >-
+      Engineering leader and former CTO with 16+ years building web, mobile, and real-time platforms.
+      Hands-on experience in enterprise delivery, engineering management, and AI-enabled products.
+      Open-source contributor and conference speaker.
+  Recent Work Experience:
+    - company: This Dot Labs
+      location: Raleigh, NC (remote)
+      position: Engineering Lead
+      start_date: 2024-10
+      end_date: present
+      highlights:
+        - Lead Engineer for key This Dot Labs customer projects such as OpenAI, HUDL, Wikimedia, Primerica
+        - 'Manager of mobile engineering team: mentoring, performing reviews and conducting one on ones'
+        - Led web and iOS-to-React Native migrations for HUDL's FastDraw, FastScout, and FastRecruit, guiding client teams through refactors, rewrites, and sprints whose on-time completion was key for strategic goals
+        - Helped build Skylight Social, a Mark Cuban-backed short-form video app on AT Protocol — native Swift/Kotlin integrations via Expo Modules and daily over-the-air releases via Expo Updates
+        - Presented at global technology conferences such as All Things Open and in digital content on react-native, coding agents, LLMs, and change management for teams undergoing AI enablement
+    - company: vTestify
+      location: Raleigh, NC
+      position: Principal Engineer & CTO
+      start_date: 2019-08
+      end_date: 2024-12
+      highlights:
+        - Architected and built eLitigate, a WebRTC-based digital deposition platform for the U.S. legal industry, in partnership with Esquire
+        - Built real-time, multi-channel testimony transcription using the Web Audio API and OpenAI Whisper
+        - Drove 10x revenue growth by building enterprise white-label capabilities that enabled B2B sales
+        - Partnered directly with Sales and Product as a forward-deployed engineer to design and deliver custom solutions for strategic customers
+        - Built the engineering organization's hiring, interviewing, and team management processes
+        - Led architecture, development, and code review across JavaScript, Ruby, Python, and Go systems
+    - company: Freelance Software Engineer
+      location: Raleigh, NC
+      position: Self-Employed
+      start_date: 2017-11
+      end_date: 2019-12
+      highlights:
+        - Operated as an independent contract-for-hire software engineer specializing in building web and mobile products
+        - Built custom software for companies such as McKesson, Dana-Farber, Duke Health, Adwerx and MAC Cosmetics
+        - Sourced contract work, created SOWs and managed sub-contractors spanning across multiple projects
+        - Provided expert training services for company teams looking to upskill their engineers into development tools
+    - company: Smashing Boxes
+      location: Raleigh, NC
+      position: Lead Software Engineer -- Director of Technology
+      start_date: 2014-08
+      end_date: 2017-11
+      highlights:
+        - Hired as Lead Engineer of backend team, later promoted to Director of Technology overseeing an engineering team of 30+ individuals across 3 disciplines (Frontend, Backend, and Mobile)
+        - Acted as a direct contributor to core company Web and Mobile App projects (React, iOS/Swift, Ruby on Rails)
+        - Served as engineering team representative in company resourcing and sales meetings
+    - company: Assetricity LLC
+      location: Raleigh, NC
+      position: Software Engineer
+      start_date: 2009-07
+      end_date: 2014-08
+      highlights:
+        - Built condition based maintenance software in Ruby on Rails and deployed in IBM Websphere via JRuby
+        - Attended ISO standards committee meetings to report back to technical teams or answer questions when needed
+        - Built an Ember.js powered P&ID viewer for oil and gas refinery layout specifications
+        - Created XML Schema documents to reinforce XML standard structure dictated by ISO standards committees
+        - Maintained company internal software systems and web presence
+  Leadership & Community Activities:
+    - company: Triangle Developers
+      position: Founder -- Organizer
+      date: Current
+      highlights:
+        - Founded community meetup containing over 3,000 software engineers across the NC Triangle area
+        - Tech community organizer since 2012 hosting regular community events, networking hours, and tech talks in partnership with companies across the NC RTP area
+        - All Things Open talk selection committee member since 2014
+    - company: All Things Open
+      position: Speaker selection committee member and technical content producer
+      date: Current
+      highlights:
+        - Participate in All Things Open speaker selection process for engineering focused event tracks
+        - Attended and spoke at several of All Things Open's conferences and meetups across the east coast
+        - Fostered relationships between All Things Open and other local community meetups in Raleigh NC
+    - company: Rails Bridge
+      position: Founder
+      start_date: 2015
+      end_date: 2018
+      highlights:
+        - Founded Rails Bridge chapter alongside a team of engineers committed to increasing diversity in tech
+        - Developed Rails Bridge curriculum where we took non-coders and immersed them in a day-long hackathon where they get to experience building a Ruby on Rails app from 0 to 100
+        - Oversaw selection of volunteers that assist attendees with computer setup and problem solving
+    - company: The Iron Yard
+      position: Advisory Board Member & Guest Instructor
+      start_date: 2015
+      end_date: 2017
+      highlights:
+        - Provided input to Iron Yard curriculum writers on which technologies were most relevant for students to learn
+        - Guest speaker to students on emerging topics such as Docker and React.js
+        - Mentored select students to provide a hands-on perspective of what being a Software Engineer is like
+    - company: Triangle Javascript
+      position: Co-Organizer
+      start_date: 2014
+      end_date: 2019
+      highlights:
+        - Attended and led meetups across the NC RTP Area
+        - Presented talks to members on Javascript concept mostly tied to React and React Native (circa 2016)
+        - Oversaw general coordination with speakers, location, and attendees
+    - company: Triangle Ruby
+      position: Founder
+      start_date: 2012
+      end_date: 2019
+      highlights:
+        - Formed Triangle Ruby meetup because I wanted there to be a strong Ruby community in my local city
+        - Acted as sole organizer for over 6 years doing speaker selection and coordination between locations and meetup sponsors
+        - Hosted and spoke at several local corporate headquarters across the NC Triangle area for Ruby developers such as Metlife, IBM, Bandwidth, Webassign, Microsoft, and Duke University
+    - company: Open Source
+      position: Contributor
+      start_date: 2012
+      end_date: 2020
+      highlights:
+        - Two merged pull requests to the main Swift language repository, improving source setup tooling and documentation
+        - 28 merged pull requests to Taperole, Smashing Boxes' open-source Rails and Ansible deployment toolkit
+        - Merged fixes into CircleCI's public Ruby orb and the rspec_api_documentation Ruby gem

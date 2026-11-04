@@ -29,7 +29,7 @@ class ResumeVariantTest < Minitest::Test
       base_path = File.join(root, 'resume.yaml')
       before = Digest::SHA256.file(base_path).hexdigest
       base = load_yaml(base_path)
-      assert_equal %w[full-stack react-native], ResumeVariant.names(root)
+      assert_equal %w[enhanced-kimi-k3 full-stack react-native], ResumeVariant.names(root)
       ResumeVariant.names(root).each do |name|
         source = ResumeVariant.compose(name, root: root)
         result = load_yaml(source)
