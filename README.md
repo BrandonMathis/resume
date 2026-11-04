@@ -43,7 +43,8 @@ Generated files are ignored by Git:
 
 - `build/resume.pdf` — searchable, tagged PDF.
 - `build/resume.typ` — generated Typst; inspect, but do not edit.
-- `build/resume.md`, `build/resume.html` — content exports (not the paginated layout).
+
+Builds produce PDFs only; Markdown, HTML, and PNG exports are disabled (`dont_generate_*` in `settings.render_command`, also forced for variants).
 
 ```sh
 make watch       # Re-render on changes; Ctrl-C to stop

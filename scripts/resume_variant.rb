@@ -57,8 +57,13 @@ module ResumeVariant
     FileUtils.rm_rf(template)
     FileUtils.cp_r(File.join(root, 'classic'), template)
     outputs = data.fetch('settings').fetch('render_command')
-    { 'pdf' => 'pdf', 'typst' => 'typ', 'markdown' => 'md', 'html' => 'html' }.each do |kind, extension|
+    # PDF only (Typst is its required intermediate); never emit Markdown/HTML/PNG.
+    { 'pdf' => 'pdf', 'typst' => 'typ' }.each do |kind, extension|
       outputs["#{kind}_path"] = "#{name}.#{extension}"
+    end
+    %w[markdown html png].each do |kind|
+      outputs.delete("#{kind}_path")
+      outputs["dont_generate_#{kind}"] = true
     end
     outputs['pdf_path'] = 'watch.pdf' if watch
     source = File.join(directory, "#{name}.yaml")

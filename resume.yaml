@@ -211,6 +211,7 @@ settings:
   render_command:
     pdf_path: build/resume.pdf
     typst_path: build/resume.typ
-    markdown_path: build/resume.md
-    html_path: build/resume.html
+    # PDF only; Typst is RenderCV's required intermediate for the PDF.
+    dont_generate_markdown: true
+    dont_generate_html: true
     dont_generate_png: true

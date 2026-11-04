@@ -37,8 +37,12 @@ class ResumeVariantTest < Minitest::Test
         assert_equal base['design'], result['design']
         assert_equal base['locale'], result['locale']
         expected = Marshal.load(Marshal.dump(base))
-        { 'pdf' => 'pdf', 'typst' => 'typ', 'markdown' => 'md', 'html' => 'html' }.each do |kind, extension|
+        { 'pdf' => 'pdf', 'typst' => 'typ' }.each do |kind, extension|
           expected['settings']['render_command']["#{kind}_path"] = "#{name}.#{extension}"
+        end
+        %w[markdown html png].each do |kind|
+          refute result['settings']['render_command'].key?("#{kind}_path")
+          assert_equal true, result['settings']['render_command']["dont_generate_#{kind}"]
         end
         assert_equal expected, result
         assert_equal File.join(root, 'build', 'variants', name, "#{name}.yaml"), source
