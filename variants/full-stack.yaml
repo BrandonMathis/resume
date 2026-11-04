@@ -1,0 +1,4 @@
+# Content-only overlay on ../resume.yaml.
+# Empty means inherit all existing copy unchanged.
+# To tailor later, replace a whole section here; see README.md.
+sections: {}

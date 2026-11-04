@@ -4,7 +4,9 @@ The resume is maintained in [RenderCV](https://docs.rendercv.com/) YAML and rend
 
 ## Files
 
-- `resume.yaml` — resume content, design, and output settings.
+- `resume.yaml` — authoritative baseline copy, shared identity, design, and settings.
+- `variants/full-stack.yaml`, `variants/react-native.yaml` — content-only section overrides; both currently inherit all baseline copy unchanged.
+- `scripts/resume_variant.rb` — composes overlays with the baseline and runs the shared build/audit workflow.
 - `classic/Preamble.j2.typ` — local RenderCV template override for the explicit page break before Education and fixed body line height. Other templates use RenderCV's defaults.
 - `resume.tex` — retained pre-migration reference; do not edit it for new resumes.
 - `Brandon Resume 2026 Q3.pdf`, `Fullstack Brandon Resume 2026.pdf` — original references, unchanged.
@@ -49,14 +51,55 @@ Keep Helvetica, 10 pt body text, **12 pt baseline distance**, 9 pt contacts, 12 
 
 `classic/Preamble.j2.typ` starts a new page at **Education**. If that heading changes, update the split in the template too; the auditor checks that the break matches the first supporting section. It renders two styled content groups because RenderCV does not permit a raw page break inside its section containers. The preamble configuration is copied from RenderCV 2.8; review it when upgrading RenderCV. Shorten text before tightening positive gaps; never shrink type or line height to fit.
 
-For a variation, copy `resume.yaml` alongside the original so it uses the same `classic/` template. Set distinct output paths in its `settings.render_command`, then run:
+### Content-only variants
 
-```sh
-make pdf SOURCE=tailored.yaml
-make check-layout SOURCE=tailored.yaml
+Do **not** copy the entire baseline for each audience. The flow is:
+
+```text
+resume.yaml + variants/<name>.yaml + classic/ (shared templates)
+    → build/variants/<name>/<name>.yaml (generated RenderCV input)
+    → build/variants/<name>/<name>.pdf
+    → fresh layout audit → visual inspection → publish
 ```
 
-The legacy TeX source remains in Git for comparison; there are not two active sources of truth.
+The two active variants are `full-stack` and `react-native`. Their overlays start as `sections: {}`, so **no copy differs yet**. Identity/contact information, section order/headings, design, locale, templates, and PDF title always come from the baseline. Only generated output filenames differ.
+
+```sh
+make variants                         # List available variants
+make pdf VARIANT=full-stack
+make pdf VARIANT=react-native
+make pdfs                             # Build every variant
+make compose VARIANT=full-stack       # Inspect resolved YAML without rendering
+make watch VARIANT=react-native       # Watch baseline, overlay, and shared templates
+make check-layout VARIANT=full-stack  # Fresh audit of the composed source
+make check-layouts                    # Audit every variant; stop on first failure
+make test-variants                    # Fast composition/guardrail regression tests
+make test                             # Variant tests plus existing layout tests
+open build/variants/full-stack/full-stack.pdf
+```
+
+`make pdf`, `make watch`, and `make check-layout` without `VARIANT` still operate on the authoritative baseline. `SOURCE=tailored.yaml` remains available for standalone/legacy sources; do not combine a custom `SOURCE` with `VARIANT`.
+
+**When copy changes are requested later:**
+
+1. For shared changes, edit `cv` in `resume.yaml`. Every section not overridden inherits that update on the next build.
+2. For audience-specific changes, copy only the relevant section's complete list from `cv.sections` into the variant's `sections` mapping, then edit that list. For example, to start tailoring only the summary *without changing its wording*, the overlay would be:
+
+   ```yaml
+   sections:
+     Summary:
+       - >-
+         Engineering leader and former CTO building web, mobile, and real-time platforms.
+         Hands-on experience in enterprise delivery, engineering management, and AI-enabled products.
+   ```
+
+3. A section override **replaces its whole list**; arrays are never concatenated or merged by position. Untouched sections continue to inherit. Once overridden, a section no longer receives baseline copy updates: review it deliberately when shared facts change. Delete an override to restore inheritance.
+4. New/renamed headings belong in the baseline and shared template/audit policy, not individual overlays. Unknown headings, empty section lists, and variant-level design/settings/identity overrides are rejected. RenderCV validates the entries themselves.
+5. Build, audit, and visually inspect each changed variant before publishing. Different copy lengths can overflow even though the layout is identical. Never fix a variant by introducing a private layout or shrinking type.
+
+To add another audience, create `variants/<lowercase-hyphenated-name>.yaml` with `sections: {}`. The list and bulk commands discover it automatically. No Makefile or shared-layout copy is needed. Generated YAML and template copies under `build/` are disposable; never edit them. `make clean` removes them without touching overlays.
+
+The legacy TeX source remains in Git for comparison; it is not another active source of truth.
 
 ## Audit before publishing
 
@@ -74,5 +117,14 @@ Artifacts are saved under `build/layout-audit/<source-stem>/`: `resume.pdf`, `re
 ```sh
 pdftoppm -scale-to 1600 -png build/layout-audit/resume/resume.pdf build/layout-audit/resume/page
 ```
+
+For variants, audit artifacts are isolated under `build/layout-audit/full-stack/` and `build/layout-audit/react-native/`. For example:
+
+```sh
+make check-layout VARIANT=react-native
+pdftoppm -scale-to 1600 -png build/layout-audit/react-native/resume.pdf build/layout-audit/react-native/page
+```
+
+Inspect **both** page images and read that directory's `report.json` and `compile.log`. Variant build PDFs and baseline/reference PDFs are not overwritten by an audit.
 
 The full workflow and troubleshooting order are in `.agents/skills/resume-layout/SKILL.md`.
