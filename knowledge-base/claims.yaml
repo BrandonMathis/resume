@@ -1,0 +1,362 @@
+# Selected evidence for retrieval, not approved resume copy.
+# Source IDs resolve through source-map.yaml. Metrics remain attributed to their source.
+# artifact_backed = artifact/record inspected; not proof of deployment, sole authorship, or impact.
+# first_party = user/resume/profile account, not independent verification.
+# corroborated_context = external evidence supports context/role, not every personal-impact detail.
+# conflicted = sources differ; resolve before using disputed details.
+# scheduled / draft = not completed public speaking.
+researched_on: '2026-11-04'
+claims:
+  - id: career-thisdot
+    statement: Engineering Lead at This Dot Labs, with mobile-team management and hands-on client delivery responsibilities.
+    dates: '2024-10 to present, baseline'
+    tags: [leadership, mobile, consulting, full-stack]
+    evidence: corroborated_context
+    sources: [BASELINE, LINKEDIN, ATO_2026]
+    caveat: Public speaker bios corroborate the role; individual client scope and management responsibilities come from the baseline.
+    needs_confirmation: false
+  - id: career-vtestify
+    statement: Served as Principal Engineer and CTO at vTestify, leading architecture, development, code review, hiring, and team processes.
+    dates: '2019-08 to 2024-12'
+    tags: [leadership, architecture, hiring, backend]
+    evidence: first_party
+    sources: [BASELINE, LINKEDIN]
+    caveat: Team size and precise title progression were not independently verified.
+    needs_confirmation: false
+  - id: smashingboxes-organization
+    statement: Promoted from backend Lead Engineer to Director of Technology, overseeing 30+ engineers across frontend, backend, and mobile.
+    dates: '2014-08 to 2017-11'
+    tags: [leadership, management, staffing, full-stack]
+    evidence: first_party
+    sources: [BASELINE]
+    caveat: Organizational scope, not necessarily 30+ direct reports; exact promotion date unknown.
+    needs_confirmation: true
+  - id: consulting-operations
+    statement: Sourced consulting engagements, wrote statements of work, coordinated subcontractors, and trained engineering teams.
+    dates: '2017-11 to 2019-12, baseline freelance role'
+    tags: [consulting, leadership, training, sdlc]
+    evidence: first_party
+    sources: [BASELINE]
+    caveat: Some listed project dates fall outside the baseline freelance interval; do not force attribution to this role.
+    needs_confirmation: false
+  - id: assetricity-enterprise
+    statement: Built Rails condition-based-maintenance software deployed through JRuby into IBM WebSphere, an Ember.js P&ID viewer, and ISO-aligned XML schemas.
+    dates: '2009-07 to 2014-08'
+    tags: [backend, frontend, enterprise, ruby, xml]
+    evidence: first_party
+    sources: [BASELINE]
+    caveat: Standards meeting participation does not imply committee leadership or authorship of standards.
+    needs_confirmation: false
+  - id: elitigate-platform
+    statement: Architected and built a React/WebRTC remote-deposition platform combining conferencing and evidence-management workflows at vTestify.
+    dates: 'During vTestify tenure'
+    tags: [full-stack, frontend, realtime, product]
+    evidence: corroborated_context
+    sources: [BASELINE, LINKEDIN, ESQUIRE]
+    caveat: Esquire corroborates the product/partnership, not Brandon's individual scope; retain team attribution.
+    needs_confirmation: false
+  - id: elitigate-whisper
+    statement: Built real-time multichannel testimony transcription using Web Audio API and OpenAI Whisper.
+    dates: 'Specific implementation date not established'
+    tags: [ai, realtime, audio, integration]
+    evidence: first_party
+    sources: [BASELINE]
+    caveat: Do not date Whisper integration to the separate 2021 Esquire announcement; no latency/accuracy metrics collected.
+    needs_confirmation: false
+  - id: elitigate-growth
+    statement: Enterprise white-label capabilities enabled B2B sales and are credited in the baseline with driving 10x revenue growth.
+    tags: [business-impact, product, consulting, leadership]
+    evidence: first_party
+    sources: [BASELINE]
+    metric: '10x revenue growth; period and baseline unspecified'
+    caveat: Confirm measurement, attribution, and disclosure permission; no independent revenue verification.
+    needs_confirmation: true
+  - id: elitigate-acquisition
+    statement: LinkedIn reports that Esquire acquired the eLitigate product in late 2024.
+    dates: 'Late 2024, first-party claim'
+    tags: [business-impact, product]
+    evidence: first_party
+    sources: [LINKEDIN, ESQUIRE]
+    caveat: Independent evidence located is a 2021 partnership, not acquisition proof. Do not claim the whole company was acquired.
+    needs_confirmation: true
+  - id: hudl-migrations
+    statement: Led web and iOS-to-React Native migration work across FastDraw, FastScout, and FastRecruit as an embedded This Dot React lead, contributing architecture and implementation.
+    dates: '2025-10 to 2026-03'
+    tags: [mobile, frontend, react, migration, consulting]
+    evidence: first_party
+    sources: [LINKEDIN]
+    caveat: Exact migration boundary and individual feature ownership per product need clarification.
+    needs_confirmation: false
+  - id: hudl-delivery
+    statement: Reports helping deliver all three FastModel projects on time over a six-month engagement while mentoring HUDL engineers.
+    dates: '2025-10 to 2026-03'
+    tags: [leadership, delivery, mentoring, sdlc]
+    evidence: first_party
+    sources: [LINKEDIN]
+    metric: '3 projects; 6-month engagement; on-time delivery'
+    caveat: No external schedule, team-size record, or quantified process improvement obtained.
+    needs_confirmation: true
+  - id: skylight-native
+    statement: Helped build Skylight Social with the This Dot team, using Expo Modules for Swift/Kotlin native integration in a React Native app.
+    tags: [mobile, react-native, expo, swift, kotlin]
+    evidence: first_party
+    sources: [EXPO_NATIVE, LINKEDIN]
+    caveat: Native video-editor work is team-attributed; do not claim sole ownership or founder status.
+    needs_confirmation: false
+  - id: skylight-releases
+    statement: Described team use of Expo Updates and development/review/production channels to ship daily changes to Skylight.
+    tags: [mobile, devops, ci-cd, sdlc]
+    evidence: first_party
+    sources: [EXPO_UPDATES]
+    caveat: OTA JavaScript delivery is not permission to bypass store policies or deliver arbitrary native binary changes.
+    needs_confirmation: false
+  - id: skylight-launch
+    statement: LinkedIn reports a 30-day MVP launch, 55,000+ onboarded users in 24 hours, and top-ten free-app / number-one Entertainment placement within 48 hours.
+    dates: 'LinkedIn project lists Jan 2025; independent public launch reporting is Apr 1, 2025'
+    tags: [mobile, consumer, business-impact, delivery]
+    evidence: conflicted
+    sources: [LINKEDIN, SKYLIGHT_PRESS]
+    metric: '30 days; 55,000+ users / 24 hours; chart ranks / 48 hours, first-party only'
+    caveat: TechCrunch reports public launch after 10 weeks of development. Confirm phases, dates, metric definitions, region, and contribution before use.
+    needs_confirmation: true
+  - id: savings-seeker
+    statement: Built frontend UI, backend API, and custom medication/pharmacy cross-reference integrations for Savings Seeker Rx with McKesson and CoverMyMeds.
+    dates: '2021-01 to 2022-12, LinkedIn'
+    tags: [full-stack, backend, healthcare, integration]
+    evidence: first_party
+    sources: [LINKEDIN]
+    caveat: Engagement arrangement and stack unconfirmed; dates fall outside baseline freelance interval.
+    needs_confirmation: true
+  - id: forecast-product
+    statement: Listed as developer of Forecast on Slack Marketplace, a weather bot using Google Maps and Apple WeatherKit in current marketplace metadata.
+    tags: [backend, integration, product, slack]
+    evidence: artifact_backed
+    sources: [FORECAST_SLACK, FORECAST_SITE]
+    caveat: Current providers are not evidence of the historical stack throughout the product lifetime.
+    needs_confirmation: false
+  - id: forecast-adoption
+    statement: LinkedIn reports Forecast installed and used daily by more than 2,000 companies worldwide.
+    tags: [product, adoption, business-impact]
+    evidence: first_party
+    sources: [LINKEDIN]
+    metric: '2,000+ companies; measurement date unspecified'
+    caveat: Need dated analytics, definition of active workspace/company, and maintenance timeline.
+    needs_confirmation: true
+  - id: bwel-integrations
+    statement: Worked on Dana-Farber BWEL research-participant communication with Fitbit activity tracking and Twilio browser calling for coaches.
+    dates: '2016-08 to 2017-12'
+    tags: [healthcare, integration, realtime, full-stack]
+    evidence: first_party
+    sources: [LINKEDIN]
+    caveat: Team contribution; individual scope and employer relationship not established. No clinical outcome claims.
+    needs_confirmation: false
+  - id: weaveup
+    statement: Worked on WeaveUp, described as a Rails/iOS/Angular platform for artwork upload, pattern customization, and cloth ordering.
+    dates: '2015-04 to 2017-04'
+    tags: [full-stack, mobile, commerce, ruby]
+    evidence: first_party
+    sources: [LINKEDIN]
+    caveat: Personal implementation ownership and measurable results not specified.
+    needs_confirmation: true
+  - id: fraqture-contributions
+    statement: Contributed merged image-randomization, spirograph, and Quil-blend glitch effects to Fraqture's interactive art project.
+    dates: '2015-12 to 2016-01, selected merged PRs'
+    tags: [clojure, creative-technology, open-source]
+    evidence: artifact_backed
+    sources: [MERGED_PRS, FRAQTURE, MEDIUM]
+    caveat: LED/controller details describe the whole project; personal hardware-design responsibility is unverified.
+    needs_confirmation: false
+  - id: swift-contributions
+    statement: Authored two merged PRs in the main Swift repository improving source checkout/setup and README organization.
+    dates: '2015-12-11 and 2016-03-09 merge dates'
+    tags: [open-source, swift, developer-experience]
+    evidence: artifact_backed
+    sources: [SWIFT_31, SWIFT_51]
+    metric: '2 merged PRs'
+    caveat: Not compiler internals, language/runtime features, or core-team membership.
+    needs_confirmation: false
+  - id: taperole-contributions
+    statement: Authored 28 merged PRs to Smashing Boxes Taperole, spanning deployment/provisioning maintenance, backups, framework/runtime upgrades, and server configuration.
+    dates: 'Selected public contributions 2014-2017'
+    tags: [devops, ansible, ruby, ci-cd, open-source]
+    evidence: artifact_backed
+    sources: [MERGED_PRS, TAPEROLE]
+    metric: '28 authored merged PRs in retrieved public search'
+    caveat: Not sole authorship or proven maintainer status; no quantified reliability/performance improvement.
+    needs_confirmation: false
+  - id: circleci-fix
+    statement: Contributed a merged IPv4 keyserver fix to CircleCI's public Ruby orb to address GPG import failure before RVM installation.
+    dates: '2020-07-08 merged'
+    tags: [devops, ci-cd, ruby, open-source]
+    evidence: artifact_backed
+    sources: [CIRCLECI]
+    caveat: Small targeted repair, not ownership of CircleCI infrastructure.
+    needs_confirmation: false
+  - id: api-blueprint-fixes
+    statement: Contributed merged API Blueprint optional-parameter and route-grouping fixes to rspec_api_documentation.
+    dates: '2018-08 and 2018-09'
+    tags: [ruby, backend, testing, documentation, open-source]
+    evidence: artifact_backed
+    sources: [API_DOCS_388, API_DOCS_400]
+    caveat: Preserve scope of the concrete fixes; do not imply ownership of the library.
+    needs_confirmation: false
+  - id: visual-toolkit
+    statement: Public visual-regression-toolkit contains Next.js route discovery, Playwright screenshot coverage, deterministic capture handling, and reusable GitHub Actions reporting.
+    tags: [frontend, typescript, testing, devops, developer-experience]
+    evidence: artifact_backed
+    sources: [VISUAL_TOOLKIT]
+    caveat: Implementation/README inspected, not executed. Adoption and original authorship of every component unverified; visual differences are advisory in current workflow.
+    needs_confirmation: false
+  - id: mobile-preview-workflow
+    statement: Public meme-library CI implements lint/type/test checks, EAS updates, and PR device-preview workflows.
+    tags: [mobile, expo, ci-cd, sdlc, ai-workflow]
+    evidence: artifact_backed
+    sources: [MEME_CI, MEME_TALK]
+    caveat: CI code is not proof of successful runs or the entire Claude generation flow; security audit is separate and Expo Doctor disabled in inspected version.
+    needs_confirmation: false
+  - id: watson-bot
+    statement: Public JavaScript gist integrates Slack messaging with IBM Watson Visual Recognition to classify linked images and post labels/confidence values.
+    dates: 'Gist created 2017-04-27'
+    tags: [ai, integration, javascript, slack]
+    evidence: artifact_backed
+    sources: [WATSON]
+    caveat: Demonstration code, not verified commercial deployment or custom-model training.
+    needs_confirmation: false
+  - id: oracle-integration
+    statement: Public D&D Oracle code streams Anthropic responses through a Next.js endpoint using fetched Google Doc text as prompt context.
+    tags: [ai, integration, typescript, nextjs, streaming]
+    evidence: artifact_backed
+    sources: [ORACLE, ORACLE_FETCH]
+    caveat: Actual retrieval is HTTP Google Docs export, despite an MCP comment; no vector search, trained model, or formal evaluation evidence.
+    needs_confirmation: false
+  - id: harness-customization
+    statement: Public my-pi repository contains custom planning, handoff, todo, worktree, and recurring-session extensions, with selected implementation inspected.
+    tags: [ai, agent-engineering, typescript, developer-experience]
+    evidence: artifact_backed
+    sources: [MY_PI, PI_LOOP]
+    caveat: Confirm original versus adapted components and client adoption; no upstream Pi-core merge established.
+    needs_confirmation: false
+  - id: harness-recurring-sessions
+    statement: Inspected my-pi loop uses non-overlapping fresh worker sessions, fixed-delay scheduling, timeout/cancellation, bounded result excerpts, and persisted logs.
+    tags: [ai, agent-engineering, orchestration, reliability]
+    evidence: artifact_backed
+    sources: [PI_LOOP, MY_PI]
+    caveat: Local prototype, not a sandbox, durable scheduler, automatic success detector, or cost-budget system.
+    needs_confirmation: false
+  - id: agent-loop
+    statement: Public agent-loop README describes a Bash utility running Pi over Prompt.md tasks with explicit project-trust opt-in.
+    tags: [ai, shell, agent-engineering, sdlc]
+    evidence: first_party
+    sources: [AGENT_LOOP]
+    caveat: README-backed capability; implementation not audited in this batch. Distinct from my-pi recurring scheduler.
+    needs_confirmation: false
+  - id: roo-modes
+    statement: Published custom Roo modes for legacy documentation, pair programming, task decomposition/acceptance criteria, and MCP-assisted prompt/mode refinement.
+    tags: [ai, mcp, sdlc, technical-writing, consulting]
+    evidence: first_party
+    sources: [ROO]
+    caveat: Qualitative workflow experience; no measured productivity or client ROI established.
+    needs_confirmation: false
+  - id: claude-review-agents
+    statement: Public Claude agent definitions specify GitHub MCP-based review and structured, prioritized PR feedback.
+    tags: [ai, mcp, code-review, sdlc]
+    evidence: artifact_backed
+    sources: [CLAUDE_AGENTS]
+    caveat: Prompt configuration, not implementation of an MCP server or guaranteed autonomous review quality.
+    needs_confirmation: false
+  - id: ai-sdlc-consulting
+    statement: Reports consulting on AI integrations, coding harnesses, agent workflows, and improvements to software development life cycles.
+    tags: [ai, consulting, leadership, sdlc]
+    evidence: first_party
+    sources: [BRIEF, BASELINE, LINKEDIN]
+    caveat: Need named or anonymized engagement details, role boundaries, and measured outcomes for accomplishment bullets.
+    needs_confirmation: true
+  - id: triangle-developers
+    statement: Founder/organizer of Triangle Developers; current public Meetup page identifies Brandon as an organizer.
+    tags: [community, leadership, organizing]
+    evidence: corroborated_context
+    sources: [BASELINE, WEBSITE, TRIANGLE_MEETUP]
+    caveat: Exact founding date and membership metrics require confirmation.
+    needs_confirmation: false
+  - id: triangle-community-size
+    statement: Baseline describes a Triangle Developers community of more than 3,000 engineers.
+    tags: [community, leadership, reach]
+    evidence: first_party
+    sources: [BASELINE]
+    metric: '3,000+ community members; platform and date unspecified'
+    caveat: Not confirmed current Meetup membership, unique cross-platform total, or event attendance.
+    needs_confirmation: true
+  - id: triangle-ruby
+    statement: Public Triangle Ruby Brigade Meetup identifies Brandon Mathis as Super Organizer; baseline describes founding and sustained organizing.
+    tags: [community, ruby, leadership, organizing]
+    evidence: conflicted
+    sources: [BASELINE, LINKEDIN, TRIANGLE_RUBY]
+    caveat: Founding/organizing dates differ across sources. Group's 367 past events cannot all be attributed to Brandon.
+    needs_confirmation: true
+  - id: railsbridge
+    statement: Baseline describes founding a local RailsBridge chapter with other engineers, developing beginner curriculum, and coordinating volunteers.
+    tags: [community, education, mentoring, leadership]
+    evidence: first_party
+    sources: [BASELINE, LINKEDIN, MEDIUM]
+    caveat: Baseline ends 2018; LinkedIn says present. Not founder of the global organization; RailsGirls artifact is related teaching evidence, not identical event proof.
+    needs_confirmation: true
+  - id: ato-committee
+    statement: Reports All Things Open speaker-selection committee service since 2014 and technical-content/community collaboration.
+    tags: [community, leadership, speaking]
+    evidence: first_party
+    sources: [BASELINE]
+    caveat: Public speaking/interviews corroborated separately, but exact committee tenure/responsibilities not independently verified.
+    needs_confirmation: true
+  - id: ai-ignite-talk
+    statement: Presented Coding with AI — Revolution or Evolution at All Things Open AI in March 2025.
+    dates: 'March 2025; March 18 recap'
+    tags: [speaking, ai, education]
+    evidence: corroborated_context
+    sources: [AI_IGNITE_RECAP, AI_SLIDES, ATO_AI_2025]
+    caveat: Exact event day and audience size not established; slides explicitly AI-generated under Brandon's direction.
+    needs_confirmation: false
+  - id: react-native-session
+    statement: Listed as presenter of React Native — Mobile Development Made Simple at All Things Open 2025.
+    dates: '2025'
+    tags: [speaking, mobile, react-native, expo]
+    evidence: artifact_backed
+    sources: [ATO_RN]
+    caveat: Official session listing; recording not reviewed. Exact day/time absent from readable snapshot.
+    needs_confirmation: false
+  - id: pi-talk
+    statement: ReactATL listed Brandon presenting Exploring Pi Coding Agent on June 11, 2026.
+    dates: '2026-06-11, displayed event date'
+    tags: [speaking, ai, agent-engineering]
+    evidence: artifact_backed
+    sources: [REACT_ATL]
+    caveat: Listing rather than recording; boilerplate mentions July despite June title/date.
+    needs_confirmation: false
+  - id: state-ai-scheduled
+    statement: Listed as a speaker for the November 5, 2026 State of AI online event.
+    dates: '2026-11-05'
+    tags: [speaking, ai, leadership]
+    evidence: scheduled
+    sources: [STATE_AI]
+    caveat: Future at research date; do not claim completed participation without a later source.
+    needs_confirmation: true
+  - id: mobile-ai-talk-draft
+    statement: Public talk draft outlines Ship From Your Couch — AI-Powered Mobile Dev From Your Phone.
+    tags: [speaking, ai, mobile, sdlc]
+    evidence: draft
+    sources: [MEME_TALK]
+    caveat: No verified event/date/delivery; future tools in the draft are not demonstrated implementation experience.
+    needs_confirmation: true
+  - id: technical-writing
+    statement: Recovered ten Medium articles spanning development tools, GraphQL, Elixir/Phoenix, Clojure, Sass, hiring, quality, and perseverance, plus This Dot articles on Roo modes and MongoDB connection management.
+    tags: [technical-writing, education, backend, frontend, ai]
+    evidence: artifact_backed
+    sources: [MEDIUM, ROO, MONGODB]
+    caveat: Ten is the RSS window, not total lifetime publication count. ATO interview summaries are not bylined articles by Brandon.
+    needs_confirmation: false
+  - id: education
+    statement: BS in Computer Science with a Business minor from East Carolina University, per baseline.
+    tags: [education]
+    evidence: conflicted
+    sources: [BASELINE, LINKEDIN, MEDIUM]
+    caveat: Baseline dates 2006-2009; LinkedIn 2006-2010. Ask before changing dates.
+    needs_confirmation: true

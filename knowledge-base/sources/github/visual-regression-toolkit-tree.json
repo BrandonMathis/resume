@@ -1,0 +1,344 @@
+{
+  "sha": "aa248ed188bc43943b220a6013f10703e35e2df9",
+  "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/trees/aa248ed188bc43943b220a6013f10703e35e2df9",
+  "tree": [
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e3bd6c519752be6ae3b40fa8925ea445be6d3053",
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/trees/e3bd6c519752be6ae3b40fa8925ea445be6d3053"
+    },
+    {
+      "path": ".github/CODEOWNERS",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c222f94861b4b151624151efaa7fb440d06268ad",
+      "size": 257,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/c222f94861b4b151624151efaa7fb440d06268ad"
+    },
+    {
+      "path": ".github/dependabot.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5a32bd8f4619bd99cdbab661e96d15bc23cc2c79",
+      "size": 193,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/5a32bd8f4619bd99cdbab661e96d15bc23cc2c79"
+    },
+    {
+      "path": ".github/workflows",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1202901cddefcaac43e1651c33be8c9a318f4bac",
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/trees/1202901cddefcaac43e1651c33be8c9a318f4bac"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96b72b80e4fe4d42735f263a522452bf398e4574",
+      "size": 1318,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/96b72b80e4fe4d42735f263a522452bf398e4574"
+    },
+    {
+      "path": ".github/workflows/playwright-image.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0574c2ec6ac4d48ffd5bc65092044882abf90dcb",
+      "size": 1220,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/0574c2ec6ac4d48ffd5bc65092044882abf90dcb"
+    },
+    {
+      "path": ".github/workflows/version-tag.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6f4de0a628b4b85c44a6f4f19c2ee1c9713070ab",
+      "size": 767,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/6f4de0a628b4b85c44a6f4f19c2ee1c9713070ab"
+    },
+    {
+      "path": ".github/workflows/visual-baseline.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9072e9068f09ca3b7df16e01c95687271b1e03b9",
+      "size": 1117,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/9072e9068f09ca3b7df16e01c95687271b1e03b9"
+    },
+    {
+      "path": ".github/workflows/visual-regression.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6dd0335d129460a50f202431b3045297dcab3c5",
+      "size": 10432,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/a6dd0335d129460a50f202431b3045297dcab3c5"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6f771e9ad7ee023f9d5bc3e1ad9f4d3711a6ed7a",
+      "size": 233,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/6f771e9ad7ee023f9d5bc3e1ad9f4d3711a6ed7a"
+    },
+    {
+      "path": ".prettierignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "03234013b2390442fd66f4521bcbb5d92a6ed549",
+      "size": 258,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/03234013b2390442fd66f4521bcbb5d92a6ed549"
+    },
+    {
+      "path": ".prettierrc.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ebb4af5f9a7d5c457d4c01d96f8a80d9e0285fd1",
+      "size": 73,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/ebb4af5f9a7d5c457d4c01d96f8a80d9e0285fd1"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6a2c7cd4bd4bc1ecc73e1cb17739d7ba95f27780",
+      "size": 1071,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/6a2c7cd4bd4bc1ecc73e1cb17739d7ba95f27780"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8d9d1311a1d2a5d9ffdae8c6963c4acde25ddfc2",
+      "size": 9194,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/8d9d1311a1d2a5d9ffdae8c6963c4acde25ddfc2"
+    },
+    {
+      "path": "eslint.config.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1901ca60f97fc64357c6b9ef38cd1566a3e8b32a",
+      "size": 643,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/1901ca60f97fc64357c6b9ef38cd1566a3e8b32a"
+    },
+    {
+      "path": "install.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5d1683dc877e2dfc2ac41da7a2ef18f3b99d848b",
+      "size": 2858,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/5d1683dc877e2dfc2ac41da7a2ef18f3b99d848b"
+    },
+    {
+      "path": "package-lock.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b3773ae80c367d75a54bcc27672527f45ab1aed",
+      "size": 46883,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/2b3773ae80c367d75a54bcc27672527f45ab1aed"
+    },
+    {
+      "path": "package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b0edaadd697dbba5fd8197e03a8770718a4a71d9",
+      "size": 1370,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/b0edaadd697dbba5fd8197e03a8770718a4a71d9"
+    },
+    {
+      "path": "src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9fe071b1bcd82d5a6739911d49b7b079f02b7a22",
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/trees/9fe071b1bcd82d5a6739911d49b7b079f02b7a22"
+    },
+    {
+      "path": "src/config.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3334f4bdc477152c2c4ce7c6d4a0b2a7978000fd",
+      "size": 2808,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/3334f4bdc477152c2c4ce7c6d4a0b2a7978000fd"
+    },
+    {
+      "path": "src/index.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8e62dd5b6860b2dd7db1326608b61fcd6fb1fcee",
+      "size": 144,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/8e62dd5b6860b2dd7db1326608b61fcd6fb1fcee"
+    },
+    {
+      "path": "src/pages.spec.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ffb26ffc152468101f89c07f30d7c8629f8223a1",
+      "size": 6283,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/ffb26ffc152468101f89c07f30d7c8629f8223a1"
+    },
+    {
+      "path": "src/playwright.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5c70dae4c1c49f0b74a7af5a40dec782cbbde52d",
+      "size": 461,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/5c70dae4c1c49f0b74a7af5a40dec782cbbde52d"
+    },
+    {
+      "path": "src/reporter.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "15ccec36b734603b8644d748256e87ce0d7afe62",
+      "size": 4234,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/15ccec36b734603b8644d748256e87ce0d7afe62"
+    },
+    {
+      "path": "src/route-discovery.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "320c7114f63860ca0766249895e3b7a78832c077",
+      "size": 2175,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/320c7114f63860ca0766249895e3b7a78832c077"
+    },
+    {
+      "path": "src/run-visual.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "41c440b6e8341f04750fdcc661bcf36f1e8f074d",
+      "size": 1832,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/41c440b6e8341f04750fdcc661bcf36f1e8f074d"
+    },
+    {
+      "path": "tests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4652b53faad0522d08802efe153915aba23f7217",
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/trees/4652b53faad0522d08802efe153915aba23f7217"
+    },
+    {
+      "path": "tests/fixture",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9f8a3af5a0c893b8dfb5be0a212cfc5cb856609c",
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/trees/9f8a3af5a0c893b8dfb5be0a212cfc5cb856609c"
+    },
+    {
+      "path": "tests/fixture/app",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "490ea27d8983a213354776be7f7c983c9595467e",
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/trees/490ea27d8983a213354776be7f7c983c9595467e"
+    },
+    {
+      "path": "tests/fixture/app/globals.css",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fb0d44977902b0b321125729d945f20444674c0b",
+      "size": 413,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/fb0d44977902b0b321125729d945f20444674c0b"
+    },
+    {
+      "path": "tests/fixture/app/layout.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ec62507ebabf1a9af9506015c7fa6c57742ac738",
+      "size": 225,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/ec62507ebabf1a9af9506015c7fa6c57742ac738"
+    },
+    {
+      "path": "tests/fixture/app/page.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1fb3beca500aa54db84405e5030e5acdb3c44223",
+      "size": 254,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/1fb3beca500aa54db84405e5030e5acdb3c44223"
+    },
+    {
+      "path": "tests/fixture/app/request-rendered",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "35bd1496a850e2dac504e465246b3eaa1f5900cc",
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/trees/35bd1496a850e2dac504e465246b3eaa1f5900cc"
+    },
+    {
+      "path": "tests/fixture/app/request-rendered/layout.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "84452039c5e9066e44942c4fd5e48aff709d8d36",
+      "size": 149,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/84452039c5e9066e44942c4fd5e48aff709d8d36"
+    },
+    {
+      "path": "tests/fixture/app/request-rendered/page.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa2b49c12b278dda346933db007ac17b0ff1aafd",
+      "size": 281,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/aa2b49c12b278dda346933db007ac17b0ff1aafd"
+    },
+    {
+      "path": "tests/fixture/package-lock.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6efb842070b9b4f386bcd0f78e25839d17355123",
+      "size": 30916,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/6efb842070b9b4f386bcd0f78e25839d17355123"
+    },
+    {
+      "path": "tests/fixture/package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e0fbe9b3e5edeb3968fa84313edf0eff47033b11",
+      "size": 356,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/e0fbe9b3e5edeb3968fa84313edf0eff47033b11"
+    },
+    {
+      "path": "tests/fixture/playwright.visual.config.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "24fb75f2710914e486d51626557a965bd76302bc",
+      "size": 239,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/24fb75f2710914e486d51626557a965bd76302bc"
+    },
+    {
+      "path": "tests/fixture/smoke.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3cd59c0cbc643bd998da76a5c56e8a7e0b8a1a9f",
+      "size": 2886,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/3cd59c0cbc643bd998da76a5c56e8a7e0b8a1a9f"
+    },
+    {
+      "path": "tests/playwright-ownership.test.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c234e216157564fccb537cd8b6035acec4715f4d",
+      "size": 3900,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/c234e216157564fccb537cd8b6035acec4715f4d"
+    },
+    {
+      "path": "tests/route-discovery.test.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ff92a53ed0156b142edcd5d1ce5a00e16a1aab71",
+      "size": 3450,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/ff92a53ed0156b142edcd5d1ce5a00e16a1aab71"
+    },
+    {
+      "path": "tsconfig.build.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b229b0cbac5fd57ca08dee1a590433195f0290e5",
+      "size": 127,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/b229b0cbac5fd57ca08dee1a590433195f0290e5"
+    },
+    {
+      "path": "tsconfig.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c8e18b953abba17e9c44d2c1340a8b85cf7e4824",
+      "size": 489,
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/blobs/c8e18b953abba17e9c44d2c1340a8b85cf7e4824"
+    }
+  ],
+  "truncated": false
+}

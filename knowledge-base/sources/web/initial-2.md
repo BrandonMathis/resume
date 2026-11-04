@@ -1,0 +1,212 @@
+# Source snapshot
+
+URL: https://www.linkedin.com/in/mathisbrandon/
+Retrieved: 2026-11-04
+Method: web fetch, readable extraction; may be partial.
+
+# Brandon Mathis - This Dot | LinkedIn
+
+## About
+
+Brandon Mathis, Engineering Lead at This Dot Labs 🚀
+
+I am a lifelong coder and…
+
+## Activity
+
+### 2K followers
+
+## Experience
+
+*   [](https://www.linkedin.com/company/thisdotlabs?trk=public_profile_experience-item_profile-section-card_image-click)
+    
+    #### [This Dot](https://www.linkedin.com/company/thisdotlabs?trk=public_profile_experience-item_profile-section-card_subtitle-click)
+    
+    Raleigh, North Carolina, United States
+    
+*   #### \-
+    
+    Raleigh, North Carolina, United States
+    
+*   #### \-
+    
+    Raleigh-Durham-Chapel Hill Area
+    
+
+*   #### \-
+    
+    Raleigh, NC
+    
+*   #### \-
+    
+    Raleigh-Durham-Chapel Hill Area
+    
+
+*   #### \-
+    
+    Holly Springs NC
+    
+
+## Education
+
+*   [](https://www.linkedin.com/school/east-carolina-university/?trk=public_profile_school_profile-section-card_image-click)
+    
+    ### [East Carolina University](https://www.linkedin.com/school/east-carolina-university/?trk=public_profile_school)
+    
+    #### \-
+    
+    2006 - 2010
+    
+    Activities and Societies: ITCS Campus Lab Tech, Student Technical Help Desk Consultant, Computer Science Club.
+    
+
+## Volunteer Experience
+
+*   ### Organizer
+    
+    #### Triangle.rb
+    
+    Aug 2013 - Present 13 years 4 months
+    
+    http://www.triangleruby.com
+    
+*   ### Organizer
+    
+    #### Rails Bridge Triangle
+    
+    Jan 2015 - Present 11 years 11 months
+    
+    Education
+    
+    http://railsbridgetriangle.com/
+    
+*   [](https://www.linkedin.com/company/downtown-techies?trk=public_profile_volunteering-position_profile-section-card_image-click)
+    
+    ### Ambassador
+    
+    #### [Downtown Techies](https://www.linkedin.com/company/downtown-techies?trk=public_profile_volunteering-position_profile-section-card_subtitle-click)
+    
+    Jan 2019 - Present 7 years 11 months
+    
+    Science and Technology
+    
+
+## Publications
+
+## Projects
+
+*   ### HUDL's FastModel Sports
+    
+    #### Oct 2025 - Mar 2026
+    
+    FastModel Sports is HUDL's suite of tools for play diagramming, scouting, and recruiting for the NCAA, NBA and WNBA. As an Engineering Lead at This Dot Labs, I joined HUDL's FastModel team as an embedded React.js lead and subject matter expert. Across FastDraw, FastScout, and FastRecruit, I led web and iOS-to-React Native migration work, helping shape the architecture and contributing directly to implementation. I also mentored HUDL engineers on software development best practices as agentic…
+    
+    FastModel Sports is HUDL's suite of tools for play diagramming, scouting, and recruiting for the NCAA, NBA and WNBA. As an Engineering Lead at This Dot Labs, I joined HUDL's FastModel team as an embedded React.js lead and subject matter expert. Across FastDraw, FastScout, and FastRecruit, I led web and iOS-to-React Native migration work, helping shape the architecture and contributing directly to implementation. I also mentored HUDL engineers on software development best practices as agentic coding began to gain traction.
+    
+    Throughout the six-month engagement, I kept technical decisions grounded in the business goals and helped deliver all three projects on time.
+    
+*   ### Skylight Social
+    
+    #### Jan 2025
+    
+    Skylight Social is a short-form video social media application built on the AT Protocol. In January of 2025, the TikTok ban was looming and my team at This Dot Labs was approached to build an app to replace it. Together with Skylight's founders - we built an MVP and launched it in 30 days. Just 48 hours after launch, Skylight was in the App Store's Top 10 Free Apps and Number One in Entertainment! Over 55,000 users onboarded in the first 24 hours AND the Skylight founders secured an investment…
+    
+    Skylight Social is a short-form video social media application built on the AT Protocol. In January of 2025, the TikTok ban was looming and my team at This Dot Labs was approached to build an app to replace it. Together with Skylight's founders - we built an MVP and launched it in 30 days. Just 48 hours after launch, Skylight was in the App Store's Top 10 Free Apps and Number One in Entertainment! Over 55,000 users onboarded in the first 24 hours AND the Skylight founders secured an investment from Mark Cuban
+    
+*   ### eLitigate
+    
+    #### Aug 2019 - Dec 2024
+    
+    eLitigate is a remote deposition platform purpose-built for the court reporting industry. As Principal Engineer & CTO at vTestify, I worked in partnership with Esquire's court-reporting industry experts to build and bring this product to market during the COVID-19 pandemic. By utilizing web technologies such as WebRTC and React.js, my team and I created a videoconferencing and evidence management platform that is revolutionizing America's court reporting industry.
+    
+    Esquire Deposition…
+    
+    eLitigate is a remote deposition platform purpose-built for the court reporting industry. As Principal Engineer & CTO at vTestify, I worked in partnership with Esquire's court-reporting industry experts to build and bring this product to market during the COVID-19 pandemic. By utilizing web technologies such as WebRTC and React.js, my team and I created a videoconferencing and evidence management platform that is revolutionizing America's court reporting industry.
+    
+    Esquire Deposition Solutions acquired eLitigate in late 2024 and it is currently their premier product for conducting remote depositions.
+    
+*   ### [Savings Seeker Rx](https://www.savingsseekerrx.com/?trk=public_profile_project-title "Savings Seeker Rx")
+    
+    #### Jan 2021 - Dec 2022
+    
+    In partnership with McKesson Corporation and Cover My Meds, I created an application that enables patients to search for discount medications within the Savings Seeker Rx pharmacy network. I built the backend API, and frontend UI. I also created custom backend integrations for McKession to enable cross reference search between their database of medications and pharmacies.
+    
+    [See project](https://www.savingsseekerrx.com/?trk=public_profile_project-button "Savings Seeker Rx")
+    
+*   ### [Forecast](https://forecastslackbot.com/?trk=public_profile_project-title "Forecast")
+    
+    #### Dec 2013 - Oct 2021
+    
+    An Apple Weather powered Slack bot that allows users to request the weather of any location around the world. Installed and used daily by over 2,000 companies world-wide, Forecast is used by companies that depend on reliable up-to-date weather information.
+    
+    [See project](https://forecastslackbot.com/?trk=public_profile_project-button "Forecast")
+    
+*   ### [BWEL](https://bwelstudy.org?trk=public_profile_project-title "BWEL")
+    
+    #### Aug 2016 - Dec 2017
+    
+    A web application built to enable the breast cancer research team at the Dana-Farber Cancer Research Institute to communicate with patients and research participants. We integrated with Fitbit to track physical activity of participants as well as Twilio to enable coaches to call research study participants directly from within browser.
+    
+    [See project](https://bwelstudy.org?trk=public_profile_project-button "BWEL")
+    
+*   ### Fraqture
+    
+    #### Jan 2016 - Nov 2017
+    
+    Fraqture is an experimental platform that blends art with technology, exploring the parallels between glitch art, which exists on our screens, and graffiti, which lives in the real world. It was originally conceived of as an installation piece for the Durham Storefront Project in collaboration with The Carrack gallery. Today it has grown into an interactive platform that can be adapted to almost any context. During the day, Fraqture uses several algorithms to turn a curated pool of images into…
+    
+    Fraqture is an experimental platform that blends art with technology, exploring the parallels between glitch art, which exists on our screens, and graffiti, which lives in the real world. It was originally conceived of as an installation piece for the Durham Storefront Project in collaboration with The Carrack gallery. Today it has grown into an interactive platform that can be adapted to almost any context. During the day, Fraqture uses several algorithms to turn a curated pool of images into glitch art; twisting them, shuffling their pixels, and repainting them in an infinite combination of ways. In addition to the curated images, passersby can become a part of the piece by using a forward facing camera to take a picture that glitches into a totally original piece of art and then vanishes for good.
+    
+*   ### [Weaveup](http://weaveup.com?trk=public_profile_project-title "Weaveup")
+    
+    #### Apr 2015 - Apr 2017
+    
+    Weaveup is a Rails/iOS/Angular application that allows designers to upload custom vector and raster images that other designers can customize in-app and order large rolls of woven cloth featuring their customized pattern.
+    
+    [See project](http://weaveup.com?trk=public_profile_project-button "Weaveup")
+    
+*   ### [Boomerang](http://throw-together.com/?trk=public_profile_project-title "Boomerang")
+    
+    #### Feb 2015 - Apr 2015
+    
+    Group-focused photo sharing application built in native iOS and Android. Send your friends a "Boomerang" and they can view the photos in the group once they have contributed a photo themselves.
+    
+    http://throw-together.com/
+    
+    [See project](http://throw-together.com/?trk=public_profile_project-button "Boomerang")
+    
+*   ### [Packpurchase](http://packpurchase.com?trk=public_profile_project-title "Packpurchase")
+    
+    #### Oct 2014 - Dec 2014
+    
+    Community-focused discount home-services rails/iOS/Android application.
+    
+    [See project](http://packpurchase.com?trk=public_profile_project-button "Packpurchase")
+    
+
+## Languages
+
+## Organizations
+
+*   ### Triangle.rb
+    
+    #### Organizer
+    
+    Oct 2010 - Present
+    
+
+## Recommendations received
+
+## Explore top content on LinkedIn
+
+Find curated posts and insights for relevant topics all in one place.
+
+[View top content](https://www.linkedin.com/top-content/)
+
+## Others named **Brandon Mathis** in **United States**
+
+137 others named Brandon Mathis in United States are on LinkedIn
+
+[See others named **Brandon Mathis**](https://www.linkedin.com/pub/dir/Brandon/Mathis/us-0-United-States?trk=public_profile_samename-see-all)
+
+## Add new skills with these courses

@@ -2,6 +2,17 @@
 
 The resume is maintained in [RenderCV](https://docs.rendercv.com/) YAML and rendered with Typst. **`resume.yaml` is authoritative.** No LaTeX installation is needed.
 
+## Career knowledge base
+
+Start at [`knowledge-base/README.md`](knowledge-base/README.md) for sourced career history, projects, skills, AI engineering, open-source contributions, writing, speaking, and community leadership. It includes structured claims, downloaded source snapshots, complete retrieved GitHub inventories, and unresolved factual questions. Research is dated **November 4, 2026**; self-reported metrics and conflicting dates are explicitly flagged.
+
+This is reference material for future tailoring, not a second resume source of truth. No resume copy or layout was changed to create it. Follow the existing variant-confirmation and layout-audit workflow when applying any evidence to a resume.
+
+```sh
+ruby knowledge-base/tools/build_indexes.rb  # Offline: rebuild inventories from saved sources
+ruby knowledge-base/tools/validate.rb       # Check evidence references and archive integrity
+```
+
 ## Files
 
 - `resume.yaml` — authoritative baseline copy, shared identity, design, and settings.

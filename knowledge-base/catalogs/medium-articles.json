@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Shell Commands I Love",
+    "url": "https://medium.com/@brandonmathis/shell-commands-i-love-62764570dc66",
+    "rss_publication_date": "Fri, 15 Mar 2024 15:10:51 GMT",
+    "snapshot": "sources/articles/shell-commands-i-love-62764570dc66.md"
+  },
+  {
+    "title": "Git CLI Tricks",
+    "url": "https://medium.com/@brandonmathis/git-cli-tricks-263a7d0275a3",
+    "rss_publication_date": "Mon, 29 Jan 2024 20:51:45 GMT",
+    "snapshot": "sources/articles/git-cli-tricks-263a7d0275a3.md"
+  },
+  {
+    "title": "Easy GraphQL with Apollo Server v2",
+    "url": "https://medium.com/@brandonmathis/easy-graphql-with-apollo-server-v2-b9fc5d36ddf5",
+    "rss_publication_date": "Mon, 06 Jan 2020 22:03:20 GMT",
+    "snapshot": "sources/articles/easy-graphql-with-apollo-server-v2-b9fc5d36ddf5.md"
+  },
+  {
+    "title": "3 Things Code School Grads Should Know When Searching For A First Job",
+    "url": "https://medium.com/@brandonmathis/3-things-code-school-grads-should-know-when-searching-for-a-first-job-a4fe648548e6",
+    "rss_publication_date": "Mon, 24 Jun 2019 17:30:17 GMT",
+    "snapshot": "sources/articles/3-things-code-school-grads-should-know-when-searching-for-a-first-job-a4fe648548e6.md"
+  },
+  {
+    "title": "Understand the Basics (SASS)",
+    "url": "https://medium.com/@brandonmathis/understand-the-basics-sass-59545dd40ccb",
+    "rss_publication_date": "Thu, 23 May 2019 15:23:57 GMT",
+    "snapshot": "sources/articles/understand-the-basics-sass-59545dd40ccb.md"
+  },
+  {
+    "title": "Code and Coffee Hustle",
+    "url": "https://medium.com/@brandonmathis/code-and-coffee-hustle-ec52f8c31b36",
+    "rss_publication_date": "Thu, 23 May 2019 15:20:45 GMT",
+    "snapshot": "sources/articles/code-and-coffee-hustle-ec52f8c31b36.md"
+  },
+  {
+    "title": "Image Upload in Phoenix",
+    "url": "https://medium.com/@brandonmathis/image-upload-in-phoenix-5d4a10c11e21",
+    "rss_publication_date": "Thu, 23 May 2019 15:15:21 GMT",
+    "snapshot": "sources/articles/image-upload-in-phoenix-5d4a10c11e21.md"
+  },
+  {
+    "title": "Clojure, A Reflection On My Latest Obsession",
+    "url": "https://medium.com/@brandonmathis/clojure-a-reflection-on-my-latest-obsession-f175e1b2014f",
+    "rss_publication_date": "Thu, 23 May 2019 15:07:26 GMT",
+    "snapshot": "sources/articles/clojure-a-reflection-on-my-latest-obsession-f175e1b2014f.md"
+  },
+  {
+    "title": "Grit",
+    "url": "https://medium.com/@brandonmathis/grit-c3c4b3897c71",
+    "rss_publication_date": "Thu, 23 May 2019 15:02:25 GMT",
+    "snapshot": "sources/articles/grit-c3c4b3897c71.md"
+  },
+  {
+    "title": "Quality",
+    "url": "https://medium.com/@brandonmathis/quality-d33240bbc7ea",
+    "rss_publication_date": "Thu, 23 May 2019 14:54:47 GMT",
+    "snapshot": "sources/articles/quality-d33240bbc7ea.md"
+  }
+]

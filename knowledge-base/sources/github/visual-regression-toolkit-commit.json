@@ -1,0 +1,118 @@
+{
+  "sha": "aa248ed188bc43943b220a6013f10703e35e2df9",
+  "node_id": "C_kwDOTa5E89oAKGFhMjQ4ZWQxODhiYzQzOTQzYjIyMGE2MDEzZjEwNzAzZTM1ZTJkZjk",
+  "commit": {
+    "author": {
+      "name": "Brandon Mathis",
+      "email": "Bemathis@gmail.com",
+      "date": "2026-08-06T15:50:17Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2026-08-06T15:50:17Z"
+    },
+    "message": "Merge pull request #18 from BrandonMathis/dependabot/npm_and_yarn/playwright/test-1.62.1\n\nBump @playwright/test from 1.62.0 to 1.62.1",
+    "tree": {
+      "sha": "ec7749f5f2a8576847d0f1f95d68640e8413def5",
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/trees/ec7749f5f2a8576847d0f1f95d68640e8413def5"
+    },
+    "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/commits/aa248ed188bc43943b220a6013f10703e35e2df9",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqdK05CRC1aQ7uu5UhlAAASWkQAH3gp7vsc959IprPEF0pnw9v\nmFWFhvezof1w8ey93X4AkrMSoIMi/m/x/JGFKukZRP7WOKHnQ1MYlP7qO8x5YpWP\nEuWDKNDUqVup1dNpu2QMUV/FKyrjbEjgkKyALxyqN6WQ/wCuyENOcD7KRmx8fbzt\nhZtkxRYru29Pfs8dEzPFb7wVzxI7Ep8+ndBFObyknsnzVtL3e8jFcHWn5a6QJMKU\nWRyhM7DXz0cEPHE2Qx1R0kaC+2VEuc8TWZgfruIJ/W3+XlXMjp8e+cnDne5YKwJM\nRhcfNkeF9aKfnNPxizMyt5qdsEE1Ep+XvslqlUArLSGbAYX2GcLfjD5csjT95RAh\nhpYqzntKq+kdXfDkdMCwMo8vSL/OOmF/mZGwvzVpkM3Qkt04bNt/VUeZqkEJxHYE\nS8lfRNWINzwJD0KDwXNcAVFACbQGSE2H3wqORoHEQyyqr4Cf4eUCdHMJ4Baj5Waa\ntQsnd8l2p5xFWncjSCyUDMhKx/u91Us75m6qUevFrPNLIxDBnLK2wyvntTWAQo+q\nOgZpBKoQJbsUqUhzND9QsTVobUxLID/CZuYED7oN9tLdUE8S+s25uTlS2YUqiuBv\nnDPAcmYfJm17Rpba0gZq0Y6d3QovE+S4NrLhwAgvuEGOyZJ8OIQ/G7O/ptq9fP8a\nErTvTdtPW+u8RrJsb92F\n=Ex6a\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree ec7749f5f2a8576847d0f1f95d68640e8413def5\nparent 706f08c792534a980421cc50a8a5da2e62c3c8d3\nparent 15d40fd21d1d5e3e1b67a2118b25d3616a09c4b2\nauthor Brandon Mathis <Bemathis@gmail.com> 1786031417 -0400\ncommitter GitHub <noreply@github.com> 1786031417 -0400\n\nMerge pull request #18 from BrandonMathis/dependabot/npm_and_yarn/playwright/test-1.62.1\n\nBump @playwright/test from 1.62.0 to 1.62.1",
+      "verified_at": "2026-08-06T15:55:19Z"
+    }
+  },
+  "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/commits/aa248ed188bc43943b220a6013f10703e35e2df9",
+  "html_url": "https://github.com/BrandonMathis/visual-regression-toolkit/commit/aa248ed188bc43943b220a6013f10703e35e2df9",
+  "comments_url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/commits/aa248ed188bc43943b220a6013f10703e35e2df9/comments",
+  "author": {
+    "login": "BrandonMathis",
+    "id": 362269,
+    "node_id": "MDQ6VXNlcjM2MjI2OQ==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/362269?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/BrandonMathis",
+    "html_url": "https://github.com/BrandonMathis",
+    "followers_url": "https://api.github.com/users/BrandonMathis/followers",
+    "following_url": "https://api.github.com/users/BrandonMathis/following{/other_user}",
+    "gists_url": "https://api.github.com/users/BrandonMathis/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/BrandonMathis/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/BrandonMathis/subscriptions",
+    "organizations_url": "https://api.github.com/users/BrandonMathis/orgs",
+    "repos_url": "https://api.github.com/users/BrandonMathis/repos",
+    "events_url": "https://api.github.com/users/BrandonMathis/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/BrandonMathis/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "web-flow",
+    "id": 19864447,
+    "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/web-flow",
+    "html_url": "https://github.com/web-flow",
+    "followers_url": "https://api.github.com/users/web-flow/followers",
+    "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+    "organizations_url": "https://api.github.com/users/web-flow/orgs",
+    "repos_url": "https://api.github.com/users/web-flow/repos",
+    "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/web-flow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "706f08c792534a980421cc50a8a5da2e62c3c8d3",
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/commits/706f08c792534a980421cc50a8a5da2e62c3c8d3",
+      "html_url": "https://github.com/BrandonMathis/visual-regression-toolkit/commit/706f08c792534a980421cc50a8a5da2e62c3c8d3"
+    },
+    {
+      "sha": "15d40fd21d1d5e3e1b67a2118b25d3616a09c4b2",
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/commits/15d40fd21d1d5e3e1b67a2118b25d3616a09c4b2",
+      "html_url": "https://github.com/BrandonMathis/visual-regression-toolkit/commit/15d40fd21d1d5e3e1b67a2118b25d3616a09c4b2"
+    }
+  ],
+  "stats": {
+    "total": 26,
+    "additions": 13,
+    "deletions": 13
+  },
+  "files": [
+    {
+      "sha": "2b3773ae80c367d75a54bcc27672527f45ab1aed",
+      "filename": "package-lock.json",
+      "status": "modified",
+      "additions": 12,
+      "deletions": 12,
+      "changes": 24,
+      "blob_url": "https://github.com/BrandonMathis/visual-regression-toolkit/blob/aa248ed188bc43943b220a6013f10703e35e2df9/package-lock.json",
+      "raw_url": "https://github.com/BrandonMathis/visual-regression-toolkit/raw/aa248ed188bc43943b220a6013f10703e35e2df9/package-lock.json",
+      "contents_url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/contents/package-lock.json?ref=aa248ed188bc43943b220a6013f10703e35e2df9",
+      "patch": "@@ -9,7 +9,7 @@\n       \"version\": \"1.0.3\",\n       \"license\": \"MIT\",\n       \"dependencies\": {\n-        \"@playwright/test\": \"1.62.0\"\n+        \"@playwright/test\": \"1.62.1\"\n       },\n       \"bin\": {\n         \"run-visual\": \"dist/run-visual.mjs\"\n@@ -199,12 +199,12 @@\n       }\n     },\n     \"node_modules/@playwright/test\": {\n-      \"version\": \"1.62.0\",\n-      \"resolved\": \"https://registry.npmjs.org/@playwright/test/-/test-1.62.0.tgz\",\n-      \"integrity\": \"sha512-9zOJ6ZQRAena31MpOH9VSzIz8Ou3YJ/wtY/eQm5T2uhfhG7/U3COrMS8xOtUrZrp9OgdmzEnIYODye3nY1VqzA==\",\n+      \"version\": \"1.62.1\",\n+      \"resolved\": \"https://registry.npmjs.org/@playwright/test/-/test-1.62.1.tgz\",\n+      \"integrity\": \"sha512-DTcUc8qii+cpHvtOwggMtBRMjKZHXYWdw8syRYu2vtzuq4Wxphqq4NfCs5Zt44L6mA8rfDfj+PHnxFc/FeK6mQ==\",\n       \"license\": \"Apache-2.0\",\n       \"dependencies\": {\n-        \"playwright\": \"1.62.0\"\n+        \"playwright\": \"1.62.1\"\n       },\n       \"bin\": {\n         \"playwright\": \"cli.js\"\n@@ -1087,12 +1087,12 @@\n       }\n     },\n     \"node_modules/playwright\": {\n-      \"version\": \"1.62.0\",\n-      \"resolved\": \"https://registry.npmjs.org/playwright/-/playwright-1.62.0.tgz\",\n-      \"integrity\": \"sha512-Z14dG305dgaLu6foB1TXQagFiW8JfSUIUaUuPaKQ6NtBPKF1P/qXcqfh6c6K/icPqdy37JmjbiBXf6JNg6Sylw==\",\n+      \"version\": \"1.62.1\",\n+      \"resolved\": \"https://registry.npmjs.org/playwright/-/playwright-1.62.1.tgz\",\n+      \"integrity\": \"sha512-0M+L3LAD8/nm554LOla9Ayx0j0tmFZ0FBcoQ7F1VuVHpM/XpiC8RcDzBQB8W5+hA8L22THxELzeF+2WcUzvcLg==\",\n       \"license\": \"Apache-2.0\",\n       \"dependencies\": {\n-        \"playwright-core\": \"1.62.0\"\n+        \"playwright-core\": \"1.62.1\"\n       },\n       \"bin\": {\n         \"playwright\": \"cli.js\"\n@@ -1105,9 +1105,9 @@\n       }\n     },\n     \"node_modules/playwright-core\": {\n-      \"version\": \"1.62.0\",\n-      \"resolved\": \"https://registry.npmjs.org/playwright-core/-/playwright-core-1.62.0.tgz\",\n-      \"integrity\": \"sha512-nsNRyq0r2zsG8AcRHWknc9QRA5XCueC7gWMrs+Gx2tlZn9hcl8zudfh00lhJPY1DE7NmZ6bDsT9g2yey8mXljA==\",\n+      \"version\": \"1.62.1\",\n+      \"resolved\": \"https://registry.npmjs.org/playwright-core/-/playwright-core-1.62.1.tgz\",\n+      \"integrity\": \"sha512-wPYSwEBJY9GHraISXqyqtx0na0LpO3XEX7jNDhntbex7tzUS7kLnZsOlFruFJB4Hi/rhDMjXGqHewDZ68nYZVw==\",\n       \"license\": \"Apache-2.0\",\n       \"bin\": {\n         \"playwright-core\": \"cli.js\""
+    },
+    {
+      "sha": "b0edaadd697dbba5fd8197e03a8770718a4a71d9",
+      "filename": "package.json",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/BrandonMathis/visual-regression-toolkit/blob/aa248ed188bc43943b220a6013f10703e35e2df9/package.json",
+      "raw_url": "https://github.com/BrandonMathis/visual-regression-toolkit/raw/aa248ed188bc43943b220a6013f10703e35e2df9/package.json",
+      "contents_url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/contents/package.json?ref=aa248ed188bc43943b220a6013f10703e35e2df9",
+      "patch": "@@ -39,7 +39,7 @@\n     \"test\": \"node --test tests/route-discovery.test.mjs tests/playwright-ownership.test.mjs && node tests/fixture/smoke.mjs\"\n   },\n   \"dependencies\": {\n-    \"@playwright/test\": \"1.62.0\"\n+    \"@playwright/test\": \"1.62.1\"\n   },\n   \"devDependencies\": {\n     \"@types/node\": \"26.1.2\","
+    }
+  ]
+}

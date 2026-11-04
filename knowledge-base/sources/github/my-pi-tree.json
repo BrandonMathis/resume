@@ -1,0 +1,387 @@
+{
+  "sha": "5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c",
+  "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/trees/5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c",
+  "tree": [
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d2fcd0a7ceee0b6ba2cfaf75f7b019a53906d47",
+      "size": 362,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/2d2fcd0a7ceee0b6ba2cfaf75f7b019a53906d47"
+    },
+    {
+      "path": "AGENTS.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ec8cbaa09b4d22ba9094d985ad46963f87a27ebc",
+      "size": 191,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/ec8cbaa09b4d22ba9094d985ad46963f87a27ebc"
+    },
+    {
+      "path": "agent",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "71bb34b85af321325a7abe836fd8c03173615daa",
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/trees/71bb34b85af321325a7abe836fd8c03173615daa"
+    },
+    {
+      "path": "agent/extensions",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ed9504a8c6586966607850d15c2c82539a71f9f4",
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/trees/ed9504a8c6586966607850d15c2c82539a71f9f4"
+    },
+    {
+      "path": "agent/extensions/auto-session-name.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bb8977ff0c3c41f5430a997b727a7a0d3e8c8b79",
+      "size": 27666,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/bb8977ff0c3c41f5430a997b727a7a0d3e8c8b79"
+    },
+    {
+      "path": "agent/extensions/codex-fast.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4270f31bb328688e9e26ce6c179b5d516f89773f",
+      "size": 4784,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/4270f31bb328688e9e26ce6c179b5d516f89773f"
+    },
+    {
+      "path": "agent/extensions/confirm-abort.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c4e1efe98ffb1edcabc9faa94226d44e85b1bc5",
+      "size": 2122,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/6c4e1efe98ffb1edcabc9faa94226d44e85b1bc5"
+    },
+    {
+      "path": "agent/extensions/custom-colored-footer.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ea1d61ba8a5f9cb75d65823dee960795e911f57f",
+      "size": 31024,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/ea1d61ba8a5f9cb75d65823dee960795e911f57f"
+    },
+    {
+      "path": "agent/extensions/custom-input-styling.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5c1d73d6a6034f7de8b6ebf570fc8266fc74ae94",
+      "size": 3588,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/5c1d73d6a6034f7de8b6ebf570fc8266fc74ae94"
+    },
+    {
+      "path": "agent/extensions/focus-cursor.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "104ea3b5a6b3d64c456969e1d781876911ae90dd",
+      "size": 6003,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/104ea3b5a6b3d64c456969e1d781876911ae90dd"
+    },
+    {
+      "path": "agent/extensions/guardrails.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "458462299e9090fe47b6e71bad1c51b8a9def1a1",
+      "size": 1234,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/458462299e9090fe47b6e71bad1c51b8a9def1a1"
+    },
+    {
+      "path": "agent/extensions/handoff.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b2153a3560f8c7a7f3fa5b6ea0452f98e5bba545",
+      "size": 6314,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/b2153a3560f8c7a7f3fa5b6ea0452f98e5bba545"
+    },
+    {
+      "path": "agent/extensions/loop",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8d2b308a5d897b00ef9617467230452fd62b7553",
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/trees/8d2b308a5d897b00ef9617467230452fd62b7553"
+    },
+    {
+      "path": "agent/extensions/loop/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "54ab312cc2ddf09709db903736b3edef23b80b42",
+      "size": 7051,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/54ab312cc2ddf09709db903736b3edef23b80b42"
+    },
+    {
+      "path": "agent/extensions/loop/core.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2f0990f662237e2da8b6bddbc8bfca1025efe522",
+      "size": 5386,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/2f0990f662237e2da8b6bddbc8bfca1025efe522"
+    },
+    {
+      "path": "agent/extensions/loop/index.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3206d3bd31dd2319e6524e30db414b11cc9ba6fd",
+      "size": 6143,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/3206d3bd31dd2319e6524e30db414b11cc9ba6fd"
+    },
+    {
+      "path": "agent/extensions/loop/tests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "84971ba73c5cae0bfef996e85a23664aa30eb0b5",
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/trees/84971ba73c5cae0bfef996e85a23664aa30eb0b5"
+    },
+    {
+      "path": "agent/extensions/loop/tests/fake-cli.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ef0f17e5340cb4e5cb94a977a13c0047df3dcfb4",
+      "size": 935,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/ef0f17e5340cb4e5cb94a977a13c0047df3dcfb4"
+    },
+    {
+      "path": "agent/extensions/loop/tests/loop.test.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "621b447fccd95ec6510cbbe39c01a8e8d8088657",
+      "size": 12334,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/621b447fccd95ec6510cbbe39c01a8e8d8088657"
+    },
+    {
+      "path": "agent/extensions/loop/worker.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c89040acec8697a6bc6cf8d0aeb7297b38a472ca",
+      "size": 4502,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/c89040acec8697a6bc6cf8d0aeb7297b38a472ca"
+    },
+    {
+      "path": "agent/extensions/mac-completion-chime",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8cf47e5a4193de08e127f4454e659f9d1a0b3ba5",
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/trees/8cf47e5a4193de08e127f4454e659f9d1a0b3ba5"
+    },
+    {
+      "path": "agent/extensions/mac-completion-chime/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f530cd881dbb87ec561f354e677a0290e09a2217",
+      "size": 1067,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/f530cd881dbb87ec561f354e677a0290e09a2217"
+    },
+    {
+      "path": "agent/extensions/mac-completion-chime/index.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "62e112cb98872ed57b3913314eedbfc27563c88b",
+      "size": 13508,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/62e112cb98872ed57b3913314eedbfc27563c88b"
+    },
+    {
+      "path": "agent/extensions/peon-ping.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "130d96b063eda1e2184b716ada1baa2eff24fb60",
+      "size": 6473,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/130d96b063eda1e2184b716ada1baa2eff24fb60"
+    },
+    {
+      "path": "agent/extensions/pi-control-hotkeys.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ae2accd327d6666a57bc53bb7546afca43f59cae",
+      "size": 2086,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/ae2accd327d6666a57bc53bb7546afca43f59cae"
+    },
+    {
+      "path": "agent/extensions/pi-help",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e97a2c8c7bcee45d808ee30b63c3b9c80810ed9e",
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/trees/e97a2c8c7bcee45d808ee30b63c3b9c80810ed9e"
+    },
+    {
+      "path": "agent/extensions/pi-help/index.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9991514b27ad7d23dca8419280065b2a4e070a95",
+      "size": 3397,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/9991514b27ad7d23dca8419280065b2a4e070a95"
+    },
+    {
+      "path": "agent/extensions/plan-mode",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0634a6ec3ac555165bc54dc2cc0dca5eac0145c7",
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/trees/0634a6ec3ac555165bc54dc2cc0dca5eac0145c7"
+    },
+    {
+      "path": "agent/extensions/plan-mode/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3de08339086567a31b581fafa9b4688350546ed5",
+      "size": 1407,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/3de08339086567a31b581fafa9b4688350546ed5"
+    },
+    {
+      "path": "agent/extensions/plan-mode/index.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "adaac5fd881251a3707127fb10dbbc013f6318ce",
+      "size": 14316,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/adaac5fd881251a3707127fb10dbbc013f6318ce"
+    },
+    {
+      "path": "agent/extensions/plan-mode/utils.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0aa5049eb5a918f67bd4fa0d46b50abd0477d05d",
+      "size": 3973,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/0aa5049eb5a918f67bd4fa0d46b50abd0477d05d"
+    },
+    {
+      "path": "agent/extensions/ruby-bash-highlighting",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9e81c2ca3177781761752b7cc83f45810cdc3cd1",
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/trees/9e81c2ca3177781761752b7cc83f45810cdc3cd1"
+    },
+    {
+      "path": "agent/extensions/ruby-bash-highlighting/index.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5609b313c2dfa11961dcb8e0486a0dcbd7fcb617",
+      "size": 2499,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/5609b313c2dfa11961dcb8e0486a0dcbd7fcb617"
+    },
+    {
+      "path": "agent/extensions/ruby-bash-highlighting/parse-ruby-command.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "309fe5792d53f72868f8cc9f3eb8eabd72b14449",
+      "size": 2973,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/309fe5792d53f72868f8cc9f3eb8eabd72b14449"
+    },
+    {
+      "path": "agent/extensions/ruby-bash-highlighting/parse-ruby-command.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "066cb67829f6583a4cb9b794107b22e19300993f",
+      "size": 8517,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/066cb67829f6583a4cb9b794107b22e19300993f"
+    },
+    {
+      "path": "agent/extensions/ruby-bash-highlighting/ruby-stdlib-highlighting.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "44c8e6ccd58d78d6c04632796aa4e6825983ea91",
+      "size": 4802,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/44c8e6ccd58d78d6c04632796aa4e6825983ea91"
+    },
+    {
+      "path": "agent/extensions/ruby-bash-highlighting/ruby-stdlib-highlighting.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "50cc34da9d8a82e4966378efae43ccbdc333b6bf",
+      "size": 18409,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/50cc34da9d8a82e4966378efae43ccbdc333b6bf"
+    },
+    {
+      "path": "agent/extensions/session-git-metadata.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d99a4c78e88ed04b85c29c8cc9e7e6861f1963ca",
+      "size": 10431,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/d99a4c78e88ed04b85c29c8cc9e7e6861f1963ca"
+    },
+    {
+      "path": "agent/extensions/tests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b8e966fc87d20ae68e78bd582c614107e81e5ace",
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/trees/b8e966fc87d20ae68e78bd582c614107e81e5ace"
+    },
+    {
+      "path": "agent/extensions/tests/confirm-abort.test.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fd8903ea35f78b2bd9b9a1f69aa5992f6cc21a72",
+      "size": 5336,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/fd8903ea35f78b2bd9b9a1f69aa5992f6cc21a72"
+    },
+    {
+      "path": "agent/extensions/todo-runner",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f7c7a6579bc6ed32517354b7110f89c400742597",
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/trees/f7c7a6579bc6ed32517354b7110f89c400742597"
+    },
+    {
+      "path": "agent/extensions/todo-runner/index.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2f7c5405d71da244a1fc99c53bcb06b6c94e5733",
+      "size": 8565,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/2f7c5405d71da244a1fc99c53bcb06b6c94e5733"
+    },
+    {
+      "path": "agent/extensions/todo-runner/package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e4b7f8bac53155928ea866bab9a36e7ed1ac4e57",
+      "size": 77,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/e4b7f8bac53155928ea866bab9a36e7ed1ac4e57"
+    },
+    {
+      "path": "agent/extensions/worktree.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c30d94e7622051d66e2ead8f83051517a8ba7ec1",
+      "size": 24042,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/c30d94e7622051d66e2ead8f83051517a8ba7ec1"
+    },
+    {
+      "path": "agent/extensions/worktree",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "16cd382195dd9f9b9820a020f42876a37d0d336f",
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/trees/16cd382195dd9f9b9820a020f42876a37d0d336f"
+    },
+    {
+      "path": "agent/extensions/worktree/tests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8f89e8e5a8fd8a41a41e3ded176ce227cc76343e",
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/trees/8f89e8e5a8fd8a41a41e3ded176ce227cc76343e"
+    },
+    {
+      "path": "agent/extensions/worktree/tests/worktree.test.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a7b1cf4e5498a97dc1589f7ad54ae1437f2f3d35",
+      "size": 8849,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/a7b1cf4e5498a97dc1589f7ad54ae1437f2f3d35"
+    },
+    {
+      "path": "agent/keybindings.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b4bb65d74f192584e0217e6a50a9072f68637a7f",
+      "size": 148,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/b4bb65d74f192584e0217e6a50a9072f68637a7f"
+    },
+    {
+      "path": "agent/settings.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fd7acb12fe666ef23775b24b34f8fa52392bb92c",
+      "size": 453,
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/blobs/fd7acb12fe666ef23775b24b34f8fa52392bb92c"
+    }
+  ],
+  "truncated": false
+}

@@ -1,0 +1,279 @@
+name: Visual Regression
+
+on:
+  workflow_call:
+    inputs:
+      preview-app-domain:
+        description: Optional Amplify app domain used to construct PR preview URLs
+        required: false
+        type: string
+      node-version:
+        description: Node.js version used to build the consumer site
+        required: false
+        type: string
+        default: '24'
+
+permissions:
+  actions: read
+  contents: read
+  pull-requests: write
+
+jobs:
+  playwright-image:
+    uses: ./.github/workflows/playwright-image.yml
+
+  visual-regression:
+    name: Desktop, tablet, and phone
+    needs: playwright-image
+    runs-on: ubuntu-latest
+    container:
+      image: ${{ needs.playwright-image.outputs.image }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: ${{ inputs.node-version }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Find latest main baseline artifact
+        id: baseline
+        uses: actions/github-script@v9
+        with:
+          script: |
+            try {
+              const { data } = await github.rest.actions.listWorkflowRuns({
+                ...context.repo,
+                workflow_id: 'visual-baseline.yml',
+                branch: 'main',
+                status: 'success',
+                per_page: 1,
+              })
+              const run = data.workflow_runs[0]
+              if (!run) {
+                core.setFailed('No successful main visual baseline exists')
+                return
+              }
+              const artifacts = await github.paginate(github.rest.actions.listWorkflowRunArtifacts, {
+                ...context.repo,
+                run_id: run.id,
+                per_page: 100,
+              })
+              const artifact = artifacts.find(
+                ({ name, expired }) => name === 'visual-baseline-screenshots' && !expired
+              )
+              if (!artifact) {
+                core.setFailed(`Visual baseline artifact is unavailable for main run ${run.id}`)
+                return
+              }
+              core.setOutput('run-id', run.id)
+              core.notice(`Using visual baseline artifact from main run ${run.id}`)
+            } catch (error) {
+              if (error.status === 404) {
+                core.setFailed('Visual baseline workflow or artifact is unavailable on main')
+                return
+              }
+              throw error
+            }
+
+      - name: Download latest main baseline
+        uses: actions/download-artifact@v8
+        with:
+          name: visual-baseline-screenshots
+          path: tests/visual/__screenshots__
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ steps.baseline.outputs.run-id }}
+
+      - name: Compare full-page screenshots
+        id: visual-tests
+        continue-on-error: true
+        run: npx --no-install run-visual
+
+      - name: Upload Playwright visual report
+        id: visual-report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: playwright-visual-report
+          path: playwright-report/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Upload Playwright test results
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: playwright-test-results
+          path: test-results/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Comment testing recommendations on PR
+        if: ${{ always() && github.event_name == 'pull_request' }}
+        uses: actions/github-script@v9
+        env:
+          TEST_OUTCOME: ${{ steps.visual-tests.outcome }}
+          AMPLIFY_PREVIEW_APP_DOMAIN: ${{ inputs.preview-app-domain }}
+          PLAYWRIGHT_REPORT_URL: ${{ steps.visual-report.outputs.artifact-url }}
+        with:
+          script: |
+            const fs = require('node:fs')
+            const marker = '<!-- visual-regression-report -->'
+            const changesPath = 'test-results/visual-changes.json'
+            const runUrl = `${process.env.GITHUB_SERVER_URL}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
+            const previewUrlPattern = /https:\/\/pr-\d+\.[^/\s]+\.amplifyapp\.com/
+
+            async function resolveAmplifyPreviewUrl() {
+              const comments = await github.paginate(github.rest.issues.listComments, {
+                ...context.repo,
+                issue_number: context.issue.number,
+                per_page: 100,
+              })
+
+              for (const comment of comments) {
+                if (!comment.body?.includes('amplifyapp.com')) continue
+                const match = comment.body.match(previewUrlPattern)
+                if (match) return match[0]
+              }
+
+              const appDomain = process.env.AMPLIFY_PREVIEW_APP_DOMAIN
+              if (appDomain) return `https://pr-${context.issue.number}.${appDomain}`
+              return null
+            }
+
+            function pageLabel(route) {
+              if (route === '/') return 'Homepage'
+              const segments = route.split('/').filter(Boolean)
+              const last = segments[segments.length - 1] ?? route
+              return last
+                .split('-')
+                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ')
+            }
+
+            function appendPages(lines, pages, previewUrl) {
+              for (const page of pages) {
+                const viewports = page.viewports.join(', ')
+                if (previewUrl) {
+                  const pageUrl = new URL(page.route, `${previewUrl}/`).toString()
+                  lines.push(`- [ ] [${pageLabel(page.route)}](${pageUrl}) (\`${page.route}\`) — ${viewports}`)
+                } else {
+                  lines.push(`- [ ] \`${page.route}\` — ${viewports}`)
+                }
+              }
+            }
+
+            function buildCommentBody(previewUrl, payload) {
+              const lines = ['## Visual testing recommendations', '', `**Visual check:** ${payload.status}`]
+
+              if (payload.newlyAddedPages?.length > 0) {
+                lines.push(
+                  '',
+                  '### Newly added pages',
+                  '',
+                  'No baseline screenshots existed for these route and viewport combinations:'
+                )
+                appendPages(lines, payload.newlyAddedPages, previewUrl)
+                lines.push('', 'Their generated screenshots should be manually reviewed.')
+              }
+
+              if (payload.changedPages?.length > 0) {
+                lines.push(
+                  '',
+                  '### Pages recommended for manual testing',
+                  '',
+                  'Visual differences were detected on these route and viewport combinations:'
+                )
+                appendPages(lines, payload.changedPages, previewUrl)
+
+                lines.push(
+                  '',
+                  'Test these pages before approving the visual changes.'
+                )
+              }
+
+              if (payload.newlyAddedPages?.length > 0 || payload.changedPages?.length > 0) {
+                lines.push(
+                  '',
+                  `[Download the Playwright visual diff report](${process.env.PLAYWRIGHT_REPORT_URL || runUrl}) and open \`playwright-report/index.html\` to review expected, actual, and diff screenshots.`
+                )
+                if (previewUrl) {
+                  lines.push('', `**Amplify preview:** ${previewUrl}`)
+                } else {
+                  lines.push(
+                    '',
+                    '_Amplify preview URL was not found. Pass `preview-app-domain` to the reusable workflow or wait for the Amplify deploy comment._'
+                  )
+                }
+              }
+
+              if (
+                !payload.newlyAddedPages?.length &&
+                !payload.changedPages?.length &&
+                payload.status !== 'passed'
+              ) {
+                lines.push(
+                  '',
+                  'No completed visual differences were identified. The test run failed for another reason; inspect the workflow logs.'
+                )
+              } else if (!payload.newlyAddedPages?.length && !payload.changedPages?.length) {
+                lines.push('', '✅ No pages need additional visual testing.')
+              }
+
+              lines.push('', `<sub>[View workflow run](${runUrl})</sub>`)
+              return [marker, ...lines].join('\n')
+            }
+
+            let payload = {
+              status: process.env.TEST_OUTCOME,
+              newlyAddedPages: [],
+              changedPages: [],
+            }
+            if (fs.existsSync(changesPath)) {
+              payload = JSON.parse(fs.readFileSync(changesPath, 'utf8'))
+            }
+
+            const previewUrl = await resolveAmplifyPreviewUrl()
+            const body = buildCommentBody(previewUrl, payload)
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              ...context.repo,
+              issue_number: context.issue.number,
+              per_page: 100,
+            })
+            const existingComment = comments.find((comment) =>
+              comment.user?.type === 'Bot' && comment.body?.includes(marker)
+            )
+
+            if (existingComment) {
+              await github.rest.issues.updateComment({
+                ...context.repo,
+                comment_id: existingComment.id,
+                body,
+              })
+            } else {
+              await github.rest.issues.createComment({
+                ...context.repo,
+                issue_number: context.issue.number,
+                body,
+              })
+            }
+
+      - name: Fail genuine test errors
+        if: ${{ always() && steps.visual-tests.outcome == 'failure' }}
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs')
+          const path = 'test-results/visual-changes.json'
+          if (!fs.existsSync(path)) process.exit(1)
+          const result = JSON.parse(fs.readFileSync(path, 'utf8'))
+          const hasAdvisoryPages =
+            result.newlyAddedPages?.length > 0 || result.changedPages?.length > 0
+          if (result.hasNonVisualFailures || !hasAdvisoryPages) process.exit(1)
+          NODE

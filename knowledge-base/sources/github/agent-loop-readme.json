@@ -1,0 +1,18 @@
+{
+  "name": "Readme.md",
+  "path": "Readme.md",
+  "sha": "ecfa8d3b8db06feb8493f9685efcde7887b016ab",
+  "size": 1113,
+  "url": "https://api.github.com/repos/BrandonMathis/agent-loop/contents/Readme.md?ref=main",
+  "html_url": "https://github.com/BrandonMathis/agent-loop/blob/main/Readme.md",
+  "git_url": "https://api.github.com/repos/BrandonMathis/agent-loop/git/blobs/ecfa8d3b8db06feb8493f9685efcde7887b016ab",
+  "download_url": "https://raw.githubusercontent.com/BrandonMathis/agent-loop/main/Readme.md",
+  "type": "file",
+  "content": "IyBBZ2VudCBMb29wCgpBIGNvbW1hbmQgbGluZSB1dGlsaXR5IHRoYXQgcnVu\ncyB0aGUgUGkgY29kaW5nIGFnZW50IGluIGEgbG9vcCB0byB3b3JrIHRhc2tz\nIG9uZSBieSBvbmUgZnJvbSBhIFByb21wdC5tZAoKIyMgUHJvamVjdCBHb2Fs\ncwoxLiBDYW4gYmUgY2xvbmVkIGRvd24gYW5kIHJ1biB3aXRoIG1pbmltYWwg\nc2V0dXAKMS4gVGhpcyBwcm9qZWN0IGNhbiB3b3JrIGluIGV4aXN0aW5nIHJl\ncG9zIHdpdGggbWluaW1hbCBjb25maWd1cmF0aW9uCjEuIFplcm8gZGVwZW5k\nZW5jaWVzIG90aGVyIHRoYW4gUGkgYW5kIGJhc2gKCiMjIEluc3RhbGwKCmBg\nYGJhc2gKYmFzaCA8KGN1cmwgLWZzU0wgaHR0cHM6Ly9yYXcuZ2l0aHVidXNl\ncmNvbnRlbnQuY29tL0JyYW5kb25NYXRoaXMvYWdlbnQtbG9vcC9tYWluL2lu\nc3RhbGwuc2gpCmBgYAoKVGhpcyBhbHdheXMgZG93bmxvYWRzIHRoZSBsYXRl\nc3QgYHN0YXJ0X2FnZW50X2xvb3Auc2hgIGludG8geW91ciBjdXJyZW50IGRp\ncmVjdG9yeS4gSXQgZG93bmxvYWRzIGBQcm9tcHQubWRgIG9ubHkgd2hlbiBv\nbmUgZG9lcyBub3QgYWxyZWFkeSBleGlzdC4KCkJlZm9yZSBydW5uaW5nIHRo\nZSBsb29wLCBpbnN0YWxsIGFuZCBhdXRoZW50aWNhdGUgdGhlIGBwaWAgQ0xJ\nLgoKIyMgVXNhZ2UKMS4gRWRpdCBgUHJvbXB0Lm1kYCB3aXRoIHlvdXIgdGFz\na3MKMi4gUnVuIGFnZW50IGxvb3Agc2NyaXB0CgoqKkRlZmF1bHQqKgpgYGAK\nLi9zdGFydF9hZ2VudF9sb29wLnNoCmBgYAoKKipUcnVzdCBQcm9qZWN0IFBp\nIFJlc291cmNlcyoqCmBgYAouL3N0YXJ0X2FnZW50X2xvb3Auc2ggLS1kYW5n\nZXJvdXMKYGBgIAoKQnkgZGVmYXVsdCB0aGUgc2NyaXB0IHJ1bnMgYHBpIC1w\nIC0tbm8tYXBwcm92ZWAsIHNvIHByb2plY3QtbG9jYWwgUGkgc2V0dGluZ3Mg\nYW5kIGV4dGVuc2lvbnMgYXJlIG5vdCBhcHByb3ZlZCBmb3IgdGhlIG5vbi1p\nbnRlcmFjdGl2ZSBydW4uIFRoZSBgLS1kYW5nZXJvdXNgIGZsYWcgY2hhbmdl\ncyB0aGlzIHRvIGBwaSAtcCAtLWFwcHJvdmVgLCBhbGxvd2luZyBQaSB0byB0\ncnVzdCBhbmQgbG9hZCBwcm9qZWN0LWxvY2FsIHJlc291cmNlcy4gT25seSB1\nc2UgaXQgaW4gcmVwb3NpdG9yaWVzIHlvdSB0cnVzdC4K\n",
+  "encoding": "base64",
+  "_links": {
+    "self": "https://api.github.com/repos/BrandonMathis/agent-loop/contents/Readme.md?ref=main",
+    "git": "https://api.github.com/repos/BrandonMathis/agent-loop/git/blobs/ecfa8d3b8db06feb8493f9685efcde7887b016ab",
+    "html": "https://github.com/BrandonMathis/agent-loop/blob/main/Readme.md"
+  }
+}

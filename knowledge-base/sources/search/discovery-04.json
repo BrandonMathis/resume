@@ -1,0 +1,195 @@
+{
+  "responseId": "mw2mwwnzt2566p",
+  "fetchId": "mw2mwwnnz5a2kn",
+  "queries": [
+    {
+      "query": "site:thisdot.co/blog \"Brandon Mathis\" -mongodb -roo",
+      "answer": "The matching **Brandon Mathis** posts on This Dot’s blog are:\n\n- [Roo Custom Modes](https://www.thisdot.co/blog/roo-custom-modes) — published June 13, 2025.\n- [Next.js + MongoDB Connection Storming](https://www.thisdot.co/blog/next-js-mongodb-connection-storming) — published July 11, 2025. ([thisdot.co](https://www.thisdot.co/blog/roo-custom-modes?utm_source=openai))",
+      "error": null,
+      "provider": "openai",
+      "providers": [
+        "openai"
+      ],
+      "results": [
+        {
+          "title": "Roo Custom Modes - This Dot Labs",
+          "url": "https://www.thisdot.co/blog/roo-custom-modes",
+          "snippet": "orming](https://www.thisdot.co/blog/next-js-mongodb-connection-storming) — published July 11, 2025. (thisdot.co)"
+        },
+        {
+          "title": "https://www.thisdot.co/team",
+          "url": "https://www.thisdot.co/team",
+          "snippet": ""
+        },
+        {
+          "title": "https://www.thisdot.co/blog/next-js-mongodb-connection-storming",
+          "url": "https://www.thisdot.co/blog/next-js-mongodb-connection-storming",
+          "snippet": ""
+        },
+        {
+          "title": "https://www.thisdot.co/blog?authors=lindsay+wardell",
+          "url": "https://www.thisdot.co/blog?authors=lindsay+wardell",
+          "snippet": ""
+        },
+        {
+          "title": "https://www.thisdot.co/blog?authors=jesse+tomchak",
+          "url": "https://www.thisdot.co/blog?authors=jesse+tomchak",
+          "snippet": ""
+        }
+      ]
+    },
+    {
+      "query": "\"Brandon Mathis\" \"2026\" \"talk\"",
+      "answer": "If you mean **Brandon Mathis of This Dot Labs**, I found a couple of 2026 talks/events:\n\n- **State of AI** — an online panel scheduled for **November 5, 2026**, featuring Mathis and other speakers discussing how to ship AI in real products and organizations. ([teapawt.org](https://teapawt.org/ladyleet?utm_source=openai))\n- **State of React Native** — an online event on **March 18, 2026**, where Mathis was announced as a participant. ([linkedin.com](https://www.linkedin.com/in/mathisbrandon?utm_source=openai))\n- A **June 11, 2026** Meetup listing also names Mathis as a speaker, with a talk about using and customizing Pi as a coding agent. ([meetup.com](https://www.meetup.com/refactr-tech/events/315029691/?eventOrigin=group_upcoming_events&utm_source=openai))\n\nThere are multiple people named Brandon Mathis; if you meant someone else, tell me which one.",
+      "error": null,
+      "provider": "openai",
+      "providers": [
+        "openai"
+      ],
+      "results": [
+        {
+          "title": "Tracy Lee | ladyleet (@ladyleet) | teapawt",
+          "url": "https://teapawt.org/ladyleet",
+          "snippet": ", featuring Mathis and other speakers discussing how to ship AI in real products and organizations. (teapawt.org)\n- **State of React Native** — an online event on **March 18, 2026**, where Mathis was announced as"
+        },
+        {
+          "title": "Brandon Mathis - This Dot | LinkedIn",
+          "url": "https://www.linkedin.com/in/mathisbrandon",
+          "snippet": "eact Native** — an online event on **March 18, 2026**, where Mathis was announced as a participant. (linkedin.com)\n- A **June 11, 2026** Meetup listing also names Mathis as a speaker, with a talk about using and cu"
+        },
+        {
+          "title": "Christmas in June, Thu, Jun 11, 2026, 6:30 PM | Meetup",
+          "url": "https://www.meetup.com/refactr-tech/events/315029691/?eventOrigin=group_upcoming_events",
+          "snippet": "sting also names Mathis as a speaker, with a talk about using and customizing Pi as a coding agent. (meetup.com)\n\nThere are multiple people named Brandon Mathis; if you meant someone else, tell me which one."
+        },
+        {
+          "title": "https://www.seedops.co/companies/thisdotlabs",
+          "url": "https://www.seedops.co/companies/thisdotlabs",
+          "snippet": ""
+        },
+        {
+          "title": "https://memphisallies.org/blog/breakthrough-conference-2026",
+          "url": "https://memphisallies.org/blog/breakthrough-conference-2026",
+          "snippet": ""
+        },
+        {
+          "title": "https://www.smwautoblok.com/us/en/news/national-sales-manager-brandon-mathis/",
+          "url": "https://www.smwautoblok.com/us/en/news/national-sales-manager-brandon-mathis/",
+          "snippet": ""
+        },
+        {
+          "title": "https://celebrationmontrose.org/sermons",
+          "url": "https://celebrationmontrose.org/sermons",
+          "snippet": ""
+        },
+        {
+          "title": "https://www.meetup.com/trianglemodernweb/events/316948039/?eventOrigin=find_page%24all&recId=43b24d4e-21d1-4a09-ab0e-e4b7683c416c&recSource=event-search&searchId=722d6183-ae11-4d0f-bfc5-75d6e29b6ecd",
+          "url": "https://www.meetup.com/trianglemodernweb/events/316948039/?eventOrigin=find_page%24all&recId=43b24d4e-21d1-4a09-ab0e-e4b7683c416c&recSource=event-search&searchId=722d6183-ae11-4d0f-bfc5-75d6e29b6ecd",
+          "snippet": ""
+        }
+      ]
+    },
+    {
+      "query": "\"Brandon Mathis\" \"2016\" \"talk\"",
+      "answer": "I found a likely match: **Brandon Mathis** (@imathis) gave a 2016 talk titled **“How to Win Friends and Influence in the Open Source Community”** at All Things Open. ([opensource.com](https://opensource.com/life/16/10/meet-us-ato?utm_source=openai))\n\nIf you meant a different Brandon Mathis, tell me the topic or venue and I can narrow it down.",
+      "error": null,
+      "provider": "openai",
+      "providers": [
+        "openai"
+      ],
+      "results": [
+        {
+          "title": "Meet Opensource.com writers, moderators, and interviewees at All Things Open | Opensource.com",
+          "url": "https://opensource.com/life/16/10/meet-us-ato",
+          "snippet": "talk titled **“How to Win Friends and Influence in the Open Source Community”** at All Things Open. (opensource.com)\n\nIf you meant a different Brandon Mathis, tell me the topic or venue and I can narrow it down."
+        },
+        {
+          "title": "https://www.kirtland.af.mil/News/Article-Display/Article/817180/first-airmen-with-no-prior-military-experience-tackle-cearf-course/",
+          "url": "https://www.kirtland.af.mil/News/Article-Display/Article/817180/first-airmen-with-no-prior-military-experience-tackle-cearf-course/",
+          "snippet": ""
+        },
+        {
+          "title": "https://git.danballard.com/dan/jekyll/src/commit/d4a68eb64251d18f3d09ebfd779875044cf87099/site/_data/jekyllconf-talks.yml",
+          "url": "https://git.danballard.com/dan/jekyll/src/commit/d4a68eb64251d18f3d09ebfd779875044cf87099/site/_data/jekyllconf-talks.yml",
+          "snippet": ""
+        },
+        {
+          "title": "https://allthingsopen.org/articles/graphql-future-api-development",
+          "url": "https://allthingsopen.org/articles/graphql-future-api-development",
+          "snippet": ""
+        },
+        {
+          "title": "https://services.austintexas.gov/edims/document.cfm?id=192938",
+          "url": "https://services.austintexas.gov/edims/document.cfm?id=192938",
+          "snippet": ""
+        },
+        {
+          "title": "https://www.maxpreps.com/az/surprise/valley-vista-monsoon/athletes/brandon-mathis/?careerid=u5r6bavkk62i2",
+          "url": "https://www.maxpreps.com/az/surprise/valley-vista-monsoon/athletes/brandon-mathis/?careerid=u5r6bavkk62i2",
+          "snippet": ""
+        },
+        {
+          "title": "https://cfa.lmu.edu/media/lmucommunicationandfinearts/departments/dance/documents/CanYouBringItPlaybill.pdf",
+          "url": "https://cfa.lmu.edu/media/lmucommunicationandfinearts/departments/dance/documents/CanYouBringItPlaybill.pdf",
+          "snippet": ""
+        },
+        {
+          "title": "https://cms5.revize.com/revize/wascocounty/BOCC%20Archives/2016/%2810%29%203-28-2016%20BOCC%20OMG%20Public%20Hearing%20Minutes.pdf",
+          "url": "https://cms5.revize.com/revize/wascocounty/BOCC%20Archives/2016/%2810%29%203-28-2016%20BOCC%20OMG%20Public%20Hearing%20Minutes.pdf",
+          "snippet": ""
+        }
+      ]
+    },
+    {
+      "query": "\"Brandon Mathis\" \"Fraqture\"",
+      "answer": "I couldn’t find a reliable public result connecting **Brandon Mathis** with **Fraqture**. Search results show a Brandon Mathis profile from the University of Central Arkansas, but nothing tying him to Fraqture. ([uca.edu](https://uca.edu/art/2014/01/21/brandon-mathis/?utm_source=openai))\n\nIf you mean a particular person, company, or project called Fraqture, share a little more context and I can narrow it down.",
+      "error": null,
+      "provider": "openai",
+      "providers": [
+        "openai"
+      ],
+      "results": [
+        {
+          "title": "Brandon Mathis — Art and Design",
+          "url": "https://uca.edu/art/2014/01/21/brandon-mathis/",
+          "snippet": "Brandon Mathis profile from the University of Central Arkansas, but nothing tying him to Fraqture. (uca.edu)\n\nIf you mean a particular person, company, or project called Fraqture, share a little more context"
+        },
+        {
+          "title": "https://www.idcrawl.com/brandon-mathis",
+          "url": "https://www.idcrawl.com/brandon-mathis",
+          "snippet": ""
+        },
+        {
+          "title": "https://www.jonathanmurillo.com/fracture",
+          "url": "https://www.jonathanmurillo.com/fracture",
+          "snippet": ""
+        },
+        {
+          "title": "https://en.wikipedia.org/wiki/Mathis",
+          "url": "https://en.wikipedia.org/wiki/Mathis",
+          "snippet": ""
+        },
+        {
+          "title": "https://www.saatchiart.com/ferisfineart",
+          "url": "https://www.saatchiart.com/ferisfineart",
+          "snippet": ""
+        },
+        {
+          "title": "https://fitzpatrick.gallery/artists/mathis-altmann",
+          "url": "https://fitzpatrick.gallery/artists/mathis-altmann",
+          "snippet": ""
+        },
+        {
+          "title": "https://www.saatchiart.com/art/Sculpture-Cracks-XVI/894731/8900334/view",
+          "url": "https://www.saatchiart.com/art/Sculpture-Cracks-XVI/894731/8900334/view",
+          "snippet": ""
+        },
+        {
+          "title": "https://vietchigo.i234.me/library/magazine/painting/ArtAscent/ArtAscent_2016-08.pdf",
+          "url": "https://vietchigo.i234.me/library/magazine/painting/ArtAscent/ArtAscent_2016-08.pdf",
+          "snippet": ""
+        }
+      ]
+    }
+  ]
+}

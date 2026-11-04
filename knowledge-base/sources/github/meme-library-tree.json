@@ -1,0 +1,761 @@
+{
+  "sha": "69e091110c65227e52e216c1018593ee7657c5f9",
+  "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/trees/69e091110c65227e52e216c1018593ee7657c5f9",
+  "tree": [
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "35c27d6fe4d6ac66001b314d4d6d81d8041639b6",
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/trees/35c27d6fe4d6ac66001b314d4d6d81d8041639b6"
+    },
+    {
+      "path": ".github/workflows",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "021bdb5d3e6c4605b3a657923d93205320a7c647",
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/trees/021bdb5d3e6c4605b3a657923d93205320a7c647"
+    },
+    {
+      "path": ".github/workflows/ci-and-update.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "570262f46c3625cc40cbcf1dfaa517e8b3b8406e",
+      "size": 12793,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/570262f46c3625cc40cbcf1dfaa517e8b3b8406e"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f8c6c2e83a6de11bc0beffa256c9c2808fc375f6",
+      "size": 453,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/f8c6c2e83a6de11bc0beffa256c9c2808fc375f6"
+    },
+    {
+      "path": ".npmrc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "521a9f7c0773588848ad5fa8a074ceca964a6b41",
+      "size": 22,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/521a9f7c0773588848ad5fa8a074ceca964a6b41"
+    },
+    {
+      "path": ".prettierignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "768f8a7898796a5c65006bfdb9e133b07c03cf8e",
+      "size": 48,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/768f8a7898796a5c65006bfdb9e133b07c03cf8e"
+    },
+    {
+      "path": ".prettierrc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "243b2659a40341d32a0eb0467c6f748ad895cd5f",
+      "size": 106,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/243b2659a40341d32a0eb0467c6f748ad895cd5f"
+    },
+    {
+      "path": ".vscode",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f91d3ca72c01757f732b03e12ff98429244c7bb3",
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/trees/f91d3ca72c01757f732b03e12ff98429244c7bb3"
+    },
+    {
+      "path": ".vscode/extensions.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b7ed83779759a0a1e6cf2d181f45fe6b67be47dc",
+      "size": 50,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/b7ed83779759a0a1e6cf2d181f45fe6b67be47dc"
+    },
+    {
+      "path": ".vscode/settings.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e2798e4264cbbbf1806ebf8f1ab263c009458ff9",
+      "size": 152,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/e2798e4264cbbbf1806ebf8f1ab263c009458ff9"
+    },
+    {
+      "path": "AI_WORKFLOW_TALK.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c7e0f0ece0d4fd09bce351b3851f87840147acc2",
+      "size": 18243,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/c7e0f0ece0d4fd09bce351b3851f87840147acc2"
+    },
+    {
+      "path": "Agents.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c67a38611d0230733160195457a36d6cc6e1cf90",
+      "size": 2768,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/c67a38611d0230733160195457a36d6cc6e1cf90"
+    },
+    {
+      "path": "CLAUDE.md",
+      "mode": "120000",
+      "type": "blob",
+      "sha": "9680871870c2b42b19a4ec6ac89bb7ad5252e917",
+      "size": 9,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/9680871870c2b42b19a4ec6ac89bb7ad5252e917"
+    },
+    {
+      "path": "PLAN-meme-sync-strategy.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5cc080c22f82a1c3b99330e1dadd1d42e701b63a",
+      "size": 21956,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/5cc080c22f82a1c3b99330e1dadd1d42e701b63a"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e25e8b876f907ae161b6836233fff7100d66823c",
+      "size": 2228,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/e25e8b876f907ae161b6836233fff7100d66823c"
+    },
+    {
+      "path": "__mocks__",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c3e9d2c7ff9e378fa4b7b0c084eadda677d49147",
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/trees/c3e9d2c7ff9e378fa4b7b0c084eadda677d49147"
+    },
+    {
+      "path": "__mocks__/setup.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "73340801ce3741fbb04ed5b01c36a89058a4e3b8",
+      "size": 4096,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/73340801ce3741fbb04ed5b01c36a89058a4e3b8"
+    },
+    {
+      "path": "__tests__",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "cc1d51ed288e935f1e3f5e2547f1b742cfd96cab",
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/trees/cc1d51ed288e935f1e3f5e2547f1b742cfd96cab"
+    },
+    {
+      "path": "__tests__/AddMemeModal.test.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ab1678a32b7cb47624d341c445c50d11bc03d0dc",
+      "size": 5250,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/ab1678a32b7cb47624d341c445c50d11bc03d0dc"
+    },
+    {
+      "path": "__tests__/AddMemeScreen.test.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9cf0fe1675cd131b5b3cee97c971217533166001",
+      "size": 7084,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/9cf0fe1675cd131b5b3cee97c971217533166001"
+    },
+    {
+      "path": "__tests__/MemeDetailModal.test.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f8f1b7ef684c57b73e9f7613de5b86a4172510e3",
+      "size": 4779,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/f8f1b7ef684c57b73e9f7613de5b86a4172510e3"
+    },
+    {
+      "path": "__tests__/MemeLibraryContext.test.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d1889c3931ddb4066346b171c49788fc710f3a23",
+      "size": 9787,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/d1889c3931ddb4066346b171c49788fc710f3a23"
+    },
+    {
+      "path": "__tests__/MemeLibraryScreen.test.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e062793c5d63886497f4ecf56ae1b9572407b633",
+      "size": 4938,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/e062793c5d63886497f4ecf56ae1b9572407b633"
+    },
+    {
+      "path": "__tests__/SettingsBuildInfo.test.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "69f3ff891262565b1ea7eb3f8ac1d4744e3acb52",
+      "size": 1608,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/69f3ff891262565b1ea7eb3f8ac1d4744e3acb52"
+    },
+    {
+      "path": "__tests__/SettingsContext.test.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "22a59d68d8356428c5232d870ec467726dc60732",
+      "size": 2623,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/22a59d68d8356428c5232d870ec467726dc60732"
+    },
+    {
+      "path": "__tests__/SettingsThemePicker.test.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "72257627ba773eed800270567a3098bdaa8bc6c7",
+      "size": 2481,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/72257627ba773eed800270567a3098bdaa8bc6c7"
+    },
+    {
+      "path": "__tests__/SuccessAnimation.test.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "10120e75fb441e1079c59c74d70f6f558f0660d7",
+      "size": 1248,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/10120e75fb441e1079c59c74d70f6f558f0660d7"
+    },
+    {
+      "path": "__tests__/TagInput.test.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "368e3fa2450bcb550bb007ca95c4a44ec67d872d",
+      "size": 4036,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/368e3fa2450bcb550bb007ca95c4a44ec67d872d"
+    },
+    {
+      "path": "__tests__/ThemeContext.test.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b7688815f126e65a1840310d994f6aac30534471",
+      "size": 3316,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/b7688815f126e65a1840310d994f6aac30534471"
+    },
+    {
+      "path": "app.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f15a60a58a6c43ed287db752293205d93222deb3",
+      "size": 1574,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/f15a60a58a6c43ed287db752293205d93222deb3"
+    },
+    {
+      "path": "app",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4a2e1a9f38b948a3a392346d33bebac4ab29c71c",
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/trees/4a2e1a9f38b948a3a392346d33bebac4ab29c71c"
+    },
+    {
+      "path": "app/(tabs)",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ac68bc1054245267bed40dbd29a5ab9652dd5208",
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/trees/ac68bc1054245267bed40dbd29a5ab9652dd5208"
+    },
+    {
+      "path": "app/(tabs)/_layout.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "68e5bbee0882155f2bd36c35546fe4e268598d7e",
+      "size": 1279,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/68e5bbee0882155f2bd36c35546fe4e268598d7e"
+    },
+    {
+      "path": "app/(tabs)/add.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1f783be18f7fab496a338e6d41978ca588a1408f",
+      "size": 5688,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/1f783be18f7fab496a338e6d41978ca588a1408f"
+    },
+    {
+      "path": "app/(tabs)/index.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f0003c0e8ddbd3ccc5b5bec87965f4da25b2abce",
+      "size": 3427,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/f0003c0e8ddbd3ccc5b5bec87965f4da25b2abce"
+    },
+    {
+      "path": "app/(tabs)/settings.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eb1139dd9a454dc01522342f31ef2e050902daac",
+      "size": 11205,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/eb1139dd9a454dc01522342f31ef2e050902daac"
+    },
+    {
+      "path": "app/AddMemeModal.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0496431cb1a4d12188c94fbe31c4bc5b66dcfbd9",
+      "size": 1905,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/0496431cb1a4d12188c94fbe31c4bc5b66dcfbd9"
+    },
+    {
+      "path": "app/MemeDetailModal.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f30153a5bfe069b4c1702adf0d18632a538f50d2",
+      "size": 4919,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/f30153a5bfe069b4c1702adf0d18632a538f50d2"
+    },
+    {
+      "path": "app/_layout.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e8dbc4077dd10d2322cc1ace9d4d011298e8ee6d",
+      "size": 2661,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/e8dbc4077dd10d2322cc1ace9d4d011298e8ee6d"
+    },
+    {
+      "path": "app/index.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3861ed0064c0713451364b8e865727dc6a391b4c",
+      "size": 115,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/3861ed0064c0713451364b8e865727dc6a391b4c"
+    },
+    {
+      "path": "assets",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5ca12b57f6d1765a70245bb2d7ccb59b5f5e4361",
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/trees/5ca12b57f6d1765a70245bb2d7ccb59b5f5e4361"
+    },
+    {
+      "path": "assets/images",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a6c79b299b69ce688dc06bd264d7d21c939c5987",
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/trees/a6c79b299b69ce688dc06bd264d7d21c939c5987"
+    },
+    {
+      "path": "assets/images/android-icon-background.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5ffefc5bb57a3d7b39ec6ff4e96979226522cc49",
+      "size": 17549,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/5ffefc5bb57a3d7b39ec6ff4e96979226522cc49"
+    },
+    {
+      "path": "assets/images/android-icon-foreground.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3a9e5016dca4804f37ba410ba49e70055e1ccad2",
+      "size": 78796,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/3a9e5016dca4804f37ba410ba49e70055e1ccad2"
+    },
+    {
+      "path": "assets/images/android-icon-monochrome.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "77484ebdbca253297baea4a7d416233aa47a45c0",
+      "size": 4140,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/77484ebdbca253297baea4a7d416233aa47a45c0"
+    },
+    {
+      "path": "assets/images/favicon.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "408bd746615785760b09e6f23fa8378d3e614331",
+      "size": 1129,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/408bd746615785760b09e6f23fa8378d3e614331"
+    },
+    {
+      "path": "assets/images/icon.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7165a53c7475d846df195bc570482459d61bad67",
+      "size": 393493,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/7165a53c7475d846df195bc570482459d61bad67"
+    },
+    {
+      "path": "assets/images/partial-react-logo.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "66fd9570e4fac42bca15352def191c563100b2ed",
+      "size": 5075,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/66fd9570e4fac42bca15352def191c563100b2ed"
+    },
+    {
+      "path": "assets/images/react-logo.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d72a9ffcbb39d89709073e1a7edd8ba414932c1",
+      "size": 6341,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/9d72a9ffcbb39d89709073e1a7edd8ba414932c1"
+    },
+    {
+      "path": "assets/images/react-logo@2x.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2229b130ad5b73fdef7d59ff544abd4cb2377bef",
+      "size": 14225,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/2229b130ad5b73fdef7d59ff544abd4cb2377bef"
+    },
+    {
+      "path": "assets/images/react-logo@3x.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a99b2032221d57c88b6c44e7e22d93ddda78e008",
+      "size": 21252,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/a99b2032221d57c88b6c44e7e22d93ddda78e008"
+    },
+    {
+      "path": "assets/images/splash-icon.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "03d6f6b6c6727954aec1d8206222769afd178d8d",
+      "size": 17547,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/03d6f6b6c6727954aec1d8206222769afd178d8d"
+    },
+    {
+      "path": "babel.config.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7d507e111460d6f28687de945db53f6de06b4c62",
+      "size": 165,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/7d507e111460d6f28687de945db53f6de06b4c62"
+    },
+    {
+      "path": "components.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "170eb3f6bd9c8f876c1c4cfa9d2aafa0e350e718",
+      "size": 395,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/170eb3f6bd9c8f876c1c4cfa9d2aafa0e350e718"
+    },
+    {
+      "path": "components",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ff4c357089b9f3eebb8e9db52ec6122101e29c88",
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/trees/ff4c357089b9f3eebb8e9db52ec6122101e29c88"
+    },
+    {
+      "path": "components/MemeModalContent.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bdaa3e65b4943ecb95c1d07b030a44ab8eb0bac6",
+      "size": 1341,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/bdaa3e65b4943ecb95c1d07b030a44ab8eb0bac6"
+    },
+    {
+      "path": "components/SuccessAnimation.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5fa9ab144389d1d0eec64580bfe6b794e77fc689",
+      "size": 1967,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/5fa9ab144389d1d0eec64580bfe6b794e77fc689"
+    },
+    {
+      "path": "components/TagInput.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f0bea833425a8516e02e7e7b42ce85179d9d03ee",
+      "size": 1775,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/f0bea833425a8516e02e7e7b42ce85179d9d03ee"
+    },
+    {
+      "path": "components/ui",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "033e8271f257d7c87df0bc99e24d4dce59f67815",
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/trees/033e8271f257d7c87df0bc99e24d4dce59f67815"
+    },
+    {
+      "path": "components/ui/AlertDialog.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "42556e8d5b653e5e42fa8e4a1b26398052a1aec8",
+      "size": 4488,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/42556e8d5b653e5e42fa8e4a1b26398052a1aec8"
+    },
+    {
+      "path": "components/ui/Badge.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1bb8cbddb87aba9d09ef873be5e298a116dad62e",
+      "size": 2245,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/1bb8cbddb87aba9d09ef873be5e298a116dad62e"
+    },
+    {
+      "path": "components/ui/Button.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1f0432603e40a4bb3e2e36b451a7b7930dfc451a",
+      "size": 3797,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/1f0432603e40a4bb3e2e36b451a7b7930dfc451a"
+    },
+    {
+      "path": "components/ui/Card.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "87930742120d528911b1c4e74d016f8ac2c9b223",
+      "size": 1614,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/87930742120d528911b1c4e74d016f8ac2c9b223"
+    },
+    {
+      "path": "components/ui/IconSymbol.ios.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9177f4daf238a4eb6688308695e68a8c19dc5eb3",
+      "size": 598,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/9177f4daf238a4eb6688308695e68a8c19dc5eb3"
+    },
+    {
+      "path": "components/ui/IconSymbol.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5427a1d1e638eceb1285c88ffb15c3491530380a",
+      "size": 1696,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/5427a1d1e638eceb1285c88ffb15c3491530380a"
+    },
+    {
+      "path": "components/ui/Input.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a5dcdf2709229a86879569c3055cff62f3d8511",
+      "size": 1206,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/9a5dcdf2709229a86879569c3055cff62f3d8511"
+    },
+    {
+      "path": "components/ui/NativeOnlyAnimatedView.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "275033af22c3b6ab93cd823906ae4cdb246c83e8",
+      "size": 776,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/275033af22c3b6ab93cd823906ae4cdb246c83e8"
+    },
+    {
+      "path": "components/ui/Separator.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a11ce144aaba07870b33542fb080f5964e1453d",
+      "size": 591,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/1a11ce144aaba07870b33542fb080f5964e1453d"
+    },
+    {
+      "path": "components/ui/Text.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f79c65b9b21cadd107ffb9a57b26060422e9ad3e",
+      "size": 2573,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/f79c65b9b21cadd107ffb9a57b26060422e9ad3e"
+    },
+    {
+      "path": "context",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "772b6cbd48f22b9923c3086f81263ca5e85a40aa",
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/trees/772b6cbd48f22b9923c3086f81263ca5e85a40aa"
+    },
+    {
+      "path": "context/MemeLibrary.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e3716211e8dfd047b4b75dacfffec3dfd1c7168f",
+      "size": 3931,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/e3716211e8dfd047b4b75dacfffec3dfd1c7168f"
+    },
+    {
+      "path": "context/SettingsContext.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "568975d73614b0296a6d88bf899667f8f23943d2",
+      "size": 1174,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/568975d73614b0296a6d88bf899667f8f23943d2"
+    },
+    {
+      "path": "context/ThemeContext.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cd49c9788dd85904ee74510d2e2e68bc91d3ecb4",
+      "size": 1149,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/cd49c9788dd85904ee74510d2e2e68bc91d3ecb4"
+    },
+    {
+      "path": "eas.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6fdf3926c8f3e508a14763760fca979d807060c",
+      "size": 371,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/a6fdf3926c8f3e508a14763760fca979d807060c"
+    },
+    {
+      "path": "eslint.config.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d49610168011c773137e79dea92c7ef47a5c48f5",
+      "size": 514,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/d49610168011c773137e79dea92c7ef47a5c48f5"
+    },
+    {
+      "path": "global.css",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4f50321169d6d8e6ee26ac6561b3006812560213",
+      "size": 1199,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/4f50321169d6d8e6ee26ac6561b3006812560213"
+    },
+    {
+      "path": "hooks",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b55a031737b88b4c5586bf12af4e7d48fa956855",
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/trees/b55a031737b88b4c5586bf12af4e7d48fa956855"
+    },
+    {
+      "path": "hooks/use-color-scheme.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "17e3c63e1acfe711d436c1c205d90c4e2fe46131",
+      "size": 47,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/17e3c63e1acfe711d436c1c205d90c4e2fe46131"
+    },
+    {
+      "path": "hooks/use-color-scheme.web.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7eb1c1b7071ceedf76252509fabb05c603774ad8",
+      "size": 480,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/7eb1c1b7071ceedf76252509fabb05c603774ad8"
+    },
+    {
+      "path": "jest.config.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "27a15fb33aeab61e21048d7ccfb7833477b91f36",
+      "size": 832,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/27a15fb33aeab61e21048d7ccfb7833477b91f36"
+    },
+    {
+      "path": "lib",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9b089354daa077e6e44af5cb4f757adf00aaaefb",
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/trees/9b089354daa077e6e44af5cb4f757adf00aaaefb"
+    },
+    {
+      "path": "lib/constants.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2399684588239d09153b3683acbddd2797debff6",
+      "size": 633,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/2399684588239d09153b3683acbddd2797debff6"
+    },
+    {
+      "path": "lib/meme-storage.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8096d3e3f74d6643b0c812c83a2e5db18d45a123",
+      "size": 4134,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/8096d3e3f74d6643b0c812c83a2e5db18d45a123"
+    },
+    {
+      "path": "lib/meme-storage.web.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7fc929890c623475b893434eb9948e537e5f4d8d",
+      "size": 3855,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/7fc929890c623475b893434eb9948e537e5f4d8d"
+    },
+    {
+      "path": "lib/settings-storage.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "edc200212041b74d1b9441b4208179f1ec727b26",
+      "size": 927,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/edc200212041b74d1b9441b4208179f1ec727b26"
+    },
+    {
+      "path": "lib/settings-storage.web.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cf74b508bae2090eb7f3c59cd6e7bb53e516ef9d",
+      "size": 427,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/cf74b508bae2090eb7f3c59cd6e7bb53e516ef9d"
+    },
+    {
+      "path": "lib/theme-storage.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a0723912aab489c3ef13a8f386d15da182f9e27f",
+      "size": 935,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/a0723912aab489c3ef13a8f386d15da182f9e27f"
+    },
+    {
+      "path": "lib/theme-storage.web.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c055f55a03b5f4742291c9894787ca0c51b45937",
+      "size": 465,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/c055f55a03b5f4742291c9894787ca0c51b45937"
+    },
+    {
+      "path": "lib/themes.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "64ba34759356af3cbb274128a44c870ac0406f01",
+      "size": 12496,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/64ba34759356af3cbb274128a44c870ac0406f01"
+    },
+    {
+      "path": "lib/utils.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2819a830d242f11fda91c4e8951794ab815cec77",
+      "size": 169,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/2819a830d242f11fda91c4e8951794ab815cec77"
+    },
+    {
+      "path": "metro.config.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a443d8b04f75fb487518ed9d4f8ccfd7a3e2070",
+      "size": 244,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/9a443d8b04f75fb487518ed9d4f8ccfd7a3e2070"
+    },
+    {
+      "path": "nativewind-env.d.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a13e3136bbdc993c243204b43c51b01bf9194106",
+      "size": 43,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/a13e3136bbdc993c243204b43c51b01bf9194106"
+    },
+    {
+      "path": "package-lock.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ffd2655f4234a38efb28463c72f7052a86c93b75",
+      "size": 603084,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/ffd2655f4234a38efb28463c72f7052a86c93b75"
+    },
+    {
+      "path": "package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9ff05c40e524b8b6d2c161be1cf07b24e1c6d5a8",
+      "size": 2751,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/9ff05c40e524b8b6d2c161be1cf07b24e1c6d5a8"
+    },
+    {
+      "path": "tailwind.config.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "84f90e6ddf9dabedee7015ed29cd5e0be2211024",
+      "size": 2211,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/84f90e6ddf9dabedee7015ed29cd5e0be2211024"
+    },
+    {
+      "path": "tsconfig.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d6964a89f46971354affdd4a44e1293730bf4b4a",
+      "size": 251,
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/blobs/d6964a89f46971354affdd4a44e1293730bf4b4a"
+    }
+  ],
+  "truncated": false
+}

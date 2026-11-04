@@ -1,0 +1,303 @@
+{
+  "sha": "2e77643a69250443582596ca9cb8636cd049def9",
+  "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/trees/2e77643a69250443582596ca9cb8636cd049def9",
+  "tree": [
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5ef6a520780202a1d6addd833d800ccb1ecac0bb",
+      "size": 480,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/5ef6a520780202a1d6addd833d800ccb1ecac0bb"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e215bc4ccf138bbc38ad58ad57e92135484b3c0f",
+      "size": 1450,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/e215bc4ccf138bbc38ad58ad57e92135484b3c0f"
+    },
+    {
+      "path": "components.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0ecce33663ef6eb0a81b9f9e069b8a6fb55faadd",
+      "size": 428,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/0ecce33663ef6eb0a81b9f9e069b8a6fb55faadd"
+    },
+    {
+      "path": "eslint.config.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c85fb67c463f20d1ee449b0ffee725a61dfb9259",
+      "size": 393,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/c85fb67c463f20d1ee449b0ffee725a61dfb9259"
+    },
+    {
+      "path": "next.config.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ca6c9392a185c6957510115ad4ddda4194ced8e2",
+      "size": 129,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/ca6c9392a185c6957510115ad4ddda4194ced8e2"
+    },
+    {
+      "path": "package-lock.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "61bb2a14c1e9c34edb94d529af9fe94b751db2d5",
+      "size": 279358,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/61bb2a14c1e9c34edb94d529af9fe94b751db2d5"
+    },
+    {
+      "path": "package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aaee0fce502f9ace1e6baa6018cde86c791daecc",
+      "size": 950,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/aaee0fce502f9ace1e6baa6018cde86c791daecc"
+    },
+    {
+      "path": "postcss.config.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c7bcb4b1ee14cd5e25078c2c934529afdd2a7df9",
+      "size": 81,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/c7bcb4b1ee14cd5e25078c2c934529afdd2a7df9"
+    },
+    {
+      "path": "public",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c88f389de09f418da376598c42e8788d4fb6d172",
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/trees/c88f389de09f418da376598c42e8788d4fb6d172"
+    },
+    {
+      "path": "public/file.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "004145cddf3f9db91b57b9cb596683c8eb420862",
+      "size": 391,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/004145cddf3f9db91b57b9cb596683c8eb420862"
+    },
+    {
+      "path": "public/globe.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "567f17b0d7c7fb662c16d4357dd74830caf2dccb",
+      "size": 1035,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/567f17b0d7c7fb662c16d4357dd74830caf2dccb"
+    },
+    {
+      "path": "public/next.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5174b28c565c285e3e312ec5178be64fbeca8398",
+      "size": 1375,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/5174b28c565c285e3e312ec5178be64fbeca8398"
+    },
+    {
+      "path": "public/vercel.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "77053960334e2e34dc584dea8019925c3b4ccca9",
+      "size": 128,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/77053960334e2e34dc584dea8019925c3b4ccca9"
+    },
+    {
+      "path": "public/window.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b2b2a44f6ebc70c450043c05a002e7a93ba5d651",
+      "size": 385,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/b2b2a44f6ebc70c450043c05a002e7a93ba5d651"
+    },
+    {
+      "path": "src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f0aa54fa176dd214e1b42230b39b39d700cf2d25",
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/trees/f0aa54fa176dd214e1b42230b39b39d700cf2d25"
+    },
+    {
+      "path": "src/app",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f64e6eb7432272efe317126041a97beb9a67ac49",
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/trees/f64e6eb7432272efe317126041a97beb9a67ac49"
+    },
+    {
+      "path": "src/app/api",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "fae25e47cf2cea4039f7c7536bdff0db073f38d9",
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/trees/fae25e47cf2cea4039f7c7536bdff0db073f38d9"
+    },
+    {
+      "path": "src/app/api/chat",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "da88a5243746928281626d152e54a03b877ea4c1",
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/trees/da88a5243746928281626d152e54a03b877ea4c1"
+    },
+    {
+      "path": "src/app/api/chat/route.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2cfbcee6814582c3a7d16b3b39a3a06f67a5faca",
+      "size": 3945,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/2cfbcee6814582c3a7d16b3b39a3a06f67a5faca"
+    },
+    {
+      "path": "src/app/favicon.ico",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "718d6fea4835ec2d246af9800eddb7ffb276240c",
+      "size": 25931,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/718d6fea4835ec2d246af9800eddb7ffb276240c"
+    },
+    {
+      "path": "src/app/globals.css",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "16d0ea16231bcea8251795ccfeeddd74d3d9f8b4",
+      "size": 5785,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/16d0ea16231bcea8251795ccfeeddd74d3d9f8b4"
+    },
+    {
+      "path": "src/app/layout.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9ca094d0d3cd4627e48b4e57aa067ea08f891953",
+      "size": 839,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/9ca094d0d3cd4627e48b4e57aa067ea08f891953"
+    },
+    {
+      "path": "src/app/page.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ca2c37441f6cff6296a2ae3eeee8104cf0a6d274",
+      "size": 93,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/ca2c37441f6cff6296a2ae3eeee8104cf0a6d274"
+    },
+    {
+      "path": "src/components",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "bbec28b166f995195b500f413270ce88c42bdd18",
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/trees/bbec28b166f995195b500f413270ce88c42bdd18"
+    },
+    {
+      "path": "src/components/chat.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "848bc402cab6a03f7fad57939bc45a1b3f16591c",
+      "size": 22888,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/848bc402cab6a03f7fad57939bc45a1b3f16591c"
+    },
+    {
+      "path": "src/components/context-bar.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5039c49112a29dfae6c346c137813dbbfe564d7e",
+      "size": 5161,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/5039c49112a29dfae6c346c137813dbbfe564d7e"
+    },
+    {
+      "path": "src/components/oracle-avatar.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fe28632c66f546bea4a0e561e4e3ea89937c7335",
+      "size": 4019,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/fe28632c66f546bea4a0e561e4e3ea89937c7335"
+    },
+    {
+      "path": "src/components/typing-indicator.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "389d47234937ad82d934bad4202cde666dcf908b",
+      "size": 1154,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/389d47234937ad82d934bad4202cde666dcf908b"
+    },
+    {
+      "path": "src/components/ui",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7e6ac09def8050e7f1c06b7fb6822ae258853966",
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/trees/7e6ac09def8050e7f1c06b7fb6822ae258853966"
+    },
+    {
+      "path": "src/components/ui/button.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a2df8dce675fed0712d021fa45245289ecd26c88",
+      "size": 2123,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/a2df8dce675fed0712d021fa45245289ecd26c88"
+    },
+    {
+      "path": "src/components/ui/card.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "27ed9611e98fbc4c94d4a1bc863fc863c451e6da",
+      "size": 1982,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/27ed9611e98fbc4c94d4a1bc863fc863c451e6da"
+    },
+    {
+      "path": "src/components/ui/input.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "03295ca6ac617de95b78b09e5e3a6de897a204f0",
+      "size": 967,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/03295ca6ac617de95b78b09e5e3a6de897a204f0"
+    },
+    {
+      "path": "src/components/ui/scroll-area.tsx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8e4fa13f668a62de3a4b8eaebf23eba1b0421e7d",
+      "size": 1645,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/8e4fa13f668a62de3a4b8eaebf23eba1b0421e7d"
+    },
+    {
+      "path": "src/lib",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c09feb8f39b8f981a91d3902a8e3de161f1686f9",
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/trees/c09feb8f39b8f981a91d3902a8e3de161f1686f9"
+    },
+    {
+      "path": "src/lib/google-doc-fetcher.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e03f1db119764b4f61707c473f1e2685b721f72f",
+      "size": 1397,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/e03f1db119764b4f61707c473f1e2685b721f72f"
+    },
+    {
+      "path": "src/lib/token-utils.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4fd52d558e02c20e92cdf589936bd44b46a08461",
+      "size": 1106,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/4fd52d558e02c20e92cdf589936bd44b46a08461"
+    },
+    {
+      "path": "src/lib/utils.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd0c391ddd1088e9067844c48835bf4abcd61783",
+      "size": 166,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/bd0c391ddd1088e9067844c48835bf4abcd61783"
+    },
+    {
+      "path": "tsconfig.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c1334095f876a408c10f2357faaced969ec090ab",
+      "size": 602,
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/blobs/c1334095f876a408c10f2357faaced969ec090ab"
+    }
+  ],
+  "truncated": false
+}

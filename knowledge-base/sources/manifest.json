@@ -1,0 +1,847 @@
+{
+  "researched_on": "2026-11-04",
+  "scope": "Public sources and project-local evidence only",
+  "sources": [
+    {
+      "path": "sources/articles/3-things-code-school-grads-should-know-when-searching-for-a-first-job-a4fe648548e6.md",
+      "retrieved_at": "2026-11-04",
+      "sha256": "72cb8848777d57b085b7dd5b14dc3bc48c41510359beb8a63f3d3b829b5678ce",
+      "method": "derived text; see header and raw source",
+      "url": "https://medium.com/@brandonmathis/3-things-code-school-grads-should-know-when-searching-for-a-first-job-a4fe648548e6"
+    },
+    {
+      "path": "sources/articles/clojure-a-reflection-on-my-latest-obsession-f175e1b2014f.md",
+      "retrieved_at": "2026-11-04",
+      "sha256": "6b70e6df88eb11b7ff9dabfa522142de55f4f96a743651809d81150ae4a87daf",
+      "method": "derived text; see header and raw source",
+      "url": "https://medium.com/@brandonmathis/clojure-a-reflection-on-my-latest-obsession-f175e1b2014f"
+    },
+    {
+      "path": "sources/articles/code-and-coffee-hustle-ec52f8c31b36.md",
+      "retrieved_at": "2026-11-04",
+      "sha256": "89a6f5e07e68f04e085e856e72c0a6d9a7495a9111601370a78cb2d032f9033b",
+      "method": "derived text; see header and raw source",
+      "url": "https://medium.com/@brandonmathis/code-and-coffee-hustle-ec52f8c31b36"
+    },
+    {
+      "path": "sources/articles/easy-graphql-with-apollo-server-v2-b9fc5d36ddf5.md",
+      "retrieved_at": "2026-11-04",
+      "sha256": "f6c3cd80a5b68a6c3f0c0ad2cceb357d22bfea96c020fabadf69abe9feb924c5",
+      "method": "derived text; see header and raw source",
+      "url": "https://medium.com/@brandonmathis/easy-graphql-with-apollo-server-v2-b9fc5d36ddf5"
+    },
+    {
+      "path": "sources/articles/git-cli-tricks-263a7d0275a3.md",
+      "retrieved_at": "2026-11-04",
+      "sha256": "ddd6a36b59b0d6329f3612d221620d43a0d3c26e0acaeb7df0cfe8c994e55c2c",
+      "method": "derived text; see header and raw source",
+      "url": "https://medium.com/@brandonmathis/git-cli-tricks-263a7d0275a3"
+    },
+    {
+      "path": "sources/articles/grit-c3c4b3897c71.md",
+      "retrieved_at": "2026-11-04",
+      "sha256": "3384b50f3ce8d2282fe9052ca82bbcd39e52bfd42abdc96f1f3933174ad87086",
+      "method": "derived text; see header and raw source",
+      "url": "https://medium.com/@brandonmathis/grit-c3c4b3897c71"
+    },
+    {
+      "path": "sources/articles/image-upload-in-phoenix-5d4a10c11e21.md",
+      "retrieved_at": "2026-11-04",
+      "sha256": "403f0fa1a19712be9458d747d11705d74b80fd85bbd7c547789c1cb72fce3974",
+      "method": "derived text; see header and raw source",
+      "url": "https://medium.com/@brandonmathis/image-upload-in-phoenix-5d4a10c11e21"
+    },
+    {
+      "path": "sources/articles/quality-d33240bbc7ea.md",
+      "retrieved_at": "2026-11-04",
+      "sha256": "90a5f33937d87b578362beb308a3344affaf287ea863bf449da87db701860630",
+      "method": "derived text; see header and raw source",
+      "url": "https://medium.com/@brandonmathis/quality-d33240bbc7ea"
+    },
+    {
+      "path": "sources/articles/shell-commands-i-love-62764570dc66.md",
+      "retrieved_at": "2026-11-04",
+      "sha256": "f0769daad8ee1ebc608d99eab4b78475dfc2695c989c9ab8f2e3d27c7dc251ce",
+      "method": "derived text; see header and raw source",
+      "url": "https://medium.com/@brandonmathis/shell-commands-i-love-62764570dc66"
+    },
+    {
+      "path": "sources/articles/understand-the-basics-sass-59545dd40ccb.md",
+      "retrieved_at": "2026-11-04",
+      "sha256": "df3bec8e5de92e4f0a06d830ae4d3315f94d9d7e92dfe33c3bdca207a72f8a1c",
+      "method": "derived text; see header and raw source",
+      "url": "https://medium.com/@brandonmathis/understand-the-basics-sass-59545dd40ccb"
+    },
+    {
+      "path": "sources/code/claude-agents/github-pr-commenter.md.txt",
+      "retrieved_at": "2026-11-04",
+      "sha256": "be73a28126ebb460e174841a41f7656ab566ddf4a1521b6a752859750809e86b",
+      "url": "https://raw.githubusercontent.com/BrandonMathis/claude-agents/75b1a0f4179e553079eecf1437bc736550c4fadb/github-pr-commenter.md",
+      "commit": "75b1a0f4179e553079eecf1437bc736550c4fadb",
+      "method": "public raw file at pinned commit"
+    },
+    {
+      "path": "sources/code/claude-agents/pr-code-reviewer.md.txt",
+      "retrieved_at": "2026-11-04",
+      "sha256": "2bfc3ecf37f9d3bcbd821cea5b3b2fc8139aae48387907a9af8db9f7f5cd6c8e",
+      "url": "https://raw.githubusercontent.com/BrandonMathis/claude-agents/75b1a0f4179e553079eecf1437bc736550c4fadb/pr-code-reviewer.md",
+      "commit": "75b1a0f4179e553079eecf1437bc736550c4fadb",
+      "method": "public raw file at pinned commit"
+    },
+    {
+      "path": "sources/code/dnd-oracle/package.json.txt",
+      "retrieved_at": "2026-11-04",
+      "sha256": "b4cbd75cfe94049936b4adea282f87c030f03dd5c195de04fd69e360739c067f",
+      "url": "https://raw.githubusercontent.com/BrandonMathis/dnd-oracle/2e77643a69250443582596ca9cb8636cd049def9/package.json",
+      "commit": "2e77643a69250443582596ca9cb8636cd049def9",
+      "method": "public raw file at pinned commit"
+    },
+    {
+      "path": "sources/code/dnd-oracle/src/app/api/chat/route.ts.txt",
+      "retrieved_at": "2026-11-04",
+      "sha256": "ba9cf204bc3de4f1ae4536fdcfba9bc69bbc511ce26fb298d8957d8213dd7c2f",
+      "url": "https://raw.githubusercontent.com/BrandonMathis/dnd-oracle/2e77643a69250443582596ca9cb8636cd049def9/src/app/api/chat/route.ts",
+      "commit": "2e77643a69250443582596ca9cb8636cd049def9",
+      "method": "public raw file at pinned commit"
+    },
+    {
+      "path": "sources/code/dnd-oracle/src/lib/google-doc-fetcher.ts.txt",
+      "retrieved_at": "2026-11-04",
+      "sha256": "777b6c3f3c1a07ffce9dca5b4f443fdf0c267c8f98b48a81e48097a138136a71",
+      "url": "https://raw.githubusercontent.com/BrandonMathis/dnd-oracle/2e77643a69250443582596ca9cb8636cd049def9/src/lib/google-doc-fetcher.ts",
+      "commit": "2e77643a69250443582596ca9cb8636cd049def9",
+      "method": "public raw file at pinned commit"
+    },
+    {
+      "path": "sources/code/dnd-oracle/src/lib/token-utils.ts.txt",
+      "retrieved_at": "2026-11-04",
+      "sha256": "a64f6bf92f9f49abd154bf416b086f3def0590bf4972cb2a2b7089ad8e5f860f",
+      "url": "https://raw.githubusercontent.com/BrandonMathis/dnd-oracle/2e77643a69250443582596ca9cb8636cd049def9/src/lib/token-utils.ts",
+      "commit": "2e77643a69250443582596ca9cb8636cd049def9",
+      "method": "public raw file at pinned commit"
+    },
+    {
+      "path": "sources/code/index.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "5458a005f0ee7ae53ee4f26c0a1344b1cda8f8e958db7f93ad7d1474419f87e1",
+      "method": "download manifest"
+    },
+    {
+      "path": "sources/code/meme-library/.github/workflows/ci-and-update.yml.txt",
+      "retrieved_at": "2026-11-04",
+      "sha256": "4d5a7614a753be5f4cd293e1b2af9256c522cf11aa098168807cbde38d9afebc",
+      "url": "https://raw.githubusercontent.com/BrandonMathis/meme-library/69e091110c65227e52e216c1018593ee7657c5f9/.github/workflows/ci-and-update.yml",
+      "commit": "69e091110c65227e52e216c1018593ee7657c5f9",
+      "method": "public raw file at pinned commit"
+    },
+    {
+      "path": "sources/code/meme-library/AI_WORKFLOW_TALK.md.txt",
+      "retrieved_at": "2026-11-04",
+      "sha256": "f4a4a63e61d4c2dbd90246e354e2d8f8c8db311f568797cf07518c10d2880e81",
+      "url": "https://raw.githubusercontent.com/BrandonMathis/meme-library/69e091110c65227e52e216c1018593ee7657c5f9/AI_WORKFLOW_TALK.md",
+      "commit": "69e091110c65227e52e216c1018593ee7657c5f9",
+      "method": "public raw file at pinned commit"
+    },
+    {
+      "path": "sources/code/meme-library/lib/meme-storage.ts.txt",
+      "retrieved_at": "2026-11-04",
+      "sha256": "6d848b41be9abb79c9701fed9e0f441212957e1c82ad0606c1bd3a76dc61a4c7",
+      "url": "https://raw.githubusercontent.com/BrandonMathis/meme-library/69e091110c65227e52e216c1018593ee7657c5f9/lib/meme-storage.ts",
+      "commit": "69e091110c65227e52e216c1018593ee7657c5f9",
+      "method": "public raw file at pinned commit"
+    },
+    {
+      "path": "sources/code/my-pi/agent/extensions/handoff.ts.txt",
+      "retrieved_at": "2026-11-04",
+      "sha256": "65527bfb16c0811c3e620ac467a25d75a6f0d989574d4bcc487fc0f2923f3c78",
+      "url": "https://raw.githubusercontent.com/BrandonMathis/my-pi/5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c/agent/extensions/handoff.ts",
+      "commit": "5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c",
+      "method": "public raw file at pinned commit"
+    },
+    {
+      "path": "sources/code/my-pi/agent/extensions/loop/README.md.txt",
+      "retrieved_at": "2026-11-04",
+      "sha256": "8a338a946df145bb84498928daea54c4791ee03540526f720c2269fd4dab5f16",
+      "url": "https://raw.githubusercontent.com/BrandonMathis/my-pi/5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c/agent/extensions/loop/README.md",
+      "commit": "5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c",
+      "method": "public raw file at pinned commit"
+    },
+    {
+      "path": "sources/code/my-pi/agent/extensions/loop/core.ts.txt",
+      "retrieved_at": "2026-11-04",
+      "sha256": "18aee29ee4787ca7254ddf263cfde0356a798fc601ff2b24949078e49ac292a1",
+      "url": "https://raw.githubusercontent.com/BrandonMathis/my-pi/5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c/agent/extensions/loop/core.ts",
+      "commit": "5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c",
+      "method": "public raw file at pinned commit"
+    },
+    {
+      "path": "sources/code/my-pi/agent/extensions/loop/worker.ts.txt",
+      "retrieved_at": "2026-11-04",
+      "sha256": "e25b7eb9ce836da7548fa12ea7a4e5a454a5056a17f6a6a57473e44819ecf232",
+      "url": "https://raw.githubusercontent.com/BrandonMathis/my-pi/5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c/agent/extensions/loop/worker.ts",
+      "commit": "5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c",
+      "method": "public raw file at pinned commit"
+    },
+    {
+      "path": "sources/code/my-pi/agent/extensions/plan-mode/README.md.txt",
+      "retrieved_at": "2026-11-04",
+      "sha256": "2117262a6dbdecb0569544fa5ea51cabbe2d93af55a93a5fc76ea83cd0aaad23",
+      "url": "https://raw.githubusercontent.com/BrandonMathis/my-pi/5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c/agent/extensions/plan-mode/README.md",
+      "commit": "5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c",
+      "method": "public raw file at pinned commit"
+    },
+    {
+      "path": "sources/code/my-pi/agent/extensions/todo-runner/index.ts.txt",
+      "retrieved_at": "2026-11-04",
+      "sha256": "3d73b4adf5453dbf090cb09bb434c19583d3b2655d86ad87201234f65f6ab872",
+      "url": "https://raw.githubusercontent.com/BrandonMathis/my-pi/5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c/agent/extensions/todo-runner/index.ts",
+      "commit": "5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c",
+      "method": "public raw file at pinned commit"
+    },
+    {
+      "path": "sources/code/my-pi/agent/extensions/worktree.ts.txt",
+      "retrieved_at": "2026-11-04",
+      "sha256": "0a6664de676a96f76b4854c0a86ecfaa659eb62959be443e2d177e852e6fecde",
+      "url": "https://raw.githubusercontent.com/BrandonMathis/my-pi/5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c/agent/extensions/worktree.ts",
+      "commit": "5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c",
+      "method": "public raw file at pinned commit"
+    },
+    {
+      "path": "sources/code/visual-regression-toolkit/.github/workflows/visual-regression.yml.txt",
+      "retrieved_at": "2026-11-04",
+      "sha256": "f22ae4e10aa312c478688f7530545b78d89827e7f42d09295f444e8c41770038",
+      "url": "https://raw.githubusercontent.com/BrandonMathis/visual-regression-toolkit/aa248ed188bc43943b220a6013f10703e35e2df9/.github/workflows/visual-regression.yml",
+      "commit": "aa248ed188bc43943b220a6013f10703e35e2df9",
+      "method": "public raw file at pinned commit"
+    },
+    {
+      "path": "sources/code/visual-regression-toolkit/src/pages.spec.ts.txt",
+      "retrieved_at": "2026-11-04",
+      "sha256": "8e2c209511b2da269091da9dcc86ebb43d2bfa38022fee83b4e501f5afd99c59",
+      "url": "https://raw.githubusercontent.com/BrandonMathis/visual-regression-toolkit/aa248ed188bc43943b220a6013f10703e35e2df9/src/pages.spec.ts",
+      "commit": "aa248ed188bc43943b220a6013f10703e35e2df9",
+      "method": "public raw file at pinned commit"
+    },
+    {
+      "path": "sources/code/visual-regression-toolkit/src/route-discovery.ts.txt",
+      "retrieved_at": "2026-11-04",
+      "sha256": "80a38030ed8253ec5e67d846c5f15d4d09c6f32dae471231c17c5149ce26d66a",
+      "url": "https://raw.githubusercontent.com/BrandonMathis/visual-regression-toolkit/aa248ed188bc43943b220a6013f10703e35e2df9/src/route-discovery.ts",
+      "commit": "aa248ed188bc43943b220a6013f10703e35e2df9",
+      "method": "public raw file at pinned commit"
+    },
+    {
+      "path": "sources/github/AI-Evo-or-Revo-readme.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "6d20153648995bb544da94fff31cf7cb0272ec3cc05de0ab3bc40a0344cd2f5b",
+      "url": "https://api.github.com/repos/BrandonMathis/AI-Evo-or-Revo/contents/README.md?ref=main",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/agent-loop-readme.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "775ad766c12206d6cf5629a86bfcd49537075a83e3c86ab8ddecfb6eb08463b3",
+      "url": "https://api.github.com/repos/BrandonMathis/agent-loop/contents/Readme.md?ref=main",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/api-docs-388.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "d05becd1283149270b68fdfa2bb618cfd93fb65eaa9466ccc0e852ea88a35fac",
+      "url": "https://api.github.com/repos/zipmark/rspec_api_documentation/pulls/388",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/api-docs-400.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "25041af297cc7bc08913d7d69f68c809f4f98febc7e431d980432da7256de5c6",
+      "url": "https://api.github.com/repos/zipmark/rspec_api_documentation/pulls/400",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/circleci-40.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "e6ca8e274ea43de12923c13a5b3a48cb09959856609c26312db441597ec4301b",
+      "url": "https://api.github.com/repos/CircleCI-Public/ruby-orb/pulls/40",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/claude-agents-commit.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "7bdca5ca3f01bec3e6ba1cf25553b596d59dec6ccda90d7378b0ef4aafa59ecb",
+      "url": "https://api.github.com/repos/BrandonMathis/claude-agents/commits/75b1a0f4179e553079eecf1437bc736550c4fadb",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/claude-agents-tree.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "b9dd8c2caabb23d9b6458137f7720f5e602844775ac9cc40c02f923570b36a12",
+      "url": "https://api.github.com/repos/BrandonMathis/claude-agents/git/trees/75b1a0f4179e553079eecf1437bc736550c4fadb",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/dnd-oracle-commit.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "afa4480f9049e1fae2ceafbfcd93f7e6b77e248cb89eb1531e13ca8a201aa050",
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/commits/2e77643a69250443582596ca9cb8636cd049def9",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/dnd-oracle-readme.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "f9de43b1f84f6de8401f32d6f36009f27a012e6b1516facb8a6fcf6b4b421972",
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/contents/README.md?ref=main",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/dnd-oracle-tree.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "6cf3e938a7476a67033304fcac7bc29dc02d019d8ee3075e37211b755f450a75",
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/trees/2e77643a69250443582596ca9cb8636cd049def9",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/fraqture-readme.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "1a95a9f823ed9af2a8a9fdcc85314ffed2357d77405559187bc9a94305c12c66",
+      "url": "https://api.github.com/repos/smashingboxes/fraqture/contents/README.md?ref=master",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/gists.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "6327f592155f4707516d25903baa47bdeb78a606cea844ebc362c894f61ab497",
+      "url": "https://api.github.com/users/BrandonMathis/gists?per_page=100",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/meme-library-commit.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "cb36aebfa2fcbe1d345ca616c798814dafeade150218361ac08ff37ba5aac372",
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/commits/69e091110c65227e52e216c1018593ee7657c5f9",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/meme-library-readme.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "00a2a1998e3b501829b845e5d14bc9d5a8c9467f09133f68a96bcfdb387ddf58",
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/contents/README.md?ref=main",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/meme-library-tree.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "cb7689f87befd7637405941069415f68c2a6c11d571792e761bd627a5ae85be7",
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/trees/69e091110c65227e52e216c1018593ee7657c5f9",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/merged-prs-page-1.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "850e89bafbd7916c3fa03acaf4fac8907373652487344619259841134bd0a2f6",
+      "url": "https://api.github.com/search/issues?q=author%3ABrandonMathis+is%3Apr+is%3Amerged&per_page=100&page=1",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/merged-prs-page-2.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "6d89c0c102697953b8175389ef751b2d9d27e25a0cad7f150f507302f799df5a",
+      "url": "https://api.github.com/search/issues?q=author%3ABrandonMathis+is%3Apr+is%3Amerged&per_page=100&page=2",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/my-pi-commit.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "ff578e039b76868834801c0663f2362c414984785a43fc2342cdd146c8efeba8",
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/commits/5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/my-pi-tree.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "61428129034ccb27d50c7738443e2764c88585e5047ae6b72d1a9b096059c2d1",
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/trees/5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/pi-working-phrase-readme.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "3b613dda9cb031daf6aee28fb164a6551232c8ec0867300da0c1b422e97e047b",
+      "url": "https://api.github.com/repos/BrandonMathis/pi-working-phrase/contents/README.md?ref=main",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/profile.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "9bfe5e3d8c80db20b18a85df2fbb016096d20ccff80d68edeca904d4a901cadc",
+      "url": "https://api.github.com/users/BrandonMathis",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/railsgirlsrdu-readme.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "cf98705a7812ff3babcd9af4d6532367c09556ef00ea199a3e3f371c5cd937ff",
+      "url": "https://api.github.com/repos/BrandonMathis/railsgirlsrdu/contents/README.md?ref=master",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/repos-page-1.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "6f0737e552c24efd10a1cad2fd23d1b94195a4edf527a4d436285baca37a67c4",
+      "url": "https://api.github.com/users/BrandonMathis/repos?per_page=100&sort=updated&page=1",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/repos-page-2.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "d76566deb2d76bd386463403a95a2112fd9b326728ab9925b9034113a9cd76e0",
+      "url": "https://api.github.com/users/BrandonMathis/repos?per_page=100&sort=updated&page=2",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/swift-31.diff",
+      "retrieved_at": "2026-11-04",
+      "sha256": "3893f05d1861bd2d379ef5f4db0ee674409aa0b75995cb2e030accd9089cedc8",
+      "url": "https://github.com/swiftlang/swift/pull/31.diff",
+      "method": "public PR diff"
+    },
+    {
+      "path": "sources/github/swift-31.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "0efc4e10dccc1e3d11f4789b7b64259ede093bdde04e2596361b0326d010e4c6",
+      "url": "https://api.github.com/repos/swiftlang/swift/pulls/31",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/swift-51.diff",
+      "retrieved_at": "2026-11-04",
+      "sha256": "5e2b79d0c21779eda81ef9be1dab834161285fc591e8fed6e7fb7ae7c1348f45",
+      "url": "https://github.com/swiftlang/swift/pull/51.diff",
+      "method": "public PR diff"
+    },
+    {
+      "path": "sources/github/swift-51.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "3695e1832ccd69e0ad5d39934f6411093067901f248528d3aa5955f2b3c73b3f",
+      "url": "https://api.github.com/repos/swiftlang/swift/pulls/51",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/swift-prs.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "550c4757dfedfbaf793eb73ec1faae4d1745fd4579d56f15baa7d96a1454c3f1",
+      "url": "https://api.github.com/search/issues?q=author%3ABrandonMathis+is%3Apr+repo%3Aswiftlang%2Fswift&per_page=100",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/taperole-readme.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "dd30cfd2d8fb6382974aa7772152a9a55c845263c5fdea807700404244e1cf63",
+      "url": "https://api.github.com/repos/smashingboxes/taperole/contents/README.md?ref=master",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/visual-regression-toolkit-commit.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "284f6ee28e783efe6abe5e1d81ff022b17ae899bb5c7d9edef40d372ca716d8b",
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/commits/aa248ed188bc43943b220a6013f10703e35e2df9",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/visual-regression-toolkit-readme.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "c4df4717d97e3f1fdb8202938199aadc858788e05434e1cd545c46d22c9014fd",
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/contents/README.md?ref=main",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/visual-regression-toolkit-tree.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "2337fc72cd5c2ba9546f65366bb8e11fcdd6f243b9adbb3fc15cb1ea787f51f5",
+      "url": "https://api.github.com/repos/BrandonMathis/visual-regression-toolkit/git/trees/aa248ed188bc43943b220a6013f10703e35e2df9",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/watson-slack-gist.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "b4323b7973a73a4e1823fc2b54221e2afda7b7967c0f92883bf10ca4798345db",
+      "url": "https://api.github.com/gists/be023de8c71dce343f10a6c4ea7b42da",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/github/websynth-readme.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "a775b1796de16bd85f391013ba6d533b447fb8fc3957f377c2ab2752d9a18280",
+      "url": "https://api.github.com/repos/BrandonMathis/websynth/contents/README.md?ref=master",
+      "method": "public GitHub REST API"
+    },
+    {
+      "path": "sources/local/resume-cv.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "644952f9f727bbbed43f0a36656eb35bbba0e2a4acee81f0297b15fad5621654",
+      "method": "local first-party record; see header"
+    },
+    {
+      "path": "sources/local/user-request.md",
+      "retrieved_at": "2026-11-04",
+      "sha256": "07ea12de39a5eb6333b2aa7638d8f4e40b23d0bf22bf4aa0f89c91bff32c7620",
+      "method": "local first-party record; see header"
+    },
+    {
+      "path": "sources/readmes/AI-Evo-or-Revo.md",
+      "retrieved_at": "2026-11-04",
+      "sha256": "42d9dcb1d01bdeb21ee6dc8c2c8f55cb7841a5f00b8a869da0122078388a5285",
+      "method": "derived text; see header and raw source",
+      "url": "https://github.com/BrandonMathis/AI-Evo-or-Revo/blob/main/README.md"
+    },
+    {
+      "path": "sources/readmes/agent-loop.md",
+      "retrieved_at": "2026-11-04",
+      "sha256": "528b4023128472047c2a5868bba66cb202f23e4ba31ef207a338685c68fd1352",
+      "method": "derived text; see header and raw source",
+      "url": "https://github.com/BrandonMathis/agent-loop/blob/main/Readme.md"
+    },
+    {
+      "path": "sources/readmes/dnd-oracle.md",
+      "retrieved_at": "2026-11-04",
+      "sha256": "4f71d772b773a85ea47c7e1a6c769d3bfc531099cbeadc430ec56a984042e8b2",
+      "method": "derived text; see header and raw source",
+      "url": "https://github.com/BrandonMathis/dnd-oracle/blob/main/README.md"
+    },
+    {
+      "path": "sources/readmes/fraqture.md",
+      "retrieved_at": "2026-11-04",
+      "sha256": "e3bca1b21209815fef79ddb5daae898f42a55a7f5635cda6eb99df13bed748fa",
+      "method": "derived text; see header and raw source",
+      "url": "https://github.com/smashingboxes/fraqture/blob/master/README.md"
+    },
+    {
+      "path": "sources/readmes/meme-library.md",
+      "retrieved_at": "2026-11-04",
+      "sha256": "de5a90086d36892977f725cafe19dff7067b168cc05c11cdff2f61412cd11ff7",
+      "method": "derived text; see header and raw source",
+      "url": "https://github.com/BrandonMathis/meme-library/blob/main/README.md"
+    },
+    {
+      "path": "sources/readmes/pi-working-phrase.md",
+      "retrieved_at": "2026-11-04",
+      "sha256": "5099a329ae2696dfac7bc5d2e0cf9bf738e2788799548eed24096d402f24416e",
+      "method": "derived text; see header and raw source",
+      "url": "https://github.com/BrandonMathis/pi-working-phrase/blob/main/README.md"
+    },
+    {
+      "path": "sources/readmes/railsgirlsrdu.md",
+      "retrieved_at": "2026-11-04",
+      "sha256": "e9bb8cca8b8d3c893f300fd4bd0f2f0dfb97001db5b470f436c7551852b1137c",
+      "method": "derived text; see header and raw source",
+      "url": "https://github.com/BrandonMathis/railsgirlsrdu/blob/master/README.md"
+    },
+    {
+      "path": "sources/readmes/taperole.md",
+      "retrieved_at": "2026-11-04",
+      "sha256": "3e06167700824d17cc82e8bbce250463fdfc19ab00187a9fe7b76689f56ae591",
+      "method": "derived text; see header and raw source",
+      "url": "https://github.com/smashingboxes/taperole/blob/master/README.md"
+    },
+    {
+      "path": "sources/readmes/visual-regression-toolkit.md",
+      "retrieved_at": "2026-11-04",
+      "sha256": "46ac211a8b156e9272702cbf1e6b67672df2405f05dc302e1ff5905db322e0b7",
+      "method": "derived text; see header and raw source",
+      "url": "https://github.com/BrandonMathis/visual-regression-toolkit/blob/main/README.md"
+    },
+    {
+      "path": "sources/readmes/websynth.md",
+      "retrieved_at": "2026-11-04",
+      "sha256": "1d32c6e0541ecc0207a6462bcb2dce2bc106333cf377016a906b99fc1c3eda68",
+      "method": "derived text; see header and raw source",
+      "url": "https://github.com/BrandonMathis/websynth/blob/master/README.md"
+    },
+    {
+      "path": "sources/search/discovery-01.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "263216b2075bcf9372410009747e3f449938b3969c5be138d587888531d040a4",
+      "method": "search discovery only; provider answers are not verified evidence"
+    },
+    {
+      "path": "sources/search/discovery-02.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "16c94a950c7b02f8d6245211b96dd4e0dc11c6abbe5c438d90ad5d1155ae45d3",
+      "method": "search discovery only; provider answers are not verified evidence"
+    },
+    {
+      "path": "sources/search/discovery-03.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "78d82729f94a00586bf1d71f7d528f69a5345f6698c2c3f5ae83d46a981473b9",
+      "method": "search discovery only; provider answers are not verified evidence"
+    },
+    {
+      "path": "sources/search/discovery-04.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "07319d117f6faedefa808a925886a14becd5fad4d1dfc610a550c91b336f70b9",
+      "method": "search discovery only; provider answers are not verified evidence"
+    },
+    {
+      "path": "sources/web/community-1.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "d73bb51cd9d7174a3a5cb657d560d1101426366bdb2eb994b0255edb3074768d",
+      "url": "https://allthingsopen.org/articles/graphql-future-api-development",
+      "method": "readable web extraction",
+      "title": "Why GraphQL is the future of API development: Essential tips and tools for developers | We Love Open Source • All Things Open",
+      "extraction_error": null
+    },
+    {
+      "path": "sources/web/community-2.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "2aafef06827bde8db156b1ce1b057a81346157d1f8b993348bd14b3d35a5e2ae",
+      "url": "https://createwith.com/event/state-of-ai-november-2026-nov-2026",
+      "method": "readable web extraction",
+      "title": "State of AI — November 2026",
+      "extraction_error": null
+    },
+    {
+      "path": "sources/web/community-3.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "e9b8f049ce41f88c5a430cb83e1b060b38a2f7a08235913b1c6ea32cb37ed7a1",
+      "url": "https://www.linkedin.com/company/applied-ai-club-at-ncstate",
+      "method": "readable web extraction",
+      "title": "",
+      "extraction_error": "HTTP 403: Forbidden\n\nFallback options:\n  • Enable the keyless Jina Reader fallback: set fetchRouting.allowRemoteHostedProviders to true in /Users/brandonmathis/.pi/agent/web-search.json (Jina is already in your fetch provider order; this also allows the other hosted providers in your fetch provider order; target URLs are fetched through Jina's infrastructure)\n  • Set firecrawlBaseUrl in /Users/brandonmathis/.pi/agent/web-search.json to a self-hosted Firecrawl instance\n  • Set crawl4aiBaseUrl in /Users/brandonmathis/.pi/agent/web-search.json to a self-hosted Crawl4AI instance\n  • Set tinyfishApiKey in /Users/brandonmathis/.pi/agent/web-search.json or TINYFISH_API_KEY\n  • Set search1apiApiKey in /Users/brandonmathis/.pi/agent/web-search.json or SEARCH1API_KEY\n  • Set queritApiKey in /Users/brandonmathis/.pi/agent/web-search.json or QUERIT_API_KEY\n  • Set kagiApiKey in /Users/brandonmathis/.pi/agent/web-search.json or KAGI_API_KEY\n  • Set ollamaApiKey in /Users/brandonmathis/.pi/agent/web-search.json or OLLAMA_API_KEY\n  • Set parallelApiKey in /Users/brandonmathis/.pi/agent/web-search.json or PARALLEL_API_KEY\n  • Set brightdataApiKey and brightdataUnlockerZone in /Users/brandonmathis/.pi/agent/web-search.json or BRIGHTDATA_API_KEY and BRIGHTDATA_UNLOCKER_ZONE\n  • Set deepseekApiKey in /Users/brandonmathis/.pi/agent/web-search.json or DEEPSEEK_API_KEY and add \"deepseek\" to fetchRouting.providers\n  • Set exaApiKey in /Users/brandonmathis/.pi/agent/web-search.json or EXA_API_KEY and add \"exa\" to fetchRouting.providers\n  • Set tabstackApiKey in /Users/brandonmathis/.pi/agent/web-search.json or TABSTACK_API_KEY and add \"tabstack\" to fetchRouting.providers\n  • Set GEMINI_API_KEY in /Users/brandonmathis/.pi/agent/web-search.json\n  • Sign into gemini.google.com in Chrome\n  • Use web_search to find content about this topic"
+    },
+    {
+      "path": "sources/web/community-4.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "23705119f7c1146c2c672035c99c200459660ddef6d16f6a5089fa535e8437c4",
+      "url": "https://www.meetup.com/raleighrb/",
+      "method": "readable web extraction",
+      "title": "The Triangle Ruby Brigade (Triangle.rb) | Meetup",
+      "extraction_error": null
+    },
+    {
+      "path": "sources/web/community-5.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "b04d0f802f9d313913de3faeb08e633928b7f9b827c8050b7d6d5d97ca07c1b2",
+      "url": "https://www.linkedin.com/posts/mathisbrandon_triangle-devs-talks-bandwidth-hq-thu-activity-7369393494945062912-4p7I",
+      "method": "readable web extraction",
+      "title": "Next week, the Triangle Devs meetup will host my two friends Rob Ocel and Cory Foy to speak on the \"7 Stages of AI Adoption\" and \"Saving Lives with Open Source\"",
+      "extraction_error": null
+    },
+    {
+      "path": "sources/web/corroboration-1.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "fd06d9fe2f82f494c679c8ce7f0f0a3b07c0aa73fdaf83ecb64ed6d3c28b1da8",
+      "url": "https://2025.allthingsai.org/speakers/brandon-mathis",
+      "method": "readable web extraction",
+      "title": "All Things AI — Your Launchpad for AI in Business",
+      "extraction_error": null
+    },
+    {
+      "path": "sources/web/corroboration-2.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "bd614d24c0a486db565c27fa2439b931c72ba9c5456313c341ca0c712f8dde26",
+      "url": "https://www.esquiresolutions.com/esquire-and-vtestify-usher-in-new-era-of-virtual-depositions/",
+      "method": "readable web extraction",
+      "title": "Esquire and vTestify Usher in New Era of Virtual Depositions with All-in-One, Purpose-Built, Secure Videoconferencing and Exhibit Management Solution - Esquire Deposition Solutions",
+      "extraction_error": null
+    },
+    {
+      "path": "sources/web/corroboration-3.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "307fa4294e2248429cd1efee89ea459b2c5defb91d16b0918e6e51087e911ed4",
+      "url": "https://techcrunch.com/2025/04/01/mark-cuban-backs-skylight-a-tiktok-alternative-built-on-blueskys-underlying-technology/",
+      "method": "readable web extraction",
+      "title": "Mark Cuban backs Skylight, a TikTok alternative built on Bluesky’s underlying technology",
+      "extraction_error": null
+    },
+    {
+      "path": "sources/web/corroboration-4.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "bcd4c844ef3c3e6b0c96ea6f797ecc5a1f0a3e799ac24553f1920de8d4e3da39",
+      "url": "https://slack.com/intl/en-in/marketplace/A9JTVFNCX-forecast",
+      "method": "readable web extraction",
+      "title": "Forecast",
+      "extraction_error": null
+    },
+    {
+      "path": "sources/web/corroboration-5.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "d6d85a56cb99dcba92a63ff73fc4485e07df728bb324569475e13cd79ca6e91f",
+      "url": "https://forecastslackbot.com/",
+      "method": "readable web extraction",
+      "title": "Forecast Slack Bot",
+      "extraction_error": null
+    },
+    {
+      "path": "sources/web/detail-1.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "73c0e15f247b928780177b8da136854cb8f09161aebca46362e952a19662b5ae",
+      "url": "https://www.meetup.com/triangle-developers/",
+      "method": "readable web extraction",
+      "title": "Triangle Developers | Meetup",
+      "extraction_error": null
+    },
+    {
+      "path": "sources/web/detail-2.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "7f56c94cb49f2b309ecf92c90e87786050044fc0aa970b1ad35e9198a02f6f30",
+      "url": "https://www.thisdot.co/blog?authors=brandon+mathis",
+      "method": "readable web extraction",
+      "title": "Developer Insights - This Dot Labs",
+      "extraction_error": null
+    },
+    {
+      "path": "sources/web/detail-3.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "0769fc87460c62f0e2e313f876b0a8ec3d3f7b2f056f365e5879928f97da8c54",
+      "url": "https://www.linkedin.com/posts/mathisbrandon_expo-reactnative-mobile-activity-7344414426592079872-RkMa",
+      "method": "readable web extraction",
+      "title": "#expo #reactnative #mobile #swift #kotlin #javascript | Brandon Mathis",
+      "extraction_error": null
+    },
+    {
+      "path": "sources/web/detail-4.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "1035cce3d565d70870462251942f38f9a05b493e0cc9d6dfe661f2aaa4b39b3f",
+      "url": "https://www.linkedin.com/posts/mathisbrandon_reactnative-mobile-react-activity-7335765375751540738-YtL_",
+      "method": "readable web extraction",
+      "title": "How to ship hotfixes over-the-air with React Native | Brandon Mathis posted on the topic | LinkedIn",
+      "extraction_error": null
+    },
+    {
+      "path": "sources/web/events-1.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "25aa074aae80094602c7b650d303f340c5d507123c0fcd3bf334ecaf46711f3c",
+      "url": "https://2025.allthingsopen.org/sessions/react-native-mobile-development-made-simple",
+      "method": "readable web extraction",
+      "title": "React Native - Mobile Development Made Simple • All Things Open 2025",
+      "extraction_error": null
+    },
+    {
+      "path": "sources/web/events-2.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "902291ca8ef8ff04aea003330f9733442a81758b67adc4552e1d1c2a9a7ddad0",
+      "url": "https://2026.allthingsopen.org/speakers/brandon-mathis",
+      "method": "readable web extraction",
+      "title": "Brandon Mathis • All Things Open 2026",
+      "extraction_error": null
+    },
+    {
+      "path": "sources/web/events-3.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "14094976ef6147095e6cb6c6e1aecd84f2959a4c4a0ec85bcaa0adf8d16915b5",
+      "url": "https://allthingsopen.org/articles/ai-slop-problem-open-source-maintainers",
+      "method": "readable web extraction",
+      "title": "The AI slop problem threatening open source maintainers | We Love Open Source • All Things Open",
+      "extraction_error": null
+    },
+    {
+      "path": "sources/web/events-4.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "9cd1254a23820450a81db7532d8b6d710afc5a9bd1df5a1ad769cd156b5757fa",
+      "url": "https://allthingsopen.org/articles/how-build-dev-career-with-curiosity-community-practice",
+      "method": "readable web extraction",
+      "title": "Build a successful dev career with curiosity, community, and consistent practice | We Love Open Source • All Things Open",
+      "extraction_error": null
+    },
+    {
+      "path": "sources/web/events-5.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "9bf4b2576246b2e19102b9a5d9c5b4e28b77413be0c190975ac588a59e03ce0b",
+      "url": "https://allthingsopen.ai/speakers/brandon-mathis",
+      "method": "readable web extraction",
+      "title": "",
+      "extraction_error": "HTTP 526: <none>\n\nFallback options:\n  • Enable the keyless Jina Reader fallback: set fetchRouting.allowRemoteHostedProviders to true in /Users/brandonmathis/.pi/agent/web-search.json (Jina is already in your fetch provider order; this also allows the other hosted providers in your fetch provider order; target URLs are fetched through Jina's infrastructure)\n  • Set firecrawlBaseUrl in /Users/brandonmathis/.pi/agent/web-search.json to a self-hosted Firecrawl instance\n  • Set crawl4aiBaseUrl in /Users/brandonmathis/.pi/agent/web-search.json to a self-hosted Crawl4AI instance\n  • Set tinyfishApiKey in /Users/brandonmathis/.pi/agent/web-search.json or TINYFISH_API_KEY\n  • Set search1apiApiKey in /Users/brandonmathis/.pi/agent/web-search.json or SEARCH1API_KEY\n  • Set queritApiKey in /Users/brandonmathis/.pi/agent/web-search.json or QUERIT_API_KEY\n  • Set kagiApiKey in /Users/brandonmathis/.pi/agent/web-search.json or KAGI_API_KEY\n  • Set ollamaApiKey in /Users/brandonmathis/.pi/agent/web-search.json or OLLAMA_API_KEY\n  • Set parallelApiKey in /Users/brandonmathis/.pi/agent/web-search.json or PARALLEL_API_KEY\n  • Set brightdataApiKey and brightdataUnlockerZone in /Users/brandonmathis/.pi/agent/web-search.json or BRIGHTDATA_API_KEY and BRIGHTDATA_UNLOCKER_ZONE\n  • Set deepseekApiKey in /Users/brandonmathis/.pi/agent/web-search.json or DEEPSEEK_API_KEY and add \"deepseek\" to fetchRouting.providers\n  • Set exaApiKey in /Users/brandonmathis/.pi/agent/web-search.json or EXA_API_KEY and add \"exa\" to fetchRouting.providers\n  • Set tabstackApiKey in /Users/brandonmathis/.pi/agent/web-search.json or TABSTACK_API_KEY and add \"tabstack\" to fetchRouting.providers\n  • Set GEMINI_API_KEY in /Users/brandonmathis/.pi/agent/web-search.json\n  • Sign into gemini.google.com in Chrome\n  • Use web_search to find content about this topic"
+    },
+    {
+      "path": "sources/web/events-6.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "3a887fa63666c10b4658dd49b16ef168e65491f9b7105cb77fa5a9cf989471c1",
+      "url": "https://allthings.dev/react-native",
+      "method": "readable web extraction",
+      "title": "allthings/react native",
+      "extraction_error": null
+    },
+    {
+      "path": "sources/web/events-7.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "939c4c7bd4ff55a5206b477f42855e66a78c1f21aa692a4ce8a420521ad41948",
+      "url": "https://kuberacap.com/2025/03/18/the-rise-of-genai-agents-and-the-intelligent-future-ahead/",
+      "method": "readable web extraction",
+      "title": "Kubera Capital - The Rise of the Agents & the Intelligent Future : AI Conference",
+      "extraction_error": null
+    },
+    {
+      "path": "sources/web/initial-1.md",
+      "retrieved_at": "2026-11-04",
+      "sha256": "1acbaf852a471b587d844a056a53bec9f2ed4a6d66dc4ab85c44c4118dbbef63",
+      "url": "https://www.brandonmathis.me/",
+      "method": "readable web extraction"
+    },
+    {
+      "path": "sources/web/initial-2.md",
+      "retrieved_at": "2026-11-04",
+      "sha256": "226db15f18c6357920aa7db2e35109941a2c2cf4603311ecdefa7efc3916ae4f",
+      "url": "https://www.linkedin.com/in/mathisbrandon/",
+      "method": "readable web extraction"
+    },
+    {
+      "path": "sources/web/initial-3.md",
+      "retrieved_at": "2026-11-04",
+      "sha256": "8aa730be4c55a2e76172fb7ab0ac4dd501940a69969db6fc86684aa3806f4c19",
+      "url": "https://www.linkedin.com/in/mathisbrandon/details/projects/",
+      "method": "readable web extraction"
+    },
+    {
+      "path": "sources/web/initial-4.md",
+      "retrieved_at": "2026-11-04",
+      "sha256": "103f4c3423d198b523a4bf0c9e796a8029a1a64c0a36ddc8b8cdeac8a92f7508",
+      "url": "https://github.com/BrandonMathis",
+      "method": "readable web extraction"
+    },
+    {
+      "path": "sources/web/research-1.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "dcafe4ad697c43088aa2488f8b7e773275a759cbea59c408475f6b690aaf7db6",
+      "url": "https://www.thisdot.co/blog/roo-custom-modes",
+      "method": "readable web extraction",
+      "title": "Roo Custom Modes",
+      "extraction_error": null
+    },
+    {
+      "path": "sources/web/research-2.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "8b5ee78de46101d8f8ff292750603ee62294bc6f5ef964876ecd14ff5084f5a8",
+      "url": "https://www.thisdot.co/blog/next-js-mongodb-connection-storming",
+      "method": "readable web extraction",
+      "title": "Next.js + MongoDB Connection Storming",
+      "extraction_error": null
+    },
+    {
+      "path": "sources/web/research-3.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "1b46adae7724f5419c8510fa4984060832c5099e1ed3d504558c6ab301600f7c",
+      "url": "https://reactatl.dev/events/christmas-in-june/",
+      "method": "readable web extraction",
+      "title": "Christmas in June — ReactATL",
+      "extraction_error": null
+    },
+    {
+      "path": "sources/web/research-4.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "0a9fc30b14ac8dd27aafc06227a40e8abd7ecd7927b8f489a679998aeb1b17e3",
+      "url": "https://triangledevelopers.com/",
+      "method": "readable web extraction",
+      "title": "Join the Triangle Developers Discord and Slack Community",
+      "extraction_error": "Page appears to be JavaScript-rendered (content loads dynamically)\n\nFallback options:\n  • Enable the keyless Jina Reader fallback: set fetchRouting.allowRemoteHostedProviders to true in /Users/brandonmathis/.pi/agent/web-search.json (Jina is already in your fetch provider order; this also allows the other hosted providers in your fetch provider order; target URLs are fetched through Jina's infrastructure)\n  • Set firecrawlBaseUrl in /Users/brandonmathis/.pi/agent/web-search.json to a self-hosted Firecrawl instance\n  • Set crawl4aiBaseUrl in /Users/brandonmathis/.pi/agent/web-search.json to a self-hosted Crawl4AI instance\n  • Set tinyfishApiKey in /Users/brandonmathis/.pi/agent/web-search.json or TINYFISH_API_KEY\n  • Set search1apiApiKey in /Users/brandonmathis/.pi/agent/web-search.json or SEARCH1API_KEY\n  • Set queritApiKey in /Users/brandonmathis/.pi/agent/web-search.json or QUERIT_API_KEY\n  • Set kagiApiKey in /Users/brandonmathis/.pi/agent/web-search.json or KAGI_API_KEY\n  • Set ollamaApiKey in /Users/brandonmathis/.pi/agent/web-search.json or OLLAMA_API_KEY\n  • Set parallelApiKey in /Users/brandonmathis/.pi/agent/web-search.json or PARALLEL_API_KEY\n  • Set brightdataApiKey and brightdataUnlockerZone in /Users/brandonmathis/.pi/agent/web-search.json or BRIGHTDATA_API_KEY and BRIGHTDATA_UNLOCKER_ZONE\n  • Set deepseekApiKey in /Users/brandonmathis/.pi/agent/web-search.json or DEEPSEEK_API_KEY and add \"deepseek\" to fetchRouting.providers\n  • Set exaApiKey in /Users/brandonmathis/.pi/agent/web-search.json or EXA_API_KEY and add \"exa\" to fetchRouting.providers\n  • Set tabstackApiKey in /Users/brandonmathis/.pi/agent/web-search.json or TABSTACK_API_KEY and add \"tabstack\" to fetchRouting.providers\n  • Set GEMINI_API_KEY in /Users/brandonmathis/.pi/agent/web-search.json\n  • Sign into gemini.google.com in Chrome\n  • Use web_search to find content about this topic"
+    },
+    {
+      "path": "sources/web/research-5.json",
+      "retrieved_at": "2026-11-04",
+      "sha256": "5d64ee16d65ac3fa7d1473670ee92ba329deb110a5a58f0123fec9f79ba1432d",
+      "url": "https://medium.com/feed/@brandonmathis",
+      "method": "readable web extraction",
+      "title": "@brandonmathis",
+      "extraction_error": null
+    }
+  ]
+}

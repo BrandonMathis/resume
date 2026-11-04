@@ -1,0 +1,7 @@
+{
+  "url": "https://forecastslackbot.com/",
+  "title": "Forecast Slack Bot",
+  "content": "A weather bot for Slack\n\n[![Add to Slack](https://forecastslackbot.com/icons/slack_icon.png)](https://slack.com/oauth/authorize?scope=commands&client_id=112722428183.324947532439&redirect_uri=https://forecastslackbot.com/auth/slack/callback)\n\n[Add to Slack](https://slack.com/oauth/authorize?scope=commands&client_id=112722428183.324947532439&redirect_uri=https://forecastslackbot.com/auth/slack/callback)\n\n![](https://forecastslackbot.com/icons/message.png) ![](https://forecastslackbot.com/icons/response.png)\n\n*Supports F° and C°*",
+  "error": null,
+  "retrieved_at": "2026-11-04"
+}

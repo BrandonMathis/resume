@@ -1,0 +1,118 @@
+{
+  "sha": "69e091110c65227e52e216c1018593ee7657c5f9",
+  "node_id": "C_kwDORrvc9doAKDY5ZTA5MTExMGM2NTIyN2U1MmUyMTZjMTAxODU5M2VlNzY1N2M1Zjk",
+  "commit": {
+    "author": {
+      "name": "Brandon Mathis",
+      "email": "Bemathis@gmail.com",
+      "date": "2026-03-28T22:35:43Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2026-03-28T22:35:43Z"
+    },
+    "message": "Merge pull request #63 from BrandonMathis/claude/fix-npm-audit-88Z8N\n\nPin @tootallnate/once dependency to version 3.0.1",
+    "tree": {
+      "sha": "9a0e2f762724f9c3dd80534b01f4019ea6e7ab7d",
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/trees/9a0e2f762724f9c3dd80534b01f4019ea6e7ab7d"
+    },
+    "url": "https://api.github.com/repos/BrandonMathis/meme-library/git/commits/69e091110c65227e52e216c1018593ee7657c5f9",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJpyFe/CRC1aQ7uu5UhlAAADUAQAAjZCTIotd0BvGBwuI7X3Qv8\nrQavli9aqGfaOfMA3k6m7wjKvWMSEtiNQtgG8X+v3he+zB98n9IkuvA2V9Ki9Aqq\nOGONmatwsxeLdIJ91eWqrJTpCr+7Wxk5WO3Q8Oj+cVQpPHjcPXRMHp1P/Dz162YF\nCE+rJAAv/PE4oCALKtnk5OYlfFLm1vsDRcBYVKFrKXLvBB8K2d3CsYt8ss9SFfiB\nmdUbtLvtAMejXgvvTBNun9+ojL+UDO+xunmvOH0u8SYVr9PAN5pNCG4MGV39YKlm\nyr0tKOXVYWLsFUbqR3nc3p5ZGtRmbgrBHvcqau9bV/sIkvMjrm40+acieVe59hkn\nyHIwcMER4FoFuBH/HQB95xCEbVTVHK1VFF5vIbvW5uLLnAP3PN7dFexvqyd+ROAR\n0xhm3a1G+UDSeLHou5/9FDJFrZcmB3RL3xM4AzHIePPCkRz/OpcVznzhdTMtqIhW\nBD7YZD8rprwaCy4DNZ0I0sDFxJwVUo5wC6zcXsYgnt7GCItVgFINYtt93Vs0gAe0\ndDKl5ZdTqmHwQ9uo6sHzj1rmpIWtyLMiOrcWKM+cOwqRCO0JQJn96AIjpVSyu4hB\nM6A2j4CADOAAZjRxGLEFk4Ab4bYLsVwinZYLhCgMMzRmOoYByosuhpw2qDkbmUeD\nfXCG8u93LnG4SoSxlENu\n=gJBW\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree 9a0e2f762724f9c3dd80534b01f4019ea6e7ab7d\nparent b558467c459ec1f38aa8cd324fe2b207bf36e0ab\nparent 1679345878d346ce1645847cbbceb522ab7602cc\nauthor Brandon Mathis <Bemathis@gmail.com> 1774737343 -0400\ncommitter GitHub <noreply@github.com> 1774737343 -0400\n\nMerge pull request #63 from BrandonMathis/claude/fix-npm-audit-88Z8N\n\nPin @tootallnate/once dependency to version 3.0.1",
+      "verified_at": "2026-03-28T22:35:43Z"
+    }
+  },
+  "url": "https://api.github.com/repos/BrandonMathis/meme-library/commits/69e091110c65227e52e216c1018593ee7657c5f9",
+  "html_url": "https://github.com/BrandonMathis/meme-library/commit/69e091110c65227e52e216c1018593ee7657c5f9",
+  "comments_url": "https://api.github.com/repos/BrandonMathis/meme-library/commits/69e091110c65227e52e216c1018593ee7657c5f9/comments",
+  "author": {
+    "login": "BrandonMathis",
+    "id": 362269,
+    "node_id": "MDQ6VXNlcjM2MjI2OQ==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/362269?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/BrandonMathis",
+    "html_url": "https://github.com/BrandonMathis",
+    "followers_url": "https://api.github.com/users/BrandonMathis/followers",
+    "following_url": "https://api.github.com/users/BrandonMathis/following{/other_user}",
+    "gists_url": "https://api.github.com/users/BrandonMathis/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/BrandonMathis/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/BrandonMathis/subscriptions",
+    "organizations_url": "https://api.github.com/users/BrandonMathis/orgs",
+    "repos_url": "https://api.github.com/users/BrandonMathis/repos",
+    "events_url": "https://api.github.com/users/BrandonMathis/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/BrandonMathis/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "web-flow",
+    "id": 19864447,
+    "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/web-flow",
+    "html_url": "https://github.com/web-flow",
+    "followers_url": "https://api.github.com/users/web-flow/followers",
+    "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+    "organizations_url": "https://api.github.com/users/web-flow/orgs",
+    "repos_url": "https://api.github.com/users/web-flow/repos",
+    "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/web-flow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "b558467c459ec1f38aa8cd324fe2b207bf36e0ab",
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/commits/b558467c459ec1f38aa8cd324fe2b207bf36e0ab",
+      "html_url": "https://github.com/BrandonMathis/meme-library/commit/b558467c459ec1f38aa8cd324fe2b207bf36e0ab"
+    },
+    {
+      "sha": "1679345878d346ce1645847cbbceb522ab7602cc",
+      "url": "https://api.github.com/repos/BrandonMathis/meme-library/commits/1679345878d346ce1645847cbbceb522ab7602cc",
+      "html_url": "https://github.com/BrandonMathis/meme-library/commit/1679345878d346ce1645847cbbceb522ab7602cc"
+    }
+  ],
+  "stats": {
+    "total": 76,
+    "additions": 40,
+    "deletions": 36
+  },
+  "files": [
+    {
+      "sha": "ffd2655f4234a38efb28463c72f7052a86c93b75",
+      "filename": "package-lock.json",
+      "status": "modified",
+      "additions": 36,
+      "deletions": 36,
+      "changes": 72,
+      "blob_url": "https://github.com/BrandonMathis/meme-library/blob/69e091110c65227e52e216c1018593ee7657c5f9/package-lock.json",
+      "raw_url": "https://github.com/BrandonMathis/meme-library/raw/69e091110c65227e52e216c1018593ee7657c5f9/package-lock.json",
+      "contents_url": "https://api.github.com/repos/BrandonMathis/meme-library/contents/package-lock.json?ref=69e091110c65227e52e216c1018593ee7657c5f9",
+      "patch": "@@ -1896,9 +1896,9 @@\n       }\n     },\n     \"node_modules/@expo/fingerprint/node_modules/brace-expansion\": {\n-      \"version\": \"2.0.2\",\n-      \"resolved\": \"https://registry.npmjs.org/brace-expansion/-/brace-expansion-2.0.2.tgz\",\n-      \"integrity\": \"sha512-Jt0vHyM+jmUBqojB7E1NIYadt0vI0Qxjxd2TErW94wDz+E2LAm5vKMXXwg6ZZBTHPuUlDgQHKXvjGBdfcF1ZDQ==\",\n+      \"version\": \"2.0.3\",\n+      \"resolved\": \"https://registry.npmjs.org/brace-expansion/-/brace-expansion-2.0.3.tgz\",\n+      \"integrity\": \"sha512-MCV/fYJEbqx68aE58kv2cA/kiky1G8vux3OR6/jbS+jIMe/6fJWa0DTzJU7dqijOWYwHi1t29FlfYI9uytqlpA==\",\n       \"license\": \"MIT\",\n       \"dependencies\": {\n         \"balanced-match\": \"^1.0.0\"\n@@ -2028,9 +2028,9 @@\n       }\n     },\n     \"node_modules/@expo/metro-config/node_modules/brace-expansion\": {\n-      \"version\": \"2.0.2\",\n-      \"resolved\": \"https://registry.npmjs.org/brace-expansion/-/brace-expansion-2.0.2.tgz\",\n-      \"integrity\": \"sha512-Jt0vHyM+jmUBqojB7E1NIYadt0vI0Qxjxd2TErW94wDz+E2LAm5vKMXXwg6ZZBTHPuUlDgQHKXvjGBdfcF1ZDQ==\",\n+      \"version\": \"2.0.3\",\n+      \"resolved\": \"https://registry.npmjs.org/brace-expansion/-/brace-expansion-2.0.3.tgz\",\n+      \"integrity\": \"sha512-MCV/fYJEbqx68aE58kv2cA/kiky1G8vux3OR6/jbS+jIMe/6fJWa0DTzJU7dqijOWYwHi1t29FlfYI9uytqlpA==\",\n       \"license\": \"MIT\",\n       \"dependencies\": {\n         \"balanced-match\": \"^1.0.0\"\n@@ -3943,9 +3943,9 @@\n       \"license\": \"MIT\"\n     },\n     \"node_modules/@tootallnate/once\": {\n-      \"version\": \"2.0.0\",\n-      \"resolved\": \"https://registry.npmjs.org/@tootallnate/once/-/once-2.0.0.tgz\",\n-      \"integrity\": \"sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==\",\n+      \"version\": \"3.0.1\",\n+      \"resolved\": \"https://registry.npmjs.org/@tootallnate/once/-/once-3.0.1.tgz\",\n+      \"integrity\": \"sha512-VyMVKRrpHTT8PnotUeV8L/mDaMwD5DaAKCFLP73zAqAtvF0FCqky+Ki7BYbFCYQmqFyTe9316Ed5zS70QUR9eg==\",\n       \"dev\": true,\n       \"license\": \"MIT\",\n       \"engines\": {\n@@ -4322,9 +4322,9 @@\n       }\n     },\n     \"node_modules/@typescript-eslint/typescript-estree/node_modules/brace-expansion\": {\n-      \"version\": \"5.0.4\",\n-      \"resolved\": \"https://registry.npmjs.org/brace-expansion/-/brace-expansion-5.0.4.tgz\",\n-      \"integrity\": \"sha512-h+DEnpVvxmfVefa4jFbCf5HdH5YMDXRsmKflpf1pILZWRFlTbJpxeU55nJl4Smt5HQaGzg1o6RHFPJaOqnmBDg==\",\n+      \"version\": \"5.0.5\",\n+      \"resolved\": \"https://registry.npmjs.org/brace-expansion/-/brace-expansion-5.0.5.tgz\",\n+      \"integrity\": \"sha512-VZznLgtwhn+Mact9tfiwx64fA9erHH/MCXEUfB/0bX/6Fz6ny5EGTXYltMocqg4xFAQZtnO3DHWWXi8RiuN7cQ==\",\n       \"dev\": true,\n       \"license\": \"MIT\",\n       \"dependencies\": {\n@@ -5226,9 +5226,9 @@\n       }\n     },\n     \"node_modules/brace-expansion\": {\n-      \"version\": \"1.1.12\",\n-      \"resolved\": \"https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.12.tgz\",\n-      \"integrity\": \"sha512-9T9UjW3r0UW5c1Q7GTwllptXwhvYmEzFhzMfZ9H7FQWt+uZePjZPjBP/W1ZEyZ1twGWom5/56TF4lPcqjnDHcg==\",\n+      \"version\": \"1.1.13\",\n+      \"resolved\": \"https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.13.tgz\",\n+      \"integrity\": \"sha512-9ZLprWS6EENmhEOpjCYW2c8VkmOvckIJZfkr7rBW6dObmfgJ/L1GpSYW5Hpo9lDz4D1+n0Ckz8rU7FwHDQiG/w==\",\n       \"license\": \"MIT\",\n       \"dependencies\": {\n         \"balanced-match\": \"^1.0.0\",\n@@ -7953,9 +7953,9 @@\n       }\n     },\n     \"node_modules/expo/node_modules/brace-expansion\": {\n-      \"version\": \"2.0.2\",\n-      \"resolved\": \"https://registry.npmjs.org/brace-expansion/-/brace-expansion-2.0.2.tgz\",\n-      \"integrity\": \"sha512-Jt0vHyM+jmUBqojB7E1NIYadt0vI0Qxjxd2TErW94wDz+E2LAm5vKMXXwg6ZZBTHPuUlDgQHKXvjGBdfcF1ZDQ==\",\n+      \"version\": \"2.0.3\",\n+      \"resolved\": \"https://registry.npmjs.org/brace-expansion/-/brace-expansion-2.0.3.tgz\",\n+      \"integrity\": \"sha512-MCV/fYJEbqx68aE58kv2cA/kiky1G8vux3OR6/jbS+jIMe/6fJWa0DTzJU7dqijOWYwHi1t29FlfYI9uytqlpA==\",\n       \"license\": \"MIT\",\n       \"dependencies\": {\n         \"balanced-match\": \"^1.0.0\"\n@@ -8002,9 +8002,9 @@\n       }\n     },\n     \"node_modules/expo/node_modules/picomatch\": {\n-      \"version\": \"3.0.1\",\n-      \"resolved\": \"https://registry.npmjs.org/picomatch/-/picomatch-3.0.1.tgz\",\n-      \"integrity\": \"sha512-I3EurrIQMlRc9IaAZnqRR044Phh2DXY+55o7uJ0V+hYZAcQYSuFWsc9q5PvyDHUSCe1Qxn/iBz+78s86zWnGag==\",\n+      \"version\": \"3.0.2\",\n+      \"resolved\": \"https://registry.npmjs.org/picomatch/-/picomatch-3.0.2.tgz\",\n+      \"integrity\": \"sha512-cfDHL6LStTEKlNilboNtobT/kEa30PtAf2Q1OgszfrG/rpVl1xaFWT9ktfkS306GmHgmnad1Sw4wabhlvFtsTw==\",\n       \"license\": \"MIT\",\n       \"engines\": {\n         \"node\": \">=10\"\n@@ -8542,9 +8542,9 @@\n       }\n     },\n     \"node_modules/glob/node_modules/brace-expansion\": {\n-      \"version\": \"5.0.4\",\n-      \"resolved\": \"https://registry.npmjs.org/brace-expansion/-/brace-expansion-5.0.4.tgz\",\n-      \"integrity\": \"sha512-h+DEnpVvxmfVefa4jFbCf5HdH5YMDXRsmKflpf1pILZWRFlTbJpxeU55nJl4Smt5HQaGzg1o6RHFPJaOqnmBDg==\",\n+      \"version\": \"5.0.5\",\n+      \"resolved\": \"https://registry.npmjs.org/brace-expansion/-/brace-expansion-5.0.5.tgz\",\n+      \"integrity\": \"sha512-VZznLgtwhn+Mact9tfiwx64fA9erHH/MCXEUfB/0bX/6Fz6ny5EGTXYltMocqg4xFAQZtnO3DHWWXi8RiuN7cQ==\",\n       \"license\": \"MIT\",\n       \"dependencies\": {\n         \"balanced-match\": \"^4.0.2\"\n@@ -11966,9 +11966,9 @@\n       }\n     },\n     \"node_modules/node-forge\": {\n-      \"version\": \"1.3.3\",\n-      \"resolved\": \"https://registry.npmjs.org/node-forge/-/node-forge-1.3.3.tgz\",\n-      \"integrity\": \"sha512-rLvcdSyRCyouf6jcOIPe/BgwG/d7hKjzMKOas33/pHEr6gbq18IK9zV7DiPvzsz0oBJPme6qr6H6kGZuI9/DZg==\",\n+      \"version\": \"1.4.0\",\n+      \"resolved\": \"https://registry.npmjs.org/node-forge/-/node-forge-1.4.0.tgz\",\n+      \"integrity\": \"sha512-LarFH0+6VfriEhqMMcLX2F7SwSXeWwnEAJEsYm5QKWchiVYVvJyV9v7UDvUv+w5HO23ZpQTXDv/GxdDdMyOuoQ==\",\n       \"license\": \"(BSD-3-Clause OR GPL-2.0)\",\n       \"engines\": {\n         \"node\": \">= 6.13.0\"\n@@ -12566,9 +12566,9 @@\n       \"license\": \"ISC\"\n     },\n     \"node_modules/picomatch\": {\n-      \"version\": \"2.3.1\",\n-      \"resolved\": \"https://registry.npmjs.org/picomatch/-/picomatch-2.3.1.tgz\",\n-      \"integrity\": \"sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==\",\n+      \"version\": \"2.3.2\",\n+      \"resolved\": \"https://registry.npmjs.org/picomatch/-/picomatch-2.3.2.tgz\",\n+      \"integrity\": \"sha512-V7+vQEJ06Z+c5tSye8S+nHUfI51xoXIXjHQ99cQtKUkQqqO1kO/KCJUfZXuB47h/YBlDhah2H3hdUGXn8ie0oA==\",\n       \"license\": \"MIT\",\n       \"engines\": {\n         \"node\": \">=8.6\"\n@@ -15142,9 +15142,9 @@\n       }\n     },\n     \"node_modules/tinyglobby/node_modules/picomatch\": {\n-      \"version\": \"4.0.3\",\n-      \"resolved\": \"https://registry.npmjs.org/picomatch/-/picomatch-4.0.3.tgz\",\n-      \"integrity\": \"sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q==\",\n+      \"version\": \"4.0.4\",\n+      \"resolved\": \"https://registry.npmjs.org/picomatch/-/picomatch-4.0.4.tgz\",\n+      \"integrity\": \"sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==\",\n       \"license\": \"MIT\",\n       \"engines\": {\n         \"node\": \">=12\"\n@@ -16256,9 +16256,9 @@\n       \"license\": \"ISC\"\n     },\n     \"node_modules/yaml\": {\n-      \"version\": \"2.8.2\",\n-      \"resolved\": \"https://registry.npmjs.org/yaml/-/yaml-2.8.2.tgz\",\n-      \"integrity\": \"sha512-mplynKqc1C2hTVYxd0PU2xQAc22TI1vShAYGksCCfxbn/dFwnHTNi1bvYsBTkhdUNtGIf5xNOg938rrSSYvS9A==\",\n+      \"version\": \"2.8.3\",\n+      \"resolved\": \"https://registry.npmjs.org/yaml/-/yaml-2.8.3.tgz\",\n+      \"integrity\": \"sha512-AvbaCLOO2Otw/lW5bmh9d/WEdcDFdQp2Z2ZUH3pX9U2ihyUY0nvLv7J6TrWowklRGPYbB/IuIMfYgxaCPg5Bpg==\",\n       \"license\": \"ISC\",\n       \"bin\": {\n         \"yaml\": \"bin.mjs\""
+    },
+    {
+      "sha": "9ff05c40e524b8b6d2c161be1cf07b24e1c6d5a8",
+      "filename": "package.json",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 0,
+      "changes": 4,
+      "blob_url": "https://github.com/BrandonMathis/meme-library/blob/69e091110c65227e52e216c1018593ee7657c5f9/package.json",
+      "raw_url": "https://github.com/BrandonMathis/meme-library/raw/69e091110c65227e52e216c1018593ee7657c5f9/package.json",
+      "contents_url": "https://api.github.com/repos/BrandonMathis/meme-library/contents/package.json?ref=69e091110c65227e52e216c1018593ee7657c5f9",
+      "patch": "@@ -79,5 +79,9 @@\n       ]\n     }\n   },\n+  \"//overrides\": \"Override @tootallnate/once to fix GHSA-vpq2-c234-7xj6. Pulled in via jest-expo -> jest-environment-jsdom -> jsdom -> http-proxy-agent.\",\n+  \"overrides\": {\n+    \"@tootallnate/once\": \"3.0.1\"\n+  },\n   \"private\": true\n }"
+    }
+  ]
+}

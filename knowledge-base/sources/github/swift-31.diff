@@ -1,0 +1,106 @@
+diff --git a/README.md b/README.md
+index 2a7b1cd61d98f..89ff48c7ce4d3 100644
+--- a/README.md
++++ b/README.md
+@@ -65,31 +65,24 @@ compiler for C++14 support and create a symlink:
+ 
+ ### Getting Sources for Swift and Related Projects
+ 
+-For those checking out sources as read-only:
+-
+-     git clone https://github.com/apple/swift.git swift
+-     git clone https://github.com/apple/swift-llvm.git llvm
+-     git clone https://github.com/apple/swift-clang.git clang
+-     git clone https://github.com/apple/swift-lldb.git lldb
+-     git clone https://github.com/apple/swift-cmark.git cmark
+-     git clone https://github.com/apple/swift-llbuild.git llbuild
+-     git clone https://github.com/apple/swift-package-manager.git swiftpm
+-     git clone https://github.com/apple/swift-corelibs-xctest.git
+-     git clone https://github.com/apple/swift-corelibs-foundation.git
+-
+-For those who plan on regularly making direct commits, cloning over
+-SSH may provide a better experience (which requires uploading
+-SSH keys to GitHub):
+-
+-     git clone git@github.com:apple/swift.git swift
+-     git clone git@github.com:apple/swift-llvm.git llvm
+-     git clone git@github.com:apple/swift-clang.git clang
+-     git clone git@github.com:apple/swift-lldb.git lldb
+-     git clone git@github.com:apple/swift-cmark.git cmark
+-     git clone git@github.com:apple/swift-llbuild.git llbuild
+-     git clone git@github.com:apple/swift-package-manager.git swiftpm
+-     git clone git@github.com:apple/swift-corelibs-xctest.git
+-     git clone git@github.com:apple/swift-corelibs-foundation.git
++#### Swift Sources
++
++**Via HTTPS**
++    git clone https://github.com/apple/swift.git
++
++**Via SSH**
++    git clone git@github.com:apple/swift.git
++
++#### Related Project Sources
++
++**Via HTTPS**
++    cd <local_path_to_swift_repo>
++    ./utils/update-checkout --clone
++
++**Via SSH**
++    cd <local_path_to_swift_repo>
++    ./utils/update-checkout --clone-via-ssh
++
+ 
+ [CMake](http://cmake.org) is the core infrastructure used to configure builds of
+ Swift and its companion projects; at least version 2.8.12.2 is required. Your
+diff --git a/utils/update-checkout b/utils/update-checkout
+index 94d952340607a..f1fbbbd9ea0ed 100755
+--- a/utils/update-checkout
++++ b/utils/update-checkout
+@@ -52,6 +52,24 @@ def update_working_copy(repo_path):
+         else:
+             check_call([ "svn", "update" ])
+ 
++def obtain_additional_swift_sources(opts = {'with_ssh': False}):
++    additional_repos = {
++        'llvm': 'apple/swift-llvm',
++        'clang': 'apple/swift-clang',
++        'lldb': 'apple/swift-lldb',
++        'cmark': 'apple/swift-cmark',
++        'llbuild': 'apple/swift-llbuild',
++        'swiftpm': 'apple/swift-package-manager',
++        'swift-corelibs-xctest': 'apple/swift-corelibs-xctest',
++        'swift-corelibs-foundation': 'apple/swift-corelibs-foundation'
++    }
++    for dir_name, repo in additional_repos.iteritems():
++        print("--- Cloning '" + dir_name + "' ---")
++        if opts['with_ssh'] == True:
++            remote = "git@github.com:" + repo + '.git'
++        else:
++            remote = "https://github.com/" + repo + '.git'
++        check_call(['git', 'clone', remote, dir_name])
+ 
+ def main():
+     parser = argparse.ArgumentParser(
+@@ -63,12 +81,22 @@ By default, updates your checkouts of Swift, SourceKit, LLDB, and SwiftPM.""")
+     parser.add_argument("-a", "--all",
+         help="also update checkouts of llbuild, LLVM, and Clang",
+         action="store_true")
++    parser.add_argument("--clone",
++        help="Obtain Sources for Swift and Related Projects",
++        action="store_true")
++    parser.add_argument("--clone-with-ssh",
++        help="Obtain Sources for Swift and Related Projects via SSH",
++        action="store_true")
+     args = parser.parse_args()
+ 
+     if args.all:
+         update_working_copy(os.path.join(SWIFT_SOURCE_ROOT, "llbuild"))
+         update_working_copy(os.path.join(SWIFT_SOURCE_ROOT, "llvm"))
+         update_working_copy(os.path.join(SWIFT_SOURCE_ROOT, "clang"))
++    if args.clone:
++        obtain_additional_swift_sources()
++    if args.clone_with_ssh:
++        obtain_additional_swift_sources({'with_ssh': True})
+ 
+     update_working_copy(os.path.join(SWIFT_SOURCE_ROOT, "swift"))
+     update_working_copy(

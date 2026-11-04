@@ -1,0 +1,18 @@
+{
+  "name": "README.md",
+  "path": "README.md",
+  "sha": "dd613989bba84724c50fcbf32a01dd585fb9e593",
+  "size": 225,
+  "url": "https://api.github.com/repos/BrandonMathis/websynth/contents/README.md?ref=master",
+  "html_url": "https://github.com/BrandonMathis/websynth/blob/master/README.md",
+  "git_url": "https://api.github.com/repos/BrandonMathis/websynth/git/blobs/dd613989bba84724c50fcbf32a01dd585fb9e593",
+  "download_url": "https://raw.githubusercontent.com/BrandonMathis/websynth/master/README.md",
+  "type": "file",
+  "content": "IyMgV2ViIE1vbm9zeW50aApBIG1vbm9zeW50aCBidWlsdCBwdXJseSB3aXRo\nIHZhbmlsbGEgSlMgYW5kIHRoZSBicm93c2VyJ3MgW1dlYiBBdWRpbyBBUEld\nKGh0dHBzOi8vZGV2ZWxvcGVyLm1vemlsbGEub3JnL2VuLVVTL2RvY3MvV2Vi\nL0FQSS9XZWJfQXVkaW9fQVBJKS4KCltTZWUgaXQgd29ya2luZyBoZXJlXSho\ndHRwczovL2NvZGVwZW4uaW8vQnJhbmRvbk1hdGhpcy9wZW4vb05yQlFqTCkK\n",
+  "encoding": "base64",
+  "_links": {
+    "self": "https://api.github.com/repos/BrandonMathis/websynth/contents/README.md?ref=master",
+    "git": "https://api.github.com/repos/BrandonMathis/websynth/git/blobs/dd613989bba84724c50fcbf32a01dd585fb9e593",
+    "html": "https://github.com/BrandonMathis/websynth/blob/master/README.md"
+  }
+}

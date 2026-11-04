@@ -1,0 +1,206 @@
+# Stable evidence IDs used by claims.yaml and curated Markdown.
+# Paths are relative to knowledge-base/. Full artifact hashes and URLs: sources/manifest.json.
+researched_on: '2026-11-04'
+sources:
+  BASELINE:
+    path: sources/local/resume-cv.json
+    origin: ../resume.yaml
+    kind: first_party_resume
+  BRIEF:
+    path: sources/local/user-request.md
+    kind: user_self_report
+  WEBSITE:
+    path: sources/web/initial-1.md
+    url: https://www.brandonmathis.me/
+    kind: first_party_profile
+  LINKEDIN:
+    path: sources/web/initial-2.md
+    url: https://www.linkedin.com/in/mathisbrandon/
+    kind: first_party_profile_partial
+  LINKEDIN_PROJECTS:
+    path: sources/web/initial-3.md
+    url: https://www.linkedin.com/in/mathisbrandon/details/projects/
+    kind: first_party_profile_partial
+  GITHUB_PROFILE:
+    path: sources/github/profile.json
+    url: https://api.github.com/users/BrandonMathis
+    kind: public_platform_record
+  REPOS:
+    path: catalogs/repositories.md
+    kind: generated_inventory
+  MERGED_PRS:
+    path: catalogs/merged-pull-requests.md
+    kind: generated_inventory
+  GISTS:
+    path: catalogs/gists.md
+    kind: generated_inventory
+  SWIFT_31:
+    path: sources/github/swift-31.json
+    url: https://github.com/swiftlang/swift/pull/31
+    kind: merged_pull_request
+  SWIFT_51:
+    path: sources/github/swift-51.json
+    url: https://github.com/swiftlang/swift/pull/51
+    kind: merged_pull_request
+  CIRCLECI:
+    path: sources/github/circleci-40.json
+    url: https://github.com/CircleCI-Public/ruby-orb/pull/40
+    kind: merged_pull_request
+  API_DOCS_388:
+    path: sources/github/api-docs-388.json
+    url: https://github.com/zipmark/rspec_api_documentation/pull/388
+    kind: merged_pull_request
+  API_DOCS_400:
+    path: sources/github/api-docs-400.json
+    url: https://github.com/zipmark/rspec_api_documentation/pull/400
+    kind: merged_pull_request
+  TAPEROLE:
+    path: sources/readmes/taperole.md
+    url: https://github.com/smashingboxes/taperole
+    kind: repository_documentation
+  FRAQTURE:
+    path: sources/readmes/fraqture.md
+    url: https://github.com/smashingboxes/fraqture
+    kind: repository_documentation
+  WATSON:
+    path: sources/github/watson-slack-gist.json
+    url: https://gist.github.com/BrandonMathis/be023de8c71dce343f10a6c4ea7b42da
+    kind: inspected_public_code
+  MY_PI:
+    path: sources/github/my-pi-tree.json
+    url: https://github.com/BrandonMathis/my-pi
+    kind: public_repository_tree
+    detail: Selected pinned source files are in sources/code/my-pi/; immutable URLs in sources/code/index.json.
+  PI_LOOP:
+    path: sources/code/my-pi/agent/extensions/loop/README.md.txt
+    kind: repository_documentation_and_inspected_code
+  PI_PHRASES:
+    path: sources/readmes/pi-working-phrase.md
+    url: https://github.com/BrandonMathis/pi-working-phrase
+    kind: repository_documentation
+  AGENT_LOOP:
+    path: sources/readmes/agent-loop.md
+    url: https://github.com/BrandonMathis/agent-loop
+    kind: repository_documentation
+  CLAUDE_AGENTS:
+    path: sources/code/claude-agents/pr-code-reviewer.md.txt
+    url: https://github.com/BrandonMathis/claude-agents
+    kind: inspected_agent_configuration
+  ORACLE:
+    path: sources/code/dnd-oracle/src/app/api/chat/route.ts.txt
+    url: https://github.com/BrandonMathis/dnd-oracle
+    kind: inspected_public_code
+  ORACLE_FETCH:
+    path: sources/code/dnd-oracle/src/lib/google-doc-fetcher.ts.txt
+    kind: inspected_public_code
+  VISUAL_TOOLKIT:
+    path: sources/readmes/visual-regression-toolkit.md
+    url: https://github.com/BrandonMathis/visual-regression-toolkit
+    kind: repository_documentation_and_inspected_code
+  MEME_CI:
+    path: sources/code/meme-library/.github/workflows/ci-and-update.yml.txt
+    url: https://github.com/BrandonMathis/meme-library
+    kind: inspected_workflow
+  MEME_TALK:
+    path: sources/code/meme-library/AI_WORKFLOW_TALK.md.txt
+    kind: talk_draft_not_delivery_evidence
+  AI_SLIDES:
+    path: sources/readmes/AI-Evo-or-Revo.md
+    url: https://github.com/BrandonMathis/AI-Evo-or-Revo
+    kind: first_party_project_documentation
+  WEBSYNTH:
+    path: sources/readmes/websynth.md
+    url: https://github.com/BrandonMathis/websynth
+    kind: repository_documentation
+  RAILSGIRLS:
+    path: sources/readmes/railsgirlsrdu.md
+    url: https://github.com/BrandonMathis/railsgirlsrdu
+    kind: teaching_artifact
+  MEDIUM:
+    path: sources/web/research-5.json
+    url: https://medium.com/feed/@brandonmathis
+    kind: first_party_writing_feed
+  ROO:
+    path: sources/web/research-1.json
+    url: https://www.thisdot.co/blog/roo-custom-modes
+    kind: first_party_technical_article
+  MONGODB:
+    path: sources/web/research-2.json
+    url: https://www.thisdot.co/blog/next-js-mongodb-connection-storming
+    kind: first_party_technical_article
+  REACT_ATL:
+    path: sources/web/research-3.json
+    url: https://reactatl.dev/events/christmas-in-june/
+    kind: organizer_event_listing
+  TRIANGLE_SITE:
+    path: sources/web/research-4.json
+    url: https://triangledevelopers.com/
+    kind: community_site_partial
+  TRIANGLE_MEETUP:
+    path: sources/web/detail-1.json
+    url: https://www.meetup.com/triangle-developers/
+    kind: public_platform_organizer_record
+  EXPO_NATIVE:
+    path: sources/web/detail-3.json
+    url: https://www.linkedin.com/posts/mathisbrandon_expo-reactnative-mobile-activity-7344414426592079872-RkMa
+    kind: first_party_video_transcript
+  EXPO_UPDATES:
+    path: sources/web/detail-4.json
+    url: https://www.linkedin.com/posts/mathisbrandon_reactnative-mobile-react-activity-7335765375751540738-YtL_
+    kind: first_party_video_transcript
+  ATO_RN:
+    path: sources/web/events-1.json
+    url: https://2025.allthingsopen.org/sessions/react-native-mobile-development-made-simple
+    kind: organizer_session_listing
+  ATO_2026:
+    path: sources/web/events-2.json
+    url: https://2026.allthingsopen.org/speakers/brandon-mathis
+    kind: organizer_speaker_bio
+  ATO_AI_SLOP:
+    path: sources/web/events-3.json
+    url: https://allthingsopen.org/articles/ai-slop-problem-open-source-maintainers
+    kind: published_interview_summary
+  ATO_CAREER:
+    path: sources/web/events-4.json
+    url: https://allthingsopen.org/articles/how-build-dev-career-with-curiosity-community-practice
+    kind: published_interview_summary
+  AI_IGNITE_RECAP:
+    path: sources/web/events-7.json
+    url: https://kuberacap.com/2025/03/18/the-rise-of-genai-agents-and-the-intelligent-future-ahead/
+    kind: third_party_event_recap
+  ATO_AI_2025:
+    path: sources/web/corroboration-1.json
+    url: https://2025.allthingsai.org/speakers/brandon-mathis
+    kind: organizer_speaker_bio
+  ESQUIRE:
+    path: sources/web/corroboration-2.json
+    url: https://www.esquiresolutions.com/esquire-and-vtestify-usher-in-new-era-of-virtual-depositions/
+    kind: company_product_announcement
+  SKYLIGHT_PRESS:
+    path: sources/web/corroboration-3.json
+    url: https://techcrunch.com/2025/04/01/mark-cuban-backs-skylight-a-tiktok-alternative-built-on-blueskys-underlying-technology/
+    kind: independent_product_reporting
+  FORECAST_SLACK:
+    path: sources/web/corroboration-4.json
+    url: https://slack.com/intl/en-in/marketplace/A9JTVFNCX-forecast
+    kind: marketplace_developer_listing
+  FORECAST_SITE:
+    path: sources/web/corroboration-5.json
+    url: https://forecastslackbot.com/
+    kind: product_site
+  ATO_GRAPHQL:
+    path: sources/web/community-1.json
+    url: https://allthingsopen.org/articles/graphql-future-api-development
+    kind: published_interview_summary
+  STATE_AI:
+    path: sources/web/community-2.json
+    url: https://createwith.com/event/state-of-ai-november-2026-nov-2026
+    kind: future_event_listing
+  TRIANGLE_RUBY:
+    path: sources/web/community-4.json
+    url: https://www.meetup.com/raleighrb/
+    kind: public_platform_organizer_record
+  BANDWIDTH_EVENT:
+    path: sources/web/community-5.json
+    url: https://www.linkedin.com/posts/mathisbrandon_triangle-devs-talks-bandwidth-hq-thu-activity-7369393494945062912-4p7I
+    kind: first_party_title_only_partial

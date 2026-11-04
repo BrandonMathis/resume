@@ -1,0 +1,173 @@
+[
+  {
+    "repo": "my-pi",
+    "path": "agent/extensions/loop/README.md",
+    "commit": "5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c",
+    "url": "https://raw.githubusercontent.com/BrandonMathis/my-pi/5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c/agent/extensions/loop/README.md",
+    "snapshot": "knowledge-base/sources/code/my-pi/agent/extensions/loop/README.md.txt",
+    "retrieved_at": "2026-11-04T21:34:01Z",
+    "status": "retrieved"
+  },
+  {
+    "repo": "my-pi",
+    "path": "agent/extensions/loop/core.ts",
+    "commit": "5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c",
+    "url": "https://raw.githubusercontent.com/BrandonMathis/my-pi/5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c/agent/extensions/loop/core.ts",
+    "snapshot": "knowledge-base/sources/code/my-pi/agent/extensions/loop/core.ts.txt",
+    "retrieved_at": "2026-11-04T21:34:01Z",
+    "status": "retrieved"
+  },
+  {
+    "repo": "my-pi",
+    "path": "agent/extensions/loop/worker.ts",
+    "commit": "5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c",
+    "url": "https://raw.githubusercontent.com/BrandonMathis/my-pi/5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c/agent/extensions/loop/worker.ts",
+    "snapshot": "knowledge-base/sources/code/my-pi/agent/extensions/loop/worker.ts.txt",
+    "retrieved_at": "2026-11-04T21:34:01Z",
+    "status": "retrieved"
+  },
+  {
+    "repo": "my-pi",
+    "path": "agent/extensions/handoff.ts",
+    "commit": "5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c",
+    "url": "https://raw.githubusercontent.com/BrandonMathis/my-pi/5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c/agent/extensions/handoff.ts",
+    "snapshot": "knowledge-base/sources/code/my-pi/agent/extensions/handoff.ts.txt",
+    "retrieved_at": "2026-11-04T21:34:01Z",
+    "status": "retrieved"
+  },
+  {
+    "repo": "my-pi",
+    "path": "agent/extensions/todo-runner/index.ts",
+    "commit": "5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c",
+    "url": "https://raw.githubusercontent.com/BrandonMathis/my-pi/5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c/agent/extensions/todo-runner/index.ts",
+    "snapshot": "knowledge-base/sources/code/my-pi/agent/extensions/todo-runner/index.ts.txt",
+    "retrieved_at": "2026-11-04T21:34:02Z",
+    "status": "retrieved"
+  },
+  {
+    "repo": "my-pi",
+    "path": "agent/extensions/plan-mode/README.md",
+    "commit": "5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c",
+    "url": "https://raw.githubusercontent.com/BrandonMathis/my-pi/5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c/agent/extensions/plan-mode/README.md",
+    "snapshot": "knowledge-base/sources/code/my-pi/agent/extensions/plan-mode/README.md.txt",
+    "retrieved_at": "2026-11-04T21:34:02Z",
+    "status": "retrieved"
+  },
+  {
+    "repo": "my-pi",
+    "path": "agent/extensions/worktree.ts",
+    "commit": "5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c",
+    "url": "https://raw.githubusercontent.com/BrandonMathis/my-pi/5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c/agent/extensions/worktree.ts",
+    "snapshot": "knowledge-base/sources/code/my-pi/agent/extensions/worktree.ts.txt",
+    "retrieved_at": "2026-11-04T21:34:02Z",
+    "status": "retrieved"
+  },
+  {
+    "repo": "claude-agents",
+    "path": "github-pr-commenter.md",
+    "commit": "75b1a0f4179e553079eecf1437bc736550c4fadb",
+    "url": "https://raw.githubusercontent.com/BrandonMathis/claude-agents/75b1a0f4179e553079eecf1437bc736550c4fadb/github-pr-commenter.md",
+    "snapshot": "knowledge-base/sources/code/claude-agents/github-pr-commenter.md.txt",
+    "retrieved_at": "2026-11-04T21:34:02Z",
+    "status": "retrieved"
+  },
+  {
+    "repo": "claude-agents",
+    "path": "pr-code-reviewer.md",
+    "commit": "75b1a0f4179e553079eecf1437bc736550c4fadb",
+    "url": "https://raw.githubusercontent.com/BrandonMathis/claude-agents/75b1a0f4179e553079eecf1437bc736550c4fadb/pr-code-reviewer.md",
+    "snapshot": "knowledge-base/sources/code/claude-agents/pr-code-reviewer.md.txt",
+    "retrieved_at": "2026-11-04T21:34:03Z",
+    "status": "retrieved"
+  },
+  {
+    "repo": "dnd-oracle",
+    "path": "src/app/api/chat/route.ts",
+    "commit": "2e77643a69250443582596ca9cb8636cd049def9",
+    "url": "https://raw.githubusercontent.com/BrandonMathis/dnd-oracle/2e77643a69250443582596ca9cb8636cd049def9/src/app/api/chat/route.ts",
+    "snapshot": "knowledge-base/sources/code/dnd-oracle/src/app/api/chat/route.ts.txt",
+    "retrieved_at": "2026-11-04T21:34:03Z",
+    "status": "retrieved"
+  },
+  {
+    "repo": "dnd-oracle",
+    "path": "src/lib/google-doc-fetcher.ts",
+    "commit": "2e77643a69250443582596ca9cb8636cd049def9",
+    "url": "https://raw.githubusercontent.com/BrandonMathis/dnd-oracle/2e77643a69250443582596ca9cb8636cd049def9/src/lib/google-doc-fetcher.ts",
+    "snapshot": "knowledge-base/sources/code/dnd-oracle/src/lib/google-doc-fetcher.ts.txt",
+    "retrieved_at": "2026-11-04T21:34:03Z",
+    "status": "retrieved"
+  },
+  {
+    "repo": "dnd-oracle",
+    "path": "src/lib/token-utils.ts",
+    "commit": "2e77643a69250443582596ca9cb8636cd049def9",
+    "url": "https://raw.githubusercontent.com/BrandonMathis/dnd-oracle/2e77643a69250443582596ca9cb8636cd049def9/src/lib/token-utils.ts",
+    "snapshot": "knowledge-base/sources/code/dnd-oracle/src/lib/token-utils.ts.txt",
+    "retrieved_at": "2026-11-04T21:34:03Z",
+    "status": "retrieved"
+  },
+  {
+    "repo": "dnd-oracle",
+    "path": "package.json",
+    "commit": "2e77643a69250443582596ca9cb8636cd049def9",
+    "url": "https://raw.githubusercontent.com/BrandonMathis/dnd-oracle/2e77643a69250443582596ca9cb8636cd049def9/package.json",
+    "snapshot": "knowledge-base/sources/code/dnd-oracle/package.json.txt",
+    "retrieved_at": "2026-11-04T21:34:03Z",
+    "status": "retrieved"
+  },
+  {
+    "repo": "visual-regression-toolkit",
+    "path": "src/route-discovery.ts",
+    "commit": "aa248ed188bc43943b220a6013f10703e35e2df9",
+    "url": "https://raw.githubusercontent.com/BrandonMathis/visual-regression-toolkit/aa248ed188bc43943b220a6013f10703e35e2df9/src/route-discovery.ts",
+    "snapshot": "knowledge-base/sources/code/visual-regression-toolkit/src/route-discovery.ts.txt",
+    "retrieved_at": "2026-11-04T21:34:04Z",
+    "status": "retrieved"
+  },
+  {
+    "repo": "visual-regression-toolkit",
+    "path": "src/pages.spec.ts",
+    "commit": "aa248ed188bc43943b220a6013f10703e35e2df9",
+    "url": "https://raw.githubusercontent.com/BrandonMathis/visual-regression-toolkit/aa248ed188bc43943b220a6013f10703e35e2df9/src/pages.spec.ts",
+    "snapshot": "knowledge-base/sources/code/visual-regression-toolkit/src/pages.spec.ts.txt",
+    "retrieved_at": "2026-11-04T21:34:04Z",
+    "status": "retrieved"
+  },
+  {
+    "repo": "visual-regression-toolkit",
+    "path": ".github/workflows/visual-regression.yml",
+    "commit": "aa248ed188bc43943b220a6013f10703e35e2df9",
+    "url": "https://raw.githubusercontent.com/BrandonMathis/visual-regression-toolkit/aa248ed188bc43943b220a6013f10703e35e2df9/.github/workflows/visual-regression.yml",
+    "snapshot": "knowledge-base/sources/code/visual-regression-toolkit/.github/workflows/visual-regression.yml.txt",
+    "retrieved_at": "2026-11-04T21:34:04Z",
+    "status": "retrieved"
+  },
+  {
+    "repo": "meme-library",
+    "path": "AI_WORKFLOW_TALK.md",
+    "commit": "69e091110c65227e52e216c1018593ee7657c5f9",
+    "url": "https://raw.githubusercontent.com/BrandonMathis/meme-library/69e091110c65227e52e216c1018593ee7657c5f9/AI_WORKFLOW_TALK.md",
+    "snapshot": "knowledge-base/sources/code/meme-library/AI_WORKFLOW_TALK.md.txt",
+    "retrieved_at": "2026-11-04T21:34:04Z",
+    "status": "retrieved"
+  },
+  {
+    "repo": "meme-library",
+    "path": "lib/meme-storage.ts",
+    "commit": "69e091110c65227e52e216c1018593ee7657c5f9",
+    "url": "https://raw.githubusercontent.com/BrandonMathis/meme-library/69e091110c65227e52e216c1018593ee7657c5f9/lib/meme-storage.ts",
+    "snapshot": "knowledge-base/sources/code/meme-library/lib/meme-storage.ts.txt",
+    "retrieved_at": "2026-11-04T21:34:04Z",
+    "status": "retrieved"
+  },
+  {
+    "repo": "meme-library",
+    "path": ".github/workflows/ci-and-update.yml",
+    "commit": "69e091110c65227e52e216c1018593ee7657c5f9",
+    "url": "https://raw.githubusercontent.com/BrandonMathis/meme-library/69e091110c65227e52e216c1018593ee7657c5f9/.github/workflows/ci-and-update.yml",
+    "snapshot": "knowledge-base/sources/code/meme-library/.github/workflows/ci-and-update.yml.txt",
+    "retrieved_at": "2026-11-04T21:34:05Z",
+    "status": "retrieved"
+  }
+]

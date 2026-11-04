@@ -1,0 +1,101 @@
+{
+  "sha": "2e77643a69250443582596ca9cb8636cd049def9",
+  "node_id": "C_kwDOO1cRDdoAKDJlNzc2NDNhNjkyNTA0NDM1ODI1OTZjYTljYjg2MzZjZDA0OWRlZjk",
+  "commit": {
+    "author": {
+      "name": "Brandon Mathis",
+      "email": "bemathis@gmail.com",
+      "date": "2025-06-03T17:38:24Z"
+    },
+    "committer": {
+      "name": "Brandon Mathis",
+      "email": "bemathis@gmail.com",
+      "date": "2025-06-03T17:38:24Z"
+    },
+    "message": "Deploy command",
+    "tree": {
+      "sha": "af730b3df0ecf45bdae424718bc1856e05afaa67",
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/trees/af730b3df0ecf45bdae424718bc1856e05afaa67"
+    },
+    "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/git/commits/2e77643a69250443582596ca9cb8636cd049def9",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\niQIzBAABCAAdFiEEMX5LqiTCAhKbpgNNW1dYapd3lK4FAmg/MxAACgkQW1dYapd3\nlK6q4hAAxR91qPLQFraE00zWWnAYeRX4VvFVRbZ23zvEZWOJJrEZaveJ1a+1OBIN\noo0alPeIhXo/r3PGS1Zb0RNALEcxZgD7yKEwpLPO5F2T1cBmccwcCHRSSNu9RD2+\n5utCooKGx4MnXKqp2voxGXxCDb3ugrYnqdpv+baVn8Cc4UqmV4VA6hzGPEmfaGJM\nF8eipFnLnzLpUTBGDte9+SvwxLp+wyzECZCI7ctuuPScjdyAuoceyqDtYhk3xJvW\nxgVWW5Q6je2jTtJJdtVN19ogYiXYVUwAs3uSOQvUKW8XQI0pmu0SO8JX4AnyLZxz\n+F60zDK3oqiNnIoiYsNztDc5oCypfFme96S4RZslCmIV/U+XQWty3RE6CP0f91sk\n2cZvzNz2I74UxAsgv0sdVW57uUQM102Qj1IsbDcl8F0EadxL+bXP15lHd3FiEVOx\nyq/QMGqy0VwlW5Ibihf/2+LEdpiT1wVbCVrCIq+8CNHkjiBpr3vdP2xWLYVUhx7i\nPZ87pOkE4V8LxSDPSGR6UC+sq3BbnR696OT8ebz9J47JkiC55lkunatCgKdIWeV6\nxYZc0RfDydvbpDx/hRyJohjirZEX3t6FCIeg3IyzI1OSwWUAP+icFMd4GLpw18I4\ndIBIQ+fflx4InFOU68aYShLuLHuXcVGF6EBFEZn0XlNR4IFr7Ec=\n=54eb\n-----END PGP SIGNATURE-----",
+      "payload": "tree af730b3df0ecf45bdae424718bc1856e05afaa67\nparent 8cfd339e7cd83202c46ada0af2af55f2d3c40728\nauthor Brandon Mathis <bemathis@gmail.com> 1748972304 -0400\ncommitter Brandon Mathis <bemathis@gmail.com> 1748972304 -0400\n\nDeploy command\n",
+      "verified_at": "2025-06-03T17:44:09Z"
+    }
+  },
+  "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/commits/2e77643a69250443582596ca9cb8636cd049def9",
+  "html_url": "https://github.com/BrandonMathis/dnd-oracle/commit/2e77643a69250443582596ca9cb8636cd049def9",
+  "comments_url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/commits/2e77643a69250443582596ca9cb8636cd049def9/comments",
+  "author": {
+    "login": "BrandonMathis",
+    "id": 362269,
+    "node_id": "MDQ6VXNlcjM2MjI2OQ==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/362269?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/BrandonMathis",
+    "html_url": "https://github.com/BrandonMathis",
+    "followers_url": "https://api.github.com/users/BrandonMathis/followers",
+    "following_url": "https://api.github.com/users/BrandonMathis/following{/other_user}",
+    "gists_url": "https://api.github.com/users/BrandonMathis/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/BrandonMathis/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/BrandonMathis/subscriptions",
+    "organizations_url": "https://api.github.com/users/BrandonMathis/orgs",
+    "repos_url": "https://api.github.com/users/BrandonMathis/repos",
+    "events_url": "https://api.github.com/users/BrandonMathis/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/BrandonMathis/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "BrandonMathis",
+    "id": 362269,
+    "node_id": "MDQ6VXNlcjM2MjI2OQ==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/362269?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/BrandonMathis",
+    "html_url": "https://github.com/BrandonMathis",
+    "followers_url": "https://api.github.com/users/BrandonMathis/followers",
+    "following_url": "https://api.github.com/users/BrandonMathis/following{/other_user}",
+    "gists_url": "https://api.github.com/users/BrandonMathis/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/BrandonMathis/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/BrandonMathis/subscriptions",
+    "organizations_url": "https://api.github.com/users/BrandonMathis/orgs",
+    "repos_url": "https://api.github.com/users/BrandonMathis/repos",
+    "events_url": "https://api.github.com/users/BrandonMathis/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/BrandonMathis/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "8cfd339e7cd83202c46ada0af2af55f2d3c40728",
+      "url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/commits/8cfd339e7cd83202c46ada0af2af55f2d3c40728",
+      "html_url": "https://github.com/BrandonMathis/dnd-oracle/commit/8cfd339e7cd83202c46ada0af2af55f2d3c40728"
+    }
+  ],
+  "stats": {
+    "total": 3,
+    "additions": 2,
+    "deletions": 1
+  },
+  "files": [
+    {
+      "sha": "aaee0fce502f9ace1e6baa6018cde86c791daecc",
+      "filename": "package.json",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "blob_url": "https://github.com/BrandonMathis/dnd-oracle/blob/2e77643a69250443582596ca9cb8636cd049def9/package.json",
+      "raw_url": "https://github.com/BrandonMathis/dnd-oracle/raw/2e77643a69250443582596ca9cb8636cd049def9/package.json",
+      "contents_url": "https://api.github.com/repos/BrandonMathis/dnd-oracle/contents/package.json?ref=2e77643a69250443582596ca9cb8636cd049def9",
+      "patch": "@@ -6,7 +6,8 @@\n     \"dev\": \"next dev --turbopack\",\n     \"build\": \"next build\",\n     \"start\": \"next start\",\n-    \"lint\": \"next lint\"\n+    \"lint\": \"next lint\",\n+    \"deploy\": \"vercel --prod\"\n   },\n   \"dependencies\": {\n     \"@anthropic-ai/sdk\": \"^0.52.0\","
+    }
+  ]
+}

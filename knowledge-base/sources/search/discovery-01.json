@@ -1,0 +1,210 @@
+{
+  "responseId": "mw2ms1j0n01auq",
+  "fetchId": "mw2ms1itwmn9nr",
+  "queries": [
+    {
+      "query": "\"Brandon Mathis\" Swift pull request",
+      "answer": "I couldn’t find a Swift-language pull request clearly attributable to **Brandon Mathis**. The results point to two possible matches: a Brandon Mathis who posts about writing Swift for React Native, and a GitHub user named `imathis`—but the results don’t connect either to a Swift PR. ([linkedin.com](https://www.linkedin.com/posts/mathisbrandon_expo-reactnative-mobile-activity-7344414426592079872-RkMa?utm_source=openai))\n\nIf you meant a particular repository or a different Brandon Mathis, share a link or more context and I can narrow it down.",
+      "error": null,
+      "provider": "openai",
+      "providers": [
+        "openai"
+      ],
+      "results": [
+        {
+          "title": "#expo #reactnative #mobile #swift #kotlin #javascript | Brandon Mathis",
+          "url": "https://www.linkedin.com/posts/mathisbrandon_expo-reactnative-mobile-activity-7344414426592079872-RkMa",
+          "snippet": "React Native, and a GitHub user named `imathis`—but the results don’t connect either to a Swift PR. (linkedin.com)\n\nIf you meant a particular repository or a different Brandon Mathis, share a link or more context a"
+        },
+        {
+          "title": "https://github.com/swiftlang/swift-org-website/blob/main/CONTRIBUTORS.txt",
+          "url": "https://github.com/swiftlang/swift-org-website/blob/main/CONTRIBUTORS.txt",
+          "snippet": ""
+        },
+        {
+          "title": "https://www.linkedin.com/posts/thisdotlabs_ai-ai-activity-7465071098028752898-mXEV",
+          "url": "https://www.linkedin.com/posts/thisdotlabs_ai-ai-activity-7465071098028752898-mXEV",
+          "snippet": ""
+        },
+        {
+          "title": "https://www.linkedin.com/posts/mathisbrandon_reactnative-mobile-react-activity-7335765375751540738-YtL_",
+          "url": "https://www.linkedin.com/posts/mathisbrandon_reactnative-mobile-react-activity-7335765375751540738-YtL_",
+          "snippet": ""
+        },
+        {
+          "title": "https://github.lanni.me/imathis",
+          "url": "https://github.lanni.me/imathis",
+          "snippet": ""
+        },
+        {
+          "title": "https://xitter.cf/imathis",
+          "url": "https://xitter.cf/imathis",
+          "snippet": ""
+        },
+        {
+          "title": "https://medium.com/%40brandonmathis/3-things-code-school-grads-should-know-when-searching-for-a-first-job-a4fe648548e6",
+          "url": "https://medium.com/%40brandonmathis/3-things-code-school-grads-should-know-when-searching-for-a-first-job-a4fe648548e6",
+          "snippet": ""
+        },
+        {
+          "title": "https://github.com/ldmud/ldmud/blob/master/CREDITS",
+          "url": "https://github.com/ldmud/ldmud/blob/master/CREDITS",
+          "snippet": ""
+        },
+        {
+          "title": "https://www.linkedin.com/videos/tracyslee_ai-mcp-activity-7394809304421404672-7k1V",
+          "url": "https://www.linkedin.com/videos/tracyslee_ai-mcp-activity-7394809304421404672-7k1V",
+          "snippet": ""
+        },
+        {
+          "title": "https://github.com/imathis/color-picker",
+          "url": "https://github.com/imathis/color-picker",
+          "snippet": ""
+        }
+      ]
+    },
+    {
+      "query": "\"Brandon Mathis\" speaker meetup AI",
+      "answer": "The results point to **Brandon Mathis, an Engineering Lead at This Dot Labs** in Raleigh, who organizes the **Triangle Developers Meetup** and speaks about AI and software development. ([meetup.com](https://www.meetup.com/triangle-developers/?utm_source=openai))\n\nA few relevant appearances:\n- **AI agents and mobile apps:** NC State’s Applied AI Club announced a speaker event with Mathis on building mobile apps with AI agents. ([linkedin.com](https://www.linkedin.com/company/applied-ai-club-at-ncstate?utm_source=openai))\n- **Coding with AI:** He gave an “Ignite” talk, “Coding with AI, Revolution or Evolution,” at All Things Open AI in March 2025. ([kuberacap.com](https://kuberacap.com/2025/03/18/the-rise-of-genai-agents-and-the-intelligent-future-ahead/?utm_source=openai))\n- **Coding agents:** He spoke about exploring the Pi coding agent at a ReactATL event in June 2026. ([reactatl.dev](https://reactatl.dev/events/christmas-in-june/?utm_source=openai))\n- **Upcoming event:** Meetup lists him among the speakers for “State of AI,” scheduled for **November 5, 2026**. ([meetup.com](https://www.meetup.com/atlanta-vue-js-meetup/events/316948092/?utm_source=openai))",
+      "error": null,
+      "provider": "openai",
+      "providers": [
+        "openai"
+      ],
+      "results": [
+        {
+          "title": "Triangle Developers | Meetup",
+          "url": "https://www.meetup.com/triangle-developers/",
+          "snippet": "igh, who organizes the **Triangle Developers Meetup** and speaks about AI and software development. (meetup.com)\n\nA few relevant appearances:\n- **AI agents and mobile apps:** NC State’s Applied AI Club announced"
+        },
+        {
+          "title": "Applied AI Club at NC State | LinkedIn",
+          "url": "https://www.linkedin.com/company/applied-ai-club-at-ncstate",
+          "snippet": "ate’s Applied AI Club announced a speaker event with Mathis on building mobile apps with AI agents. (linkedin.com)\n- **Coding with AI:** He gave an “Ignite” talk, “Coding with AI, Revolution or Evolution,” at All T"
+        },
+        {
+          "title": "Kubera Capital - The Rise of the Agents & the Intelligent Future : AI Conference",
+          "url": "https://kuberacap.com/2025/03/18/the-rise-of-genai-agents-and-the-intelligent-future-ahead/",
+          "snippet": "e an “Ignite” talk, “Coding with AI, Revolution or Evolution,” at All Things Open AI in March 2025. (kuberacap.com)\n- **Coding agents:** He spoke about exploring the Pi coding agent at a ReactATL event in June 2026."
+        },
+        {
+          "title": "Christmas in June — ReactATL",
+          "url": "https://reactatl.dev/events/christmas-in-june/",
+          "snippet": "- **Coding agents:** He spoke about exploring the Pi coding agent at a ReactATL event in June 2026. (reactatl.dev)\n- **Upcoming event:** Meetup lists him among the speakers for “State of AI,” scheduled for **Novemb"
+        },
+        {
+          "title": "State of AI- November 2026, Thu, Nov 5, 2026, 12:30 PM | Meetup",
+          "url": "https://www.meetup.com/atlanta-vue-js-meetup/events/316948092/",
+          "snippet": "event:** Meetup lists him among the speakers for “State of AI,” scheduled for **November 5, 2026**. (meetup.com)"
+        },
+        {
+          "title": "https://www.linkedin.com/posts/mathisbrandon_triangle-devs-talks-bandwidth-hq-thu-activity-7369393494945062912-4p7I",
+          "url": "https://www.linkedin.com/posts/mathisbrandon_triangle-devs-talks-bandwidth-hq-thu-activity-7369393494945062912-4p7I",
+          "snippet": ""
+        },
+        {
+          "title": "https://www.linkedin.com/posts/tracyslee_ai-activity-7470108795566845953-eslX",
+          "url": "https://www.linkedin.com/posts/tracyslee_ai-activity-7470108795566845953-eslX",
+          "snippet": ""
+        },
+        {
+          "title": "https://www.seedops.co/companies/thisdotlabs",
+          "url": "https://www.seedops.co/companies/thisdotlabs",
+          "snippet": ""
+        },
+        {
+          "title": "https://www.linkedin.com/in/mathisbrandon",
+          "url": "https://www.linkedin.com/in/mathisbrandon",
+          "snippet": ""
+        },
+        {
+          "title": "https://gt.linkedin.com/company/infinitered",
+          "url": "https://gt.linkedin.com/company/infinitered",
+          "snippet": ""
+        }
+      ]
+    },
+    {
+      "query": "site:medium.com \"Brandon Mathis\"",
+      "answer": "The search found a Medium profile for **⚡ Brandon Mathis ⚡** and two articles:\n\n- [Image Upload in Phoenix](https://medium.com/%40brandonmathis/image-upload-in-phoenix-5d4a10c11e21) — a tutorial on handling image uploads in the Phoenix framework. ([medium.com](https://medium.com/%40brandonmathis/image-upload-in-phoenix-5d4a10c11e21?utm_source=openai))\n- [3 Things Code School Grads Should Know When Searching For A First Job](https://medium.com/%40brandonmathis/3-things-code-school-grads-should-know-when-searching-for-a-first-job-a4fe648548e6) — advice on building a portfolio, networking, and helping others. ([medium.com](https://medium.com/%40brandonmathis/3-things-code-school-grads-should-know-when-searching-for-a-first-job-a4fe648548e6?utm_source=openai))",
+      "error": null,
+      "provider": "openai",
+      "providers": [
+        "openai"
+      ],
+      "results": [
+        {
+          "title": "Image Upload in Phoenix. (originally published 09 May 2016) | by ⚡ Brandon Mathis ⚡ | Medium",
+          "url": "https://medium.com/%40brandonmathis/image-upload-in-phoenix-5d4a10c11e21",
+          "snippet": "ge-upload-in-phoenix-5d4a10c11e21) — a tutorial on handling image uploads in the Phoenix framework. (medium.com)\n- [3 Things Code School Grads Should Know When Searching For A First Job](https://medium.com/%40bra"
+        },
+        {
+          "title": "3 Things Code School Grads Should Know When Searching For A First Job | by ⚡ Brandon Mathis ⚡ | Medium",
+          "url": "https://medium.com/%40brandonmathis/3-things-code-school-grads-should-know-when-searching-for-a-first-job-a4fe648548e6",
+          "snippet": "ing-for-a-first-job-a4fe648548e6) — advice on building a portfolio, networking, and helping others. (medium.com)"
+        },
+        {
+          "title": "https://medium.com/%40alekshnayder/a-gentle-introduction-to-tmux-8d784c404340",
+          "url": "https://medium.com/%40alekshnayder/a-gentle-introduction-to-tmux-8d784c404340",
+          "snippet": ""
+        },
+        {
+          "title": "https://medium.com/design-bootcamp/choosing-colors-for-web-developers-made-easy-2b64de5e1260",
+          "url": "https://medium.com/design-bootcamp/choosing-colors-for-web-developers-made-easy-2b64de5e1260",
+          "snippet": ""
+        },
+        {
+          "title": "https://medium.com/seek-blog/systemising-seeks-brand-palette-c6f9c749cc0a",
+          "url": "https://medium.com/seek-blog/systemising-seeks-brand-palette-c6f9c749cc0a",
+          "snippet": ""
+        },
+        {
+          "title": "https://medium.com/%40camilaveracas/modelo-de-color-hsl-f5ef78e16458",
+          "url": "https://medium.com/%40camilaveracas/modelo-de-color-hsl-f5ef78e16458",
+          "snippet": ""
+        },
+        {
+          "title": "https://lauramcruz.medium.com/ida-mathis-farmer-financier-and-all-around-badass-f2f63e242fb0",
+          "url": "https://lauramcruz.medium.com/ida-mathis-farmer-financier-and-all-around-badass-f2f63e242fb0",
+          "snippet": ""
+        }
+      ]
+    },
+    {
+      "query": "site:thisdot.co \"Brandon Mathis\"",
+      "answer": "Brandon Mathis is listed as an **Engineering Lead** on This Dot Labs’ team page. He has also written This Dot articles about [Roo custom modes](https://www.thisdot.co/blog/roo-custom-modes) and [managing MongoDB connections in Next.js](https://www.thisdot.co/blog/next-js-mongodb-connection-storming). ([thisdot.co](https://www.thisdot.co/team?utm_source=openai))",
+      "error": null,
+      "provider": "openai",
+      "providers": [
+        "openai"
+      ],
+      "results": [
+        {
+          "title": "Team - This Dot Labs",
+          "url": "https://www.thisdot.co/team",
+          "snippet": "g MongoDB connections in Next.js](https://www.thisdot.co/blog/next-js-mongodb-connection-storming). (thisdot.co)"
+        },
+        {
+          "title": "https://www.thisdot.co/blog/roo-custom-modes",
+          "url": "https://www.thisdot.co/blog/roo-custom-modes",
+          "snippet": ""
+        },
+        {
+          "title": "https://www.thisdot.co/blog/next-js-mongodb-connection-storming?trk=article-ssr-frontend-pulse_little-text-block",
+          "url": "https://www.thisdot.co/blog/next-js-mongodb-connection-storming?trk=article-ssr-frontend-pulse_little-text-block",
+          "snippet": ""
+        },
+        {
+          "title": "https://www.thisdot.co/blog?authors=lindsay+wardell",
+          "url": "https://www.thisdot.co/blog?authors=lindsay+wardell",
+          "snippet": ""
+        },
+        {
+          "title": "https://www.thisdot.co/blog?authors=jesse+tomchak",
+          "url": "https://www.thisdot.co/blog?authors=jesse+tomchak",
+          "snippet": ""
+        }
+      ]
+    }
+  ]
+}

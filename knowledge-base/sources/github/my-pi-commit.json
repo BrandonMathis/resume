@@ -1,0 +1,113 @@
+{
+  "sha": "5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c",
+  "node_id": "C_kwDOSR5319oAKDVkYmRmYzRkNzUwZTgyYTRjZjRhNzk0YWEwZjA5ZDdiOWM2NTM2MWM",
+  "commit": {
+    "author": {
+      "name": "Brandon Mathis",
+      "email": "bemathis@gmail.com",
+      "date": "2026-10-28T21:51:30Z"
+    },
+    "committer": {
+      "name": "Brandon Mathis",
+      "email": "bemathis@gmail.com",
+      "date": "2026-10-28T21:51:30Z"
+    },
+    "message": "Fix Escape abort confirmation and default to No",
+    "tree": {
+      "sha": "62d9e68b8fcbe97a3819ca3259308c962d775180",
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/trees/62d9e68b8fcbe97a3819ca3259308c962d775180"
+    },
+    "url": "https://api.github.com/repos/BrandonMathis/my-pi/git/commits/5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\niQIzBAABCAAdFiEEMX5LqiTCAhKbpgNNW1dYapd3lK4FAmribmIACgkQW1dYapd3\nlK4eFw//ZqZa/H0scGmL0Q2VAbeFvY+r4J8/3IUdL8Ha2sxYUvNVUD4s5RBqHZVX\nfc4Gp5UZUMpsIoaNaqMZmCuQJ0Ru31NNA6qJlzSGYWW8dOYqbRfra9tuRl4mMFp9\n77pAhXWkf8r34pj4ibsswJCDVuaPxBERx+YAUv4dDE5chA39rSBXy1MjUn29iuO2\nSXxlrv9feLmX9oUIIdxomEs7sxBwUnVFp5MhKnhA+hSf78MZnrEXtRPyYGzmPTrZ\nxRI2zYPxAHiMIXKwOmFXXP7BCUPbCt8+6YyZgR0LdJRS6Fz+3FJYsA7dSpgTidBX\nZgzRFotZOVYme4Z8nwmRxKMMWam2UjPu7Hw6TkWeh6CuEYa4M/A48/4dGUxYJjF/\nc7sFVR5VAQqMKSt0iEVvIrFwWL+gAbImUbguGM69/ZP6PMFbr4cKeWXCBClnst+t\n+2pDzazf5imRWfciwENs4C8leCz1pf1sqCv78G5fd5Bbg3yvWkSbtyMeZaDDvAiO\neL/uQQN8m4bXsGmTdIPvjLVrJVGYnPj+LTWGwy7CjcfLC16Dl+W79dYuWagnXH+t\nP45/sIO+LPMIigXgYV84vWPEXfnWtKQhR+vZksrUP01r3fBRE/Vir5eJw2IrSY2V\n/6i61R1UUkI519RYaLJAFC9ew4dBBNqBVU5xpQn7/i6I0qbA0u0=\n=I1VD\n-----END PGP SIGNATURE-----",
+      "payload": "tree 62d9e68b8fcbe97a3819ca3259308c962d775180\nparent 1d67843fbbe706f9f5d39c4130556b64dc6435e6\nauthor Brandon Mathis <bemathis@gmail.com> 1793224290 -0400\ncommitter Brandon Mathis <bemathis@gmail.com> 1793224290 -0400\n\nFix Escape abort confirmation and default to No\n",
+      "verified_at": "2026-10-28T21:51:32Z"
+    }
+  },
+  "url": "https://api.github.com/repos/BrandonMathis/my-pi/commits/5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c",
+  "html_url": "https://github.com/BrandonMathis/my-pi/commit/5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c",
+  "comments_url": "https://api.github.com/repos/BrandonMathis/my-pi/commits/5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c/comments",
+  "author": {
+    "login": "BrandonMathis",
+    "id": 362269,
+    "node_id": "MDQ6VXNlcjM2MjI2OQ==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/362269?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/BrandonMathis",
+    "html_url": "https://github.com/BrandonMathis",
+    "followers_url": "https://api.github.com/users/BrandonMathis/followers",
+    "following_url": "https://api.github.com/users/BrandonMathis/following{/other_user}",
+    "gists_url": "https://api.github.com/users/BrandonMathis/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/BrandonMathis/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/BrandonMathis/subscriptions",
+    "organizations_url": "https://api.github.com/users/BrandonMathis/orgs",
+    "repos_url": "https://api.github.com/users/BrandonMathis/repos",
+    "events_url": "https://api.github.com/users/BrandonMathis/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/BrandonMathis/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "BrandonMathis",
+    "id": 362269,
+    "node_id": "MDQ6VXNlcjM2MjI2OQ==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/362269?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/BrandonMathis",
+    "html_url": "https://github.com/BrandonMathis",
+    "followers_url": "https://api.github.com/users/BrandonMathis/followers",
+    "following_url": "https://api.github.com/users/BrandonMathis/following{/other_user}",
+    "gists_url": "https://api.github.com/users/BrandonMathis/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/BrandonMathis/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/BrandonMathis/subscriptions",
+    "organizations_url": "https://api.github.com/users/BrandonMathis/orgs",
+    "repos_url": "https://api.github.com/users/BrandonMathis/repos",
+    "events_url": "https://api.github.com/users/BrandonMathis/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/BrandonMathis/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "1d67843fbbe706f9f5d39c4130556b64dc6435e6",
+      "url": "https://api.github.com/repos/BrandonMathis/my-pi/commits/1d67843fbbe706f9f5d39c4130556b64dc6435e6",
+      "html_url": "https://github.com/BrandonMathis/my-pi/commit/1d67843fbbe706f9f5d39c4130556b64dc6435e6"
+    }
+  ],
+  "stats": {
+    "total": 213,
+    "additions": 200,
+    "deletions": 13
+  },
+  "files": [
+    {
+      "sha": "6c4e1efe98ffb1edcabc9faa94226d44e85b1bc5",
+      "filename": "agent/extensions/confirm-abort.ts",
+      "status": "modified",
+      "additions": 25,
+      "deletions": 13,
+      "changes": 38,
+      "blob_url": "https://github.com/BrandonMathis/my-pi/blob/5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c/agent%2Fextensions%2Fconfirm-abort.ts",
+      "raw_url": "https://github.com/BrandonMathis/my-pi/raw/5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c/agent%2Fextensions%2Fconfirm-abort.ts",
+      "contents_url": "https://api.github.com/repos/BrandonMathis/my-pi/contents/agent%2Fextensions%2Fconfirm-abort.ts?ref=5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c",
+      "patch": "@@ -1,43 +1,54 @@\n import type { ExtensionAPI } from \"@mariozechner/pi-coding-agent\";\n-import { Key, matchesKey } from \"@mariozechner/pi-tui\";\n+import { isKeyRelease, isKeyRepeat, Key, matchesKey } from \"@mariozechner/pi-tui\";\n \n export default function confirmAbortExtension(pi: ExtensionAPI) {\n-\tlet confirming = false;\n+\tlet confirmation: AbortController | undefined;\n \tlet unsubscribe: (() => void) | undefined;\n \n \tpi.on(\"session_start\", (_event, ctx) => {\n \t\tunsubscribe?.();\n \t\tunsubscribe = undefined;\n-\t\tconfirming = false;\n+\t\tconfirmation?.abort();\n+\t\tconfirmation = undefined;\n \n \t\tif (!ctx.hasUI) return;\n \n \t\tunsubscribe = ctx.ui.onTerminalInput((data) => {\n \t\t\tif (!matchesKey(data, Key.escape)) return undefined;\n \n+\t\t\t// Raw input listeners run before Pi filters keyup events. Only a fresh\n+\t\t\t// keydown should open/cancel the dialog, never a release or held-key repeat.\n+\t\t\tif (isKeyRelease(data) || isKeyRepeat(data)) return { consume: true };\n+\n+\t\t\t// Dismiss our dialog explicitly and consume Escape so it cannot abort work.\n+\t\t\t// Check this even if the operation finished while the dialog was open.\n+\t\t\tif (confirmation) {\n+\t\t\t\tconfirmation.abort();\n+\t\t\t\treturn { consume: true };\n+\t\t\t}\n+\n \t\t\t// Let Escape keep its normal behavior while pi is idle.\n \t\t\tif (ctx.isIdle()) return undefined;\n \n-\t\t\t// When the confirmation dialog is already focused, let Escape cancel it.\n-\t\t\tif (confirming) return undefined;\n-\n-\t\t\tconfirming = true;\n+\t\t\tconst controller = new AbortController();\n+\t\t\tconfirmation = controller;\n \n \t\t\tvoid (async () => {\n \t\t\t\ttry {\n-\t\t\t\t\tconst confirmed = await ctx.ui.confirm(\n-\t\t\t\t\t\t\"Abort current operation?\",\n-\t\t\t\t\t\t\"Pi is currently working. Do you really want to abort?\",\n+\t\t\t\t\tconst choice = await ctx.ui.select(\n+\t\t\t\t\t\t\"Abort current operation?\\nPi is currently working. Do you really want to abort? Press Escape to keep working.\",\n+\t\t\t\t\t\t[\"No\", \"Yes\"],\n+\t\t\t\t\t\t{ signal: controller.signal },\n \t\t\t\t\t);\n \n-\t\t\t\t\tif (confirmed && !ctx.isIdle()) {\n+\t\t\t\t\tif (choice === \"Yes\" && !controller.signal.aborted && !ctx.isIdle()) {\n \t\t\t\t\t\tctx.abort();\n \t\t\t\t\t}\n \t\t\t\t} catch (error) {\n \t\t\t\t\tconst message = error instanceof Error ? error.message : String(error);\n \t\t\t\t\tctx.ui.notify(`Abort confirmation failed: ${message}`, \"warning\");\n \t\t\t\t} finally {\n-\t\t\t\t\tconfirming = false;\n+\t\t\t\t\tif (confirmation === controller) confirmation = undefined;\n \t\t\t\t}\n \t\t\t})();\n \n@@ -49,6 +60,7 @@ export default function confirmAbortExtension(pi: ExtensionAPI) {\n \tpi.on(\"session_shutdown\", () => {\n \t\tunsubscribe?.();\n \t\tunsubscribe = undefined;\n-\t\tconfirming = false;\n+\t\tconfirmation?.abort();\n+\t\tconfirmation = undefined;\n \t});\n }"
+    },
+    {
+      "sha": "fd8903ea35f78b2bd9b9a1f69aa5992f6cc21a72",
+      "filename": "agent/extensions/tests/confirm-abort.test.mjs",
+      "status": "added",
+      "additions": 175,
+      "deletions": 0,
+      "changes": 175,
+      "blob_url": "https://github.com/BrandonMathis/my-pi/blob/5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c/agent%2Fextensions%2Ftests%2Fconfirm-abort.test.mjs",
+      "raw_url": "https://github.com/BrandonMathis/my-pi/raw/5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c/agent%2Fextensions%2Ftests%2Fconfirm-abort.test.mjs",
+      "contents_url": "https://api.github.com/repos/BrandonMathis/my-pi/contents/agent%2Fextensions%2Ftests%2Fconfirm-abort.test.mjs?ref=5dbdfc4d750e82a4cf4a794aa0f09d7b9c65361c",
+      "patch": "@@ -0,0 +1,175 @@\n+// node --test agent/extensions/tests/confirm-abort.test.mjs\n+import assert from \"node:assert/strict\";\n+import { execFileSync } from \"node:child_process\";\n+import { createRequire } from \"node:module\";\n+import { join } from \"node:path\";\n+import { test } from \"node:test\";\n+\n+const packageDir = process.env.PI_PACKAGE_DIR ?? join(\n+\texecFileSync(\"npm\", [\"root\", \"-g\"], { encoding: \"utf8\" }).trim(),\n+\t\"@earendil-works/pi-coding-agent\",\n+);\n+const requirePi = createRequire(join(packageDir, \"package.json\"));\n+const { createJiti } = requirePi(\"jiti\");\n+const jiti = createJiti(import.meta.url, {\n+\talias: { \"@mariozechner/pi-tui\": requirePi.resolve(\"@earendil-works/pi-tui\") },\n+});\n+const { default: extension } = await jiti.import(\"../confirm-abort.ts\");\n+const flush = async () => { for (let i = 0; i < 12; i++) await Promise.resolve(); };\n+\n+function fixture() {\n+\tconst handlers = new Map();\n+\tlet input;\n+\tlet idle = false;\n+\tlet aborts = 0;\n+\tconst dialogs = [];\n+\tconst warnings = [];\n+\tconst ctx = {\n+\t\thasUI: true,\n+\t\tisIdle: () => idle,\n+\t\tabort: () => { aborts++; },\n+\t\tui: {\n+\t\t\tonTerminalInput(handler) {\n+\t\t\t\tinput = handler;\n+\t\t\t\treturn () => { input = undefined; };\n+\t\t\t},\n+\t\t\tselect(_title, options, { signal }) {\n+\t\t\t\treturn new Promise((resolve, reject) => {\n+\t\t\t\t\tdialogs.push({ options, signal, resolve, reject });\n+\t\t\t\t\tsignal.addEventListener(\"abort\", () => resolve(undefined), { once: true });\n+\t\t\t\t});\n+\t\t\t},\n+\t\t\tnotify: (...args) => warnings.push(args),\n+\t\t},\n+\t};\n+\textension({ on: (event, handler) => handlers.set(event, handler) });\n+\tconst emit = (event) => handlers.get(event)({}, ctx);\n+\temit(\"session_start\");\n+\treturn {\n+\t\temit, dialogs, warnings,\n+\t\tpress: (key = \"\\x1b\") => input?.(key),\n+\t\tsetIdle: (value) => { idle = value; },\n+\t\tget aborts() { return aborts; },\n+\t};\n+}\n+\n+test(\"Escape dismisses the confirmation without aborting and allows another prompt\", async () => {\n+\tconst f = fixture();\n+\tassert.deepEqual(f.press(), { consume: true });\n+\tassert.equal(f.dialogs.length, 1);\n+\tassert.equal(f.aborts, 0);\n+\tassert.deepEqual(f.press(), { consume: true });\n+\tassert.equal(f.dialogs[0].signal.aborted, true);\n+\tawait flush();\n+\tassert.equal(f.aborts, 0);\n+\tassert.deepEqual(f.press(), { consume: true });\n+\tassert.equal(f.dialogs.length, 2);\n+});\n+\n+test(\"Escape keyup and repeats do not immediately close the dialog\", async () => {\n+\tconst f = fixture();\n+\tconst keydown = \"\\x1b[27;1:1u\";\n+\tconst repeat = \"\\x1b[27;1:2u\";\n+\tconst keyup = \"\\x1b[27;1:3u\";\n+\n+\tassert.deepEqual(f.press(keydown), { consume: true });\n+\tassert.equal(f.dialogs.length, 1);\n+\tfor (const event of [repeat, repeat, keyup]) {\n+\t\tassert.deepEqual(f.press(event), { consume: true });\n+\t\tassert.equal(f.dialogs[0].signal.aborted, false);\n+\t}\n+\tawait flush();\n+\tassert.equal(f.dialogs.length, 1);\n+\tassert.equal(f.aborts, 0);\n+\n+\t// Only a separate press cancels; its keyup must not reopen the dialog.\n+\tassert.deepEqual(f.press(keydown), { consume: true });\n+\tassert.equal(f.dialogs[0].signal.aborted, true);\n+\tawait flush();\n+\tfor (const event of [repeat, keyup]) {\n+\t\tassert.deepEqual(f.press(event), { consume: true });\n+\t}\n+\tassert.equal(f.dialogs.length, 1);\n+\tassert.equal(f.aborts, 0);\n+});\n+\n+test(\"orphaned Escape keyup and repeat events do not open a dialog\", () => {\n+\tconst f = fixture();\n+\tfor (const event of [\"\\x1b[27;1:3u\", \"\\x1b[27;1:2u\"]) {\n+\t\tassert.deepEqual(f.press(event), { consume: true });\n+\t}\n+\tassert.equal(f.dialogs.length, 0);\n+\tassert.equal(f.aborts, 0);\n+});\n+\n+test(\"Escape still dismisses the dialog if work finished meanwhile\", async () => {\n+\tconst f = fixture();\n+\tf.press();\n+\tf.setIdle(true);\n+\tassert.deepEqual(f.press(), { consume: true });\n+\tassert.equal(f.dialogs[0].signal.aborted, true);\n+\tawait flush();\n+\tassert.equal(f.aborts, 0);\n+\tassert.equal(f.press(), undefined);\n+});\n+\n+test(\"idle Escape and other keys pass through\", () => {\n+\tconst f = fixture();\n+\tassert.equal(f.press(\"x\"), undefined);\n+\tf.setIdle(true);\n+\tassert.equal(f.press(), undefined);\n+\tassert.equal(f.dialogs.length, 0);\n+});\n+\n+test(\"No is the default option and Enter keeps working\", async () => {\n+\tconst f = fixture();\n+\tf.press();\n+\tassert.deepEqual(f.dialogs[0].options, [\"No\", \"Yes\"]);\n+\tf.dialogs[0].resolve(f.dialogs[0].options[0]);\n+\tawait flush();\n+\tassert.equal(f.aborts, 0);\n+});\n+\n+test(\"Yes aborts work and No keeps working\", async () => {\n+\tfor (const choice of [\"Yes\", \"No\"]) {\n+\t\tconst f = fixture();\n+\t\tf.press();\n+\t\tf.dialogs[0].resolve(choice);\n+\t\tawait flush();\n+\t\tassert.equal(f.aborts, choice === \"Yes\" ? 1 : 0);\n+\t}\n+});\n+\n+test(\"Escape overrides a Yes result that has not resumed yet\", async () => {\n+\tconst f = fixture();\n+\tf.press();\n+\tf.dialogs[0].resolve(\"Yes\");\n+\tf.press();\n+\tawait flush();\n+\tassert.equal(f.aborts, 0);\n+});\n+\n+test(\"session changes dismiss old dialogs without clearing the new confirmation\", async () => {\n+\tconst f = fixture();\n+\tf.press();\n+\tf.emit(\"session_start\");\n+\tassert.equal(f.dialogs[0].signal.aborted, true);\n+\tf.press();\n+\tawait flush();\n+\tf.press();\n+\tassert.equal(f.dialogs.length, 2);\n+\tassert.equal(f.dialogs[1].signal.aborted, true);\n+\tf.emit(\"session_shutdown\");\n+\tassert.equal(f.press(), undefined);\n+\tassert.equal(f.aborts, 0);\n+});\n+\n+test(\"dialog failures warn and release the confirmation state\", async () => {\n+\tconst f = fixture();\n+\tf.press();\n+\tf.dialogs[0].reject(new Error(\"dialog failed\"));\n+\tawait flush();\n+\tassert.equal(f.warnings.length, 1);\n+\tf.press();\n+\tassert.equal(f.dialogs.length, 2);\n+});"
+    }
+  ]
+}
