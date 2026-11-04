@@ -1,80 +1,96 @@
 ---
 name: resume-update
-description: Apply a requested resume adjustment, build a fresh PDF, follow the resume-layout audit and visual inspection workflow, and open the checked PDF in macOS Preview for the user's review. Use when asked to update or revise this resume and show the result, or to build and preview an adjustment the user already made.
+description: Apply layout and style changes only to the shared resume design and templates, without modifying copy. Build fresh PDFs, audit and visually inspect the baseline and all variants, and open the reviewed PDFs in macOS Preview. Use for resume formatting, spacing, typography, or visual presentation changes; use resume-copy-update for wording or content changes.
 compatibility: Requires macOS Preview and the dependencies documented by the project's resume-layout skill.
 ---
 
-# Update and preview the resume
+# Update resume layout/style and preview
 
-Treat the user's arguments as the requested adjustment. Complete the edit, layout review, and Preview handoff in one workflow; do not stop after changing YAML or merely suggest that the user open the PDF.
+Treat the user's arguments as a layout/style request. Complete the permitted edit, fresh build, layout review, and Preview handoff in one workflow. This skill must not change resume copy, even to resolve overflow.
 
-## 1. Establish the requested change
+## 1. Establish scope
 
-- Work from the resume project root, three directories above this skill directory.
-- Read `../resume-layout/SKILL.md` in full and follow its audit workflow. Its policy is mandatory; this skill does not replace it.
-- Inspect `git status --short`, the relevant existing changes, the selected YAML, and the Makefile before editing. Preserve unrelated and uncommitted work.
-- Default to `resume.yaml`, the authoritative source. If the user names a variation, use that YAML consistently. Create a variation alongside `resume.yaml` only when requested; give it distinct output paths under `settings.render_command` so it cannot overwrite the main resume's outputs.
-- If the user describes a change they already made, inspect the source/diff first. Do not duplicate an existing adjustment; build and review it instead.
-- If no adjustment or source change is supplied, ask what to change. Ask about materially ambiguous facts rather than inventing roles, dates, achievements, or metrics.
+- Work from the project root, three directories above this skill directory.
+- Read `../resume-layout/SKILL.md` in full, plus the project `README.md` and Makefile. The layout contract remains mandatory.
+- Inspect `git status --short`, relevant existing diffs, `resume.yaml`, the content overlays, and shared templates. Preserve unrelated and uncommitted work.
+- Allowed edits: shared `design` settings in `resume.yaml` and presentation rules in `classic/`. Do not create per-variant layouts or edit generated files.
+- Forbidden edits: any `cv` values, variant copy, section names/order, facts, dates, links, identity/contact text, locale wording, or content-bearing template text. Template changes must preserve which content is shown and its reading order; do not hide, truncate, drop, duplicate, or rewrite content as a formatting fix.
+- Capture the pre-edit parsed `cv`, `locale`, and overlay values and verify they remain unchanged after editing. Inspect template diffs for content changes too. Preserve pre-existing user copy changes rather than reverting them to Git HEAD.
+- If the request is copy-only, use `../resume-copy-update/SKILL.md` instead and follow its mandatory variant question. For a mixed request, separate the scopes explicitly; this skill does not authorize the copy portion.
+- If no adjustment or source change is supplied, ask what layout/style change is wanted. If the user already made the adjustment, inspect the diff and validate it rather than duplicating it.
 
-## 2. Apply the adjustment
+## 2. Apply only the presentation adjustment
 
-Edit the YAML with the smallest changes that satisfy the request. Never edit generated Typst/PDF files or the frozen `resume.tex` reference. Do not overwrite original reference PDFs.
+Make the smallest shared design/template change that satisfies the request. `resume.yaml` and `classic/` are the only layout sources; every variant inherits them. A request to style only one variant conflicts with the shared-layout architecture: explain this and ask before proceeding, rather than introducing a private style override.
+
+Never edit generated Typst/PDF files, generated template copies under `build/`, frozen `resume.tex`, or original reference PDFs.
 
 Keep exactly two readable US Letter pages:
 
 - Page 1: name/contact details, summary, and all professional experience.
 - Page 2: education, community leadership, and all other supporting sections.
-- Preserve the single explicit break before the first supporting section, Helvetica, 10 pt body text, 12 pt baselines, and the layout skill's other locked sizes and margin rules.
+- Preserve the single explicit supporting-section break, Helvetica, 10 pt body text, 12 pt baselines, other locked sizes, and minimum margins. A deliberate change to locked typography requires explicit approval under the layout policy; never weaken the policy merely to pass.
 
-Shorten repetitive wording before tightening permitted positive spacing. Preserve facts and meaningful results; do not silently remove work history or substantive content. If fitting requires material cuts outside the request, propose them and ask for approval. Never weaken the layout policy to obtain a pass.
+The layout auditor's text-first troubleshooting advice is **not permission to edit copy in this skill**. If the requested styling cannot fit the unchanged content, report the conflict and propose a separate copy-update workflow. Do not shorten wording, remove bullets, or silently change facts to make the layout pass.
 
-## 3. Build and audit fresh output
+## 3. Build and audit every affected resume
 
-From the project root, set `SOURCE` to the selected YAML path (the example is the default). Run these commands separately so a failed build or audit cannot be hidden by a later successful command:
+Shared presentation edits affect the baseline and all variants. Discover the current variants with `make variants`; do not assume the list is limited to the initial two. Run commands separately and require successful exits:
 
 ```sh
-SOURCE=resume.yaml
-make pdf SOURCE="$SOURCE"
+make pdf
 ```
 
 ```sh
-SOURCE=resume.yaml
-make check-layout SOURCE="$SOURCE"
+make check-layout
 ```
 
-For a variation, replace `resume.yaml` in both commands. Require successful exits and read the fresh `report.json` and `compile.log` under `build/layout-audit/<source-stem>/`. The audit artifact is named `resume.pdf` even when the source is a variation.
-
-Follow the layout skill's diagnosis/fix order if anything fails. After any meaningful revision, rebuild and repeat the audit. A stale PDF, successful compilation alone, or automated audit alone is not approval. If a dependency or unresolved violation blocks progress, report it; do not open an old PDF as if it were the update.
-
-## 4. Inspect every page
-
-Render the freshly audited PDF to images. For the default source:
+For **each** discovered variant, substitute its actual name:
 
 ```sh
+VARIANT=full-stack
+make pdf VARIANT="$VARIANT"
+```
+
+```sh
+VARIANT=full-stack
+make check-layout VARIANT="$VARIANT"
+```
+
+Use the same name for the paired commands; do not combine `SOURCE` and `VARIANT`. Read each fresh `report.json` and `compile.log` under `build/layout-audit/resume/` and `build/layout-audit/<variant>/`. The audit artifact is always named `resume.pdf`.
+
+After any meaningful revision, rebuild and re-audit the baseline and every variant. Compilation alone, a stale PDF, or one passing variant does not approve a shared layout. If blocked by dependencies or unresolved violations, report the affected resumes; do not open an old PDF as if it were the update.
+
+## 4. Inspect every actual page
+
+Render the freshly audited baseline and each variant to images. Set `STEM=resume` for the baseline or the actual variant name:
+
+```sh
+STEM=full-stack
 pdftoppm -scale-to 1600 -png \
-  build/layout-audit/resume/resume.pdf \
-  build/layout-audit/resume/page
+  "build/layout-audit/$STEM/resume.pdf" \
+  "build/layout-audit/$STEM/page"
 ```
 
-Use the selected source stem instead of the directory `resume` for a variation. Read every actual page image with an image-reading tool; do not assume a two-page count or inspect only page one. Check clipping, collisions, wrapping, readability, spacing, hierarchy, and stranded headings or entries. Fix issues and repeat the fresh build, audit, and image inspection.
+Read every actual page image with an image-reading tool. Check clipping, collisions, wrapping, readability, spacing, hierarchy, and stranded headings/entries. Fix only permitted presentation issues, then repeat fresh build, audit, and visual inspection for all affected resumes.
 
-If image inspection is unavailable, explicitly mark visual inspection as blocked. You may still open the fresh artifact for the user's review, but do not claim layout approval. A failing artifact may be opened only as a clearly labeled diagnostic, not a finished update.
+If image inspection is unavailable, mark visual review BLOCKED. A fresh artifact may still be opened for the user's review, but do not claim approval. A failing artifact may be opened only as a clearly labeled diagnostic.
 
-## 5. Open the exact reviewed PDF in Preview
+## 5. Open the exact reviewed PDFs in Preview
 
-After automated and agent visual checks pass, open the same audited artifact you inspected, not an older published PDF. On macOS, explicitly select Preview:
+After automated and agent visual checks pass, open each audited PDF inspected above, not an older build PDF. For each baseline/variant stem:
 
 ```sh
-open -a Preview "build/layout-audit/resume/resume.pdf"
+STEM=full-stack
+open -a Preview "build/layout-audit/$STEM/resume.pdf"
 ```
 
-For a variation, substitute its source-stem directory. Check the command's exit status. If opening fails or the desktop session is unavailable, report the handoff as blocked and provide the exact PDF path; do not claim Preview opened. A successful launch request is not evidence of the user's visual approval.
+Check each command's exit status. If Preview or the desktop session is unavailable, report the handoff as blocked and provide exact paths. A successful launch request is not evidence of the user's approval.
 
 End with a concise handoff stating:
 
-- What changed and the YAML source path.
-- Layout PASS / FAIL / BLOCKED, actual page count, section page spans, confirmed body font/baseline, and whether agent visual inspection passed.
-- The exact audited PDF path and whether it was opened in Preview for the user's review.
+- What presentation changed, the source/template paths, and confirmation that no copy was modified.
+- Per-resume layout PASS / FAIL / BLOCKED, actual page count, section page spans, body font/baseline, and agent visual-review status.
+- Exact audited PDF paths and whether they were opened in Preview.
 
-Leave final user approval to the user. Do not make additional changes while waiting for their feedback.
+Leave final approval to the user. Do not make additional changes while waiting for feedback.

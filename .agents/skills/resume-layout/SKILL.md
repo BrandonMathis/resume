@@ -38,6 +38,14 @@ RenderCV's `design.typography.line_spacing: 2pt` is **leading between text frame
 
 Do not use smaller local text, negative tracking, condensed fonts, glyph scaling, negative vertical space, hidden/white text, or reduced line height to squeeze content. For legacy TeX, this includes `\small`/`\footnotesize` for body content, `\resizebox`, `\scalebox`, and reduced `\baselinestretch`/`\linespread`. Manually inspect local Typst/TeX overrides: the script is not a complete interpreter and cannot certify arbitrary executable content or detect every collision.
 
+## Edit-scope boundaries
+
+This skill audits both content and presentation; it does not authorize either kind of edit by itself. For update-and-preview requests:
+
+- `../resume-update/SKILL.md` permits shared layout/style edits only, never copy changes. Audit the baseline and every variant after shared presentation changes.
+- `../resume-copy-update/SKILL.md` permits copy-only edits to confirmed variants and always asks which variant(s) before proceeding. Do not change shared design/templates to make tailored copy fit.
+- The troubleshooting suggestions below apply only within the authorized scope. If a fix requires crossing that boundary, explain the conflict and obtain a separately scoped request instead of silently changing copy or style.
+
 ## Run the audit
 
 From the project root:
@@ -46,7 +54,10 @@ From the project root:
 make check-layout
 # Or:
 ruby .agents/skills/resume-layout/scripts/check_layout.rb
-# Tailored YAML alongside resume.yaml uses the shared classic/ template:
+# Content-only variants are composed with the shared baseline/templates:
+make check-layout VARIANT=full-stack
+make check-layout VARIANT=react-native
+# Standalone tailored YAML alongside resume.yaml still works:
 make check-layout SOURCE=tailored.yaml
 # Checker regression tests:
 make test-layout

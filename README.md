@@ -101,6 +101,13 @@ To add another audience, create `variants/<lowercase-hyphenated-name>.yaml` with
 
 The legacy TeX source remains in Git for comparison; it is not another active source of truth.
 
+## Update skills
+
+- **`resume-update`** — layout/style only, in the shared design/templates. Preserves all copy, builds and audits the baseline and every variant, visually inspects every page, and opens the exact reviewed PDFs in Preview.
+- **`resume-copy-update`** — copy only, in the selected variant overlays. Always asks you to confirm which variant(s) before editing, even if you already named one. Builds, audits, visually inspects, and opens each confirmed variant's reviewed PDF in Preview; never changes shared layout/style or unselected variants.
+
+Both follow `resume-layout` for validation. If a fix needs changes outside a skill's scope, it stops and asks rather than silently changing copy to fix style or style to fit copy.
+
 ## Audit before publishing
 
 ```sh
