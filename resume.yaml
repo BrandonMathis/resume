@@ -177,7 +177,7 @@ design:
       bullet: '•'
       space_left: 5pt
       space_above: 3pt
-      space_between_items: 1pt
+      space_between_items: 3pt
       space_between_bullet_and_text: 5pt
   templates:
     experience_entry:
