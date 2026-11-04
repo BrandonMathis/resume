@@ -1,17 +1,17 @@
 ---
 name: resume-update
-description: Apply layout and style changes only to the shared resume design and templates, without modifying copy. Build fresh PDFs, audit and visually inspect the baseline and all variants, and open the reviewed PDFs in macOS Preview. Use for resume formatting, spacing, typography, or visual presentation changes; use resume-copy-update for wording or content changes.
+description: Apply layout and style changes only to the shared resume design and templates, without modifying copy. Build fresh PDFs, run the automated layout audit for the baseline and all variants, and open the audited PDFs in macOS Preview for the user's review. Use for resume formatting, spacing, typography, or visual presentation changes; use resume-copy-update for wording or content changes.
 compatibility: Requires macOS Preview and the dependencies documented by the project's resume-layout skill.
 ---
 
 # Update resume layout/style and preview
 
-Treat the user's arguments as a layout/style request. Complete the permitted edit, fresh build, layout review, and Preview handoff in one workflow. This skill must not change resume copy, even to resolve overflow.
+Treat the user's arguments as a layout/style request. Complete the permitted edit, fresh build, automated layout audit, and Preview handoff in one workflow. Agent visual inspection (rendering pages to images and reviewing them) is **not required** for this skill; this overrides the visual-review step in `../resume-layout/SKILL.md`. The user reviews the opened PDFs. This skill must not change resume copy, even to resolve overflow.
 
 ## 1. Establish scope
 
 - Work from the project root, three directories above this skill directory.
-- Read `../resume-layout/SKILL.md` in full, plus the project `README.md` and Makefile. The layout contract remains mandatory.
+- Read `../resume-layout/SKILL.md` in full, plus the project `README.md` and Makefile. The layout contract and automated audit remain mandatory; skip its agent visual-review step.
 - Inspect `git status --short`, relevant existing diffs, `resume.yaml`, the content overlays, and shared templates. Preserve unrelated and uncommitted work.
 - Allowed edits: shared `design` settings in `resume.yaml` and presentation rules in `classic/`. Do not create per-variant layouts or edit generated files.
 - Forbidden edits: any `cv` values, variant copy, section names/order, facts, dates, links, identity/contact text, locale wording, or content-bearing template text. Template changes must preserve which content is shown and its reading order; do not hide, truncate, drop, duplicate, or rewrite content as a formatting fix.
@@ -61,24 +61,11 @@ Use the same name for the paired commands; do not combine `SOURCE` and `VARIANT`
 
 After any meaningful revision, rebuild and re-audit the baseline and every variant. Compilation alone, a stale PDF, or one passing variant does not approve a shared layout. If blocked by dependencies or unresolved violations, report the affected resumes; do not open an old PDF as if it were the update.
 
-## 4. Inspect every actual page
+A failing artifact may be opened only as a clearly labeled diagnostic.
 
-Render the freshly audited baseline and each variant to images. Set `STEM=resume` for the baseline or the actual variant name:
+## 4. Open the exact audited PDFs in Preview
 
-```sh
-STEM=full-stack
-pdftoppm -scale-to 1600 -png \
-  "build/layout-audit/$STEM/resume.pdf" \
-  "build/layout-audit/$STEM/page"
-```
-
-Read every actual page image with an image-reading tool. Check clipping, collisions, wrapping, readability, spacing, hierarchy, and stranded headings/entries. Fix only permitted presentation issues, then repeat fresh build, audit, and visual inspection for all affected resumes.
-
-If image inspection is unavailable, mark visual review BLOCKED. A fresh artifact may still be opened for the user's review, but do not claim approval. A failing artifact may be opened only as a clearly labeled diagnostic.
-
-## 5. Open the exact reviewed PDFs in Preview
-
-After automated and agent visual checks pass, open each audited PDF inspected above, not an older build PDF. For each baseline/variant stem:
+After the automated checks pass, open each freshly audited PDF, not an older build PDF. Set `STEM=resume` for the baseline or the actual variant name:
 
 ```sh
 STEM=full-stack
@@ -90,7 +77,7 @@ Check each command's exit status. If Preview or the desktop session is unavailab
 End with a concise handoff stating:
 
 - What presentation changed, the source/template paths, and confirmation that no copy was modified.
-- Per-resume layout PASS / FAIL / BLOCKED, actual page count, section page spans, body font/baseline, and agent visual-review status.
+- Per-resume layout PASS / FAIL / BLOCKED, actual page count, section page spans, and body font/baseline. Note that agent visual inspection was not performed; visual review is left to the user.
 - Exact audited PDF paths and whether they were opened in Preview.
 
 Leave final approval to the user. Do not make additional changes while waiting for feedback.
