@@ -14,7 +14,7 @@ The strongest evidence-based positioning is **a product-building engineering lea
 - LinkedIn: https://www.linkedin.com/in/mathisbrandon/
 - GitHub: https://github.com/BrandonMathis (numeric account ID 362269)
 - Medium: https://medium.com/@brandonmathis
-- Contact details: use the current `resume.yaml`, not a stale downloaded page.
+- Contact details: use the current `variants/default.yml`, not a stale downloaded page.
 
 Do **not** attribute Octopress authorship, the `imathis` GitHub account, or Jekyll talks to this person. A fork of Octopress is not its authorship. Several unrelated Brandon Mathis profiles appeared in search and were excluded.
 

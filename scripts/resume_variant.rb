@@ -9,7 +9,11 @@ module ResumeVariant
   AUDITOR = File.join(ROOT, '.agents/skills/resume-layout/scripts/check_layout.rb')
 
   def self.names(root = ROOT)
-    Dir.glob(File.join(root, 'variants', '*.yaml')).map { |path| File.basename(path, '.yaml') }.sort
+    names = Dir.glob(File.join(root, 'variants', '*.{yml,yaml}')).map { |path| File.basename(path, '.*') }
+    duplicates = names.group_by(&:itself).select { |_, paths| paths.length > 1 }.keys
+    raise ArgumentError, "Duplicate variant names (.yml and .yaml): #{duplicates.join(', ')}" unless duplicates.empty?
+
+    names.sort
   end
 
   def self.validate_name(name, root: ROOT)
@@ -18,15 +22,33 @@ module ResumeVariant
     end
   end
 
-  def self.compose(name, root: ROOT, watch: false)
+  # Return the complete inheritance chain in parent-first order. Parent names
+  # are variant names, not file paths; every chain must end at default.
+  def self.sources(name, root: ROOT, ancestors: [])
     validate_name(name, root: root)
-    data = YAML.safe_load_file(File.join(root, 'resume.yaml'))
-    overlay = YAML.safe_load_file(File.join(root, 'variants', "#{name}.yaml"))
-    unless overlay.is_a?(Hash) && overlay.key?('sections') && (overlay.keys - %w[sections headline]).empty? &&
-           overlay['sections'].is_a?(Hash)
-      raise ArgumentError, 'A variant may contain only a sections mapping and an optional headline; design, identity, locale, and settings are shared.'
+    if ancestors.include?(name)
+      raise ArgumentError, "Circular variant inheritance: #{(ancestors + [name]).join(' -> ')}"
     end
 
+    path = Dir.glob(File.join(root, 'variants', "#{name}.{yml,yaml}")).fetch(0)
+    data = YAML.safe_load_file(path)
+    if name == 'default'
+      unless data.is_a?(Hash) && !data.key?('inherits') &&
+             %w[cv design locale settings].all? { |key| data[key].is_a?(Hash) } && data['cv']['sections'].is_a?(Hash)
+        raise ArgumentError, 'variants/default.yml must contain the full RenderCV configuration, without inherits.'
+      end
+      return [[path, data]]
+    end
+
+    unless data.is_a?(Hash) && data.key?('inherits') && data['sections'].is_a?(Hash) &&
+           (data.keys - %w[inherits sections headline]).empty?
+      raise ArgumentError, 'A variant must contain inherits and a sections mapping, with an optional headline; design, identity, locale, and settings are shared.'
+    end
+
+    sources(data['inherits'], root: root, ancestors: ancestors + [name]) + [[path, data]]
+  end
+
+  def self.apply_overlay(data, overlay)
     if overlay.key?('headline')
       headline = overlay['headline']
       unless headline.is_a?(String) && !headline.strip.empty? && !headline.include?("\n")
@@ -39,7 +61,7 @@ module ResumeVariant
 
     sections = data.fetch('cv').fetch('sections')
     overlay.fetch('sections').each do |heading, entries|
-      raise ArgumentError, "Unknown section #{heading.inspect}; define shared headings in resume.yaml." unless sections.key?(heading)
+      raise ArgumentError, "Unknown section #{heading.inspect}; define shared headings in variants/default.yml." unless sections.key?(heading)
       unless entries.is_a?(Array) && !entries.empty?
         raise ArgumentError, "Section #{heading.inspect} must be a nonempty list of RenderCV entries."
       end
@@ -48,6 +70,12 @@ module ResumeVariant
       # Assignment to an existing key preserves the baseline section order.
       sections[heading] = entries
     end
+  end
+
+  def self.compose(name, root: ROOT, watch: false)
+    chain = sources(name, root: root)
+    data = chain.first.last
+    chain.drop(1).each { |_, overlay| apply_overlay(data, overlay) }
 
     directory = File.join(root, 'build', 'variants', name)
     FileUtils.mkdir_p(directory)
@@ -67,7 +95,8 @@ module ResumeVariant
     end
     outputs['pdf_path'] = 'watch.pdf' if watch
     source = File.join(directory, "#{name}.yaml")
-    File.write(source, "# GENERATED from resume.yaml + variants/#{name}.yaml; do not edit.\n" + YAML.dump(data))
+    inputs = chain.map { |path, _| path.delete_prefix("#{root}/") }.join(' + ')
+    File.write(source, "# GENERATED from #{inputs}; do not edit.\n" + YAML.dump(data))
     source
   end
 
@@ -122,7 +151,7 @@ module ResumeVariant
   end
 
   def self.fingerprint(name, root: ROOT)
-    paths = [File.join(root, 'resume.yaml'), File.join(root, 'variants', "#{name}.yaml")]
+    paths = sources(name, root: root).map(&:first)
     paths += Dir.glob(File.join(root, 'classic', '**', '*')).select { |path| File.file?(path) }
     paths.sort.map { |path| [path, File.read(path)] }
   end

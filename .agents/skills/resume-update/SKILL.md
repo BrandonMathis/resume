@@ -12,8 +12,8 @@ Treat the user's arguments as a layout/style request. Complete the requested pre
 
 - Work from the project root, three directories above this skill directory.
 - Read the project `README.md` and Makefile; consult `../resume-layout/SKILL.md` for layout constraints as needed, and read it in full at finalization. Reading it does not trigger an audit. The layout contract remains mandatory throughout; the automated audit is the finalization gate. Skip its agent visual-review step.
-- Inspect `git status --short`, relevant existing diffs, `resume.yaml`, the content overlays, and shared templates. Preserve unrelated and uncommitted work.
-- Allowed edits: shared `design` settings in `resume.yaml` and presentation rules in `classic/`. Do not create per-variant layouts or edit generated files.
+- Inspect `git status --short`, relevant existing diffs, `variants/default.yml`, the content overlays, and shared templates. Preserve unrelated and uncommitted work.
+- Allowed edits: shared `design` settings in `variants/default.yml` and presentation rules in `classic/`. Do not create per-variant layouts or edit generated files.
 - Forbidden edits: any `cv` values, variant copy, section names/order, facts, dates, links, identity/contact text, locale wording, or content-bearing template text. Template changes must preserve which content is shown and its reading order; do not hide, truncate, drop, duplicate, or rewrite content as a formatting fix.
 - Capture the pre-edit parsed `cv`, `locale`, and overlay values and verify they remain unchanged after editing. Inspect template diffs for content changes too. Preserve pre-existing user copy changes rather than reverting them to Git HEAD.
 - If the request is copy-only, use `../resume-copy-update/SKILL.md` instead and follow its mandatory variant question. For a mixed request, separate the scopes explicitly; this skill does not authorize the copy portion.
@@ -21,7 +21,7 @@ Treat the user's arguments as a layout/style request. Complete the requested pre
 
 ## 2. Apply only the presentation adjustment
 
-Make the smallest shared design/template change that satisfies the request. `resume.yaml` and `classic/` are the only layout sources; every variant inherits them. A request to style only one variant conflicts with the shared-layout architecture: explain this and ask before proceeding, rather than introducing a private style override.
+Make the smallest shared design/template change that satisfies the request. `variants/default.yml` and `classic/` are the only layout sources; every variant inherits them. A request to style only one variant conflicts with the shared-layout architecture: explain this and ask before proceeding, rather than introducing a private style override.
 
 Never edit generated Typst/PDF files, generated template copies under `build/`, frozen `resume.tex`, or original reference PDFs.
 
@@ -35,20 +35,14 @@ The layout auditor's text-first troubleshooting advice is **not permission to ed
 
 ## 3. Finalize and audit every affected resume
 
-Once the requested presentation edits and source/diff checks are complete and ready for final PDF handoff, read `../resume-layout/SKILL.md` in full. Shared presentation edits affect the baseline and all variants. Discover the current variants with `make variants`; do not assume the list is limited to the initial two. Run one audit per resume and require successful exits:
-
-```sh
-make check-layout
-```
-
-For **each** discovered variant, substitute its actual name:
+Once the requested presentation edits and source/diff checks are complete and ready for final PDF handoff, read `../resume-layout/SKILL.md` in full. Shared presentation edits affect all variants, including `default`. Discover them with `make variants` and audit each exactly once; do not separately audit default a second time. Require successful exits. For **each** discovered variant, substitute its actual name:
 
 ```sh
 VARIANT=full-stack
 make check-layout VARIANT="$VARIANT"
 ```
 
-Do not combine `SOURCE` and `VARIANT`. Each audit renders its own fresh PDF; no preceding `make pdf` is needed. Use separate `make pdf` builds only for requested drafts or separately needed build-path PDFs; draft builds do not trigger audits. Read each fresh `report.json` and `compile.log` under `build/layout-audit/resume/` and `build/layout-audit/<variant>/`. The audit artifact is always named `resume.pdf`.
+Do not combine `SOURCE` and `VARIANT`. Each audit renders its own fresh PDF; no preceding `make pdf` is needed. Use separate `make pdf` builds only for requested drafts or separately needed build-path PDFs; draft builds do not trigger audits. Read each fresh `report.json` and `compile.log` under `build/layout-audit/<variant>/` (including `default`). The audit artifact is always named `resume.pdf`.
 
 If finalization fails, batch authorized fixes before re-auditing affected resumes. Further shared presentation changes invalidate all affected results; re-audit at the next finalization, not after each small edit. Reuse passing audits while effective source is unchanged, without repeating them through calling skills or repeated handoffs. Compilation alone, a stale PDF, or one passing variant does not approve a shared layout. If blocked by dependencies or unresolved violations, report the affected resumes; do not open an old PDF as if it were the update.
 
@@ -56,7 +50,7 @@ A failing artifact may be opened only as a clearly labeled diagnostic.
 
 ## 4. Open the exact audited PDFs in Preview
 
-After the automated checks pass, open each freshly audited PDF, not an older build PDF. Set `STEM=resume` for the baseline or the actual variant name:
+After the automated checks pass, open each freshly audited PDF, not an older build PDF. Set `STEM=default` for the baseline or the actual variant name:
 
 ```sh
 STEM=full-stack

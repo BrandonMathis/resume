@@ -16,7 +16,7 @@ Paths below are relative to the project root, **three directories above this ski
 3. Consult `knowledge-base/claims.yaml` and `knowledge-base/questions.md` before using facts in an answer or draft. Read the relevant claim's evidence status, sources, caveat, dates, metrics, and any `needs_confirmation` flag—not just its statement.
 4. Retrieve only the topic files and underlying artifacts needed for the request. Do not load the entire source archive into context.
 
-`resume.yaml` remains the authoritative approved baseline. The knowledge base is supporting evidence, not a replacement. Read current identity/contact information from `resume.yaml`, not frozen snapshots.
+`variants/default.yml` remains the authoritative approved baseline. The knowledge base is supporting evidence, not a replacement. Read current identity/contact information from `variants/default.yml`, not frozen snapshots.
 
 ## Route the question
 

@@ -10,7 +10,7 @@ class RenderCVIntegrationTest < Minitest::Test
       stem = "layout-test-#{File.basename(temp)}"
       source = File.join(temp, "#{stem}.yaml")
       artifact = File.join(ResumeLayout::ROOT, 'build', 'layout-audit', stem)
-      data = YAML.safe_load(File.read(File.join(ResumeLayout::ROOT, 'resume.yaml')))
+      data = YAML.safe_load(File.read(File.join(ResumeLayout::ROOT, 'variants/default.yml')))
       FileUtils.cp_r(File.join(ResumeLayout::ROOT, 'classic'), temp)
       File.write(source, YAML.dump(data))
       begin
@@ -29,7 +29,7 @@ class RenderCVIntegrationTest < Minitest::Test
 
   def test_fresh_render_passes_without_overwriting_the_published_pdf
     with_source do |source, artifact, _|
-      published = File.join(ResumeLayout::ROOT, 'build', 'resume.pdf')
+      published = File.join(ResumeLayout::ROOT, 'build', 'variants', 'default', 'default.pdf')
       before = File.file?(published) ? Digest::SHA256.file(published).hexdigest : nil
       result, report = render(source, artifact)
       assert_equal 0, result, report.inspect
@@ -39,8 +39,11 @@ class RenderCVIntegrationTest < Minitest::Test
       assert_equal [2], report['sections']['Education']
       assert_equal 12, report['normal_baseline_pt']
       assert File.file?(File.join(artifact, 'resume.typ'))
-      after = File.file?(published) ? Digest::SHA256.file(published).hexdigest : nil
-      assert_equal before, after
+      if before
+        assert_equal before, Digest::SHA256.file(published).hexdigest
+      else
+        refute File.exist?(published), 'An audit must not create the build-path PDF'
+      end
     end
   end
 

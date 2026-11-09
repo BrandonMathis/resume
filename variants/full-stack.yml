@@ -1,8 +1,9 @@
-# Content-only overlay on ../resume.yaml.
+# Content-only overlay inheriting from default.yml.
 # Source copy: "Fullstack Brandon Resume 2026.md", merged with retained baseline bullets.
 # Overridden sections replace the whole baseline list and no longer inherit baseline copy updates.
 # Education is intentionally inherited (identical copy).
 headline: Full Stack Software Engineer
+inherits: default
 sections:
   Summary:
     - >-

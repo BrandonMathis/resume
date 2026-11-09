@@ -12,7 +12,7 @@ Treat this skill as a finalization gate, not an automatic hook for every edit or
 
 - Finish the requested batch of copy/style edits and source/diff checks first. Run one fresh audit per affected resume when ready for final PDF handoff/publishing, or when the user explicitly requests a layout audit.
 - Do not audit for research, copy proposals, instruction/tooling-only edits, each bullet or file change, intermediate drafts, or `make pdf` / `make watch` working previews. Draft previews must be identified as unaudited, not finished resumes.
-- Scope finalization to the selected variants for variant-only copy edits; include the baseline and all discovered variants for shared presentation edits. Do not repeat audits through each calling skill: all workflows share this single finalization gate.
+- Scope finalization to the selected variants for variant-only copy edits; include all discovered variants (including `default`) once each for shared presentation edits. Do not repeat audits through each calling skill: all workflows share this single finalization gate.
 - If finalization fails, diagnose the result and batch the authorized fixes before re-running affected audits. Do not re-audit after each small correction. An explicit diagnostic request may run an audit earlier.
 - Reuse a passing audit and completed review while the effective content, design, templates, and audit policy/tooling are unchanged. Later changes affecting the result require a fresh audit at the next finalization; an unrelated file edit or repeated status request does not. Never use an old artifact to approve changed source.
 - `make check-layout` already builds a fresh PDF. Do not precede it with `make pdf` merely to make the audit fresh; build separately only when the user also needs the conventional build-path PDF or an intermediate preview.
@@ -21,7 +21,7 @@ Documentation-only changes to these skills or `AGENTS.md` do not themselves requ
 
 ## Contract
 
-`resume.yaml` is authoritative. Never edit generated Typst or PDFs. `resume.tex` is a frozen pre-migration reference, not a second active source. Apply this finalization workflow to each affected source or tailored variation, using the scope above. Work from the project root; resolve bundled paths relative to this skill's directory.
+`variants/default.yml` is authoritative. Never edit generated Typst or PDFs. `resume.tex` is a frozen pre-migration reference, not a second active source. Apply this finalization workflow to each affected source or tailored variation, using the scope above. Work from the project root; resolve bundled paths relative to this skill's directory.
 
 A finished resume must have:
 
@@ -55,7 +55,7 @@ Do not use smaller local text, negative tracking, condensed fonts, glyph scaling
 
 This skill audits both content and presentation; it does not authorize either kind of edit by itself. For update-and-preview requests:
 
-- `../resume-update/SKILL.md` permits shared layout/style edits only, never copy changes. Audit the baseline and every variant after shared presentation changes.
+- `../resume-update/SKILL.md` permits shared layout/style edits only, never copy changes. Audit every discovered variant, including `default`, once after shared presentation changes.
 - `../resume-copy-update/SKILL.md` permits copy-only edits to confirmed variants and always asks which variant(s) before proceeding. Do not change shared design/templates to make tailored copy fit.
 - The troubleshooting suggestions below apply only within the authorized scope. If a fix requires crossing that boundary, explain the conflict and obtain a separately scoped request instead of silently changing copy or style.
 
@@ -70,7 +70,7 @@ ruby .agents/skills/resume-layout/scripts/check_layout.rb
 # Content-only variants are composed with the shared baseline/templates:
 make check-layout VARIANT=full-stack
 make check-layout VARIANT=react-native
-# Standalone tailored YAML alongside resume.yaml still works:
+# Standalone tailored YAML still works:
 make check-layout SOURCE=tailored.yaml
 # Checker regression tests:
 make test-layout
@@ -89,7 +89,7 @@ The checker retains legacy `--source resume.tex` support, compiling fresh TeX wi
 Read the report and compiler log, then render **every actual page** for visual review:
 
 ```sh
-pdftoppm -scale-to 1600 -png build/layout-audit/resume/resume.pdf build/layout-audit/resume/page
+pdftoppm -scale-to 1600 -png build/layout-audit/default/resume.pdf build/layout-audit/default/page
 ```
 
 Inspect the images with available image-reading tools. Check name/contact readability, section hierarchy, line spacing, wrapping, crowding, clipping, and whether any heading/entry is stranded at the foot of a page. The tool cannot prove visual readability or detect every orphan/overlap. If image inspection is unavailable, explicitly report that limitation; don't declare the full layout approved.

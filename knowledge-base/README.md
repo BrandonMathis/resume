@@ -23,7 +23,7 @@ These counts describe the retrieved public snapshot, **not an exhaustive lifetim
 
 ## Agent rules
 
-- `../resume.yaml` remains the authoritative baseline. This library supplies evidence; it does not silently correct or replace approved resume copy.
+- `../variants/default.yml` remains the authoritative baseline. This library supplies evidence; it does not silently correct or replace approved resume copy.
 - Follow the project's copy/layout skills for actual resume edits. **Ask Brandon to confirm target variant(s) before editing copy.** Research updates alone do not require rendering a PDF.
 - Source IDs in brackets, such as **[SWIFT_31]**, resolve in `source-map.yaml`. Full downloaded artifact URLs, hashes, and extraction status are in `sources/manifest.json`.
 - Preserve distinctions: **artifact-backed**, **first-party/self-reported**, **corroborated context**, **inference**, **conflicted**, and **unverified lead**.

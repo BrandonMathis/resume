@@ -8,10 +8,13 @@ require_relative 'resume_variant'
 class ResumeVariantTest < Minitest::Test
   def with_project
     Dir.mktmpdir('resume-variants-') do |root|
-      FileUtils.cp(File.join(ResumeVariant::ROOT, 'resume.yaml'), root)
       %w[classic variants].each { |directory| FileUtils.cp_r(File.join(ResumeVariant::ROOT, directory), root) }
       # Test composition mechanics against empty overlays, independent of live tailored copy.
-      Dir.glob(File.join(root, 'variants', '*.yaml')).each { |path| File.write(path, "sections: {}\n") }
+      Dir.glob(File.join(root, 'variants', '*.yml')).each do |path|
+        next if File.basename(path) == 'default.yml'
+
+        File.write(path, "inherits: default\nsections: {}\n")
+      end
       yield root
     end
   end
@@ -21,15 +24,16 @@ class ResumeVariantTest < Minitest::Test
   end
 
   def write_overlay(root, data)
-    File.write(File.join(root, 'variants/full-stack.yaml'), YAML.dump(data))
+    data = { 'inherits' => 'default' }.merge(data) if data.is_a?(Hash)
+    File.write(File.join(root, 'variants/full-stack.yml'), YAML.dump(data))
   end
 
   def test_empty_overlays_preserve_all_copy_and_shared_configuration
     with_project do |root|
-      base_path = File.join(root, 'resume.yaml')
+      base_path = File.join(root, 'variants/default.yml')
       before = Digest::SHA256.file(base_path).hexdigest
       base = load_yaml(base_path)
-      assert_equal %w[enhanced-kimi-k3 full-stack react-native], ResumeVariant.names(root)
+      assert_equal %w[default enhanced-kimi-k3 full-stack react-native], ResumeVariant.names(root)
       ResumeVariant.names(root).each do |name|
         source = ResumeVariant.compose(name, root: root)
         result = load_yaml(source)
@@ -56,7 +60,7 @@ class ResumeVariantTest < Minitest::Test
 
   def test_section_replacement_preserves_order_and_inherits_other_sections
     with_project do |root|
-      base = load_yaml(File.join(root, 'resume.yaml'))
+      base = load_yaml(File.join(root, 'variants/default.yml'))
       # This text is confined to temporary test fixtures, never real resume copy.
       write_overlay(root, { 'sections' => { 'Summary' => ['Synthetic test summary'] } })
       result = load_yaml(ResumeVariant.compose('full-stack', root: root))
@@ -71,7 +75,7 @@ class ResumeVariantTest < Minitest::Test
 
   def test_optional_headline_is_variant_specific
     with_project do |root|
-      base = load_yaml(File.join(root, 'resume.yaml'))
+      base = load_yaml(File.join(root, 'variants/default.yml'))
       write_overlay(root, { 'headline' => 'Synthetic Headline', 'sections' => {} })
       result = load_yaml(ResumeVariant.compose('full-stack', root: root))
       expected = Marshal.load(Marshal.dump(base['cv']))
@@ -85,7 +89,7 @@ class ResumeVariantTest < Minitest::Test
   def test_shared_changes_and_template_updates_propagate_on_recompose
     with_project do |root|
       source = ResumeVariant.compose('full-stack', root: root)
-      base_path = File.join(root, 'resume.yaml')
+      base_path = File.join(root, 'variants/default.yml')
       base = load_yaml(base_path)
       base['cv']['sections']['Summary'] = ['Synthetic shared update']
       File.write(base_path, YAML.dump(base))
@@ -111,6 +115,63 @@ class ResumeVariantTest < Minitest::Test
       invalid.each do |overlay|
         write_overlay(root, overlay)
         assert_raises(ArgumentError) { ResumeVariant.compose('full-stack', root: root) }
+      end
+    end
+  end
+
+  def test_multilevel_inheritance_replaces_sections_and_inherits_headlines
+    with_project do |root|
+      File.write(File.join(root, 'variants/parent.yml'), YAML.dump({
+        'inherits' => 'default', 'headline' => 'Parent headline',
+        'sections' => { 'Summary' => ['Parent summary'] }
+      }))
+      write_overlay(root, { 'inherits' => 'parent', 'sections' => { 'Summary' => ['Child summary'] } })
+      result = load_yaml(ResumeVariant.compose('full-stack', root: root))
+      assert_equal 'Parent headline', result['cv']['headline']
+      assert_equal ['Child summary'], result['cv']['sections']['Summary']
+      assert_equal %w[default.yml parent.yml full-stack.yml],
+                   ResumeVariant.sources('full-stack', root: root).map { |path, _| File.basename(path) }
+      previous = ResumeVariant.fingerprint('full-stack', root: root)
+      File.open(File.join(root, 'variants/parent.yml'), 'a') { |file| file.puts '# Parent edit' }
+      refute_equal previous, ResumeVariant.fingerprint('full-stack', root: root)
+      previous = ResumeVariant.fingerprint('full-stack', root: root)
+      File.open(File.join(root, 'variants/react-native.yml'), 'a') { |file| file.puts '# Unrelated edit' }
+      assert_equal previous, ResumeVariant.fingerprint('full-stack', root: root)
+    end
+  end
+
+  def test_rejects_missing_unsafe_and_circular_parents
+    with_project do |root|
+      [nil, '', [], 'missing', '../default', 'default.yml', 'full-stack'].each do |parent|
+        write_overlay(root, { 'inherits' => parent, 'sections' => {} })
+        assert_raises(ArgumentError) { ResumeVariant.compose('full-stack', root: root) }
+      end
+      write_overlay(root, { 'inherits' => 'react-native', 'sections' => {} })
+      File.write(File.join(root, 'variants/react-native.yml'), "inherits: full-stack\nsections: {}\n")
+      error = assert_raises(ArgumentError) { ResumeVariant.compose('full-stack', root: root) }
+      assert_includes error.message, 'Circular variant inheritance'
+      File.write(File.join(root, 'variants/full-stack.yml'), "sections: {}\n")
+      assert_raises(ArgumentError) { ResumeVariant.compose('full-stack', root: root) }
+    end
+  end
+
+  def test_supports_both_yaml_extensions_but_rejects_duplicate_names
+    with_project do |root|
+      original = File.join(root, 'variants/full-stack.yml')
+      alternative = File.join(root, 'variants/full-stack.yaml')
+      FileUtils.mv(original, alternative)
+      assert load_yaml(ResumeVariant.compose('full-stack', root: root))['cv']
+      FileUtils.cp(alternative, original)
+      assert_raises(ArgumentError) { ResumeVariant.names(root) }
+    end
+  end
+
+  def test_default_must_be_a_complete_root_configuration
+    with_project do |root|
+      path = File.join(root, 'variants/default.yml')
+      [nil, {}, { 'inherits' => 'full-stack', 'sections' => {} }].each do |data|
+        File.write(path, YAML.dump(data))
+        assert_raises(ArgumentError) { ResumeVariant.compose('default', root: root) }
       end
     end
   end
@@ -334,7 +395,7 @@ class ResumeVariantTest < Minitest::Test
   def test_watch_detects_baseline_overlay_and_template_edits_but_ignores_generated_output
     with_project do |root|
       previous = ResumeVariant.fingerprint('full-stack', root: root)
-      ['resume.yaml', 'variants/full-stack.yaml', 'classic/Header.j2.typ'].each do |relative|
+      ['variants/default.yml', 'variants/full-stack.yml', 'classic/Header.j2.typ'].each do |relative|
         File.open(File.join(root, relative), 'a') { |file| file.puts "\n# Synthetic fixture edit" }
         current = ResumeVariant.fingerprint('full-stack', root: root)
         refute_equal previous, current, "Must notice edits to #{relative}"
@@ -379,10 +440,31 @@ class ResumeVariantTest < Minitest::Test
     end
   end
 
-  def test_make_default_stays_baseline_pdf
+  def test_make_defaults_to_the_default_variant
     output, error, status = make_dry_run
     assert status.success?, error
-    assert_includes output, 'render "resume.yaml"'
+    assert_includes output, 'resume_variant.rb pdf "default"'
+    %w[compose pdf check-layout watch preview open].each do |command|
+      output, error, status = make_dry_run(command)
+      assert status.success?, error
+      assert_includes output, "resume_variant.rb #{command} \"default\""
+      output, error, status = make_dry_run(command, 'default')
+      assert status.success?, error
+      assert_includes output, "resume_variant.rb #{command} \"default\""
+    end
+  end
+
+  def test_make_preserves_standalone_sources_and_rejects_combining_them_with_variants
+    %w[pdf watch check-layout].each do |command|
+      output, error, status = make_dry_run(command, 'SOURCE=tailored.yaml')
+      assert status.success?, error
+      assert_includes output, 'tailored.yaml'
+      refute_includes output, 'resume_variant.rb'
+      output, error, status = make_dry_run(command, 'SOURCE=tailored.yaml', 'VARIANT=default')
+      refute status.success?
+      assert_empty output
+      assert_includes error, 'Use VARIANT or SOURCE, not both'
+    end
   end
 
   def test_rejects_missing_variants_and_path_traversal

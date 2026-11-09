@@ -12,21 +12,21 @@ Treat the user's arguments as a copy-change request. Complete the requested cont
 
 - Work from the project root, three directories above this skill directory.
 - Read the project `README.md` and Makefile; consult `../resume-layout/SKILL.md` for layout constraints as needed, and read it in full at finalization. Reading it does not trigger an audit. Inspect `git status --short`, relevant diffs, the baseline, and existing overlays without modifying anything.
-- Discover available variants with `make variants`. The initial variants are `full-stack` and `react-native`; do not hard-code the list if it has changed.
+- Discover available variants with `make variants`. The variants include `default` and the audience-specific overlays; do not hard-code the list.
 - Ask once at the start of each new copy-update operation. A clear answer authorizes the selected target(s) for subsequent revisions in that same operation; do not repeatedly ask during drafting or finalization.
-- Never default to all variants or to `resume.yaml`. Request confirmation before modifying that default/baseline resume. Prefer making new variants.
+- Never default to all variants or to `variants/default.yml`. Request confirmation before modifying that default/baseline resume. Prefer making new variants.
 - This workflow edits variant copy only; the shared baseline is read-only. If the user wants shared baseline or identity/contact changes, explain their broader inheritance impact and handle that as a separately scoped request rather than silently making a variant edit global.
 - If the adjustment itself is unspecified, ask what to change as well. Ask about ambiguous facts; never invent roles, dates, achievements, technologies, or metrics.
 
 ## 2. Apply only copy changes
 
-Edit `variants/<variant-name>.yaml`, never its generated RenderCV input. Preserve unrelated and uncommitted work. If the user already made the copy adjustment, inspect the diff and validate it rather than duplicating it.
+Edit `variants/<variant-name>.yml`, never its generated RenderCV input. Preserve unrelated and uncommitted work. If the user already made the copy adjustment, inspect the diff and validate it rather than duplicating it.
 
-- Read the effective content: baseline `cv.sections` plus the selected overlay's existing replacements. Do not start from baseline content when that would discard an existing tailored section.
-- Overlays contain a `sections` mapping and may set an optional single-line `headline` (audience-specific copy under the name; its style is shared). Editing a variant's headline is in scope. For a previously inherited section, copy its complete list from `resume.yaml` into the overlay **unchanged first**, then apply only the requested copy adjustment. For an existing override, edit its current list in place.
+- Read the effective content: default `cv.sections` plus every parent overlay and the selected overlay's replacements, in inheritance order. Do not start from baseline content when that would discard an existing tailored section.
+- Overlays declare `inherits: default` (or another parent variant), contain a `sections` mapping, and may set an optional single-line `headline` (audience-specific copy under the name; its style is shared). Editing a variant's headline is in scope. For a previously inherited section, copy its complete list from the resolved parent content into the overlay **unchanged first**, then apply only the requested copy adjustment. For an existing override, edit its current list in place.
 - A section override replaces the whole list; arrays are not appended or merged by index. Retain all untouched entries/bullets and the existing facts. Leave unrelated sections inheriting, and explain that an overridden section no longer receives baseline copy updates automatically. Never silently remove or reorder work history or substantive content.
 - Limit changes to requested wording/content in existing sections, such as summary prose and bullet text. Factual corrections need user-supplied information or confirmation. Preserve existing presentation markup unless its change is explicitly part of the wording request; do not use markup as a style workaround.
-- Do not rename/reorder shared headings, add variant-only section headings, change shared identity/contact text, or edit `resume.yaml`, `design`, `settings`, `locale`, `classic/`, the Makefile, composition tooling, or layout policy. Requests needing those changes are outside this copy-only workflow: explain the conflict and obtain a separately scoped request.
+- Do not rename/reorder shared headings, add variant-only section headings, change shared identity/contact text, or edit `variants/default.yml`, `design`, `settings`, `locale`, `classic/`, the Makefile, composition tooling, or layout policy. Requests needing those changes are outside this copy-only workflow: explain the conflict and obtain a separately scoped request.
 - Never edit generated Typst/PDF/YAML, generated template copies under `build/`, frozen `resume.tex`, or original reference PDFs. Do not modify any unselected variant.
 - Compare parsed shared configuration and unselected overlay values against their pre-edit state, not Git HEAD, and inspect the final diff to confirm only authorized copy changed.
 

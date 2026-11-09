@@ -1,11 +1,13 @@
 # RenderCV supplies Typst; no LaTeX installation is needed.
 RENDERCV = uv tool run --python 3.13 --from 'rendercv[full]==2.8' rendercv
-SOURCE ?= resume.yaml
+# Without SOURCE or VARIANT, build the default variant through the same pipeline.
+SOURCE ?=
+VARIANT ?= $(if $(strip $(SOURCE)),,default)
 
 .DEFAULT_GOAL := pdf
 COMMANDS := pdf watch check-layout preview open variants compose pdfs check-layouts previews test-variants test-layout test clean
 VARIANT_COMMANDS := pdf watch check-layout preview open compose
-VARIANTS := $(basename $(notdir $(wildcard variants/*.yaml)))
+VARIANTS := $(basename $(notdir $(wildcard variants/*.yml variants/*.yaml)))
 
 # Accept `make preview full-stack` without swallowing typos or changing normal
 # multi-target invocations such as `make pdf check-layout VARIANT=full-stack`.
@@ -18,7 +20,7 @@ endif
 ifeq ($(filter $(POSITIONAL_VARIANT),$(VARIANTS)),)
 $(error Unknown variant '$(POSITIONAL_VARIANT)'; choose: $(VARIANTS))
 endif
-ifneq ($(strip $(VARIANT)),)
+ifneq ($(filter command line environment override,$(origin VARIANT)),)
 ifneq ($(VARIANT),$(POSITIONAL_VARIANT))
 $(error Positional variant conflicts with VARIANT=$(VARIANT))
 endif
@@ -31,9 +33,9 @@ endif
 
 .PHONY: $(COMMANDS)
 
-# VARIANT selects a content-only overlay; SOURCE remains available for standalone YAML.
+# Every variant, including default, uses composition; SOURCE is standalone YAML.
 ifneq ($(strip $(VARIANT)),)
-ifneq ($(SOURCE),resume.yaml)
+ifneq ($(strip $(SOURCE)),)
 $(error Use VARIANT or SOURCE, not both)
 endif
 pdf watch check-layout:
@@ -54,6 +56,7 @@ variants:
 	@ruby scripts/resume_variant.rb list
 
 compose preview open:
+	$(if $(strip $(SOURCE)),$(error Use VARIANT, not SOURCE, with $@))
 	ruby scripts/resume_variant.rb $@ "$(VARIANT)"
 
 # Discover variants rather than maintaining a second list in the Makefile.

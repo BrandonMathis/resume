@@ -1,10 +1,11 @@
-# Content-only overlay on ../resume.yaml.
+# Content-only overlay inheriting from default.yml.
 # Enhanced edition of the baseline: adds knowledge-base-corroborated specifics
 # (HUDL FastModel migrations, Skylight native/OTA delivery, eLitigate/Esquire
 # product naming, artifact-backed open-source record) while retaining all
 # approved baseline facts. Flagged unverified metrics are deliberately excluded.
 # Overridden sections replace the whole baseline list and no longer inherit
 # baseline copy updates. Education is intentionally inherited (identical copy).
+inherits: default
 sections:
   Summary:
     - >-

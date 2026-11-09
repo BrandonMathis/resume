@@ -309,13 +309,17 @@ module ResumeLayout
   end
 
   def self.run(arguments)
-    options = { source: File.join(ROOT, 'resume.yaml') }
+    options = {}
     parser = OptionParser.new do |opts|
-      opts.banner = 'Usage: check_layout.rb [--source path/to/resume.yaml|resume.tex]'
+      opts.banner = 'Usage: check_layout.rb [--source path/to/resolved.yaml|resume.tex] (default: composed default variant)'
       opts.on('--source PATH', 'Source to compile and audit') { |path| options[:source] = path }
     end
     parser.parse!(arguments)
     raise "Unexpected arguments: #{arguments.join(' ')}" unless arguments.empty?
+    unless options[:source]
+      require_relative '../../../../scripts/resume_variant'
+      options[:source] = ResumeVariant.compose('default')
+    end
     source = File.expand_path(options.fetch(:source))
     raise "Source does not exist: #{source}" unless File.file?(source)
     raise 'Install Poppler (brew install poppler) for pdftohtml.' unless available?('pdftohtml')
