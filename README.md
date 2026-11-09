@@ -139,10 +139,10 @@ The legacy TeX source remains in Git for comparison; it is not another active so
 
 ## Update skills
 
-- **`resume-update`** — layout/style only, in the shared design/templates. Preserves all copy, builds and audits the baseline and every variant, visually inspects every page, and opens the exact reviewed PDFs in Preview.
-- **`resume-copy-update`** — copy only, in the selected variant overlays. Always asks you to confirm which variant(s) before editing, even if you already named one. Builds, audits, visually inspects, and opens each confirmed variant's reviewed PDF in Preview; never changes shared layout/style or unselected variants.
+- **`resume-update`** — layout/style only, in the shared design/templates. Preserves all copy, batches edits, then audits the baseline and every variant at finalization and opens the exact audited PDFs in Preview. Agent image inspection is not required by this workflow; visual approval remains pending your review.
+- **`resume-copy-update`** — copy only, in the selected variant overlays. Always asks you to confirm which variant(s) before editing, even if you already named one. Batches edits, then audits, visually inspects, and opens each confirmed variant's reviewed PDF in Preview at finalization; never changes shared layout/style or unselected variants.
 
-Both follow `resume-layout` for validation. If a fix needs changes outside a skill's scope, it stops and asks rather than silently changing copy to fix style or style to fit copy.
+Both use `resume-layout` as a single finalization gate, not a per-edit hook. Research, copy proposals, instruction/tooling-only edits, and draft/watch builds do not trigger audits. Audit once per affected resume when ready for final PDF handoff/publishing, or on an explicit audit request. If finalization fails, batch authorized fixes before re-auditing. Reuse passing audits/reviews while effective content, design, templates, and audit policy/tooling are unchanged; later changes require a fresh check at the next finalization. The audit renders its own fresh PDF, so no preceding `make pdf` is needed unless a separate build-path PDF is wanted. If a fix needs changes outside a skill's scope, it stops and asks rather than silently changing copy to fix style or style to fit copy.
 
 ## Audit before publishing
 

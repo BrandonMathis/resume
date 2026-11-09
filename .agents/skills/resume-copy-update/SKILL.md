@@ -1,19 +1,19 @@
 ---
 name: resume-copy-update
-description: Update resume wording and content only, never layout or style. Build that variant's fresh PDF, run the resume-layout audit and visual inspection, and open the exact reviewed PDF in macOS Preview. Use for summaries, bullets, experience wording, or other resume copy changes.
+description: Update resume wording and content only, never layout or style. Batch edits, then at finalization run one fresh resume-layout audit and visual inspection per selected variant and open the exact reviewed PDF in macOS Preview. Use for summaries, bullets, experience wording, or other resume copy changes.
 compatibility: Requires macOS Preview and the dependencies documented by the project's resume-layout skill.
 ---
 
 # Update resume copy and preview
 
-Treat the user's arguments as a copy-change request. Complete the content edit, fresh build, layout review, and Preview handoff in one workflow. Do not modify presentation to accommodate the new copy.
+Treat the user's arguments as a copy-change request. Complete the requested content edits first, then finalize with a fresh layout audit, visual review, and Preview handoff. Do not run layout audits during drafting or after each small revision. If the user only requests proposals or a working draft, stop there without finalization and label any draft PDF unaudited. Do not modify presentation to accommodate the new copy.
 
 ## 1. Always ask which variant to update
 
 - Work from the project root, three directories above this skill directory.
-- Read `../resume-layout/SKILL.md` in full, plus the project `README.md` and Makefile. Inspect `git status --short`, relevant diffs, the baseline, and existing overlays without modifying anything.
+- Read the project `README.md` and Makefile; consult `../resume-layout/SKILL.md` for layout constraints as needed, and read it in full at finalization. Reading it does not trigger an audit. Inspect `git status --short`, relevant diffs, the baseline, and existing overlays without modifying anything.
 - Discover available variants with `make variants`. The initial variants are `full-stack` and `react-native`; do not hard-code the list if it has changed.
-- Ask once at the start of each new copy-update operation. A clear answer authorizes the selected target(s) for subsequent revisions in that same operation; do not repeatedly ask during its build/audit loop
+- Ask once at the start of each new copy-update operation. A clear answer authorizes the selected target(s) for subsequent revisions in that same operation; do not repeatedly ask during drafting or finalization.
 - Never default to all variants or to `resume.yaml`. Request confirmation before modifying that default/baseline resume. Prefer making new variants.
 - This workflow edits variant copy only; the shared baseline is read-only. If the user wants shared baseline or identity/contact changes, explain their broader inheritance impact and handle that as a separately scoped request rather than silently making a variant edit global.
 - If the adjustment itself is unspecified, ask what to change as well. Ask about ambiguous facts; never invent roles, dates, achievements, technologies, or metrics.
@@ -32,23 +32,20 @@ Edit `variants/<variant-name>.yaml`, never its generated RenderCV input. Preserv
 
 Keep the two-page layout contract and all current style settings unchanged. You may refine the requested copy to fit while preserving its meaning and confirmed facts. If fitting requires material cuts beyond the request, propose them and ask approval. If it requires styling changes, report BLOCKED and propose a separate `resume-update` operation; do not tighten spacing, shrink type, or weaken policy here. The layout skill's spacing/margin fallback suggestions do not expand this skill's scope.
 
-## 3. Build and audit the confirmed variant
+## 3. Finalize and audit the confirmed variant
 
-After editing, set `VARIANT` to that resume variant name. Run these commands separately and require successful exits:
-
-```sh
-VARIANT=react-native
-make pdf VARIANT="$VARIANT"
-```
+Once the requested copy edits and source/diff checks are complete and ready for final PDF handoff, read `../resume-layout/SKILL.md` in full and run its finalization workflow once per selected variant:
 
 ```sh
 VARIANT=react-native
 make check-layout VARIANT="$VARIANT"
 ```
 
-Substitute the variant name consistently in both commands. Never pass the overlay as `SOURCE`; it is not a complete RenderCV document. Do not combine `SOURCE` with `VARIANT`.
+Require a successful exit. Substitute the actual variant name. Never pass the overlay as `SOURCE`; it is not a complete RenderCV document. Do not combine `SOURCE` with `VARIANT`.
 
-The generated build PDF is `build/variants/<variant>/<variant>.pdf`. Read the fresh `report.json` and `compile.log` under `build/layout-audit/<variant>/`; the audit artifact is named `resume.pdf`.
+The audit renders its own fresh PDF; no preceding `make pdf` is needed. Use `make pdf VARIANT="$VARIANT"` only for a requested draft or a separately needed build-path PDF (`build/variants/<variant>/<variant>.pdf`). A draft build does not trigger an audit.
+
+Read the fresh `report.json` and `compile.log` under `build/layout-audit/<variant>/`; the audit artifact is named `resume.pdf`. Complete the layout skill's agent visual inspection on that artifact. If the audit or review fails, batch authorized fixes before re-auditing affected variants. Reuse a passing audit/review for unchanged effective source; do not repeat it for each calling skill or repeated handoff.
 
 ## 4. Open the exact reviewed PDF in Preview
 

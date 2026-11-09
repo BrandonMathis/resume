@@ -1,14 +1,27 @@
 ---
 name: resume-layout
-description: Build and audit this project's RenderCV resumes for exactly two readable pages. Use whenever editing resume content or formatting, generating a tailored resume or PDF, checking overflow, or suggesting layout fixes. Keep name/contact details, summary, and all professional experience on page one; keep education, community leadership, and other supporting sections on page two. Preserve font sizes and line height.
+description: Finalize this project's RenderCV resumes with a fresh layout audit after the requested edits are ready for PDF handoff/publishing, or run an explicitly requested layout audit. Not a per-edit, research, proposal, or draft-build workflow. Keep name/contact details, summary, and all professional experience on page one; keep education, community leadership, and other supporting sections on page two. Preserve font sizes and line height.
 compatibility: Requires uv (RenderCV 2.8 with Python 3.13), Helvetica, Ruby with REXML, and Poppler tools (pdftohtml and pdftoppm). Legacy TeX audits additionally require Tectonic or pdfLaTeX.
 ---
 
 # Resume layout
 
+## When to run: finalization only
+
+Treat this skill as a finalization gate, not an automatic hook for every edit or PDF build. Its layout constraints still guide editing; reading those constraints does not require running the audit.
+
+- Finish the requested batch of copy/style edits and source/diff checks first. Run one fresh audit per affected resume when ready for final PDF handoff/publishing, or when the user explicitly requests a layout audit.
+- Do not audit for research, copy proposals, instruction/tooling-only edits, each bullet or file change, intermediate drafts, or `make pdf` / `make watch` working previews. Draft previews must be identified as unaudited, not finished resumes.
+- Scope finalization to the selected variants for variant-only copy edits; include the baseline and all discovered variants for shared presentation edits. Do not repeat audits through each calling skill: all workflows share this single finalization gate.
+- If finalization fails, diagnose the result and batch the authorized fixes before re-running affected audits. Do not re-audit after each small correction. An explicit diagnostic request may run an audit earlier.
+- Reuse a passing audit and completed review while the effective content, design, templates, and audit policy/tooling are unchanged. Later changes affecting the result require a fresh audit at the next finalization; an unrelated file edit or repeated status request does not. Never use an old artifact to approve changed source.
+- `make check-layout` already builds a fresh PDF. Do not precede it with `make pdf` merely to make the audit fresh; build separately only when the user also needs the conventional build-path PDF or an intermediate preview.
+
+Documentation-only changes to these skills or `AGENTS.md` do not themselves require generating or auditing resumes.
+
 ## Contract
 
-`resume.yaml` is authoritative. Never edit generated Typst or PDFs. `resume.tex` is a frozen pre-migration reference, not a second active source. Apply this workflow to the main source and every tailored variation. Work from the project root; resolve bundled paths relative to this skill's directory.
+`resume.yaml` is authoritative. Never edit generated Typst or PDFs. `resume.tex` is a frozen pre-migration reference, not a second active source. Apply this finalization workflow to each affected source or tailored variation, using the scope above. Work from the project root; resolve bundled paths relative to this skill's directory.
 
 A finished resume must have:
 
@@ -83,7 +96,7 @@ Inspect the images with available image-reading tools. Check name/contact readab
 
 ## Diagnose, then suggest the smallest honest fix
 
-For audit-only requests, report suggestions without editing source. When edits are requested, apply bounded changes, rebuild, and re-audit after every meaningful revision. Keep exactly one explicit supporting-section break. Never move professional history onto page 2 merely to make the count pass.
+For audit-only requests, report suggestions without editing source. When edits are requested, apply bounded changes in a batch, then audit at finalization. If that audit fails, batch the authorized fixes and re-audit the affected resumes before handoff. Keep exactly one explicit supporting-section break. Never move professional history onto page 2 merely to make the count pass.
 
 Prioritize fixes in this order:
 
