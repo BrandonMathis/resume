@@ -39,15 +39,15 @@ cv:
           - Partnered directly with Sales and Product as a forward-deployed engineer to design and deliver custom solutions for strategic customers
           - Built the engineering organization's hiring, interviewing, and team management processes
           - Led architecture, development, and code review across JavaScript, Ruby, Python, and Go systems
-      - company: Freelance Software Engineer
+      - company: Mathis LLC
         location: Raleigh, NC
-        position: Self-Employed
+        position: Freelance Full-Stack Engineer
         start_date: 2017-11
         end_date: 2019-12
         highlights:
           - Operated as an independent contract-for-hire software engineer specializing in building web and mobile products
-          - Built custom software for companies such as McKesson, Dana-Farber, Duke Health, Adwerx and MAC Cosmetics
-          - Sourced contract work, created SOWs and managed sub-contractors spanning across multiple projects
+          - Built custom software for companies such as McKesson, Dana-Farber, Duke Health, Moog Music, and MAC Cosmetics
+          - Worked directly with stakeholders and business owners to turn business needs into full-stack web and mobile applications using JavaScript, React, React Native, PHP, Python, Ruby on Rails, Go, Docker, and REST APIs
           - Provided expert training services for company teams looking to upskill their engineers into development tools
       - company: Smashing Boxes
         location: Raleigh, NC

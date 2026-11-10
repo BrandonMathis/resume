@@ -33,15 +33,15 @@ sections:
         - Architected solutions for strategic customers, partnering directly with lawyers, sales and product teams.
         - Built the engineering organization's hiring, interviewing, and team management processes.
         - Led architecture, development, and code review across JavaScript, Ruby, Python, and Go systems.
-    - company: Freelance Full Stack Software Engineer
+    - company: Mathis LLC
       location: Raleigh, NC
-      position: Self-Employed
+      position: Freelance Full-Stack Engineer
       start_date: 2017-11
       end_date: 2019-12
       highlights:
         - Delivered full stack web and mobile products as an independent engineer, working across React, Angular, Vue, React Native, Ruby on Rails, REST APIs, and GraphQL.
-        - Built custom software for companies such as McKesson, Dana-Farber, Duke Health, Adwerx and MAC Cosmetics.
-        - Sourced contract work, created SOWs and managed subcontractors across multiple projects.
+        - Built custom software for companies such as McKesson, Dana-Farber, Duke Health, Adwerx, MAC Cosmetics, and Moog Music.
+        - Worked directly with stakeholders and business owners to turn business needs into full-stack web and mobile applications using JavaScript, React, PHP, Python, Ruby on Rails, Go, Docker, and REST APIs.
         - Trained client engineering teams in software development tools and delivery lifecycles.
     - company: Smashing Boxes
       location: Raleigh, NC
