@@ -22,23 +22,23 @@ cv:
         start_date: 2024-10
         end_date: present
         highlights:
-          - Hands-on engineering lead for client projects including OpenAI, Hudl, Skylight Social, and Primerica
-          - Led architecture and implementation for Hudl's FastDraw, FastScout, and FastRecruit web and iOS-to-React Native migrations; helped deliver all three projects in six months for products serving NBA, NCAA, and WNBA teams
+          - Hands-on Engineering Lead for client projects including OpenAI, HUDL, Skylight Social, and Primerica
+          - Led architecture and implementation for HUDL's FastDraw, FastScout, and FastRecruit migrations to React web and hybrid mobile apps; helped deliver all three by a hard six-month deadline for NBA, NCAA, and WNBA teams
           - Partnered with Skylight Social's founders to build and launch a Mark Cuban-backed short-form video app on AT Protocol, using React Native and Expo for iOS and Android; the app onboarded 55,000+ users in its first 24 hours
           - Helped build Skylight's Swift/Kotlin video editor via Expo Modules and ship daily OTA releases via Expo Updates
-          - Host The Context Window podcast, interviewing engineers from OpenAI and Clerk on coding agents and LLMs; speak at All Things Open and other technology conferences on React Native and AI-enabled software development
+          - Host The Context Window podcast, interviewing engineers from OpenAI and Clerk on coding agents and LLMs; spoke at All Things Open and Chain React on web, mobile, and AI-enabled software development and SDLC best practices
       - company: vTestify
         location: Raleigh, NC
-        position: Principal Engineer & CTO
+        position: Principal Engineer & Contract CTO
         start_date: 2019-08
         end_date: 2024-12
         highlights:
-          - Architected and built a WebRTC-based digital deposition platform for the U.S. legal industry
-          - Built real-time, multi-channel testimony transcription using the Web Audio API and OpenAI Whisper
-          - Drove 10x revenue growth by building enterprise white-label capabilities that enabled B2B sales
-          - Partnered directly with Sales and Product as a forward-deployed engineer to design and deliver custom solutions for strategic customers
-          - Built the engineering organization's hiring, interviewing, and team management processes
-          - Led architecture, development, and code review across JavaScript, Ruby, Python, and Go systems
+          - Architected and built a full-stack deposition for the US Legal industry, using React, Node.js, and Ruby on Rails
+          - Drove 10x revenue growth by scaling WebRTC conferencing capacity and building enterprise white-label solutions
+          - Built document management tools for uploads, PDF processing, and annotation; integrated Web Audio API with OpenAI Whisper for real-time multichannel transcription synced to video for timestamp-based navigation
+          - Integrated OpenAI through LangChain and built vector-backed retrieval-augmented generation (RAG) workflows
+          - Partnered with Sales and Product to translate customer needs into tailored features that helped win new business
+          - Led creation of hiring and team management processes to support rapid growth during COVID-19 pandemic
       - company: Mathis LLC
         location: Raleigh, NC
         position: Freelance Full-Stack Engineer
@@ -55,9 +55,9 @@ cv:
         start_date: 2014-08
         end_date: 2017-11
         highlights:
-          - Hired as Lead Engineer of backend team, later promoted to Director of Technology overseeing an engineering team of 30+ individuals across 3 disciplines (Frontend, Backend, and Mobile)
-          - Acted as a direct contributor to core company Web and Mobile App projects (React, iOS/Swift, Ruby on Rails)
-          - Served as engineering team representative in company resourcing and sales meetings
+          - Rose from Lead Engineer to Director of Technology, taking ownership of engineering quality, staffing, and delivery for a 30+ person organization spanning 3 technical disciplines
+          - Partnered directly with Sales to form contracts, design solutions, and produce estimates, interfacing with customers from initial pitch through delivery
+          - Remained a hands-on contributor on flagship client engagements across React, Ruby on Rails, and iOS/Swift
       - company: Assetricity LLC
         location: Raleigh, NC
         position: Software Engineer
@@ -153,7 +153,7 @@ design:
     bold:
       headline: true
     # Fixed 10pt text frame in classic/Preamble.j2.typ + 2pt leading = 12pt baselines.
-    line_spacing: 2pt
+    line_spacing: 3pt
     alignment: left
   links:
     underline: false
