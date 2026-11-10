@@ -39,10 +39,10 @@ sections:
       start_date: 2017-11
       end_date: 2019-12
       highlights:
-        - Delivered full stack web and mobile products as an independent engineer, working across React, Angular, Vue, React Native, Ruby on Rails, REST APIs, and GraphQL.
-        - Built custom software for companies such as McKesson, Dana-Farber, Duke Health, Adwerx, MAC Cosmetics, and Moog Music.
-        - Worked directly with stakeholders and business owners to turn business needs into full-stack web and mobile applications using JavaScript, React, PHP, Python, Ruby on Rails, Go, Docker, and REST APIs.
-        - Trained client engineering teams in software development tools and delivery lifecycles.
+        - Operated as an independent contract-for-hire software engineer specializing in building web and mobile products
+        - Built custom software for companies such as McKesson, Dana-Farber, Duke Health, Moog Music, and MAC Cosmetics
+        - Worked directly with stakeholders and business owners to turn business needs into full-stack web and mobile applications using JavaScript, React, React Native, PHP, Python, Ruby on Rails, Go, Docker, and REST APIs
+        - Provided expert training services for company teams looking to upskill their engineers into development tools
     - company: Smashing Boxes
       location: Raleigh, NC
       position: Lead Software Engineer -- Director of Technology
