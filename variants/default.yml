@@ -153,7 +153,7 @@ design:
     bold:
       headline: true
     # Fixed 10pt text frame in classic/Preamble.j2.typ + 2pt leading = 12pt baselines.
-    line_spacing: 3pt
+    line_spacing: 2pt
     alignment: left
   links:
     underline: false
@@ -174,7 +174,7 @@ design:
     space_below: 8pt
   sections:
     allow_page_break: true
-    space_between_regular_entries: 12pt
+    space_between_regular_entries: 10pt
     show_time_spans_in: []
   entries:
     date_and_location_width: 145pt
@@ -186,7 +186,7 @@ design:
       bullet: '•'
       space_left: 5pt
       space_above: 3pt
-      space_between_items: 2pt
+      space_between_items: 1.5pt
       space_between_bullet_and_text: 5pt
   templates:
     experience_entry:
