@@ -32,11 +32,12 @@ Status is important: **delivered/recapped**, **published interview**, **organize
 
 | Appearance | Date / status | Evidence and topic |
 | --- | --- | --- |
-| All Things Open AI — “Coding with AI – Revolution or Evolution?” | March 2025; contemporaneous March 18 recap plus first-party slides say delivered | Computing history and AI evolution; official 2025 speaker bio also found. [AI_IGNITE_RECAP, AI_SLIDES, ATO_AI_2025] |
+| All Things Open AI — “Coding with AI – Revolution or Evolution?” | March 2025; contemporaneous March 18 recap plus first-party slides say delivered; ATO's own **Aug 6, 2025** write-up calls it a **lightning talk** | Computing history and AI evolution; official 2025 speaker bio also found. ATO recap notes the Next.js deck was built with Anthropic for **$44 in prompts and zero hand-written lines**. [AI_IGNITE_RECAP, AI_SLIDES, ATO_AI_2025, ATO_REVOLUTION] |
 | All Things Open 2025 — “React Native – Mobile Development Made Simple” | 2025; official session listing | React Native/Expo, EAS builds/submission, AI tools including Bolt; Brandon named presenter. Search found Oct 14 scheduling, but saved readable session body does not include day/time. [ATO_RN] |
 | ReactATL “Christmas in June” — “Exploring Pi Coding Agent” | **June 11, 2026**; organizer-listed, past at retrieval | Comparing/customizing coding harnesses; Pi workflow and model choice. Page title/date say June, while boilerplate says July: preserve the explicit displayed date with that caveat. No recording inspected. [REACT_ATL] |
 | All Things Open 2026 | Official speaker bio, no session captured | Engineering Lead at This Dot; mentoring, web/mobile delivery, business/technical collaboration. Do not invent a talk title. [ATO_2026] |
-| State of AI, Modern Web (Triangle) | **Nov 5, 2026 — future/scheduled** at Nov 4 retrieval | Listed with This Dot leaders; real-world AI applications/adoption. Secondary event listing, no detailed agenda. **Do not say delivered.** [STATE_AI] |
+| State of AI, Modern Web (Triangle) | **Nov 5, 2026** — scheduled at Nov 4 retrieval; the date has now passed, but no recap/recording was retrieved | Meetup listing names Tracy Lee, Elliott Fouts, Rob Ocel, Brandon Mathis, and Jonathan Fontanez (This Dot) for a 12:30–2:30 PM online session on real-world AI adoption. **Listed, not confirmed delivered.** [STATE_AI, STATE_AI_MEETUP] |
+| Chain React Conf (This Dot sponsor activity) | 2026 (Tracy Lee post, “3mo” old at Nov 2026 retrieval) | Named as a participant in This Dot's **Hollywood Squares** game segment with Gant Laborde, Jason Lengstorf, Jack Herrington, and others. Conference participation/visibility, **not a delivered talk**. Brandon lists Chain React among his meaningful public efforts. [CHAIN_REACT_POST, QUESTIONNAIRE] |
 | “Ship From Your Couch: AI-Powered Mobile Dev From Your Phone” | **Draft only**, date/venue unconfirmed | Public meme-library talk plan; Claude, GitHub Actions, Expo/EAS, device previews. Contains future ideas, not all implemented features. [MEME_TALK] |
 
 ## Published interviews / podcast summaries
@@ -48,6 +49,18 @@ These ATO articles are **written by the ATO Team about Brandon's interviews**, n
 3. **[The AI slop problem threatening open source maintainers](https://allthingsopen.org/articles/ai-slop-problem-open-source-maintainers)** — **Feb 19, 2026**. AI coding economics, cross-language work, open-source review burden, responsible use. **[ATO_AI_SLOP]**
 
 The articles link to the ATO video/podcast channel. Video recordings were not watched or independently transcribed in this pass. Statements like “a week now takes a day” and predicted “20x value” are interview commentary, not audited business metrics.
+
+Brandon's own Feb 2026 post confirms the AI-slop episode was recorded with Jason Hibbets **during All Things Open 2025** for the **We Love Open Source** series and links the YouTube video “Does open source have an AI slop problem?”. [WLOS_POST]
+
+## Podcast hosting and panel appearances
+
+| Show | Role / status | Evidence |
+| --- | --- | --- |
+| **The Context Window** (This Dot Labs) | **Co-host** with Tracy Lee and A.D. Slaton; Apple Podcasts shows 25 episodes, years active 2025–2026. Brandon hosts or co-hosts at least eight listed episodes: agent-ready codebases; Claude Code workflows; agent control planes (Rafael Mendiola); local LLMs (Emerson Huitt); Solid 2.0 and AI coding (Dev Agrawal); Codex and agent costs (Jeff Escalante, Clerk); OpenAI GPT Sites (Jon Abrams); the “AI Triforce” (Gant Laborde). Listing shows day/month only. | Directory listing with publisher descriptions; audio not reviewed. [CONTEXT_WINDOW] |
+| **Modern Web Podcast** | Panelist with Rob Ocel, Danny Thompson, and Adam Rackis on abstractions, serverless patterns, and 2025 trends; chapter list includes “Brandon's Advent of Code Challenge in Swift and Rust.” | Episode listing; recording not reviewed; exact date not captured (content references 2025 trends). [MODERN_WEB_POD] |
+| **We Love Open Source** (All Things Open) | Interview guest, multiple episodes (see above). | [ATO_GRAPHQL, ATO_CAREER, ATO_AI_SLOP, WLOS_POST] |
+
+Hosting a company podcast is evidence of communication and community-building work; it is not evidence of audience size or downloads unless a dated metric is supplied.
 
 ## Short-form public technical demonstrations
 
@@ -69,4 +82,5 @@ Saved pages expose relative “1y” timestamps, not exact publication dates. Do
 - “State of React Native,” Mar 18, 2026: search lead; no primary agenda captured.
 - Imperial Security Bureau Podcast #15, modern software engineering/app security: search lead; episode content/date not inspected.
 - Search suggested an older “How to Win Friends…” talk attached to **imathis**. **Excluded** pending identity proof; same name is insufficient.
+- Brandon's questionnaire answer (Nov 2026) says he knows of no further missing talks, workshops, or articles. [QUESTIONNAIRE]
 - “All Things React Native” at Discord HQ on Nov 4, 2025 was a false lead: inspected page names other presenters, not Brandon. Do not include it.

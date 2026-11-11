@@ -1,5 +1,9 @@
 {
   "researched_on": "2026-11-04",
+  "batches": [
+    "2026-11-04",
+    "2026-11-11"
+  ],
   "scope": "Public sources and project-local evidence only",
   "sources": [
     {
@@ -476,6 +480,12 @@
       "method": "public GitHub REST API"
     },
     {
+      "path": "sources/local/questionnaire-2026-11-11.md",
+      "retrieved_at": "2026-11-11",
+      "sha256": "3ef9cc4cd8e50964e0fae9bb8e36d58c8cf372ac895afd4585a7976133b1929a",
+      "method": "local first-party record; see header"
+    },
+    {
       "path": "sources/local/resume-cv.json",
       "retrieved_at": "2026-11-04",
       "sha256": "644952f9f727bbbed43f0a36656eb35bbba0e2a4acee81f0297b15fad5621654",
@@ -771,6 +781,226 @@
       "extraction_error": null
     },
     {
+      "path": "sources/web/followup-01.json",
+      "retrieved_at": "2026-11-11",
+      "sha256": "9200f7aaed39b3c566161de55368a30453061f516de5b92d250d267a1d446cf2",
+      "url": "https://vtestify.com/more/press/",
+      "method": "readable web extraction",
+      "title": "vTestify News and Press Coverage",
+      "extraction_error": null,
+      "batch": "2026-11-11 questionnaire follow-up"
+    },
+    {
+      "path": "sources/web/followup-02.json",
+      "retrieved_at": "2026-11-11",
+      "sha256": "5e49a05f2a531dafa1a4353139b29f80fde455bcdb83ff17a9ec588b429863e2",
+      "url": "https://www.newswire.com/news/stenograph-and-vtestify-announce-strategic-partnership-to-deliver-21536763",
+      "method": "readable web extraction",
+      "title": "Stenograph and vTestify Announce Strategic Partnership to Deliver Official Transcript in Real Time During Remote Depositions and Legal Proceedings",
+      "extraction_error": null,
+      "batch": "2026-11-11 questionnaire follow-up"
+    },
+    {
+      "path": "sources/web/followup-03.json",
+      "retrieved_at": "2026-11-11",
+      "sha256": "d611a53c6c5cc9e0ba611358014f79c49cc26c9dbe7d853141ff72e958d2d2e3",
+      "url": "https://www.newswire.com/news/stenograph-and-vtestify-announce-new-technology-licensing-agreement-to-21822442",
+      "method": "readable web extraction",
+      "title": "Stenograph and vTestify Announce New Technology Licensing Agreement to Bring Greater Value to Legal Transcription Industry",
+      "extraction_error": null,
+      "batch": "2026-11-11 questionnaire follow-up"
+    },
+    {
+      "path": "sources/web/followup-04.json",
+      "retrieved_at": "2026-11-11",
+      "sha256": "6baabc1c100b2495047d4e43d80b1b0a203e83c1fb2b0baf30e979cb11555d33",
+      "url": "https://blog.stenograph.com/2022/12/06/casetestify-designed-with-litigation-in-mind/",
+      "method": "readable web extraction",
+      "title": "CaseTestify – Designed with Litigation in Mind",
+      "extraction_error": null,
+      "batch": "2026-11-11 questionnaire follow-up"
+    },
+    {
+      "path": "sources/web/followup-05.json",
+      "retrieved_at": "2026-11-11",
+      "sha256": "e6041b83dc6ebdadf500eb22b5305dc7b5332ddf225a1e5aa4b6d37d6a26d7d8",
+      "url": "https://vtestify.com/2021/12/29/platform-progress/",
+      "method": "readable web extraction",
+      "title": "vTestify Platform Progress in 2021",
+      "extraction_error": null,
+      "batch": "2026-11-11 questionnaire follow-up"
+    },
+    {
+      "path": "sources/web/followup-06.json",
+      "retrieved_at": "2026-11-11",
+      "sha256": "6ba98ec1411737f2c49756a2b12fe8ddb3ccc1a847cc2482bcf14cd1870ca0f9",
+      "url": "https://www.hudl.com/blog/hudl-acquires-fastmodel-sports",
+      "method": "readable web extraction",
+      "title": "Hudl Enhances Game Preparation and Scouting with FastModel Sports Acquisition",
+      "extraction_error": null,
+      "batch": "2026-11-11 questionnaire follow-up"
+    },
+    {
+      "path": "sources/web/followup-07.json",
+      "retrieved_at": "2026-11-11",
+      "sha256": "a01881a313eab4af34d799620dca181da228074adf425c32cac7c3d10f5974e8",
+      "url": "https://www.primerica.com/public/convention/",
+      "method": "readable web extraction",
+      "title": "ATL27 | Primerica International Convention",
+      "extraction_error": null,
+      "batch": "2026-11-11 questionnaire follow-up"
+    },
+    {
+      "path": "sources/web/followup-08.json",
+      "retrieved_at": "2026-11-11",
+      "sha256": "ba6eb5e2e133668406acfbf67ffffdeb09b2cd7f71df8651505d143ccfe7c327",
+      "url": "https://newsroom.bmo.com/2018-10-22-BMO-Partners-with-BioConnect-to-Launch-Biometric-Authentication-Platform-for-Commercial-and-Corporate-Clients",
+      "method": "readable web extraction",
+      "title": "BMO Partners with BioConnect to Launch Biometric Authentication Platform for Commercial and Corporate Clients",
+      "extraction_error": null,
+      "batch": "2026-11-11 questionnaire follow-up"
+    },
+    {
+      "path": "sources/web/followup-09.json",
+      "retrieved_at": "2026-11-11",
+      "sha256": "334f0efa464c1a88aaaf7850202757a7390a94431a3cfe319414e5d888c46298",
+      "url": "https://www.thisdot.co/case-study/wikimedia",
+      "method": "readable web extraction",
+      "title": "Building a natural language system for Wikipedia - This Dot Labs",
+      "extraction_error": null,
+      "batch": "2026-11-11 questionnaire follow-up"
+    },
+    {
+      "path": "sources/web/followup-10.json",
+      "retrieved_at": "2026-11-11",
+      "sha256": "8390fe262332dff1830e30cfb465fdc198c006d17af7dd55696a31ad96a9343e",
+      "url": "https://podcasts.apple.com/gb/podcast/the-context-window/id1862868376",
+      "method": "readable web extraction",
+      "title": "The Context Window - Podcast - Apple Podcasts",
+      "extraction_error": null,
+      "batch": "2026-11-11 questionnaire follow-up"
+    },
+    {
+      "path": "sources/web/followup-11.json",
+      "retrieved_at": "2026-11-11",
+      "sha256": "8d82ee607384378ab4eedcc0da678feab8cdd58becdda64ae54be05f8efe71a2",
+      "url": "https://allthingsopen.org/articles/ai-coding-revolution-or-evolution",
+      "method": "readable web extraction",
+      "title": "Are we coding through a revolution or an evolution? | We Love Open Source • All Things Open",
+      "extraction_error": null,
+      "batch": "2026-11-11 questionnaire follow-up"
+    },
+    {
+      "path": "sources/web/followup-12.json",
+      "retrieved_at": "2026-11-11",
+      "sha256": "2bc9bd4db9ab55d5f2d918d2643ba3f819217051aa1644ef97cba3908b379d5e",
+      "url": "https://www.linkedin.com/posts/mathisbrandon_today-marks-the-beginning-of-a-new-journey-activity-7269358283897896960-fwpM",
+      "method": "readable web extraction",
+      "title": "Brandon Mathis LinkedIn post: joining This Dot as Engineering Lead",
+      "extraction_error": null,
+      "batch": "2026-11-11 questionnaire follow-up"
+    },
+    {
+      "path": "sources/web/followup-13.json",
+      "retrieved_at": "2026-11-11",
+      "sha256": "fd6d54cb6138190b8b264f250983f9494672bd6918f2ceac62773ea45d37543b",
+      "url": "https://www.linkedin.com/posts/tracyslee_the-guys-at-chain-react-conf-always-know-activity-7489079583321956352-Ox0u",
+      "method": "readable web extraction",
+      "title": "Tracy Lee LinkedIn post: Chain React Conf Hollywood Squares",
+      "extraction_error": null,
+      "batch": "2026-11-11 questionnaire follow-up"
+    },
+    {
+      "path": "sources/web/followup-14.json",
+      "retrieved_at": "2026-11-11",
+      "sha256": "e9b129eb12525f733df9d35f85d4933c8198fb6c08b9c8168f38df2a2e555d4d",
+      "url": "https://www.meetup.com/stacked/",
+      "method": "readable web extraction",
+      "title": "Stacked! Building Better Developers | Meetup",
+      "extraction_error": null,
+      "batch": "2026-11-11 questionnaire follow-up"
+    },
+    {
+      "path": "sources/web/followup-15.json",
+      "retrieved_at": "2026-11-11",
+      "sha256": "1493943687daa427073deba64599640fab4196aea013be1f1454d17b63beffb5",
+      "url": "https://www.linkedin.com/posts/mathisbrandon_does-open-source-have-an-ai-slop-problem-activity-7430359166248116225-gPB5",
+      "method": "readable web extraction",
+      "title": "Brandon Mathis LinkedIn post: We Love Open Source podcast feature",
+      "extraction_error": null,
+      "batch": "2026-11-11 questionnaire follow-up"
+    },
+    {
+      "path": "sources/web/followup-16.json",
+      "retrieved_at": "2026-11-11",
+      "sha256": "33f248364b239a73f3b9ddf595dc5d59a9f2048d268c16dcdd57c79ee2c77bb0",
+      "url": "https://www.linkedin.com/posts/mathisbrandon_reactnative-mobile-atproto-activity-7313267775186108419-CKPj",
+      "method": "readable web extraction",
+      "title": "Brandon Mathis LinkedIn post: Skylight Social is EXPLODING (with founder reshare)",
+      "extraction_error": null,
+      "batch": "2026-11-11 questionnaire follow-up"
+    },
+    {
+      "path": "sources/web/followup-17.json",
+      "retrieved_at": "2026-11-11",
+      "sha256": "e9664e9baa9642e1a6b83ee99e8c61fb1bd799c2640fd2d710625680229a334b",
+      "url": "https://www.devshows.dev/podcasts/modern-web/backend-abstractions-serverless-patterns-and-why-its-okay-to-start-learning-with-frameworks",
+      "method": "readable web extraction",
+      "title": "Backend Abstractions, Serverless Patterns, and Why It's Okay to Start Learning with Frameworks [Modern Web] | Dev Shows",
+      "extraction_error": null,
+      "batch": "2026-11-11 questionnaire follow-up"
+    },
+    {
+      "path": "sources/web/followup-18.json",
+      "retrieved_at": "2026-11-11",
+      "sha256": "5610900e4078cc53ad3ea7b89f9060720f65732cbf33aff07020579048b3b626",
+      "url": "https://dev.to/dkechag/replacing-the-dark-sky-weather-api-weatherkit-7timer-and-more-3o",
+      "method": "readable web extraction",
+      "title": "Replacing the Dark Sky weather API: WeatherKit, 7Timer and other free APIs - DEV Community",
+      "extraction_error": null,
+      "batch": "2026-11-11 questionnaire follow-up"
+    },
+    {
+      "path": "sources/web/followup-19.json",
+      "retrieved_at": "2026-11-11",
+      "sha256": "12341c5f8019746184ce96cab64ef82e3e0ce8bda2f527834b2808738a64e87a",
+      "url": "https://exitevent.com/girl-develop-it-rdu-is-a-huge-and-growing-success-14415",
+      "method": "readable web extraction",
+      "title": "Girl Develop It RDU is a huge (and growing) success - ExitEvent",
+      "extraction_error": null,
+      "batch": "2026-11-11 questionnaire follow-up"
+    },
+    {
+      "path": "sources/web/followup-20.json",
+      "retrieved_at": "2026-11-11",
+      "sha256": "f69b0d5efc31c888368ecad71068efab1b921839b803f20bf1f2f8ffdbe2063d",
+      "url": "https://www.meetup.com/trianglemodernweb/events/316948039/",
+      "method": "readable web extraction",
+      "title": "State of AI - November 2026 | Meetup (Triangle Modern Web)",
+      "extraction_error": null,
+      "batch": "2026-11-11 questionnaire follow-up"
+    },
+    {
+      "path": "sources/web/followup-21.json",
+      "retrieved_at": "2026-11-11",
+      "sha256": "b0fc8100f463c1365d26ce1cc3f9f15a6dbae07b3faf4b2708fa5742a8140777",
+      "url": "https://railsgirls.com/rdu",
+      "method": "readable web extraction plus raw HTML excerpt of the organizer list",
+      "title": "Rails Girls Raleigh-Durham, October 17-18 2014",
+      "extraction_error": null,
+      "batch": "2026-11-11 questionnaire follow-up"
+    },
+    {
+      "path": "sources/web/followup-22.json",
+      "retrieved_at": "2026-11-11",
+      "sha256": "18f13cd3fb810bd9625676f974fc9d1bd121b74b923f4921df3c431752d346fc",
+      "url": "https://www.linkedin.com/in/mathisbrandon",
+      "method": "readable web extraction",
+      "title": "Brandon Mathis - This Dot | LinkedIn (2026-11-11 partial public re-extraction)",
+      "extraction_error": null,
+      "batch": "2026-11-11 questionnaire follow-up"
+    },
+    {
       "path": "sources/web/initial-1.md",
       "retrieved_at": "2026-11-04",
       "sha256": "1acbaf852a471b587d844a056a53bec9f2ed4a6d66dc4ab85c44c4118dbbef63",
@@ -803,7 +1033,7 @@
       "retrieved_at": "2026-11-04",
       "sha256": "dcafe4ad697c43088aa2488f8b7e773275a759cbea59c408475f6b690aaf7db6",
       "url": "https://www.thisdot.co/blog/roo-custom-modes",
-      "method": "readable web extraction",
+      "method": "fetch_content readable",
       "title": "Roo Custom Modes",
       "extraction_error": null
     },
@@ -812,7 +1042,7 @@
       "retrieved_at": "2026-11-04",
       "sha256": "8b5ee78de46101d8f8ff292750603ee62294bc6f5ef964876ecd14ff5084f5a8",
       "url": "https://www.thisdot.co/blog/next-js-mongodb-connection-storming",
-      "method": "readable web extraction",
+      "method": "fetch_content readable",
       "title": "Next.js + MongoDB Connection Storming",
       "extraction_error": null
     },
@@ -821,7 +1051,7 @@
       "retrieved_at": "2026-11-04",
       "sha256": "1b46adae7724f5419c8510fa4984060832c5099e1ed3d504558c6ab301600f7c",
       "url": "https://reactatl.dev/events/christmas-in-june/",
-      "method": "readable web extraction",
+      "method": "fetch_content readable",
       "title": "Christmas in June — ReactATL",
       "extraction_error": null
     },
@@ -830,7 +1060,7 @@
       "retrieved_at": "2026-11-04",
       "sha256": "0a9fc30b14ac8dd27aafc06227a40e8abd7ecd7927b8f489a679998aeb1b17e3",
       "url": "https://triangledevelopers.com/",
-      "method": "readable web extraction",
+      "method": "fetch_content readable",
       "title": "Join the Triangle Developers Discord and Slack Community",
       "extraction_error": "Page appears to be JavaScript-rendered (content loads dynamically)\n\nFallback options:\n  • Enable the keyless Jina Reader fallback: set fetchRouting.allowRemoteHostedProviders to true in /Users/brandonmathis/.pi/agent/web-search.json (Jina is already in your fetch provider order; this also allows the other hosted providers in your fetch provider order; target URLs are fetched through Jina's infrastructure)\n  • Set firecrawlBaseUrl in /Users/brandonmathis/.pi/agent/web-search.json to a self-hosted Firecrawl instance\n  • Set crawl4aiBaseUrl in /Users/brandonmathis/.pi/agent/web-search.json to a self-hosted Crawl4AI instance\n  • Set tinyfishApiKey in /Users/brandonmathis/.pi/agent/web-search.json or TINYFISH_API_KEY\n  • Set search1apiApiKey in /Users/brandonmathis/.pi/agent/web-search.json or SEARCH1API_KEY\n  • Set queritApiKey in /Users/brandonmathis/.pi/agent/web-search.json or QUERIT_API_KEY\n  • Set kagiApiKey in /Users/brandonmathis/.pi/agent/web-search.json or KAGI_API_KEY\n  • Set ollamaApiKey in /Users/brandonmathis/.pi/agent/web-search.json or OLLAMA_API_KEY\n  • Set parallelApiKey in /Users/brandonmathis/.pi/agent/web-search.json or PARALLEL_API_KEY\n  • Set brightdataApiKey and brightdataUnlockerZone in /Users/brandonmathis/.pi/agent/web-search.json or BRIGHTDATA_API_KEY and BRIGHTDATA_UNLOCKER_ZONE\n  • Set deepseekApiKey in /Users/brandonmathis/.pi/agent/web-search.json or DEEPSEEK_API_KEY and add \"deepseek\" to fetchRouting.providers\n  • Set exaApiKey in /Users/brandonmathis/.pi/agent/web-search.json or EXA_API_KEY and add \"exa\" to fetchRouting.providers\n  • Set tabstackApiKey in /Users/brandonmathis/.pi/agent/web-search.json or TABSTACK_API_KEY and add \"tabstack\" to fetchRouting.providers\n  • Set GEMINI_API_KEY in /Users/brandonmathis/.pi/agent/web-search.json\n  • Sign into gemini.google.com in Chrome\n  • Use web_search to find content about this topic"
     },
@@ -839,7 +1069,7 @@
       "retrieved_at": "2026-11-04",
       "sha256": "5d64ee16d65ac3fa7d1473670ee92ba329deb110a5a58f0123fec9f79ba1432d",
       "url": "https://medium.com/feed/@brandonmathis",
-      "method": "readable web extraction",
+      "method": "fetch_content readable",
       "title": "@brandonmathis",
       "extraction_error": null
     }

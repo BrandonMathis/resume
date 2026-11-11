@@ -23,6 +23,10 @@ Inspected JavaScript:
 
 **Useful follow-up:** browser audio routing; speaker/channel attribution; streaming architecture; latency; operating cost; failure handling; customer use. No answers should be inferred from the API name.
 
+**Questionnaire addition (first-party, Nov 2026):** vTestify was an early adopter of **OpenAI SDKs for evidence/information processing** and built a **vector database used for RAG-style search** over deposition material. This is the first mention of vector retrieval anywhere in the library and it is self-reported only: no code, dates, embedding model, store, or evaluation evidence was retrieved. Treat “built a vector database for RAG search at vTestify” as an unverified first-party claim, not as contradicting the Oracle boundary below. [QUESTIONNAIRE]
+
+**Partner transcription context:** Stenograph's CaseViewNet real-time (stenographer) transcript was integrated into the vTestify room in Oct 2021, and the 2022 licensing agreement references Stenograph's **Phoenix automatic speech recognition**. These are partner products; they neither confirm nor replace the baseline's Whisper claim. [STENO_2021, STENO_2022]
+
 ### D&D Oracle — document-context chat application
 
 **[ORACLE, ORACLE_FETCH]** Inspected commit-pinned TypeScript:
@@ -97,6 +101,20 @@ Describe this as **directed/iterated AI-assisted development**, not “hand-code
 
 ## 3. Adoption, consulting, and leadership
 
+### Team enablement after HUDL (questionnaire, first-party)
+
+After the FastModel engagement, Brandon was assigned to a new team and **onboarded them to agentic coding practices using Claude Code**, covering when to use plan mode, when to start new sessions, and how to manage context. No client name, team size, or before/after measurement was supplied. [QUESTIONNAIRE]
+
+### Tooling breadth (questionnaire, first-party)
+
+Reports day-to-day use of **Claude Code, ChatGPT, Codex, OpenCode, Pi, and Cursor**, with Pi, Codex, and Claude Code used most at the time of writing, and hands-on experience across **GPT, Anthropic, DeepSeek, GLM, and Kimi** model families. States that agentic workflows pay off most when the design is settled and implementation is mostly routine, and for sustaining **security updates, test suites, coverage, and other quality work** that is often deprioritized against features. These are practice descriptions, not benchmarks. [QUESTIONNAIRE]
+
+### The Context Window podcast (This Dot Labs)
+
+Apple Podcasts lists Brandon as a host alongside Tracy Lee and A.D. Slaton; the show (2025–2026, 25 episodes at retrieval) covers AI development tooling. Episodes with Brandon include **“How to Make Your Codebase Agent-Ready”** (60-second dev setup, deterministic versioning, validation loops), **“Building Deterministic AI Coding Workflows with Claude Code”**, **“Scale AI Development With Engineering and Agent Control Planes?”** (loop engineering, worktrees), **“Local LLMs for Secure, Predictable AI Development”** (quantization, VRAM planning, sandboxes), and interviews with Gant Laborde, Dev Agrawal, Jeff Escalante (Clerk), and OpenAI's Jon Abrams (GPT Sites). Episode descriptions are publisher summaries; recordings were not transcribed. This is strong evidence of public thought leadership on agent workflows, not of client outcomes. [CONTEXT_WINDOW]
+
+### Other public positions
+
 - User explicitly reports consulting on AI systems, coding harnesses, AI workflows, and improving SDLCs. **[BRIEF]**
 - Baseline describes This Dot talks/content on coding agents, LLMs, and change management for AI enablement. **[BASELINE]**
 - HUDL project account describes mentoring engineers during the growth of agentic coding. **[LINKEDIN]**
@@ -107,7 +125,7 @@ Describe this as **directed/iterated AI-assisted development**, not “hand-code
 ## Avoid these unsupported leaps
 
 - “Built or trained large language models.”
-- “Designed production vector/RAG infrastructure” based on Oracle.
+- “Designed production vector/RAG infrastructure” based on Oracle. (The vTestify vector-database account is a separate, self-reported claim that still needs artifacts.)
 - “Created Pi” or “merged agent-runtime changes upstream” based on a fork/custom extensions.
 - “Implemented all ten AI tools” listed in the meme talk's **enhancements to explore** section.
 - “Delivered 20× productivity” based on future-looking interview commentary.

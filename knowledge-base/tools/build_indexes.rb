@@ -10,7 +10,11 @@ require 'yaml'
 require 'date'
 
 ROOT = File.expand_path('..', __dir__)
+# Original research snapshot. Later batches must carry their own dates inside each artifact
+# (`retrieved_at` in web JSON, `Retrieved:`/`Recorded:` headers in Markdown); never relabel
+# old artifacts with a newer batch date or new artifacts with this one.
 DATE = '2026-11-04'
+BATCHES = ['2026-11-04', '2026-11-11'].freeze
 
 def read_json(path)
   JSON.parse(File.read(File.join(ROOT, path)))
@@ -79,6 +83,13 @@ manifest = Dir.glob(File.join(ROOT, 'sources/**/*'), File::FNM_DOTMATCH).select 
   relative = full.delete_prefix(ROOT + '/')
   next if relative == 'sources/manifest.json'
   record = { path: relative, retrieved_at: DATE, sha256: Digest::SHA256.file(full).hexdigest }
+  if relative.end_with?('.json') && !relative.start_with?('sources/github/')
+    stamp = JSON.parse(File.read(full))['retrieved_at'] rescue nil
+    record[:retrieved_at] = stamp if stamp.is_a?(String) && BATCHES.include?(stamp)
+  elsif relative.end_with?('.md')
+    stamp = File.read(full)[/^(?:Retrieved|Recorded): (\d{4}-\d{2}-\d{2})/, 1]
+    record[:retrieved_at] = stamp if stamp && BATCHES.include?(stamp)
+  end
   case relative
   when %r{\Asources/code/}
     entry = code.find { |c| c['snapshot'] == "knowledge-base/#{relative}" }
@@ -86,7 +97,8 @@ manifest = Dir.glob(File.join(ROOT, 'sources/**/*'), File::FNM_DOTMATCH).select 
     record[:method] ||= 'download manifest'
   when %r{\Asources/web/.*\.json\z}
     data = JSON.parse(File.read(full))
-    record.merge!(url: data['url'], method: 'readable web extraction', title: data['title'], extraction_error: data['error'])
+    record.merge!(url: data['url'], method: data['method'] || 'readable web extraction', title: data['title'], extraction_error: data['error'])
+    record[:batch] = data['batch'] if data['batch']
   when %r{\Asources/web/.*\.md\z}
     record.merge!(url: File.read(full)[/^URL: (.+)$/, 1], method: 'readable web extraction')
   when %r{\Asources/github/}
@@ -112,5 +124,5 @@ manifest = Dir.glob(File.join(ROOT, 'sources/**/*'), File::FNM_DOTMATCH).select 
   end
   record
 end
-write_generated('sources/manifest.json', JSON.pretty_generate({ researched_on: DATE, scope: 'Public sources and project-local evidence only', sources: manifest }) + "\n")
+write_generated('sources/manifest.json', JSON.pretty_generate({ researched_on: DATE, batches: BATCHES, scope: 'Public sources and project-local evidence only', sources: manifest }) + "\n")
 puts "Indexed #{repos.length} repos, #{prs.length} merged PRs, #{gists.length} gists, #{articles.length} Medium articles, #{manifest.length} source artifacts."

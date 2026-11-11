@@ -24,6 +24,8 @@ Both full PR records explicitly identify `BrandonMathis` and `merged: true`; dif
 
 **Do not claim:** Swift compiler implementation, language/runtime feature development, Swift core-team membership, or significant compiler architecture work. “Merged into Swift core” is understandable as a repository-level statement but too ambiguous for a resume without this scope.
 
+Brandon's own Nov 2026 description—“a PR to Swift programming language build tooling”—matches this scope, and he named no other missing maintainer roles or developer tools. [QUESTIONNAIRE]
+
 ## Sustained DevOps work — Smashing Boxes Taperole
 
 **28 merged PRs** in the retrieved public search. The toolkit handles Rails infrastructure provisioning/deployment through Ruby and Ansible. [TAPEROLE, MERGED_PRS]

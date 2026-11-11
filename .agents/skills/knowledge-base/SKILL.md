@@ -13,7 +13,7 @@ Paths below are relative to the project root, **three directories above this ski
 
 1. Read `knowledge-base/README.md` for the library's scope, snapshot date, source rules, and maintenance workflow.
 2. Read `knowledge-base/profile.md` for identity anchors, career timeline, and employer/client distinctions.
-3. Consult `knowledge-base/claims.yaml` and `knowledge-base/questions.md` before using facts in an answer or draft. Read the relevant claim's evidence status, sources, caveat, dates, metrics, and any `needs_confirmation` flag—not just its statement.
+3. Consult `knowledge-base/claims.yaml` before using facts in an answer or draft. Read the relevant claim's evidence status, sources, caveat, dates, metrics, and any `needs_confirmation` flag—not just its statement.
 4. Retrieve only the topic files and underlying artifacts needed for the request. Do not load the entire source archive into context.
 
 `variants/default.yml` remains the authoritative approved baseline. The knowledge base is supporting evidence, not a replacement. Read current identity/contact information from `variants/default.yml`, not frozen snapshots.
@@ -30,7 +30,7 @@ Paths below are relative to the project root, **three directories above this ski
 | Articles, interviews, conference sessions | `knowledge-base/writing-and-speaking.md` |
 | Management, mentoring, organizing, community | `knowledge-base/leadership-and-community.md` |
 | Structured facts, evidence status, caveats | `knowledge-base/claims.yaml` |
-| Conflicts, missing evidence, questions to ask Brandon | `knowledge-base/questions.md` |
+| Conflicts, missing evidence, questions to ask Brandon | `knowledge-base/claims.yaml` (`conflicted` status, caveats, `needs_confirmation: true`) |
 
 Search within the likely topic file or `claims.yaml` first, using project/product names, technology aliases, or claim tags. For broader discovery, use `knowledge-base/catalogs/`: `repositories.md`, `merged-pull-requests.md`, `gists.md`, and `medium-articles.md`. Catalogs are inventories, not proof of impact or proficiency.
 
@@ -39,10 +39,10 @@ Search within the likely topic file or `claims.yaml` first, using project/produc
 1. Find the relevant curated passage or claim and note its source IDs, such as `[SWIFT_31]`.
 2. Resolve those IDs in `knowledge-base/source-map.yaml`. Its `path` values are relative to `knowledge-base/`, not the project root; entries may also include original URLs and source kinds.
 3. Read the underlying artifact when checking a disputed detail, proposing a new claim, or needing precision beyond the curated summary. Use `knowledge-base/sources/manifest.json` for downloaded artifact URLs, hashes, and extraction status; use `knowledge-base/sources/code/index.json` for pinned code URLs.
-4. Check `questions.md` and the claim's caveats again before choosing wording. If sources conflict, preserve the conflict and ask Brandon to resolve the specific detail rather than selecting the strongest-sounding version.
+4. Check the claim's caveats and confirmation flag again before choosing wording. If sources conflict, preserve the conflict and ask Brandon to resolve the specific detail rather than selecting the strongest-sounding version.
 5. In research answers, cite the relevant local path and source ID, adding the original URL when useful. Distinguish what the source demonstrates from what Brandon reports and what you infer. Keep research citations outside resume copy unless requested.
 
-Treat missing coverage as **not established by this snapshot**, not proof that Brandon lacks the experience. Consult the access/coverage log in `questions.md`. If the local library cannot answer the question, state the gap and ask a focused question or use available web-research tools for current public evidence. Never treat the snapshot as automatically current, especially for roles, metrics, and scheduled talks.
+Treat missing coverage as **not established by this snapshot**, not proof that Brandon lacks the experience. Consult the coverage notes in `README.md`. If the local library cannot answer the question, state the gap and ask a focused question or use available web-research tools for current public evidence. Never treat the snapshot as automatically current, especially for roles, metrics, and scheduled talks.
 
 ## Preserve attribution and uncertainty
 
@@ -59,7 +59,7 @@ Treat missing coverage as **not established by this snapshot**, not proof that B
 
 For lookup-only requests, answer with sourced findings and relevant limitations; do not modify the library or resume just because you found a discrepancy. Research alone needs no PDF build.
 
-Before crafting resume copy, consult the README, relevant evidence, `claims.yaml`, and `questions.md`. For actual copy changes, load `../resume-copy-update/SKILL.md` and **ask Brandon to confirm the target variant(s), even if already named, before editing**. For style-only changes, use `../resume-update/SKILL.md`. Use `../resume-layout/SKILL.md` only as the finalization gate when the edited resume is ready for final PDF handoff/publishing, or for an explicitly requested layout audit. Batch edits first; research, copy proposals, and draft/watch builds do not trigger an audit. Follow the active update skill's review requirements, reuse passing results for unchanged effective source, and do not run a second audit merely because this skill routed to an update skill. This skill does not expand those workflows' scope.
+Before crafting resume copy, consult the README, relevant evidence, and `claims.yaml`. For actual copy changes, load `../resume-copy-update/SKILL.md` and **ask Brandon to confirm the target variant(s), even if already named, before editing**. For style-only changes, use `../resume-update/SKILL.md`. Use `../resume-layout/SKILL.md` only as the finalization gate when the edited resume is ready for final PDF handoff/publishing, or for an explicitly requested layout audit. Batch edits first; research, copy proposals, and draft/watch builds do not trigger an audit. Follow the active update skill's review requirements, reuse passing results for unchanged effective source, and do not run a second audit merely because this skill routed to an update skill. This skill does not expand those workflows' scope.
 
 If asked to maintain or refresh the knowledge base, follow its README: read actual sources, retain provenance and historical snapshots, update curated claims/conflicts deliberately, and never regenerate facts from search summaries. From the project root, rebuild offline indexes and validate:
 

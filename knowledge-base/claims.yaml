@@ -6,6 +6,8 @@
 # conflicted = sources differ; resolve before using disputed details.
 # scheduled / draft = not completed public speaking.
 researched_on: '2026-11-04'
+# Follow-up batch 2026-11-11 added claims sourced to QUESTIONNAIRE and followup-* artifacts.
+updated_on: '2026-11-11'
 claims:
   - id: career-thisdot
     statement: Engineering Lead at This Dot Labs, with mobile-team management and hands-on client delivery responsibilities.
@@ -77,7 +79,7 @@ claims:
     tags: [business-impact, product]
     evidence: first_party
     sources: [LINKEDIN, ESQUIRE]
-    caveat: Independent evidence located is a 2021 partnership, not acquisition proof. Do not claim the whole company was acquired.
+    caveat: Independent evidence located is a 2021 partnership, not acquisition proof. The Nov 2026 questionnaire says "before the company was acquired"; Stenograph's 2022 deal was an exclusive license. Do not claim the whole company was acquired until Brandon specifies what, by whom, and when.
     needs_confirmation: true
   - id: hudl-migrations
     statement: Led web and iOS-to-React Native migration work across FastDraw, FastScout, and FastRecruit as an embedded This Dot React lead, contributing architecture and implementation.
@@ -115,9 +117,9 @@ claims:
     dates: 'LinkedIn project lists Jan 2025; independent public launch reporting is Apr 1, 2025'
     tags: [mobile, consumer, business-impact, delivery]
     evidence: conflicted
-    sources: [LINKEDIN, SKYLIGHT_PRESS]
-    metric: '30 days; 55,000+ users / 24 hours; chart ranks / 48 hours, first-party only'
-    caveat: TechCrunch reports public launch after 10 weeks of development. Confirm phases, dates, metric definitions, region, and contribution before use.
+    sources: [LINKEDIN, SKYLIGHT_PRESS, SKYLIGHT_POST]
+    metric: '30 days; 55,000+ users / 24 hours; chart ranks / 48 hours; founder-originated'
+    caveat: TechCrunch reports public launch after 10 weeks of development. The 55,000 figure appears in a reshare by Skylight co-founder Tori White on Brandon's post, so it is a company claim, not his measurement. Confirm phases, dates, metric definitions, region, and contribution before use.
     needs_confirmation: true
   - id: savings-seeker
     statement: Built frontend UI, backend API, and custom medication/pharmacy cross-reference integrations for Savings Seeker Rx with McKesson and CoverMyMeds.
@@ -140,7 +142,15 @@ claims:
     evidence: first_party
     sources: [LINKEDIN]
     metric: '2,000+ companies; measurement date unspecified'
-    caveat: Need dated analytics, definition of active workspace/company, and maintenance timeline.
+    caveat: Need dated analytics, definition of active workspace/company, and maintenance timeline. Questionnaire adds a self-reported "#1 installed weather bot for Slack" ranking and notable users (Slack, Garmin, an ambiguous "Rocket Propulsion labs"); none verified and customer names may need permission.
+    needs_confirmation: true
+  - id: forecast-maintenance
+    statement: Reports long-term maintenance of Forecast including a Dark Sky to Apple Weather provider migration and ongoing security updates.
+    dates: 'Dark Sky API ended 2023-03-31; migration date not stated'
+    tags: [product, maintenance, integration, slack]
+    evidence: first_party
+    sources: [QUESTIONNAIRE, DARKSKY_SUNSET, FORECAST_SLACK]
+    caveat: Marketplace metadata shows Apple WeatherKit today and the Dark Sky sunset is public, which brackets the migration; the migration work itself is self-reported. This contradicts a 2021 end date for the project on LinkedIn.
     needs_confirmation: true
   - id: bwel-integrations
     statement: Worked on Dana-Farber BWEL research-participant communication with Fitbit activity tracking and Twilio browser calling for coaches.
@@ -357,6 +367,219 @@ claims:
     statement: BS in Computer Science with a Business minor from East Carolina University, per baseline.
     tags: [education]
     evidence: conflicted
-    sources: [BASELINE, LINKEDIN, MEDIUM]
-    caveat: Baseline dates 2006-2009; LinkedIn 2006-2010. Ask before changing dates.
+    sources: [BASELINE, LINKEDIN, LINKEDIN_2026_11, MEDIUM]
+    caveat: Baseline dates 2006-2009; LinkedIn 2006-2010 (re-confirmed Nov 2026). Ask before changing dates.
+    needs_confirmation: true
+  # ---- Added 2026-11-11 from the questionnaire and corroborating public pages ----
+  - id: thisdot-start-date
+    statement: Brandon publicly announced joining This Dot as Engineering Lead in a LinkedIn post whose activity ID dates to about December 2, 2024, saying he was leaving independent contracting.
+    dates: '2024-12-02 approx. (post); baseline says 2024-10'
+    tags: [career, dates]
+    evidence: conflicted
+    sources: [THISDOT_JOIN_POST, BASELINE]
+    caveat: The post shows only a relative timestamp; the date is inferred from the activity ID and matches third-party aggregators. Keep the baseline until Brandon confirms the start month.
+    needs_confirmation: true
+  - id: vtestify-stenograph-integration
+    statement: Stenograph integrated its CaseViewNet real-time transcript directly into vTestify's deposition platform, available to white-labeled and branded versions, announced October 26, 2021.
+    dates: '2021-10-26'
+    tags: [product, integration, realtime, business-impact]
+    evidence: corroborated_context
+    sources: [STENO_2021, VT_PROGRESS_2021]
+    caveat: Company press; names vTestify's president, not Brandon. Confirms a white-label offering existed but not Brandon's share of the integration.
+    needs_confirmation: false
+  - id: vtestify-stenograph-license
+    statement: Stenograph and vTestify announced an exclusive technology licensing and go-to-market agreement on September 14, 2022; Stenograph later branded the licensed platform CaseTestify.
+    dates: '2022-09-14; CaseTestify blog 2022-12-06'
+    tags: [product, business-impact, partnership]
+    evidence: corroborated_context
+    sources: [STENO_2022, CASETESTIFY, VT_PRESS]
+    caveat: Press says select vTestify team members would join Stenograph; this is a license, not a stated acquisition, and Brandon is not named.
+    needs_confirmation: false
+  - id: vtestify-partner-integrations
+    statement: Reports overseeing integration of the vTestify product into partner systems at US Legal, Esquire, and Stenograph and working directly with those partners' development teams on stack and security.
+    dates: 'vTestify tenure'
+    tags: [leadership, integration, enterprise, consulting]
+    evidence: first_party
+    sources: [QUESTIONNAIRE, STENO_2022, ESQUIRE]
+    caveat: Esquire and Stenograph relationships are independently documented; no public US Legal Support source was found. Scope of personal integration work is unverified.
+    needs_confirmation: true
+  - id: vtestify-hiring-process
+    statement: Reports building vTestify's entire hiring process, credited with hiring a team of more than 15 people, and attending company leadership meetings to provide technical direction.
+    tags: [leadership, hiring, management]
+    evidence: first_party
+    sources: [QUESTIONNAIRE]
+    metric: '15+ hires; period and headcount definition unspecified'
+    caveat: Self-reported; confirm whether 15+ is cumulative hires or peak team size and whether disclosure is appropriate.
+    needs_confirmation: true
+  - id: vtestify-ai-rag
+    statement: Reports early adoption of OpenAI SDKs for evidence/information processing at vTestify and building a vector database for RAG-style search.
+    tags: [ai, integration, backend, product]
+    evidence: first_party
+    sources: [QUESTIONNAIRE]
+    caveat: No code, dates, models, vector store, or evaluation evidence retrieved; the only inspected AI code (Oracle) uses no vector search. Do not describe as production RAG infrastructure without artifacts.
+    needs_confirmation: true
+  - id: vtestify-isolated-environments
+    statement: Reports per-customer isolated environments at vTestify, each with its own database and application runtime and autoscaling configured for daily demand.
+    tags: [devops, architecture, reliability, enterprise]
+    evidence: first_party
+    sources: [QUESTIONNAIRE]
+    caveat: Hosting platform, orchestration tooling, customer count, and reliability metrics were not supplied.
+    needs_confirmation: true
+  - id: vtestify-remote-ux
+    statement: Describes the pandemic-era shift to remote depositions as the central product challenge, requiring a very simple onboarding experience for non-technical participants.
+    tags: [product, ux, leadership]
+    evidence: corroborated_context
+    sources: [QUESTIONNAIRE, VT_PROGRESS_2021, ESQUIRE]
+    caveat: vTestify's 2021 recap (guest access, redesigned room, iOS app) corroborates the product direction, not Brandon's individual design decisions.
+    needs_confirmation: false
+  - id: hudl-fastdraw-drawing
+    statement: Reports porting a legacy C curve-fitting library to JavaScript and building FastDraw's finger-drawn play vectorization (SVG shapes, Bezier lines, inferred pass/screen/dribble semantics, forward/back animation) with react-native-svg and react-native-reanimated for native and web.
+    dates: '2025-10 to 2026-03'
+    tags: [mobile, react-native, graphics, geometry, frontend]
+    evidence: first_party
+    sources: [QUESTIONNAIRE, LINKEDIN]
+    caveat: Worked with a Hudl principal engineer; the library name ("Armadillo") is uncertain and the implementation is private. Not sole authorship.
+    needs_confirmation: true
+  - id: hudl-technical-pm
+    statement: Reports acting as technical project manager for the legacy-to-React-Native migration, verifying one-to-one feature parity, and refactoring FastDraw for extensibility so Hudl could add other sports.
+    dates: '2025-10 to 2026-03'
+    tags: [leadership, delivery, migration, architecture]
+    evidence: first_party
+    sources: [QUESTIONNAIRE, LINKEDIN, HUDL_ACQ]
+    caveat: Hudl's March 2025 FastModel acquisition is public context only. Extensibility outcome (hockey/soccer support added by Hudl) is self-reported.
+    needs_confirmation: true
+  - id: primerica-vue-lead
+    statement: Reports serving as engineering lead on Primerica's Vue front-end work through This Dot, completing a large Vue 2 to Vue 3 migration by the requested deadline and improving SDLC and cross-department process.
+    tags: [frontend, vue, migration, leadership, consulting, sdlc]
+    evidence: first_party
+    sources: [QUESTIONNAIRE, BASELINE]
+    caveat: Dates, team size, and migration scope unspecified; no public source names This Dot or Brandon on Primerica work.
+    needs_confirmation: true
+  - id: primerica-anniversary-feature
+    statement: Reports building customer-facing statement-viewing features for Primerica under a tight deadline tied to the company's 50th-anniversary event at Mercedes-Benz Stadium.
+    tags: [frontend, delivery, consulting]
+    evidence: conflicted
+    sources: [QUESTIONNAIRE, PRIMERICA_ATL27]
+    caveat: Primerica's public page schedules the 50th-anniversary convention for July 7-10, 2027, after the Nov 11, 2026 retrieval date, while the answer uses the past tense. Clarify which event and deadline before dating this.
+    needs_confirmation: true
+  - id: wikimedia-ios-testing
+    statement: Reports improving Wikimedia's iOS testing suite through This Dot and sourcing and supporting a contractor dedicated to that project.
+    tags: [mobile, ios, testing, consulting, leadership]
+    evidence: first_party
+    sources: [QUESTIONNAIRE, THISDOT_WIKIMEDIA]
+    caveat: This Dot's public Wikimedia case study is a 2022 Vue engagement predating Brandon; no merged PR by Brandon to wikipedia-ios was found. Dates and results unspecified.
+    needs_confirmation: true
+  - id: openai-confidential
+    statement: States that This Dot work for OpenAI is confidential and cannot be described.
+    tags: [consulting, disclosure]
+    evidence: first_party
+    sources: [QUESTIONNAIRE, BASELINE]
+    caveat: Use only the client name already present in the baseline; never invent scope.
+    needs_confirmation: false
+  - id: duke-medication-app
+    statement: Reports building a mobile application for a Duke pharmaceutical research team to help patients track medication.
+    tags: [mobile, healthcare, consulting]
+    evidence: first_party
+    sources: [QUESTIONNAIRE, WEBSITE]
+    caveat: No dates, platform, study, or outcome supplied; public Duke medication-app records found are not attributable to Brandon.
+    needs_confirmation: true
+  - id: bioconnect-bmo
+    statement: Reports on-site subject-matter consulting in Toronto to connect BioConnect's Ruby on Rails application to an IBM-run Oracle database for BioConnect's biometric-authentication integration with the Bank of Montreal mobile app, plus mentoring BioConnect engineers.
+    dates: 'BMO/BioConnect/IBM launch announced 2018-10-22; engagement dates unstated'
+    tags: [backend, ruby, oracle, integration, consulting, mentoring]
+    evidence: first_party
+    sources: [QUESTIONNAIRE, BMO_BIOCONNECT]
+    caveat: Press release corroborates the BMO/BioConnect/IBM program only; it names no contractors. Do not claim ownership of BMO's platform.
+    needs_confirmation: true
+  - id: agentic-team-onboarding
+    statement: Reports onboarding a new client team to agentic coding with Claude Code after the HUDL engagement, covering plan mode, session boundaries, and context management.
+    dates: '2026, after 2026-03'
+    tags: [ai, consulting, mentoring, sdlc]
+    evidence: first_party
+    sources: [QUESTIONNAIRE]
+    caveat: Client, team size, and outcomes unspecified.
+    needs_confirmation: true
+  - id: agent-tooling-breadth
+    statement: Reports regular use of Claude Code, ChatGPT, Codex, OpenCode, Pi, and Cursor across GPT, Anthropic, DeepSeek, GLM, and Kimi models, with Pi, Codex, and Claude Code used most.
+    tags: [ai, agent-engineering, developer-experience]
+    evidence: first_party
+    sources: [QUESTIONNAIRE, MY_PI, CONTEXT_WINDOW]
+    caveat: Usage breadth, not certification or benchmark results; public artifacts corroborate Pi, Claude, and Roo only.
+    needs_confirmation: false
+  - id: context-window-host
+    statement: Listed as a host of This Dot Labs' The Context Window podcast with Tracy Lee and A.D. Slaton, hosting episodes on agent-ready codebases, Claude Code workflows, agent control planes, local LLMs, and guest interviews including OpenAI's GPT Sites lead.
+    dates: '2025-2026 per directory; 25 episodes at retrieval'
+    tags: [speaking, ai, community, leadership]
+    evidence: artifact_backed
+    sources: [CONTEXT_WINDOW]
+    caveat: Directory listing and publisher descriptions; audio not reviewed; audience metrics unknown.
+    needs_confirmation: false
+  - id: modern-web-panel
+    statement: Appeared as a panelist on the Modern Web Podcast episode on abstractions and serverless patterns with Rob Ocel, Danny Thompson, and Adam Rackis.
+    tags: [speaking, community]
+    evidence: artifact_backed
+    sources: [MODERN_WEB_POD]
+    caveat: Episode listing only; exact date not captured (content references 2025 trends).
+    needs_confirmation: false
+  - id: ato-lightning-talk-recap
+    statement: ATO's August 6, 2025 We Love Open Source write-up describes Brandon's AI-revolution-or-evolution lightning talk and notes the Next.js deck was built with Anthropic for $44 in prompts.
+    dates: '2025-08-06 article; talk March 2025'
+    tags: [speaking, ai]
+    evidence: artifact_backed
+    sources: [ATO_REVOLUTION, AI_SLIDES]
+    caveat: Third-party recap of a delivered talk; cost figure is first-party.
+    needs_confirmation: false
+  - id: chain-react-participation
+    statement: Named by This Dot's CEO as a participant in This Dot's Hollywood Squares segment at Chain React Conf.
+    dates: '2026 (post roughly three months before Nov 2026)'
+    tags: [community, speaking]
+    evidence: artifact_backed
+    sources: [CHAIN_REACT_POST, QUESTIONNAIRE]
+    caveat: Sponsor game segment, not a conference talk.
+    needs_confirmation: false
+  - id: smashingboxes-onboarding-program
+    statement: Reports creating and mentoring in Smashing Boxes' 90-day onboarding program for code-school hires over roughly three years, and MC'ing the weekly company-wide stand-up of about 50 people.
+    dates: '2014-2017 approx.'
+    tags: [leadership, mentoring, onboarding, management]
+    evidence: first_party
+    sources: [QUESTIONNAIRE, BASELINE]
+    metric: '90-day program; ~3 years; ~50 attendees weekly'
+    caveat: Self-reported; cohort sizes, retention, and program dates are unmeasured.
+    needs_confirmation: true
+  - id: railsgirls-rdu-organizer
+    statement: Listed as an organizer of the Rails Girls Raleigh-Durham workshop held October 17-18, 2014 at Smashing Boxes, co-organized with Triangle.rb and Girl Develop It RDU.
+    dates: '2014-10-17 to 2014-10-18'
+    tags: [community, education, mentoring, organizing]
+    evidence: artifact_backed
+    sources: [RAILSGIRLS_RDU_EVENT, RAILSGIRLS]
+    caveat: Single event page; links brandonmathis.me so identity is solid. Not evidence of multi-year Rails Girls organizing.
+    needs_confirmation: false
+  - id: railsbridge-founding-member
+    statement: Reports being a founding member and board organizer of RailsBridge Triangle, mentoring at every event, and volunteering with Girl Develop It for ~50-person, ~5-hour beginner Rails workshops.
+    tags: [community, education, mentoring, organizing]
+    evidence: first_party
+    sources: [QUESTIONNAIRE, BASELINE, LINKEDIN, GDI_RDU]
+    caveat: railsbridgetriangle.com was unreachable; GDI RDU coverage names other leaders. Confirm dates and whether "founding member" matches the baseline's "founder alongside a team".
+    needs_confirmation: true
+  - id: iron-yard-dates
+    statement: Baseline lists The Iron Yard advisory/guest-instructor role as 2015-2017; a Nov 2026 LinkedIn search snippet shows Oct 2016 to Sep 2017.
+    tags: [education, community, dates]
+    evidence: conflicted
+    sources: [BASELINE, QUESTIONNAIRE, LINKEDIN_2026_11]
+    caveat: Snippet-level evidence from search, not the saved profile extraction; confirm with Brandon.
+    needs_confirmation: true
+  - id: infra-breadth
+    statement: Reports hands-on familiarity with Heroku, Docker, Ansible, Jenkins, CircleCI, Travis CI, GitHub Actions, AWS (S3, RDS, EC2, container services, Elastic Beanstalk, Amplify), Linux administration, and image-based deployment pipelines.
+    tags: [devops, cloud, linux, ci-cd]
+    evidence: first_party
+    sources: [QUESTIONNAIRE, MERGED_PRS, CIRCLECI]
+    caveat: Public artifacts corroborate Ansible, Travis, CircleCI, and GitHub Actions; the AWS/Heroku/Jenkins items are self-reported with no incident or scale detail.
+    needs_confirmation: false
+  - id: state-ai-listed-panel
+    statement: Triangle Modern Web's Meetup listing named Brandon among five This Dot speakers for the November 5, 2026 State of AI session.
+    dates: '2026-11-05'
+    tags: [speaking, ai]
+    evidence: scheduled
+    sources: [STATE_AI_MEETUP, STATE_AI]
+    caveat: Listing only; no recap or recording retrieved after the date, so delivery is unconfirmed.
     needs_confirmation: true

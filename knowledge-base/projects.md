@@ -11,8 +11,12 @@ Source IDs resolve in [source-map.yaml](source-map.yaml). This is research, not 
 - **Claimed impact:** **10× revenue growth** associated with white-label capabilities. This is an existing resume claim, not an independently audited figure; baseline/period and personal causality need confirmation.
 - **Corroborated product context:** Esquire's May 25, 2021 announcement names the vTestify partnership and integrated conferencing, exhibits, sidebar rooms, testimony review, and speech-to-text. It describes a pilot and planned August 2021 commercial release. It does not name Brandon or identify Whisper. [ESQUIRE]
 - **Acquisition claim:** LinkedIn says Esquire acquired **eLitigate** in late 2024. No independent acquisition announcement was located. The 2021 partnership announcement neither proves nor disproves a later acquisition. Do not substitute “vTestify acquired.” [LINKEDIN]
-- **Best uses:** full-stack product delivery; real-time/browser media; applied AI; CTO/leadership; customer-facing engineering.
-- **Missing detail:** exact white-label features, revenue period, customers served, transcription latency/accuracy, user/session scale, security/compliance responsibility, acquisition disclosure permission.
+- **Partner integrations (independent press, Nov 2026 follow-up):** Stenograph announced an integration of its CaseViewNet real-time transcript viewer directly into vTestify's deposition room on **Oct 26, 2021**, available to “white-labeled or branded” versions of the platform—independent confirmation that a white-label offering existed by then. On **Sep 14, 2022**, Stenograph and vTestify announced an **exclusive technology licensing and go-to-market agreement**; Stenograph's blog later described the licensed platform as **CaseTestify**. Neither release names Brandon. [STENO_2021, STENO_2022, CASETESTIFY, VT_PRESS]
+- **Product timeline context:** vTestify's own 2021 recap lists a redesigned video room, noise suppression, video pinning/pop-out, the **vTestify Connect** native iOS app, “Continue as Guest,” the CaseViewNet integration, and enterprise analytics. Team-level product evidence; it does not attribute features to Brandon. [VT_PROGRESS_2021]
+- **CTO scope (questionnaire, first-party):** oversaw integration of the product into partner systems at **US Legal, Esquire, and Stenograph**, working directly with those companies' development teams on stack, security capabilities, and integration; attended company leadership meetings and set technical direction; built the hiring process credited with hiring **a team of 15+ people** “before the company was acquired.” Stenograph (2022) and Esquire (2021) partnerships are independently documented; a **US Legal Support** relationship was not found publicly. [QUESTIONNAIRE, STENO_2022, ESQUIRE]
+- **Engineering challenges (questionnaire, first-party):** (1) the pandemic-era shift to remote required a very simple onboarding/UX path for non-technical participants; (2) early adoption of **OpenAI SDKs for evidence/information processing plus a vector database for RAG-style search**; (3) demanding performance expectations met with **per-customer isolated environments** (separate database and application runtime per customer) with **autoscaling** configured day by day. These are self-reports; no architecture document, metrics, or dates were retrieved. [QUESTIONNAIRE]
+- **Best uses:** full-stack product delivery; real-time/browser media; applied AI; CTO/leadership; customer-facing engineering; partner/enterprise integrations.
+- **Missing detail:** exact white-label features, revenue period, customers served, transcription latency/accuracy, user/session scale, security/compliance responsibility, acquisition disclosure permission, vector-store/LLM implementation details and dates, hosting platform for the isolated environments, and what “the company was acquired” refers to (see the `elitigate-acquisition` caveat in claims.yaml).
 
 ## P02 — HUDL / FastModel Sports
 
@@ -20,8 +24,15 @@ Source IDs resolve in [source-map.yaml](source-map.yaml). This is research, not 
 - **Products:** FastDraw, FastScout, FastRecruit; play diagramming, scouting, and recruiting for NCAA/NBA/WNBA users.
 - **Contribution:** led web and iOS-to-React Native migration work, shaped architecture, implemented changes, and mentored HUDL engineers on development practices as agentic coding gained traction.
 - **Claimed impact:** helped deliver **all three projects on time** during a six-month engagement. First-party account; no independently verified schedule or scope.
-- **Best uses:** technical lead who still builds; cross-platform modernization; client enablement; business-aligned execution.
-- **Missing detail:** migration boundaries per product, team size, components personally owned, performance/test metrics, actual agent tools/process changes.
+- **Independent context:** Hudl completed its acquisition of FastModel Sports on **Mar 11, 2025**, roughly seven months before this engagement; FastModel's suite (FastDraw, FastScout, FastRecruit) serves NBA/WNBA/NCAA programs. This explains the HUDL/FastModel naming but says nothing about This Dot or Brandon. [HUDL_ACQ]
+- **Questionnaire detail (first-party):**
+  - Acted as **technical project manager** for the legacy-app → React Native migration, verifying one-to-one feature parity against the legacy application.
+  - **FastDraw drawing system:** ported a legacy C library (recalled as “Armadillo”) that handled Cartesian-coordinate math and best-fit algorithms (fitting arrays of drawn points to Bézier curves) into **JavaScript**; built a finger-drawing system on iPad that vectorizes strokes into SVG shapes and Bézier lines, infers play semantics (passes, screens, dribbles), and animates plays forward and backward on native and web, using **react-native-svg** and **react-native-reanimated**.
+  - Worked directly with a Hudl principal engineer, contributing 2-D math/graphics expertise, to hit a deadline for NCAA/NBA/WNBA coaching staff.
+  - Refactored for extensibility so the core Hudl team could add shapes/lines/arrows for other sports (hockey, soccer/European football); reports that this goal was achieved.
+  - The library name “Armadillo” is uncertain (the widely known Armadillo is a C++ linear-algebra library); confirm before naming it in copy. [QUESTIONNAIRE]
+- **Best uses:** technical lead who still builds; cross-platform modernization; computational geometry/graphics in product UI; client enablement; business-aligned execution.
+- **Missing detail:** team size, components personally owned per product, performance/test metrics, actual agent tools/process changes introduced at Hudl, whether the ported library is public.
 
 ## P03 — Skylight Social
 
@@ -31,6 +42,8 @@ Source IDs resolve in [source-map.yaml](source-map.yaml). This is research, not 
 - **First-party launch claims:** LinkedIn lists Jan 2025, an MVP launched in **30 days**, **55,000+ users in the first 24 hours**, top-ten free-app and number-one Entertainment placement within 48 hours, and investment from Mark Cuban. [LINKEDIN]
 - **Independent context:** TechCrunch's April 1, 2025 article reports public launch after **10 weeks of active development**, founders Tori White and Reed Harmeyer, AT Protocol, in-app editing, and Mark Cuban backing. It does not credit Brandon/This Dot or verify his 30-day/55,000-user claims. [SKYLIGHT_PRESS]
 - **Important conflict:** January may indicate engagement start or an earlier MVP rather than public launch; 30 days may refer to the team's engagement rather than total development. This is a hypothesis, not a reconciliation. Confirm before using a dated launch bullet.
+- **Origin of the 55,000 figure:** Brandon's public post (“topping the charts on the App Store now”) carries a reshare from Skylight co-founder Victoria (Tori) White stating “Skylight has over 55,000 users in its first 24hrs of launch.” The number therefore originates with the founder, not Brandon, and remains a company claim rather than audited analytics. LinkedIn shows only a relative “1y” timestamp. [SKYLIGHT_POST]
+- **Questionnaire:** no additional Skylight detail was provided in the November 2026 answers.
 - **Best uses:** mobile delivery, consumer products, native interoperability, release automation, teamwork under time pressure.
 - **Missing detail:** exact dates, definition/source of launch metrics, owned features, delivery team size, and which launch milestones belong to which phase.
 
@@ -48,8 +61,10 @@ Source IDs resolve in [source-map.yaml](source-map.yaml). This is research, not 
 - **Product:** weather retrieval inside Slack; product site shows Fahrenheit/Celsius support.
 - **Attribution:** Slack Marketplace explicitly names **Brandon Mathis** as developer and lists **Google Maps and Apple WeatherKit** as third-party services. [FORECAST_SLACK]
 - **Claimed adoption:** installed and used daily by **2,000+ companies worldwide**, according to LinkedIn. No dated analytics snapshot was found.
-- **Best uses:** independently built integration product, external APIs, distribution and maintenance, user-facing utility.
-- **Guardrails:** don't claim current active usage, paid customers, HIPAA compliance, or 2013 WeatherKit usage. Current provider metadata must not be projected back across the whole listed date range.
+- **Questionnaire (first-party):** describes long-term maintenance of what he calls “the number 1 installed weather bot for Slack,” a provider migration from **Dark Sky to Apple Weather**, long-running security updates, and daily use by notable workspaces including **Slack, Garmin, and “Rocket Propulsion labs”** (ambiguous—possibly Jet Propulsion Laboratory or Rocket Lab; confirm). Ranking and customer names are unverified and may need permission to cite. [QUESTIONNAIRE]
+- **Migration context:** the Dark Sky API shut down on **Mar 31, 2023** and was replaced by Apple WeatherKit, which explains the provider change and brackets its timing; an older third-party listing still describes the bot as Dark Sky-powered. The 2013–Oct 2021 LinkedIn interval therefore cannot be the full maintenance window if the migration happened in 2022–2023. [DARKSKY_SUNSET, FORECAST_SLACK]
+- **Best uses:** independently built integration product, external APIs, distribution and maintenance, user-facing utility, provider-migration and long-lived-product stewardship.
+- **Guardrails:** don't claim current active usage, paid customers, HIPAA compliance, or 2013 WeatherKit usage. Current provider metadata must not be projected back across the whole listed date range. “#1 weather bot” needs a dated marketplace/category source before it appears in copy.
 
 ## P06 — BWEL / Dana-Farber breast-cancer research
 
@@ -132,8 +147,35 @@ See [ai-engineering.md](ai-engineering.md) for the evidence-backed technical bre
 - **claude-agents / Roo custom modes:** structured review, documentation, pairing, task decomposition, and MCP-assisted configuration. [CLAUDE_AGENTS, ROO]
 - **AI Evolution or Revolution:** AI-directed Next.js conference presentation tool. [AI_SLIDES]
 
+## P16 — Primerica (This Dot Labs)
+
+- **Relationship:** This Dot Labs client; Brandon reports operating as **engineering lead** on a Vue front-end team. [BASELINE, QUESTIONNAIRE]
+- **Questionnaire (first-party):** built features, kept work items current, handled deployments; collaborated across teams and departments; drove process changes and SDLC improvements; consulted on adherence to Primerica's core front-end (Vue) development guidelines. Led a **large Vue 2 → Vue 3 migration** completed by the requested deadline. Built **customer-facing statement-viewing features** under a tight, event-driven deadline tied to Primerica's **50th-anniversary** event at Mercedes-Benz Stadium.
+- **Conflict to resolve:** Primerica's public convention page advertises the 50th-anniversary **2027 International Convention (July 7–10, 2027, Georgia World Congress Center and Mercedes-Benz Stadium)**, which is in the future at the Nov 11, 2026 retrieval date, whereas the answer describes the event in the past tense. The deadline may have been a pre-event release, or a different 2024–2026 Primerica event may be meant. Do not date-stamp this bullet until confirmed. [PRIMERICA_ATL27, QUESTIONNAIRE]
+- **Missing detail:** engagement dates, team size, what “statement viewing” covers, migration scope (number of apps/components), disclosure permission.
+
+## P17 — Wikimedia iOS testing (This Dot Labs)
+
+- **Questionnaire (first-party):** worked with the Wikimedia team to **improve their iOS testing suite**, helped **source a contractor** for the project, and supported that contractor directly. [QUESTIONNAIRE]
+- **Context, not corroboration:** This Dot's public Wikimedia case study describes a **2022 Vue/VueX/WebdriverIO Wikifunctions** engagement—before Brandon joined—so it is evidence of the employer relationship, not of his iOS work. Wikimedia's iOS test suite is public (`wikimedia/wikipedia-ios`), but no merged PR by Brandon to it appears in the retrieved search; his Wikipedia-iOS fork remains fork-only evidence. [THISDOT_WIKIMEDIA, REPOS, MERGED_PRS]
+- **Missing detail:** dates, which test layers (unit/UI), measurable results, contractor's public contributions, disclosure permission.
+
+## P18 — OpenAI (This Dot Labs)
+
+- Brandon states the OpenAI work is **confidential**; no description is available and none should be invented. Keep the client name only as the baseline already uses it. Separately, he hosted an OpenAI technical lead on The Context Window podcast (GPT Sites episode), which is public content, not client work. [QUESTIONNAIRE, BASELINE, CONTEXT_WINDOW]
+
+## P19 — Duke medication-tracking app
+
+- **Questionnaire (first-party):** built a **mobile application for a Duke pharmaceutical research team to help patients track their medication**. No dates, platform, study name, or outcome supplied; public search found several Duke medication-adherence apps/studies but none attributable to Brandon. [QUESTIONNAIRE, WEBSITE]
+
+## P20 — BioConnect / Bank of Montreal integration
+
+- **Questionnaire (first-party):** traveled to Toronto as a **subject-matter expert** to help BioConnect connect its **Ruby on Rails** application to an **IBM-run Oracle database** for a biometric-authentication integration into the Bank of Montreal mobile app, delivered in partnership with IBM; also **mentored BioConnect team members** on full-stack development practices. [QUESTIONNAIRE]
+- **Independent context:** BMO, BioConnect, and IBM Canada announced the biometric authentication platform for BMO Online Banking for Business and the BMO Banking for Business Mobile App on **Oct 22, 2018**, inside Brandon's freelance interval. The release does not name Brandon or any contractor. [BMO_BIOCONNECT]
+- **Guardrails:** describe as consulting on a Rails/Oracle integration within a larger BMO/IBM program; do not claim ownership of BMO's biometric platform.
+
 ## Other associations needing project details
 
-The baseline or website names **Duke Health, Adwerx, MAC Cosmetics, OpenAI, Wikimedia, Primerica, Vaco, Castra, BioConnect, and Moogfest**. Keep these as relationship evidence, not fabricated case studies. A Wikipedia iOS fork exists, but fork ownership alone does not prove a merged Wikimedia contribution. [BASELINE, WEBSITE, REPOS]
+The baseline or website also names **Adwerx, MAC Cosmetics, Vaco, Castra, and Moogfest**. Brandon named Moogfest as worth expanding but supplied no description; a public search found Moogfest apps credited to other vendors, so keep it as a logo-level association. Keep these as relationship evidence, not fabricated case studies. [BASELINE, WEBSITE, QUESTIONNAIRE]
 
 Public TeamAttain EPA prototype PRs show backend air-quality endpoints, serialization, Nginx roles, and frontend location/air-quality UI. They are attributable contributions, but contract/customer context and production deployment are unknown. [MERGED_PRS]

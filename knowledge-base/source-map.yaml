@@ -1,6 +1,8 @@
 # Stable evidence IDs used by claims.yaml and curated Markdown.
 # Paths are relative to knowledge-base/. Full artifact hashes and URLs: sources/manifest.json.
 researched_on: '2026-11-04'
+# Follow-up batch 2026-11-11: questionnaire answers plus corroborating public pages (IDs marked below).
+batches: ['2026-11-04', '2026-11-11']
 sources:
   BASELINE:
     path: sources/local/resume-cv.json
@@ -205,3 +207,96 @@ sources:
     path: sources/web/community-5.json
     url: https://www.linkedin.com/posts/mathisbrandon_triangle-devs-talks-bandwidth-hq-thu-activity-7369393494945062912-4p7I
     kind: first_party_title_only_partial
+  # ---- Follow-up batch, retrieved 2026-11-11 ----
+  QUESTIONNAIRE:
+    path: sources/local/questionnaire-2026-11-11.md
+    kind: user_self_report
+    detail: Brandon's free-form answers to the round-one question list; verbatim first-party account.
+  VT_PRESS:
+    path: sources/web/followup-01.json
+    url: https://vtestify.com/more/press/
+    kind: company_press_index
+  STENO_2021:
+    path: sources/web/followup-02.json
+    url: https://www.newswire.com/news/stenograph-and-vtestify-announce-strategic-partnership-to-deliver-21536763
+    kind: company_product_announcement
+  STENO_2022:
+    path: sources/web/followup-03.json
+    url: https://www.newswire.com/news/stenograph-and-vtestify-announce-new-technology-licensing-agreement-to-21822442
+    kind: company_product_announcement
+  CASETESTIFY:
+    path: sources/web/followup-04.json
+    url: https://blog.stenograph.com/2022/12/06/casetestify-designed-with-litigation-in-mind/
+    kind: partner_company_blog
+  VT_PROGRESS_2021:
+    path: sources/web/followup-05.json
+    url: https://vtestify.com/2021/12/29/platform-progress/
+    kind: company_product_blog
+  HUDL_ACQ:
+    path: sources/web/followup-06.json
+    url: https://www.hudl.com/blog/hudl-acquires-fastmodel-sports
+    kind: company_announcement_context
+  PRIMERICA_ATL27:
+    path: sources/web/followup-07.json
+    url: https://www.primerica.com/public/convention/
+    kind: third_party_event_page_context
+  BMO_BIOCONNECT:
+    path: sources/web/followup-08.json
+    url: https://newsroom.bmo.com/2018-10-22-BMO-Partners-with-BioConnect-to-Launch-Biometric-Authentication-Platform-for-Commercial-and-Corporate-Clients
+    kind: company_announcement_context
+  THISDOT_WIKIMEDIA:
+    path: sources/web/followup-09.json
+    url: https://www.thisdot.co/case-study/wikimedia
+    kind: employer_case_study_context
+  CONTEXT_WINDOW:
+    path: sources/web/followup-10.json
+    url: https://podcasts.apple.com/gb/podcast/the-context-window/id1862868376
+    kind: podcast_directory_listing
+  ATO_REVOLUTION:
+    path: sources/web/followup-11.json
+    url: https://allthingsopen.org/articles/ai-coding-revolution-or-evolution
+    kind: published_talk_recap
+  THISDOT_JOIN_POST:
+    path: sources/web/followup-12.json
+    url: https://www.linkedin.com/posts/mathisbrandon_today-marks-the-beginning-of-a-new-journey-activity-7269358283897896960-fwpM
+    kind: first_party_social_post
+  CHAIN_REACT_POST:
+    path: sources/web/followup-13.json
+    url: https://www.linkedin.com/posts/tracyslee_the-guys-at-chain-react-conf-always-know-activity-7489079583321956352-Ox0u
+    kind: third_party_social_post
+  STACKED_MEETUP:
+    path: sources/web/followup-14.json
+    url: https://www.meetup.com/stacked/
+    kind: community_page_partial
+  WLOS_POST:
+    path: sources/web/followup-15.json
+    url: https://www.linkedin.com/posts/mathisbrandon_does-open-source-have-an-ai-slop-problem-activity-7430359166248116225-gPB5
+    kind: first_party_social_post
+  SKYLIGHT_POST:
+    path: sources/web/followup-16.json
+    url: https://www.linkedin.com/posts/mathisbrandon_reactnative-mobile-atproto-activity-7313267775186108419-CKPj
+    kind: first_party_social_post_with_founder_reshare
+  MODERN_WEB_POD:
+    path: sources/web/followup-17.json
+    url: https://www.devshows.dev/podcasts/modern-web/backend-abstractions-serverless-patterns-and-why-its-okay-to-start-learning-with-frameworks
+    kind: podcast_episode_listing
+  DARKSKY_SUNSET:
+    path: sources/web/followup-18.json
+    url: https://dev.to/dkechag/replacing-the-dark-sky-weather-api-weatherkit-7timer-and-more-3o
+    kind: third_party_technical_context
+  GDI_RDU:
+    path: sources/web/followup-19.json
+    url: https://exitevent.com/girl-develop-it-rdu-is-a-huge-and-growing-success-14415
+    kind: third_party_community_context
+  STATE_AI_MEETUP:
+    path: sources/web/followup-20.json
+    url: https://www.meetup.com/trianglemodernweb/events/316948039/
+    kind: organizer_event_listing
+  RAILSGIRLS_RDU_EVENT:
+    path: sources/web/followup-21.json
+    url: https://railsgirls.com/rdu
+    kind: organizer_event_page
+  LINKEDIN_2026_11:
+    path: sources/web/followup-22.json
+    url: https://www.linkedin.com/in/mathisbrandon
+    kind: first_party_profile_partial
