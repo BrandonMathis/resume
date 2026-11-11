@@ -117,8 +117,6 @@ manifest = Dir.glob(File.join(ROOT, 'sources/**/*'), File::FNM_DOTMATCH).select 
   when %r{\Asources/(readmes|articles)/}
     record[:method] = 'derived text; see header and raw source'
     record[:url] = File.read(full)[/^(?:URL|Source): (https:\/\/\S+)/, 1]
-  when %r{\Asources/search/}
-    record[:method] = 'search discovery only; provider answers are not verified evidence'
   when %r{\Asources/local/}
     record[:method] = 'local first-party record; see header'
   end

@@ -568,30 +568,6 @@
       "url": "https://github.com/BrandonMathis/websynth/blob/master/README.md"
     },
     {
-      "path": "sources/search/discovery-01.json",
-      "retrieved_at": "2026-11-04",
-      "sha256": "263216b2075bcf9372410009747e3f449938b3969c5be138d587888531d040a4",
-      "method": "search discovery only; provider answers are not verified evidence"
-    },
-    {
-      "path": "sources/search/discovery-02.json",
-      "retrieved_at": "2026-11-04",
-      "sha256": "16c94a950c7b02f8d6245211b96dd4e0dc11c6abbe5c438d90ad5d1155ae45d3",
-      "method": "search discovery only; provider answers are not verified evidence"
-    },
-    {
-      "path": "sources/search/discovery-03.json",
-      "retrieved_at": "2026-11-04",
-      "sha256": "78d82729f94a00586bf1d71f7d528f69a5345f6698c2c3f5ae83d46a981473b9",
-      "method": "search discovery only; provider answers are not verified evidence"
-    },
-    {
-      "path": "sources/search/discovery-04.json",
-      "retrieved_at": "2026-11-04",
-      "sha256": "07319d117f6faedefa808a925886a14becd5fad4d1dfc610a550c91b336f70b9",
-      "method": "search discovery only; provider answers are not verified evidence"
-    },
-    {
       "path": "sources/web/community-1.json",
       "retrieved_at": "2026-11-04",
       "sha256": "d73bb51cd9d7174a3a5cb657d560d1101426366bdb2eb994b0255edb3074768d",

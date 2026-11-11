@@ -51,7 +51,6 @@ These counts describe the retrieved public snapshot, **not an exhaustive lifetim
 | `sources/code/` | Selected code as inert `.txt` snapshots; pinned URL index |
 | `sources/github/` | Original public API responses and Swift diffs |
 | `sources/web/` | Readable web extractions, including partial/error records |
-| `sources/search/` | Discovery logs only; generated search answers are not evidence |
 | `sources/local/` | First-party baseline, request brief, and the Nov 2026 questionnaire answers |
 
 Example searches from the project root:
