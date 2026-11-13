@@ -7,12 +7,15 @@
 # scheduled / draft = not completed public speaking.
 researched_on: '2026-11-04'
 # Follow-up batch 2026-11-11 added claims sourced to QUESTIONNAIRE and followup-* artifacts.
-updated_on: '2026-11-11'
+# Follow-up batch 2026-11-13 added Brandon-confirmed people-management, HIPAA, and Kubernetes claims
+# (QUESTIONNAIRE_2026_11_13). Per README, Brandon confirms all content as true; needs_confirmation
+# marks a missing detail worth asking about, not a blocker.
+updated_on: '2026-11-13'
 claims:
   - id: career-thisdot
     statement: Engineering Lead at This Dot Labs, with mobile-team management and hands-on client delivery responsibilities.
     dates: '2024-10 to present, baseline'
-    tags: [leadership, mobile, consulting, full-stack]
+    tags: [leadership, management, people-management, mobile, consulting, full-stack]
     evidence: corroborated_context
     sources: [BASELINE, LINKEDIN, ATO_2026]
     caveat: Public speaker bios corroborate the role; individual client scope and management responsibilities come from the baseline.
@@ -20,7 +23,7 @@ claims:
   - id: career-vtestify
     statement: Served as Principal Engineer and CTO at vTestify, leading architecture, development, code review, hiring, and team processes.
     dates: '2019-08 to 2024-12'
-    tags: [leadership, architecture, hiring, backend]
+    tags: [leadership, management, people-management, architecture, hiring, backend]
     evidence: first_party
     sources: [BASELINE, LINKEDIN]
     caveat: Team size and precise title progression were not independently verified.
@@ -28,11 +31,11 @@ claims:
   - id: smashingboxes-organization
     statement: Promoted from backend Lead Engineer to Director of Technology, overseeing 30+ engineers across frontend, backend, and mobile.
     dates: '2014-08 to 2017-11'
-    tags: [leadership, management, staffing, full-stack]
+    tags: [leadership, management, people-management, staffing, full-stack]
     evidence: first_party
-    sources: [BASELINE]
-    caveat: Organizational scope, not necessarily 30+ direct reports; exact promotion date unknown.
-    needs_confirmation: true
+    sources: [BASELINE, QUESTIONNAIRE_2026_11_13, QUESTIONNAIRE_2026_11_13_B]
+    caveat: Promoted about a year and a half in (approx. 2016-02) to top engineering manager reporting to the executive team (see mgmt-smashingboxes). 30+ is the department he led; direct-report counts are intentionally not tracked, so do not write "30+ direct reports."
+    needs_confirmation: false
   - id: consulting-operations
     statement: Sourced consulting engagements, wrote statements of work, coordinated subcontractors, and trained engineering teams.
     dates: '2017-11 to 2019-12, baseline freelance role'
@@ -124,11 +127,11 @@ claims:
   - id: savings-seeker
     statement: Built frontend UI, backend API, and custom medication/pharmacy cross-reference integrations for Savings Seeker Rx with McKesson and CoverMyMeds.
     dates: '2021-01 to 2022-12, LinkedIn'
-    tags: [full-stack, backend, healthcare, integration]
+    tags: [full-stack, backend, healthcare, hipaa, kubernetes, integration]
     evidence: first_party
-    sources: [LINKEDIN]
-    caveat: Engagement arrangement and stack unconfirmed; dates fall outside baseline freelance interval.
-    needs_confirmation: true
+    sources: [LINKEDIN, QUESTIONNAIRE_2026_11_13_B]
+    caveat: Brandon confirms (2026-11-13) a HIPAA environment at McKesson and configuring an app he built for McKesson to run on Kubernetes with McKesson's DevOps team (hipaa-mckesson, kubernetes-mckesson); he did not name the app, though Savings Seeker Rx is the McKesson app on record. Engagement arrangement not stated; LinkedIn dates fall inside the vTestify years, outside the baseline freelance interval.
+    needs_confirmation: false
   - id: forecast-product
     statement: Listed as developer of Forecast on Slack Marketplace, a weather bot using Google Maps and Apple WeatherKit in current marketplace metadata.
     tags: [backend, integration, product, slack]
@@ -153,12 +156,12 @@ claims:
     caveat: Marketplace metadata shows Apple WeatherKit today and the Dark Sky sunset is public, which brackets the migration; the migration work itself is self-reported. This contradicts a 2021 end date for the project on LinkedIn.
     needs_confirmation: true
   - id: bwel-integrations
-    statement: Worked on Dana-Farber BWEL research-participant communication with Fitbit activity tracking and Twilio browser calling for coaches.
-    dates: '2016-08 to 2017-12'
-    tags: [healthcare, integration, realtime, full-stack]
+    statement: Worked on Dana-Farber's BWEL research-participant communication app, which handled HIPAA-protected health information, with Fitbit activity tracking and Twilio browser calling for coaches.
+    dates: '2016-08 to 2017-12 per LinkedIn'
+    tags: [healthcare, hipaa, compliance, integration, realtime, full-stack]
     evidence: first_party
-    sources: [LINKEDIN]
-    caveat: Team contribution; individual scope and employer relationship not established. No clinical outcome claims.
+    sources: [LINKEDIN, QUESTIONNAIRE_2026_11_13, QUESTIONNAIRE_2026_11_13_B]
+    caveat: Brandon worked with Dana-Farber both as a Smashing Boxes employee and later as a Mathis LLC consultant, so the project can be listed under either role (it need not appear under both). LinkedIn's Dec 2017 end, a month after Smashing Boxes, fits that continuity. Team project ("we"); no study or clinical outcomes were reported.
     needs_confirmation: false
   - id: weaveup
     statement: Worked on WeaveUp, described as a Rails/iOS/Angular platform for artwork upload, pattern customization, and cloth ordering.
@@ -405,12 +408,12 @@ claims:
     needs_confirmation: true
   - id: vtestify-hiring-process
     statement: Reports building vTestify's entire hiring process, credited with hiring a team of more than 15 people, and attending company leadership meetings to provide technical direction.
-    tags: [leadership, hiring, management]
+    tags: [leadership, hiring, management, people-management]
     evidence: first_party
-    sources: [QUESTIONNAIRE]
-    metric: '15+ hires; period and headcount definition unspecified'
-    caveat: Self-reported; confirm whether 15+ is cumulative hires or peak team size and whether disclosure is appropriate.
-    needs_confirmation: true
+    sources: [QUESTIONNAIRE, QUESTIONNAIRE_2026_11_13]
+    metric: '15+ hires through the hiring process Brandon built (2019-08 to 2024-12)'
+    caveat: Confirmed by Brandon on 2026-11-13 ("Built the full hiring process, 15+ hires"); 15+ counts hires, not peak headcount. See mgmt-vtestify.
+    needs_confirmation: false
   - id: vtestify-ai-rag
     statement: Reports early adoption of OpenAI SDKs for evidence/information processing at vTestify and building a vector database for RAG-style search.
     tags: [ai, integration, backend, product]
@@ -477,12 +480,13 @@ claims:
     caveat: Use only the client name already present in the baseline; never invent scope.
     needs_confirmation: false
   - id: duke-medication-app
-    statement: Reports building a mobile application for a Duke pharmaceutical research team to help patients track medication.
-    tags: [mobile, healthcare, consulting]
+    statement: Built a mobile application for a Duke pharmaceutical research team to help patients track medication; the project handled HIPAA-protected health information.
+    dates: 'Duke relationship spans Smashing Boxes (2014-08 to 2017-11) and Mathis LLC consulting (2017-11 to 2019-12); app dates not stated'
+    tags: [mobile, healthcare, hipaa, compliance]
     evidence: first_party
-    sources: [QUESTIONNAIRE, WEBSITE]
-    caveat: No dates, platform, study, or outcome supplied; public Duke medication-app records found are not attributable to Brandon.
-    needs_confirmation: true
+    sources: [QUESTIONNAIRE, QUESTIONNAIRE_2026_11_13, QUESTIONNAIRE_2026_11_13_B, WEBSITE]
+    caveat: Brandon worked with Duke both as a Smashing Boxes employee and later as a Mathis LLC consultant; the baseline's freelance listing of Duke Health is accurate, and the client can be listed under either role. Platform, study name, and outcomes were not supplied.
+    needs_confirmation: false
   - id: bioconnect-bmo
     statement: Reports on-site subject-matter consulting in Toronto to connect BioConnect's Ruby on Rails application to an IBM-run Oracle database for BioConnect's biometric-authentication integration with the Bank of Montreal mobile app, plus mentoring BioConnect engineers.
     dates: 'BMO/BioConnect/IBM launch announced 2018-10-22; engagement dates unstated'
@@ -583,3 +587,75 @@ claims:
     sources: [STATE_AI_MEETUP, STATE_AI]
     caveat: Listing only; no recap or recording retrieved after the date, so delivery is unconfirmed.
     needs_confirmation: true
+  # ---- Follow-up batch 2026-11-13 (QUESTIONNAIRE_2026_11_13 + QUESTIONNAIRE_2026_11_13_B): Brandon-confirmed ----
+  - id: mgmt-smashingboxes
+    statement: Promoted to Director of Technology about a year and a half into Smashing Boxes, where he was the top engineering manager, reporting directly to the executive team for the engineering department (a 30+ person frontend, backend, and mobile organization), and responsible for staffing and resource planning.
+    dates: 'Approx. 2016-02 (promotion, ~18 months after 2014-08 start) to 2017-11'
+    tags: [management, people-management, leadership, staffing]
+    evidence: first_party
+    sources: [QUESTIONNAIRE_2026_11_13, QUESTIONNAIRE_2026_11_13_B, BASELINE]
+    caveat: Promotion date is Brandon's approximation ("about a year and half in"). Direct-report counts are intentionally not tracked (Brandon, 2026-11-13); describe the 30+ as the department he led, not as direct reports.
+    needs_confirmation: false
+  - id: mgmt-vtestify
+    statement: As Principal Engineer & Contract CTO at vTestify, managed the engineering staff and built the full hiring process, which produced 15+ hires.
+    dates: '2019-08 to 2024-12'
+    tags: [management, people-management, hiring, leadership]
+    evidence: first_party
+    sources: [QUESTIONNAIRE_2026_11_13, QUESTIONNAIRE, BASELINE]
+    metric: '15+ hires (cumulative hires through the process)'
+    caveat: Confirmed by Brandon. Direct-report counts are intentionally not tracked.
+    needs_confirmation: false
+  - id: mgmt-thisdot
+    statement: At This Dot Labs, manages the mobile team as its engineering manager and leader (title Engineering Lead), including performance reviews, one-on-ones, and mentoring.
+    dates: '2024-10 to present'
+    tags: [management, people-management, mentoring, mobile, leadership]
+    evidence: first_party
+    sources: [QUESTIONNAIRE_2026_11_13, QUESTIONNAIRE_2026_11_13_B, BASELINE]
+    caveat: Brandon describes the role as "Engineering manager and Leader"; the approved title remains Engineering Lead. Direct-report counts are intentionally not tracked.
+    needs_confirmation: false
+  - id: people-management-scope
+    statement: Has deep people-management experience covering hiring, firing, handling performance improvement plans (PIPs), professional development, one-on-ones, and negotiating raises.
+    tags: [management, people-management, hiring, leadership]
+    evidence: first_party
+    sources: [QUESTIONNAIRE_2026_11_13]
+    caveat: Confirmed by Brandon as his overall management experience across his management roles (Smashing Boxes, vTestify, This Dot Labs).
+    needs_confirmation: false
+  - id: people-management-years
+    statement: Has 9+ years of people-management experience (as of November 2026), counting the Smashing Boxes Director of Technology period, vTestify, and This Dot Labs, so resumes can say "9+ years managing engineers."
+    dates: 'Approx. 2016-02 to 2017-11 (Smashing Boxes) + 2019-08 to present (vTestify, then This Dot Labs)'
+    tags: [management, people-management, leadership]
+    evidence: first_party
+    sources: [QUESTIONNAIRE_2026_11_13_B, QUESTIONNAIRE_2026_11_13, BASELINE]
+    metric: '~9.0 years at 2026-11: ~1.75 (Smashing Boxes, from ~18 months after 2014-08) + ~7.25 (2019-08 to 2026-11; the Oct-Dec 2024 vTestify/This Dot overlap counted once). Freelance gap 2017-11 to 2019-08 excluded.'
+    caveat: Brandon specified which roles count; the total is computed from his dates. Because the promotion date is approximate, the margin over 9 years is only a few weeks at November 2026; use "nearly a decade" or "8+" if a conservative figure is preferred. The figure grows with the This Dot tenure, so recompute for later drafts.
+    needs_confirmation: false
+  - id: hipaa-smashingboxes
+    statement: Worked on Duke research and Dana-Farber projects that handled protected health information under HIPAA, responsible for standards adherence and protecting patient data; handled and securely stored patient medical and pharmaceutical data on AWS HIPAA infrastructure and on Duke's and Dana-Farber's in-house infrastructure, after receiving expert training from Duke and Dana-Farber HIPAA specialists.
+    dates: 'Smashing Boxes (2014-08 to 2017-11), continuing through Mathis LLC consulting with the same clients'
+    tags: [healthcare, hipaa, compliance, aws, security, mobile, full-stack]
+    evidence: first_party
+    sources: [QUESTIONNAIRE_2026_11_13, QUESTIONNAIRE_2026_11_13_B, QUESTIONNAIRE, LINKEDIN]
+    caveat: Confirmed by Brandon. He wrote "PII"; for this patient data the HIPAA term is PHI. He worked with these clients both at Smashing Boxes and later as a Mathis LLC consultant; the first message ties the PHI projects to Smashing Boxes, and the responsibilities answer is not split by employer. Claim the responsibilities he named (standards adherence, data protection, secure storage, AWS HIPAA and client infrastructure, expert training), not certifications or controls he did not name.
+    needs_confirmation: false
+  - id: hipaa-mckesson
+    statement: Worked in a HIPAA environment at McKesson, handling sensitive patient medical data and pharmaceutical databases.
+    tags: [healthcare, hipaa, compliance, enterprise]
+    evidence: first_party
+    sources: [QUESTIONNAIRE_2026_11_13_B, LINKEDIN]
+    caveat: Confirmed by Brandon. He describes McKesson as a Fortune 5 company; Fortune rank changes yearly, so date-stamp or soften any rank used in copy (for example "Fortune 10"). Dates and contracting arrangement not stated; see savings-seeker for the LinkedIn-dated McKesson project.
+    needs_confirmation: false
+  - id: kubernetes-mckesson
+    statement: Worked with McKesson's DevOps team to configure an application he built for McKesson to run in a Kubernetes environment.
+    tags: [devops, kubernetes, platform, healthcare]
+    evidence: first_party
+    sources: [QUESTIONNAIRE_2026_11_13, QUESTIONNAIRE_2026_11_13_B]
+    caveat: Confirmed by Brandon. The application is very likely Savings Seeker Rx (the McKesson app on LinkedIn, 2021-01 to 2022-12), but he did not name it; dates and contracting arrangement not stated. Describe as making his app Kubernetes-ready with the client's DevOps team, not as owning McKesson's clusters.
+    needs_confirmation: false
+  - id: kubernetes-vtestify-stenograph
+    statement: Worked hands-on with Kubernetes at vTestify to deploy the vTestify software platform into Stenograph's infrastructure.
+    dates: 'Within 2019-08 to 2024-12; Stenograph integration 2021, exclusive licensing agreement 2022'
+    tags: [devops, kubernetes, platform, integration]
+    evidence: first_party
+    sources: [QUESTIONNAIRE_2026_11_13, QUESTIONNAIRE_2026_11_13_B, STENO_2021, STENO_2022]
+    caveat: Confirmed by Brandon; the Stenograph press releases corroborate the partnership, not the infrastructure. The answer does not say whether the per-customer isolated environments (vtestify-isolated-environments) ran on Kubernetes.
+    needs_confirmation: false

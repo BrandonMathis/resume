@@ -1,13 +1,15 @@
 # Brandon Mathis — career evidence knowledge base
 
-**Research snapshot: November 4, 2026; follow-up batch: November 11, 2026.** This is a reference library for tailoring resumes, biographies, applications, and interview stories—not a second resume source of truth.
+> **All content in this knowledge base is confirmed by Brandon as true. Do not treat older 'unconfirmed' flags as blockers.**
+
+**Research snapshot: November 4, 2026; follow-up batches: November 11 and November 13, 2026.** This is a reference library for tailoring resumes, biographies, applications, and interview stories—not a second resume source of truth.
 
 ## Start here
 
 1. Read [profile and career timeline](profile.md).
 2. Choose evidence from [projects](projects.md), [skills](skills.md), and [AI engineering / developer workflows](ai-engineering.md).
 3. Consult [open source](open-source.md), [writing and speaking](writing-and-speaking.md), and [leadership and community](leadership-and-community.md).
-4. Check each claim's `evidence`, `caveat`, and `needs_confirmation` fields in [claims.yaml](claims.yaml) before using dates, numbers, titles, or individual-credit claims; conflicted items are flagged there.
+4. Check each claim's `evidence`, `caveat`, and `needs_confirmation` fields in [claims.yaml](claims.yaml) for wording precision (for example, organization size vs. direct reports). Per the note above, a `needs_confirmation` flag marks a detail worth asking about, not a blocker; numbers Brandon has not supplied are still not to be invented.
 5. For structured retrieval, use [claims.yaml](claims.yaml) and resolve its source IDs through [source-map.yaml](source-map.yaml).
 
 ## What was gathered
@@ -19,6 +21,7 @@
 - LinkedIn project descriptions, the personal website, product announcements, community organizer listings, selected READMEs, and **19 commit-pinned code/documentation files**.
 - A frozen snapshot of the existing resume's `cv` data and the user's research brief.
 - **Follow-up batch (Nov 11, 2026):** Brandon's verbatim answers to the round-one questionnaire (`sources/local/questionnaire-2026-11-11.md`, first-party) plus **22 corroborating public pages** (`sources/web/followup-*.json`): vTestify/Stenograph/CaseTestify press, Hudl's FastModel acquisition, Primerica's convention page, the BMO/BioConnect launch, This Dot's Wikimedia case study, The Context Window podcast listing, ATO/We Love Open Source recaps, LinkedIn posts, the Rails Girls RDU 2014 organizer page, and related context. Each artifact carries its own `retrieved_at`; the manifest preserves the original Nov 4 dates for older artifacts.
+- **Follow-up batch (Nov 13, 2026):** Brandon's confirmed answers on people management (Smashing Boxes, vTestify, This Dot Labs), HIPAA-regulated PHI work on Smashing Boxes' Duke and Dana-Farber projects, and Kubernetes use (McKesson; vTestify's Stenograph partnership), archived verbatim in `sources/local/questionnaire-2026-11-13.md` (`QUESTIONNAIRE_2026_11_13`; blank placeholders preserved, not values). His same-day follow-up answers (`sources/local/questionnaire-2026-11-13-followup.md`, `QUESTIONNAIRE_2026_11_13_B`) supply the 9+ year management span, the Smashing Boxes promotion and reporting line, HIPAA responsibilities (including McKesson), Kubernetes scope, and Duke/Dana-Farber work at both Smashing Boxes and Mathis LLC.
 
 These counts describe the retrieved public snapshot, **not an exhaustive lifetime archive**. Private client code, inaccessible pages, deleted work, unmerged PRs, direct commits, video content not present in transcripts, and older articles outside the RSS window are not comprehensively covered.
 
@@ -51,7 +54,7 @@ These counts describe the retrieved public snapshot, **not an exhaustive lifetim
 | `sources/code/` | Selected code as inert `.txt` snapshots; pinned URL index |
 | `sources/github/` | Original public API responses and Swift diffs |
 | `sources/web/` | Readable web extractions, including partial/error records |
-| `sources/local/` | First-party baseline, request brief, and the Nov 2026 questionnaire answers |
+| `sources/local/` | First-party baseline, request brief, and the Nov 11 and Nov 13, 2026 questionnaire answers |
 
 Example searches from the project root:
 

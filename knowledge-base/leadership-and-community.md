@@ -1,16 +1,24 @@
 # Leadership and community
 
+## People management summary (confirmed by Brandon, Nov 13, 2026)
+
+Brandon has **9+ years of people management** (as of Nov 2026) across three roles: Director of Technology at **Smashing Boxes** (from ~early 2016; top engineering manager reporting directly to the executive team), Principal Engineer & Contract CTO at **vTestify** (managed the engineering staff, Aug 2019–Dec 2024), and Engineering Lead at **This Dot Labs** (engineering manager and leader of the mobile team, Oct 2024–present). He describes **deep management experience in hiring, firing, handling PIPs, professional development, one-on-ones, and negotiating raises**. [QUESTIONNAIRE_2026_11_13, QUESTIONNAIRE_2026_11_13_B]
+
+- Claim IDs: `people-management-scope`, `mgmt-smashingboxes`, `mgmt-vtestify`, `mgmt-thisdot`, `people-management-years`.
+- **Years:** ~1.75 at Smashing Boxes + ~7.25 from Aug 2019 to Nov 2026 (vTestify then This Dot; overlap counted once) ≈ 9 years. The promotion date is approximate, so “9+” has only a few weeks' margin in Nov 2026; “nearly a decade” or “8+” are conservative alternatives. Recompute for later drafts.
+- Direct-report counts are intentionally not tracked (Brandon, Nov 13, 2026).
+
 ## Engineering leadership with concrete responsibilities
 
 ### This Dot Labs — Engineering Lead
 
-Baseline describes managing a mobile engineering team: mentoring, performance reviews, one-on-ones; leading client migrations/refactors/rewrites; delivering engineering work for named enterprise customers; representing the company in technical content and conferences. **[BASELINE]**
+Baseline describes managing a mobile engineering team: mentoring, performance reviews, one-on-ones (Brandon confirms he is the mobile team's people manager [QUESTIONNAIRE_2026_11_13]); leading client migrations/refactors/rewrites; delivering engineering work for named enterprise customers; representing the company in technical content and conferences. **[BASELINE]**
 
 HUDL's first-party project account adds architecture, hands-on implementation, mentoring, and keeping decisions tied to business goals across three products. **[LINKEDIN]**
 
 **Questionnaire additions (first-party):** at Primerica, led a Vue front-end team's delivery and deployments, worked across departments, changed process, and consulted on adherence to the client's front-end guidelines; at Wikimedia, improved the iOS test suite and sourced/supported a contractor; at HUDL, served as de-facto technical project manager for the migration and worked with a principal engineer; after HUDL, onboarded a new team to agentic coding with Claude Code. Public evidence of broader leadership presence: co-hosting This Dot's **The Context Window** podcast and listing on This Dot's State of AI panel. [QUESTIONNAIRE, CONTEXT_WINDOW, STATE_AI_MEETUP]
 
-**Resume emphasis:** technical leadership plus execution and client communication. **Needs clarification:** direct-report count, team distribution, hiring scope, promotion/retention outcomes, and measured results of the AI-adoption interventions.
+**Resume emphasis:** people management plus technical leadership, execution, and client communication. Measured results of the AI-adoption interventions have not been recorded.
 
 ### vTestify — Principal Engineer & CTO
 
@@ -18,7 +26,9 @@ Baseline describes building hiring/interview/team-management processes; leading 
 
 **Questionnaire additions (first-party):** attended company leadership meetings and provided technical direction; **built the entire hiring process**, credited with hiring **15+ people**; personally managed technical relationships with partner development teams at US Legal, Esquire, and Stenograph. Stenograph's 2022 agreement independently notes that “select members of the vTestify team will join Stenograph,” consistent with a company whose team and product moved into partner ecosystems, but not itself an acquisition statement. [QUESTIONNAIRE, STENO_2022]
 
-**Resume emphasis:** organization-building, customer-facing engineering, product/platform decisions. Do not equate CTO title with an unverified team size, board responsibility, or company acquisition. “15+ hires” is a self-reported cumulative figure over roughly five years; confirm whether it is total hires or peak headcount.
+**Confirmed Nov 13, 2026:** Brandon **managed the engineering staff** and built the full hiring process, which produced **15+ hires** (a count of hires, not peak headcount). [QUESTIONNAIRE_2026_11_13]
+
+**Resume emphasis:** people management, organization-building, customer-facing engineering, product/platform decisions. Board responsibility and a whole-company acquisition are not established (see `elitigate-acquisition`).
 
 ### Smashing Boxes — Lead Engineer → Director of Technology
 
@@ -29,7 +39,9 @@ Baseline says he was hired as backend Lead Engineer and promoted to Director of 
 - **MC'd the weekly company-wide stand-up** (about **50 people**, Fridays at noon): cross-department shout-outs, timeboxing, and having delivery teams present new projects and client releases.
 - Context: Durham's Iron Yard Academy was “powered by Smashing Boxes,” which explains the steady flow of code-school hires and the Iron Yard guest-instruction role. [QUESTIONNAIRE, RAILSGIRLS_RDU_EVENT]
 
-**Guardrail:** “oversaw an engineering organization of 30+” is not the same as “30+ direct reports.” Confirm the reporting structure before using the latter. Program duration, cohort sizes, and retention outcomes for the onboarding program are unmeasured.
+**Confirmed Nov 13, 2026:** promoted to Director of Technology about a year and a half in (~early 2016), Brandon was the **top manager of the engineering department, reporting directly to the executive team**. [QUESTIONNAIRE_2026_11_13, QUESTIONNAIRE_2026_11_13_B]
+
+**Wording note:** 30+ is the size of the department he led; say “led a 30+ person engineering department,” not “30+ direct reports.” Cohort sizes and retention outcomes for the onboarding program were not measured.
 
 ### Independent consulting
 

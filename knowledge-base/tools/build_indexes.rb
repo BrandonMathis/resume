@@ -14,7 +14,7 @@ ROOT = File.expand_path('..', __dir__)
 # (`retrieved_at` in web JSON, `Retrieved:`/`Recorded:` headers in Markdown); never relabel
 # old artifacts with a newer batch date or new artifacts with this one.
 DATE = '2026-11-04'
-BATCHES = ['2026-11-04', '2026-11-11'].freeze
+BATCHES = ['2026-11-04', '2026-11-11', '2026-11-13'].freeze
 
 def read_json(path)
   JSON.parse(File.read(File.join(ROOT, path)))

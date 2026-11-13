@@ -15,7 +15,8 @@ Source IDs resolve in [source-map.yaml](source-map.yaml). This is research, not 
 - **Product timeline context:** vTestify's own 2021 recap lists a redesigned video room, noise suppression, video pinning/pop-out, the **vTestify Connect** native iOS app, “Continue as Guest,” the CaseViewNet integration, and enterprise analytics. Team-level product evidence; it does not attribute features to Brandon. [VT_PROGRESS_2021]
 - **CTO scope (questionnaire, first-party):** oversaw integration of the product into partner systems at **US Legal, Esquire, and Stenograph**, working directly with those companies' development teams on stack, security capabilities, and integration; attended company leadership meetings and set technical direction; built the hiring process credited with hiring **a team of 15+ people** “before the company was acquired.” Stenograph (2022) and Esquire (2021) partnerships are independently documented; a **US Legal Support** relationship was not found publicly. [QUESTIONNAIRE, STENO_2022, ESQUIRE]
 - **Engineering challenges (questionnaire, first-party):** (1) the pandemic-era shift to remote required a very simple onboarding/UX path for non-technical participants; (2) early adoption of **OpenAI SDKs for evidence/information processing plus a vector database for RAG-style search**; (3) demanding performance expectations met with **per-customer isolated environments** (separate database and application runtime per customer) with **autoscaling** configured day by day. These are self-reports; no architecture document, metrics, or dates were retrieved. [QUESTIONNAIRE]
-- **Best uses:** full-stack product delivery; real-time/browser media; applied AI; CTO/leadership; customer-facing engineering; partner/enterprise integrations.
+- **People management and Kubernetes (confirmed Nov 13, 2026):** Brandon **managed the engineering staff** and built the full hiring process (15+ hires). He **worked hands-on with Kubernetes when vTestify deployed its software platform into Stenograph's infrastructure**. Whether the per-customer isolated environments above also ran on Kubernetes was not stated. [QUESTIONNAIRE_2026_11_13, QUESTIONNAIRE_2026_11_13_B]
+- **Best uses:** full-stack product delivery; real-time/browser media; applied AI; CTO/leadership; customer-facing engineering; partner/enterprise integrations; Kubernetes/platform work.
 - **Missing detail:** exact white-label features, revenue period, customers served, transcription latency/accuracy, user/session scale, security/compliance responsibility, acquisition disclosure permission, vector-store/LLM implementation details and dates, hosting platform for the isolated environments, and what “the company was acquired” refers to (see the `elitigate-acquisition` caveat in claims.yaml).
 
 ## P02 — HUDL / FastModel Sports
@@ -51,7 +52,9 @@ Source IDs resolve in [source-map.yaml](source-map.yaml). This is research, not 
 
 - **Dates:** Jan 2021–Dec 2022 in LinkedIn, outside the baseline's 2017–2019 freelance period. Engagement arrangement needs confirmation.
 - **Contribution:** built frontend UI and backend API; custom backend integrations cross-referencing medication and pharmacy databases for discount-medication search. [LINKEDIN]
-- **Scope:** end-to-end healthcare-adjacent product and enterprise API integration, not automatically clinical software or HIPAA ownership.
+- **Scope:** end-to-end healthcare-adjacent product and enterprise API integration.
+- **Kubernetes (confirmed Nov 13, 2026):** worked with McKesson's DevOps team to **configure an app he built for McKesson to run in a Kubernetes environment** (he did not name the app; Savings Seeker Rx is the McKesson app on record). [QUESTIONNAIRE_2026_11_13, QUESTIONNAIRE_2026_11_13_B]
+- **HIPAA (confirmed Nov 13, 2026):** worked in a **HIPAA environment at McKesson**, handling sensitive patient medical data and pharmaceutical databases. Brandon calls McKesson a Fortune 5 company; the rank varies by year, so date-stamp or soften it in copy. [QUESTIONNAIRE_2026_11_13_B]
 - **Missing detail:** implementation stack, contract relationship, adoption/search volume, pricing-data freshness, impact on patient savings.
 - **Project URL:** https://www.savingsseekerrx.com/ (listed on LinkedIn; product content not separately inspected).
 
@@ -66,13 +69,15 @@ Source IDs resolve in [source-map.yaml](source-map.yaml). This is research, not 
 - **Best uses:** independently built integration product, external APIs, distribution and maintenance, user-facing utility, provider-migration and long-lived-product stewardship.
 - **Guardrails:** don't claim current active usage, paid customers, HIPAA compliance, or 2013 WeatherKit usage. Current provider metadata must not be projected back across the whole listed date range. “#1 weather bot” needs a dated marketplace/category source before it appears in copy.
 
-## P06 — BWEL / Dana-Farber breast-cancer research
+## P06 — BWEL / Dana-Farber breast-cancer research (Smashing Boxes)
 
-- **Dates:** Aug 2016–Dec 2017, from LinkedIn.
+- **Relationship:** Brandon worked with Dana-Farber both as a **Smashing Boxes** employee and later as a **Mathis LLC** consultant (confirmed Nov 13, 2026). Either role can carry the project; it need not appear under both. [QUESTIONNAIRE_2026_11_13, QUESTIONNAIRE_2026_11_13_B, BASELINE]
+- **Dates:** Aug 2016–Dec 2017, from LinkedIn; the Dec 2017 end, a month after Smashing Boxes, fits the continued consulting relationship.
 - **Product:** web app for communication between research staff/coaches and study participants.
 - **Contribution account:** Fitbit integration for participant activity tracking; Twilio browser calling for coaches. [LINKEDIN]
-- **Best uses:** healthcare/research workflow integration, third-party APIs, real-time communication.
-- **Guardrails:** do not claim study results, patient-health improvements, HIPAA certification, or sole product ownership. The account says “we”; exact ownership and employer relationship need clarification.
+- **HIPAA (confirmed):** the project handled **protected health information under HIPAA**. Brandon was **responsible for standards adherence and protecting patient data**; the team handled and **securely stored patient medical and pharmaceutical data** on **AWS HIPAA infrastructure** and on Dana-Farber's and Duke's **in-house infrastructure**; he received **expert training from Duke and Dana-Farber HIPAA specialists**. [QUESTIONNAIRE_2026_11_13, QUESTIONNAIRE_2026_11_13_B]
+- **Best uses:** healthcare/research workflow integration, HIPAA-regulated PHI work, third-party APIs, real-time communication.
+- **Scope notes:** team project (“we”); no study results or patient-health outcomes were reported.
 
 ## P07 — WeaveUp
 
@@ -164,9 +169,11 @@ See [ai-engineering.md](ai-engineering.md) for the evidence-backed technical bre
 
 - Brandon states the OpenAI work is **confidential**; no description is available and none should be invented. Keep the client name only as the baseline already uses it. Separately, he hosted an OpenAI technical lead on The Context Window podcast (GPT Sites episode), which is public content, not client work. [QUESTIONNAIRE, BASELINE, CONTEXT_WINDOW]
 
-## P19 — Duke medication-tracking app
+## P19 — Duke medication-tracking app (Smashing Boxes)
 
-- **Questionnaire (first-party):** built a **mobile application for a Duke pharmaceutical research team to help patients track their medication**. No dates, platform, study name, or outcome supplied; public search found several Duke medication-adherence apps/studies but none attributable to Brandon. [QUESTIONNAIRE, WEBSITE]
+- **Questionnaire (first-party):** built a **mobile application for a Duke pharmaceutical research team to help patients track their medication**. [QUESTIONNAIRE, WEBSITE]
+- **Relationship and compliance (confirmed Nov 13, 2026):** Brandon worked with Duke both as a **Smashing Boxes** employee and later as a **Mathis LLC** consultant; the baseline's freelance listing of Duke Health is accurate. The app handled **protected health information under HIPAA**; his HIPAA responsibilities are described under P06. [QUESTIONNAIRE_2026_11_13, QUESTIONNAIRE_2026_11_13_B, BASELINE]
+- **Missing detail:** app dates, platform, study name, and outcomes.
 
 ## P20 — BioConnect / Bank of Montreal integration
 

@@ -2,7 +2,8 @@
   "researched_on": "2026-11-04",
   "batches": [
     "2026-11-04",
-    "2026-11-11"
+    "2026-11-11",
+    "2026-11-13"
   ],
   "scope": "Public sources and project-local evidence only",
   "sources": [
@@ -483,6 +484,18 @@
       "path": "sources/local/questionnaire-2026-11-11.md",
       "retrieved_at": "2026-11-11",
       "sha256": "3ef9cc4cd8e50964e0fae9bb8e36d58c8cf372ac895afd4585a7976133b1929a",
+      "method": "local first-party record; see header"
+    },
+    {
+      "path": "sources/local/questionnaire-2026-11-13-followup.md",
+      "retrieved_at": "2026-11-13",
+      "sha256": "2cdcfbf7e3a932abe1dc9e3615b23f781b29fd15b775dedb3f07131e4a1c19b4",
+      "method": "local first-party record; see header"
+    },
+    {
+      "path": "sources/local/questionnaire-2026-11-13.md",
+      "retrieved_at": "2026-11-13",
+      "sha256": "c5e87fb5ae84d17ed906f48745c36feefebcdd00cea643a0e4601b7366478401",
       "method": "local first-party record; see header"
     },
     {

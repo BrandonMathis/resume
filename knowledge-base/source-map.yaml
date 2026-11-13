@@ -2,7 +2,8 @@
 # Paths are relative to knowledge-base/. Full artifact hashes and URLs: sources/manifest.json.
 researched_on: '2026-11-04'
 # Follow-up batch 2026-11-11: questionnaire answers plus corroborating public pages (IDs marked below).
-batches: ['2026-11-04', '2026-11-11']
+# Follow-up batch 2026-11-13: Brandon's confirmed answers on management, HIPAA, and Kubernetes.
+batches: ['2026-11-04', '2026-11-11', '2026-11-13']
 sources:
   BASELINE:
     path: sources/local/resume-cv.json
@@ -212,6 +213,15 @@ sources:
     path: sources/local/questionnaire-2026-11-11.md
     kind: user_self_report
     detail: Brandon's free-form answers to the round-one question list; verbatim first-party account.
+  # ---- Follow-up batch, recorded 2026-11-13 ----
+  QUESTIONNAIRE_2026_11_13:
+    path: sources/local/questionnaire-2026-11-13.md
+    kind: user_self_report
+    detail: Brandon's confirmed answers on people management, HIPAA work at Smashing Boxes, and Kubernetes; verbatim, with unfilled placeholders preserved.
+  QUESTIONNAIRE_2026_11_13_B:
+    path: sources/local/questionnaire-2026-11-13-followup.md
+    kind: user_self_report
+    detail: Brandon's verbatim follow-up answers on management years, Smashing Boxes promotion, HIPAA responsibilities (incl. McKesson), Kubernetes scope, and Duke/Dana-Farber dual attribution.
   VT_PRESS:
     path: sources/web/followup-01.json
     url: https://vtestify.com/more/press/
