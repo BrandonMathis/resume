@@ -125,12 +125,12 @@ claims:
     caveat: TechCrunch reports public launch after 10 weeks of development. The 55,000 figure appears in a reshare by Skylight co-founder Tori White on Brandon's post, so it is a company claim, not his measurement. Confirm phases, dates, metric definitions, region, and contribution before use.
     needs_confirmation: true
   - id: savings-seeker
-    statement: Built frontend UI, backend API, and custom medication/pharmacy cross-reference integrations for Savings Seeker Rx with McKesson and CoverMyMeds.
-    dates: '2021-01 to 2022-12, LinkedIn'
-    tags: [full-stack, backend, healthcare, hipaa, kubernetes, integration]
+    statement: Led and performed full-stack development of McKesson's Saving Seeker RX (Savings Seeker Rx on LinkedIn) through Mathis LLC, building frontend UI, backend API, and medication/pharmacy cross-reference integrations with McKesson and CoverMyMeds; coordinated across departments, verified functionality with VP-level stakeholders, and worked directly with DevOps to deploy it in a secure, HIPAA-compliant healthcare Kubernetes environment.
+    dates: '2021-01 to 2022-12 per LinkedIn; exact engagement dates not newly supplied'
+    tags: [full-stack, backend, healthcare, hipaa, kubernetes, integration, leadership, consulting]
     evidence: first_party
-    sources: [LINKEDIN, QUESTIONNAIRE_2026_11_13_B]
-    caveat: Brandon confirms (2026-11-13) a HIPAA environment at McKesson and configuring an app he built for McKesson to run on Kubernetes with McKesson's DevOps team (hipaa-mckesson, kubernetes-mckesson); he did not name the app, though Savings Seeker Rx is the McKesson app on record. Engagement arrangement not stated; LinkedIn dates fall inside the vTestify years, outside the baseline freelance interval.
+    sources: [LINKEDIN, QUESTIONNAIRE_2026_11_13_B, MCKESSON_2026_11_13]
+    caveat: Brandon explicitly confirms Mathis LLC attribution, project identity, leadership, full-stack delivery, stakeholder coordination, and deployment scope. Freelance work may overlap vTestify; that overlap is valid and is not a reason to move McKesson under vTestify. Retain LinkedIn's historical project dates separately from the baseline's 2017–2019 Mathis LLC interval; this clarification does not supply replacement dates or a revised overall consulting end date. HIPAA compliance is first-party reported, not an independent compliance audit or certification.
     needs_confirmation: false
   - id: forecast-product
     statement: Listed as developer of Forecast on Slack Marketplace, a weather bot using Google Maps and Apple WeatherKit in current marketplace metadata.
@@ -638,18 +638,18 @@ claims:
     caveat: Confirmed by Brandon. He wrote "PII"; for this patient data the HIPAA term is PHI. He worked with these clients both at Smashing Boxes and later as a Mathis LLC consultant; the first message ties the PHI projects to Smashing Boxes, and the responsibilities answer is not split by employer. Claim the responsibilities he named (standards adherence, data protection, secure storage, AWS HIPAA and client infrastructure, expert training), not certifications or controls he did not name.
     needs_confirmation: false
   - id: hipaa-mckesson
-    statement: Worked in a HIPAA environment at McKesson, handling sensitive patient medical data and pharmaceutical databases.
-    tags: [healthcare, hipaa, compliance, enterprise]
+    statement: Worked with sensitive patient medical data and pharmaceutical databases for McKesson through Mathis LLC, including deploying Saving Seeker RX with DevOps in a secure, HIPAA-compliant healthcare Kubernetes environment.
+    tags: [healthcare, hipaa, compliance, enterprise, consulting]
     evidence: first_party
-    sources: [QUESTIONNAIRE_2026_11_13_B, LINKEDIN]
-    caveat: Confirmed by Brandon. He describes McKesson as a Fortune 5 company; Fortune rank changes yearly, so date-stamp or soften any rank used in copy (for example "Fortune 10"). Dates and contracting arrangement not stated; see savings-seeker for the LinkedIn-dated McKesson project.
+    sources: [QUESTIONNAIRE_2026_11_13_B, LINKEDIN, MCKESSON_2026_11_13]
+    caveat: Confirmed by Brandon; compliance is self-reported, not independently audited or a personal certification. His Fortune 5 description is not a timeless rank. Mathis LLC attribution is explicit; see savings-seeker for the historical LinkedIn dates and valid freelance/vTestify overlap.
     needs_confirmation: false
   - id: kubernetes-mckesson
-    statement: Worked with McKesson's DevOps team to configure an application he built for McKesson to run in a Kubernetes environment.
-    tags: [devops, kubernetes, platform, healthcare]
+    statement: Worked directly with McKesson's DevOps team to configure and deploy Saving Seeker RX, which he led and built through Mathis LLC, in a secure, HIPAA-compliant healthcare Kubernetes environment.
+    tags: [devops, kubernetes, platform, healthcare, consulting]
     evidence: first_party
-    sources: [QUESTIONNAIRE_2026_11_13, QUESTIONNAIRE_2026_11_13_B]
-    caveat: Confirmed by Brandon. The application is very likely Savings Seeker Rx (the McKesson app on LinkedIn, 2021-01 to 2022-12), but he did not name it; dates and contracting arrangement not stated. Describe as making his app Kubernetes-ready with the client's DevOps team, not as owning McKesson's clusters.
+    sources: [QUESTIONNAIRE_2026_11_13, QUESTIONNAIRE_2026_11_13_B, MCKESSON_2026_11_13]
+    caveat: Brandon explicitly identifies the app and Mathis LLC relationship in the follow-up clarification. Describe collaborative application configuration/deployment, not ownership of McKesson's clusters; Helm and other specific tooling were not named. HIPAA compliance is first-party reported. Exact engagement dates were not newly supplied; freelance/vTestify overlap is valid.
     needs_confirmation: false
   - id: kubernetes-vtestify-stenograph
     statement: Worked hands-on with Kubernetes at vTestify to deploy the vTestify software platform into Stenograph's infrastructure.

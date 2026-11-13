@@ -481,6 +481,12 @@
       "method": "public GitHub REST API"
     },
     {
+      "path": "sources/local/mckesson-2026-11-13.md",
+      "retrieved_at": "2026-11-13",
+      "sha256": "b19ecfe76f2105f4ec0b7422fca771a4fb60835c03a8d4239961e43b1f403c91",
+      "method": "local first-party record; see header"
+    },
+    {
       "path": "sources/local/questionnaire-2026-11-11.md",
       "retrieved_at": "2026-11-11",
       "sha256": "3ef9cc4cd8e50964e0fae9bb8e36d58c8cf372ac895afd4585a7976133b1929a",

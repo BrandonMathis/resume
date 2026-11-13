@@ -48,14 +48,15 @@ Source IDs resolve in [source-map.yaml](source-map.yaml). This is research, not 
 - **Best uses:** mobile delivery, consumer products, native interoperability, release automation, teamwork under time pressure.
 - **Missing detail:** exact dates, definition/source of launch metrics, owned features, delivery team size, and which launch milestones belong to which phase.
 
-## P04 — Savings Seeker Rx / McKesson / CoverMyMeds
+## P04 — Saving Seeker RX (Savings Seeker Rx) / McKesson / CoverMyMeds
 
-- **Dates:** Jan 2021–Dec 2022 in LinkedIn, outside the baseline's 2017–2019 freelance period. Engagement arrangement needs confirmation.
-- **Contribution:** built frontend UI and backend API; custom backend integrations cross-referencing medication and pharmacy databases for discount-medication search. [LINKEDIN]
-- **Scope:** end-to-end healthcare-adjacent product and enterprise API integration.
-- **Kubernetes (confirmed Nov 13, 2026):** worked with McKesson's DevOps team to **configure an app he built for McKesson to run in a Kubernetes environment** (he did not name the app; Savings Seeker Rx is the McKesson app on record). [QUESTIONNAIRE_2026_11_13, QUESTIONNAIRE_2026_11_13_B]
-- **HIPAA (confirmed Nov 13, 2026):** worked in a **HIPAA environment at McKesson**, handling sensitive patient medical data and pharmaceutical databases. Brandon calls McKesson a Fortune 5 company; the rank varies by year, so date-stamp or soften it in copy. [QUESTIONNAIRE_2026_11_13_B]
-- **Missing detail:** implementation stack, contract relationship, adoption/search volume, pricing-data freshness, impact on patient savings.
+- **Relationship:** McKesson client engagement through **Mathis LLC**, explicitly confirmed by Brandon. Keep both McKesson and this project under Mathis LLC, not vTestify. Brandon calls it **Saving Seeker RX**; LinkedIn uses **Savings Seeker Rx**. [MCKESSON_2026_11_13, LINKEDIN]
+- **Dates / overlap:** LinkedIn lists Jan 2021–Dec 2022; the baseline lists Mathis LLC as 2017–2019. Brandon confirms freelance work can overlap vTestify and that this is valid. His clarification settles attribution, not exact dates: retain the historical LinkedIn interval without inventing revised project dates or an overall consulting end date. [LINKEDIN, MCKESSON_2026_11_13]
+- **Contribution:** led the project and performed full-stack development; built frontend UI, backend API, and custom integrations cross-referencing medication and pharmacy databases for discount-medication search. [LINKEDIN, MCKESSON_2026_11_13]
+- **Cross-functional leadership:** coordinated across departments and verified functionality directly with VP-level stakeholders. [MCKESSON_2026_11_13]
+- **Kubernetes / deployment:** worked directly with McKesson's DevOps team to configure and deploy this app in a **secure, HIPAA-compliant healthcare Kubernetes environment**. This is collaborative application deployment, not a claim of cluster ownership. [QUESTIONNAIRE_2026_11_13, QUESTIONNAIRE_2026_11_13_B, MCKESSON_2026_11_13]
+- **HIPAA:** handled sensitive patient medical data and pharmaceutical databases. Compliance and deployment are Brandon's first-party account, not an independent compliance audit or personal certification. His Fortune 5 description of McKesson varies by year; date-stamp or omit the rank. [QUESTIONNAIRE_2026_11_13_B, MCKESSON_2026_11_13]
+- **Missing detail:** exact engagement dates, implementation stack beyond Kubernetes, adoption/search volume, pricing-data freshness, impact on patient savings.
 - **Project URL:** https://www.savingsseekerrx.com/ (listed on LinkedIn; product content not separately inspected).
 
 ## P05 — Forecast Slack bot
