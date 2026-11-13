@@ -6,6 +6,25 @@ require 'open3'
 require_relative 'resume_variant'
 
 class ResumeVariantTest < Minitest::Test
+  def setup
+    @original_root = ResumeVariant::ROOT
+    @fixture_root = Dir.mktmpdir('resume-builder-test-')
+    %w[Makefile classic variants].each do |path|
+      FileUtils.cp_r(File.join(@original_root, path), @fixture_root)
+    end
+    %w[enhanced-kimi-k3 full-stack react-native].each do |name|
+      File.write(File.join(@fixture_root, 'variants', "#{name}.yml"), "inherits: default\nsections: {}\n")
+    end
+    ResumeVariant.send(:remove_const, :ROOT)
+    ResumeVariant.const_set(:ROOT, @fixture_root)
+  end
+
+  def teardown
+    ResumeVariant.send(:remove_const, :ROOT)
+    ResumeVariant.const_set(:ROOT, @original_root)
+    FileUtils.rm_rf(@fixture_root)
+  end
+
   def with_project
     Dir.mktmpdir('resume-variants-') do |root|
       %w[classic variants].each { |directory| FileUtils.cp_r(File.join(ResumeVariant::ROOT, directory), root) }
@@ -41,9 +60,8 @@ class ResumeVariantTest < Minitest::Test
         assert_equal base['design'], result['design']
         assert_equal base['locale'], result['locale']
         expected = Marshal.load(Marshal.dump(base))
-        { 'pdf' => 'pdf', 'typst' => 'typ' }.each do |kind, extension|
-          expected['settings']['render_command']["#{kind}_path"] = "#{name}.#{extension}"
-        end
+        expected['settings']['render_command']['pdf_path'] = 'resume.pdf'
+        expected['settings']['render_command']['typst_path'] = "#{name}.typ"
         %w[markdown html png].each do |kind|
           refute result['settings']['render_command'].key?("#{kind}_path")
           assert_equal true, result['settings']['render_command']["dont_generate_#{kind}"]
@@ -281,7 +299,7 @@ class ResumeVariantTest < Minitest::Test
   def test_watch_rebuilds_directly_on_edits_and_opens_preview_only_once
     commands = []
     launches = []
-    runner = ->(command, name, watch: false) { commands << [command, name, watch]; true }
+    runner = ->(command, name) { commands << [command, name]; true }
     launcher = ->(path) { launches << path; true }
     _output, errors = capture_io do
       stub_variant(:execute, runner) do
@@ -292,8 +310,8 @@ class ResumeVariantTest < Minitest::Test
         end
       end
     end
-    assert_equal [['pdf', 'full-stack', true]] * 2, commands
-    assert_equal [ResumeVariant.watch_pdf_path('full-stack')], launches
+    assert_equal [['pdf', 'full-stack']] * 2, commands
+    assert_equal [ResumeVariant.pdf_path('full-stack')], launches
     assert_includes errors, 'Ctrl-C to stop'
     assert_includes errors, 'unaudited draft'
   end
@@ -301,7 +319,7 @@ class ResumeVariantTest < Minitest::Test
   def test_watch_recovers_from_a_failed_build_without_reopening_preview
     attempts = 0
     launches = 0
-    runner = ->(_command, _name, watch: false) { attempts += 1; attempts != 2 }
+    runner = ->(_command, _name) { attempts += 1; attempts != 2 }
     _output, errors = capture_io do
       stub_variant(:execute, runner) do
         stub_variant(:launch_preview, ->(_path) { launches += 1; true }) do
@@ -318,7 +336,7 @@ class ResumeVariantTest < Minitest::Test
 
   def test_watch_recovers_from_transient_file_and_yaml_errors
     attempts = 0
-    runner = lambda do |_command, _name, watch: false|
+    runner = lambda do |_command, _name|
       attempts += 1
       raise Psych::Exception, 'Synthetic invalid YAML' if attempts == 1
 
@@ -355,20 +373,19 @@ class ResumeVariantTest < Minitest::Test
     assert_includes errors, 'Preview launch failed'
   end
 
-  def test_watch_composition_changes_only_the_pdf_output_path
-    with_project do |root|
-      regular = load_yaml(ResumeVariant.compose('full-stack', root: root))
-      watched = load_yaml(ResumeVariant.compose('full-stack', root: root, watch: true))
-      regular['settings']['render_command']['pdf_path'] = 'watch.pdf'
-      assert_equal regular, watched
-      assert_equal 'watch.pdf', watched['settings']['render_command']['pdf_path']
+  def test_pdf_paths_use_resume_filename_and_keep_variants_isolated
+    ResumeVariant.names.each do |name|
+      assert_equal File.join(ResumeVariant::ROOT, 'build', 'variants', name, 'resume.pdf'),
+                   ResumeVariant.pdf_path(name)
+      assert_equal File.join(ResumeVariant::ROOT, 'build', 'layout-audit', name, 'resume.pdf'),
+                   ResumeVariant.pdf_path(name, audited: true)
     end
   end
 
   def test_watch_renderer_writes_the_displayed_file_without_copying_or_auditing
     with_project do |root|
       composer = ResumeVariant.method(:compose)
-      compose_fixture = ->(name, watch: false) { composer.call(name, root: root, watch: watch) }
+      compose_fixture = ->(name) { composer.call(name, root: root) }
       builds = []
       runner = lambda do |*arguments, **options|
         assert_equal ResumeVariant::RENDER, arguments[0...-2]
@@ -382,10 +399,10 @@ class ResumeVariantTest < Minitest::Test
       end
       stub_variant(:compose, compose_fixture) do
         stub_variant(:system, runner) do
-          assert ResumeVariant.execute('pdf', 'full-stack', watch: true)
+          assert ResumeVariant.execute('pdf', 'full-stack')
         end
       end
-      expected = File.join(root, 'build/variants/full-stack/watch.pdf')
+      expected = File.join(root, 'build/variants/full-stack/resume.pdf')
       assert_equal [expected], builds
       assert_equal 'Synthetic renderer output', File.read(expected)
       refute File.exist?(File.join(root, 'build/variants/full-stack/full-stack.pdf'))
@@ -402,7 +419,7 @@ class ResumeVariantTest < Minitest::Test
         previous = current
       end
       FileUtils.mkdir_p(File.join(root, 'build/variants/full-stack'))
-      File.write(File.join(root, 'build/variants/full-stack/watch.pdf'), 'Synthetic generated PDF')
+      File.write(File.join(root, 'build/variants/full-stack/resume.pdf'), 'Synthetic generated PDF')
       assert_equal previous, ResumeVariant.fingerprint('full-stack', root: root)
     end
   end
@@ -460,6 +477,7 @@ class ResumeVariantTest < Minitest::Test
       assert status.success?, error
       assert_includes output, 'tailored.yaml'
       refute_includes output, 'resume_variant.rb'
+      assert_includes output, '--pdf-path build/resume.pdf' unless command == 'check-layout'
       output, error, status = make_dry_run(command, 'SOURCE=tailored.yaml', 'VARIANT=default')
       refute status.success?
       assert_empty output

@@ -16,7 +16,7 @@ ruby knowledge-base/tools/validate.rb       # Check evidence references and arch
 ## Files
 
 - `variants/default.yml` — full RenderCV configuration: authoritative baseline copy, shared identity, design, locale, and settings (moved unchanged from `resume.yaml`).
-- `variants/enhanced-kimi-k3.yml`, `variants/full-stack.yml`, `variants/react-native.yml` — content-only overrides with `inherits: default`. `enhanced-kimi-k3` and `full-stack` replace selected sections; `full-stack` also sets a headline. `react-native` inherits all default copy unchanged.
+- `variants/<name>.yml` — optional audience-specific, content-only overrides with `inherits: default`; create these as needed rather than duplicating the baseline.
 - `scripts/resume_variant.rb` — composes overlays with the baseline and runs the shared build/audit workflow.
 - `classic/Preamble.j2.typ` — local RenderCV template override for the explicit page break before Education and fixed body line height.
 - `classic/Header.j2.typ` — header rule and a scoped Typst link renderer: plain email, bold contact links using `design.colors.links`. RenderCV still supplies escaped contact text, icons, and ordering; no generated-code string parsing is used. Body links keep RenderCV's normal styling. Review the link wrapper when upgrading RenderCV.
@@ -34,14 +34,14 @@ On macOS:
 ```sh
 brew install uv poppler
 make pdf
-open build/variants/default/default.pdf
+open build/variants/default/resume.pdf
 ```
 
 The Makefile uses **RenderCV 2.8** with Python 3.13 through `uv tool run`; uv provisions Python and dependencies as needed. First use requires internet access for the runtime, fonts, and Typst packages. RenderCV includes its Typst compiler. The design uses the **Helvetica** family supplied by macOS; other systems need that font installed. The audit rejects font fallback rather than silently changing the appearance. The auditor also needs Ruby with REXML (`gem install rexml` if missing); tests need Minitest (`gem install minitest` if missing).
 
 Generated files are ignored by Git:
 
-- `build/variants/default/default.pdf` — searchable, tagged default PDF.
+- `build/variants/default/resume.pdf` — searchable, tagged default PDF.
 - `build/variants/default/default.typ` — generated Typst; inspect, but do not edit.
 - `build/variants/<name>/<name>.yaml` — generated, fully resolved RenderCV input; never edit.
 
@@ -73,48 +73,71 @@ Do **not** copy the entire baseline for each audience. The flow is:
 variants/default.yml → variants/<name>.yml (inherits: default)
     + classic/ (shared templates)
     → build/variants/<name>/<name>.yaml (generated RenderCV input)
-    → build/variants/<name>/<name>.pdf
+    → build/variants/<name>/resume.pdf
     → fresh layout audit → visual inspection → publish
 ```
 
-The available variants are `default`, `enhanced-kimi-k3`, `full-stack`, and `react-native`. `default` is a complete RenderCV document; every other variant declares a parent using `inherits: default` and supplies a `sections` mapping. An overlay may also set an optional single-line `headline:` (for example `headline: Full Stack Software Engineer`), rendered under the name at the shared 12 pt bold headline style in `variants/default.yml` and checked by the auditor (`headline_tex_pt`). The default has no headline. Name/contact information, section order/headings, design, locale, templates, and PDF title always come from default. Only generated output filenames differ.
+`default` is the complete RenderCV document and the only variant currently included. Run `make variants` to discover the variants in your checkout rather than relying on a fixed list. Each variant has its own output folder; every built PDF is named `resume.pdf`.
 
-Parents are variant names, not paths or filenames. An overlay can inherit from another overlay (for example `inherits: full-stack`); chains resolve parent-first and must ultimately reach `default`. Missing parents, unsafe names, and inheritance cycles fail before rendering. Both `.yml` and `.yaml` variant files are supported, but duplicate names across extensions are rejected. Keep new source files as `.yml`.
+#### Create a variant
 
-```sh
-make variants                         # List all variants, including default
-make pdf                              # Build default
-make preview default                  # Build, audit, and open default
-make preview full-stack               # Build, audit, then open the fresh audit PDF in Preview
-make open react-native                # Open existing build PDF without rebuilding or auditing
-make previews                         # Build, audit, and open every variant; stop on failure
-make pdf VARIANT=full-stack
-make pdf VARIANT=react-native
-make pdfs                             # Build every variant
-make compose VARIANT=full-stack       # Inspect resolved YAML without rendering
-make watch react-native               # Rebuild watch.pdf on edits; open Preview once
-make check-layout VARIANT=full-stack  # Fresh audit of the composed source
-make check-layouts                    # Audit every variant; stop on first failure
-make test-variants                    # Fast composition/guardrail regression tests
-make test                             # Variant tests plus existing layout tests
-open build/variants/full-stack/full-stack.pdf
+The examples below use **`example-role`**, a hypothetical audience-specific variant, not a bundled file. Create `variants/example-role.yml` first:
+
+```yaml
+inherits: default
+sections: {}
 ```
 
-For `preview`, `open`, `pdf`, `watch`, `check-layout`, and `compose`, you can use either `make <command> <variant>` or `make <command> VARIANT=<variant>`. For example, `make watch react-native` updates a live preview as you edit. Use one command with a positional variant; for multiple commands, keep `VARIANT=...` (e.g. `make pdf check-layout VARIANT=full-stack`). Unknown variants and conflicting selections fail before running.
+This inherits all baseline copy and shared presentation. To tailor it, copy a section's complete list from the resolved parent into `sections`, then edit that list. See the copy-change rules below. The list and bulk commands discover new files automatically; no Makefile changes are needed.
 
-`preview` defaults to `default` and opens `build/layout-audit/<variant>/resume.pdf` only after both the build and fresh automated audit succeed. A failed audit never opens an old PDF. **Opening a preview is not visual approval:** inspect both pages before publishing. `open` likewise defaults to `default`; it opens `build/variants/<variant>/<variant>.pdf` as-is, which may be stale, and reports an error if missing. Both use macOS Preview and report launch failures. `previews` discovers variants automatically and stops at the first failed build, audit, or launch.
+An overlay may also set an optional single-line `headline:` (for example `headline: Software Engineer`), rendered under the name at the shared 12 pt bold headline style in `variants/default.yml` and checked by the auditor (`headline_tex_pt`). Name/contact information, section order/headings, design, locale, templates, and PDF title always come from default.
 
-All single-variant commands default to `default` when no variant is selected, using the same composition, build, and audit pipeline as other variants. The default PDF is `build/variants/default/default.pdf`; its audit is under `build/layout-audit/default/`. There is no root `resume.yaml` to edit or render. `SOURCE=tailored.yaml` remains available for standalone/legacy `pdf`, `watch`, and `check-layout` commands; do not combine `SOURCE` with an explicit `VARIANT`.
+Parents are variant names, not paths or filenames. An overlay can inherit from another overlay (for example `inherits: example-role`, after creating that parent); chains resolve parent-first and must ultimately reach `default`. Missing parents, unsafe names, and inheritance cycles fail before rendering. Both `.yml` and `.yaml` variant files are supported, but duplicate names across extensions are rejected. Keep new source files as `.yml`.
+
+#### Build and inspect variants
+
+After creating the example overlay:
+
+```sh
+make variants                          # Discover available variants
+make pdf                               # Build default
+make preview default                   # Build, audit, and open default
+make pdf example-role                  # Build the example variant
+make pdf VARIANT=example-role           # Equivalent explicit selection
+make compose example-role              # Inspect resolved YAML without rendering
+make watch example-role                # Rebuild resume.pdf on edits; open Preview once
+make check-layout example-role         # Fresh audit of the composed source
+make preview example-role              # Build, audit, and open the fresh audit PDF in Preview
+make open example-role                 # Open existing build PDF without rebuilding or auditing
+open build/variants/example-role/resume.pdf
+```
+
+Bulk commands discover all variants, including `default`:
+
+```sh
+make pdfs            # Build every variant
+make check-layouts   # Audit every variant; stop on first failure
+make previews        # Build, audit, and open every variant; stop on failure
+make test-variants   # Fast composition/guardrail regression tests
+make test            # Variant tests plus existing layout tests
+```
+
+For `preview`, `open`, `pdf`, `watch`, `check-layout`, and `compose`, you can use either `make <command> <variant>` or `make <command> VARIANT=<variant>`. For example, `make watch example-role` updates a live preview as you edit after that variant has been created. Use one command with a positional variant; for multiple commands, keep `VARIANT=...` (e.g. `make pdf check-layout VARIANT=example-role`). Unknown variants and conflicting selections fail before running.
+
+`preview` defaults to `default` and opens `build/layout-audit/<variant>/resume.pdf` only after both the build and fresh automated audit succeed. A failed audit never opens an old PDF. **Opening a preview is not visual approval:** inspect both pages before publishing. `open` likewise defaults to `default`; it opens `build/variants/<variant>/resume.pdf` as-is, which may be stale, and reports an error if missing. Both use macOS Preview and report launch failures. `previews` discovers variants automatically and stops at the first failed build, audit, or launch.
+
+All single-variant commands default to `default` when no variant is selected, using the same composition, build, and audit pipeline as other variants. The default PDF is `build/variants/default/resume.pdf`; its audit is under `build/layout-audit/default/`. There is no root `resume.yaml` to edit or render. `SOURCE=tailored.yaml` remains available for standalone/legacy `pdf`, `watch`, and `check-layout` commands; do not combine `SOURCE` with an explicit `VARIANT`. Standalone builds and watches write `build/resume.pdf` relative to the source file.
 
 ### Live preview
 
 ```sh
-make watch full-stack
-# Or: make watch react-native
+make watch               # Watch default; no extra variant needed
+# Or, after creating the example overlay:
+make watch example-role
 # Ctrl-C to stop
 ```
 
-The variant watcher builds `build/variants/<variant>/watch.pdf` directly and opens it in macOS Preview once. It polls default, every overlay in the selected inheritance chain, and shared templates once per second and rebuilds that same PDF whenever their contents change. The watcher does not copy PDFs, replace them with audit artifacts, or repeatedly reopen the viewer. Preview can retain a stale view even after a successful rebuild; close and reopen `watch.pdf` if changes are not visible. For dependable automatic reloads, Skim supports checking for file changes and reloading automatically; the current watcher still opens Preview.
+The variant watcher builds `build/variants/<variant>/resume.pdf` directly and opens it in macOS Preview once. It polls default, every overlay in the selected inheritance chain, and shared templates once per second and rebuilds that same PDF whenever their contents change. The watcher does not copy PDFs, replace them with audit artifacts, or repeatedly reopen the viewer. Preview can retain a stale view even after a successful rebuild; close and reopen `resume.pdf` if changes are not visible. For dependable automatic reloads, Skim supports checking for file changes and reloading automatically; the current watcher still opens Preview.
 
 Live output is an **unaudited working draft**: layout failures do not suppress updates. Use `make preview <variant>` or `make check-layout <variant>` and inspect both pages before publishing. Invalid YAML and renderer errors are logged, and the watcher keeps running so corrected edits can rebuild. Edits made during a build are picked up on the next poll. Restart the watcher after changing the watcher script itself; an already-running Ruby process otherwise keeps its old code.
 
@@ -125,29 +148,12 @@ No extra viewer or dependencies are required. Plain `make watch` uses this same 
 **When copy changes are requested later:**
 
 1. For shared changes, edit `cv` in `variants/default.yml`. Every section not overridden inherits that update on the next build.
-2. For audience-specific changes, copy only the relevant section's complete list from `cv.sections` into the variant's `sections` mapping, then edit that list. For example, to start tailoring only the summary *without changing its wording*, the overlay would be:
-
-   ```yaml
-   inherits: default
-   sections:
-     Summary:
-       - >-
-         Engineering leader and former CTO building web, mobile, and real-time platforms.
-         Hands-on experience in enterprise delivery, engineering management, and AI-enabled products.
-   ```
-
+2. For audience-specific changes, copy only the relevant section's complete list from the resolved parent's `cv.sections` into the variant's `sections` mapping, then edit that list. For example, to tailor only the summary, copy the current `Summary` list into `sections.Summary` in `variants/example-role.yml`. Start with the actual inherited wording, not a stale example.
 3. A section override **replaces its whole list**; arrays are never concatenated or merged by position. Untouched sections continue to inherit. Once overridden, a section no longer receives baseline copy updates: review it deliberately when shared facts change. Delete an override to restore inheritance.
 4. New/renamed headings belong in the baseline and shared template/audit policy, not individual overlays. Unknown headings, empty section lists, empty or multi-line headlines, missing `inherits`, and overlay-level design/settings/name/contact overrides are rejected. RenderCV validates the entries themselves.
 5. Build, audit, and visually inspect each changed variant before publishing. Different copy lengths can overflow even though the layout is identical. Never fix a variant by introducing a private layout or shrinking type.
 
-To add another audience, create `variants/<lowercase-hyphenated-name>.yml` with:
-
-```yaml
-inherits: default
-sections: {}
-```
-
-This inherits the entire default without duplicating copy, design, or settings. The list and bulk commands discover it automatically. No Makefile or shared-layout copy is needed. Generated YAML and template copies under `build/` are disposable; never edit them. `make clean` removes them without touching overlays.
+For another audience, repeat the creation steps with a lowercase, hyphenated name such as `another-role`. Generated YAML and template copies under `build/` are disposable; never edit them. `make clean` removes them without touching overlays.
 
 The legacy TeX source remains in Git for comparison; it is not another active source of truth.
 
@@ -175,11 +181,11 @@ Artifacts are saved under `build/layout-audit/<source-stem>/`: `resume.pdf`, `re
 pdftoppm -scale-to 1600 -png build/layout-audit/default/resume.pdf build/layout-audit/default/page
 ```
 
-Variant audit artifacts are isolated under `build/layout-audit/<name>/`, including `default`, `enhanced-kimi-k3`, `full-stack`, and `react-native`. For example:
+Variant audit artifacts are isolated under `build/layout-audit/<name>/`. For the hypothetical `example-role` variant, after creating its overlay:
 
 ```sh
-make check-layout VARIANT=react-native
-pdftoppm -scale-to 1600 -png build/layout-audit/react-native/resume.pdf build/layout-audit/react-native/page
+make check-layout VARIANT=example-role
+pdftoppm -scale-to 1600 -png build/layout-audit/example-role/resume.pdf build/layout-audit/example-role/page
 ```
 
 Inspect **both** page images and read that directory's `report.json` and `compile.log`. Variant build PDFs and baseline/reference PDFs are not overwritten by an audit.

@@ -29,7 +29,7 @@ class RenderCVIntegrationTest < Minitest::Test
 
   def test_fresh_render_passes_without_overwriting_the_published_pdf
     with_source do |source, artifact, _|
-      published = File.join(ResumeLayout::ROOT, 'build', 'variants', 'default', 'default.pdf')
+      published = File.join(ResumeLayout::ROOT, 'build', 'variants', 'default', 'resume.pdf')
       before = File.file?(published) ? Digest::SHA256.file(published).hexdigest : nil
       result, report = render(source, artifact)
       assert_equal 0, result, report.inspect

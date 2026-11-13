@@ -72,7 +72,7 @@ module ResumeVariant
     end
   end
 
-  def self.compose(name, root: ROOT, watch: false)
+  def self.compose(name, root: ROOT)
     chain = sources(name, root: root)
     data = chain.first.last
     chain.drop(1).each { |_, overlay| apply_overlay(data, overlay) }
@@ -86,14 +86,12 @@ module ResumeVariant
     FileUtils.cp_r(File.join(root, 'classic'), template)
     outputs = data.fetch('settings').fetch('render_command')
     # PDF only (Typst is its required intermediate); never emit Markdown/HTML/PNG.
-    { 'pdf' => 'pdf', 'typst' => 'typ' }.each do |kind, extension|
-      outputs["#{kind}_path"] = "#{name}.#{extension}"
-    end
+    outputs['pdf_path'] = 'resume.pdf'
+    outputs['typst_path'] = "#{name}.typ"
     %w[markdown html png].each do |kind|
       outputs.delete("#{kind}_path")
       outputs["dont_generate_#{kind}"] = true
     end
-    outputs['pdf_path'] = 'watch.pdf' if watch
     source = File.join(directory, "#{name}.yaml")
     inputs = chain.map { |path, _| path.delete_prefix("#{root}/") }.join(' + ')
     File.write(source, "# GENERATED from #{inputs}; do not edit.\n" + YAML.dump(data))
@@ -104,7 +102,7 @@ module ResumeVariant
     if audited
       File.join(ROOT, 'build', 'layout-audit', name, 'resume.pdf')
     else
-      File.join(ROOT, 'build', 'variants', name, "#{name}.pdf")
+      File.join(ROOT, 'build', 'variants', name, 'resume.pdf')
     end
   end
 
@@ -122,11 +120,7 @@ module ResumeVariant
     system('open', '-a', 'Preview', path, chdir: ROOT)
   end
 
-  def self.watch_pdf_path(name)
-    File.join(File.dirname(pdf_path(name)), 'watch.pdf')
-  end
-
-  def self.execute(command, name, watch: false)
+  def self.execute(command, name)
     # Opening existing output must not compose, render, or alter any source.
     return open_pdf(name) if command == 'open'
     if command == 'preview'
@@ -136,7 +130,7 @@ module ResumeVariant
       return open_pdf(name, audited: true)
     end
 
-    source = compose(name, watch: watch)
+    source = compose(name)
     case command
     when 'compose'
       puts source
@@ -158,7 +152,7 @@ module ResumeVariant
 
   def self.watch(name)
     validate_name(name)
-    warn "Watching #{name}; rebuilding #{watch_pdf_path(name)} on edits. Ctrl-C to stop."
+    warn "Watching #{name}; rebuilding #{pdf_path(name)} on edits. Ctrl-C to stop."
     warn "Live output is an unaudited draft; run `make check-layout #{name}` before publishing."
     # Watch actual sources, not generated output. Capture before rendering so
     # edits made during a build are picked up on the next pass.
@@ -169,8 +163,8 @@ module ResumeVariant
         current = fingerprint(name)
         if current != previous
           previous = current
-          if execute('pdf', name, watch: true)
-            path = watch_pdf_path(name)
+          if execute('pdf', name)
+            path = pdf_path(name)
             unless opened
               opened = launch_preview(path)
               warn 'Preview launch failed; still watching for edits.' unless opened

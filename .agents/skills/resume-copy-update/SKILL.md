@@ -43,7 +43,7 @@ make check-layout VARIANT="$VARIANT"
 
 Require a successful exit. Substitute the actual variant name. Never pass the overlay as `SOURCE`; it is not a complete RenderCV document. Do not combine `SOURCE` with `VARIANT`.
 
-The audit renders its own fresh PDF; no preceding `make pdf` is needed. Use `make pdf VARIANT="$VARIANT"` only for a requested draft or a separately needed build-path PDF (`build/variants/<variant>/<variant>.pdf`). A draft build does not trigger an audit.
+The audit renders its own fresh PDF; no preceding `make pdf` is needed. Use `make pdf VARIANT="$VARIANT"` only for a requested draft or a separately needed build-path PDF (`build/variants/<variant>/resume.pdf`). A draft build does not trigger an audit.
 
 Read the fresh `report.json` and `compile.log` under `build/layout-audit/<variant>/`; the audit artifact is named `resume.pdf`. Complete the layout skill's agent visual inspection on that artifact. If the audit or review fails, batch authorized fixes before re-auditing affected variants. Reuse a passing audit/review for unchanged effective source; do not repeat it for each calling skill or repeated handoff.
 

@@ -42,10 +42,10 @@ pdf watch check-layout:
 	ruby scripts/resume_variant.rb $@ "$(VARIANT)"
 else
 pdf:
-	$(RENDERCV) render "$(SOURCE)"
+	$(RENDERCV) render "$(SOURCE)" --pdf-path build/resume.pdf
 
 watch:
-	$(RENDERCV) render "$(SOURCE)" --watch
+	$(RENDERCV) render "$(SOURCE)" --pdf-path build/resume.pdf --watch
 
 # Fresh diagnostic render; never approves an old PDF.
 check-layout:
