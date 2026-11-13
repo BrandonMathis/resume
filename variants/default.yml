@@ -55,18 +55,19 @@ cv:
         start_date: 2014-08
         end_date: 2017-11
         highlights:
-          - Rose from Lead Engineer to Director of Technology, taking ownership of engineering quality, staffing, and delivery for a 30+ person organization spanning 3 technical disciplines
-          - Partnered directly with Sales to form contracts, design solutions, and produce estimates, interfacing with customers from initial pitch through delivery
-          - Remained a hands-on contributor on flagship client engagements across React, Ruby on Rails, and iOS/Swift
+          - Rose from Lead Engineer to Director of Technology, taking ownership of engineering quality, staffing, and delivery for a 30+ person organization spanning frontend, backend, and mobile engineering
+          - Partnered with Sales on contracts, solution architecture, and estimates, guiding clients from pitch through delivery
+          - Collaborated with design, customers, and stakeholders to build flagship React, Ruby on Rails, and iOS/Swift apps
+          - Helped build Taperole, a company-wide DevOps deployment toolkit using Ruby and Ansible, adding PostgreSQL backups, Ruby on Rails update support, automatic CVE resolution, and TLS certificate-renewal fixes
       - company: Assetricity LLC
         location: Raleigh, NC
         position: Software Engineer
         start_date: 2009-07
         end_date: 2014-08
         highlights:
-          - Built condition based maintenance software in Ruby on Rails and deployed in IBM Websphere via JRuby
-          - Attended ISO standards committee meetings to report back to technical teams or answer questions when needed
-          - Built an Ember.js powered P&ID viewer for oil and gas refinery layout specifications
+          - Built condition based maintenance software in Java and Ruby on Rails deployed in IBM Websphere via JRuby
+          - Attended ISO 15926 standards committee meetings to report back to technical teams and support when needed
+          - Built an Ember.js powered P&ID viewer for chemical and petrolium gas refinery layout specifications
           - Created XML Schema documents to reinforce XML standard structure dictated by ISO standards committees
           - Maintained company internal software systems and web presence
     Education:
