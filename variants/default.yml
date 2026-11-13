@@ -65,11 +65,11 @@ cv:
         start_date: 2009-07
         end_date: 2014-08
         highlights:
-          - Built condition based maintenance software in Java and Ruby on Rails deployed in IBM Websphere via JRuby
+          - Built condition-based maintenance software in Java and Ruby on Rails deployed in IBM WebSphere via JRuby
           - Attended ISO 15926 standards committee meetings to report back to technical teams and support when needed
-          - Built an Ember.js powered P&ID viewer for chemical and petrolium gas refinery layout specifications
-          - Created XML Schema documents to reinforce XML standard structure dictated by ISO standards committees
-          - Maintained company internal software systems and web presence
+          - Built an Ember.js/JavaScript P&ID viewer for chemical and petroleum gas refinery layout specifications
+          - Created XML schemas (XSD) to reinforce XML data structures dictated by ISO standards committees
+          - Maintained internal Java Ruby, and Javascript applications and the company’s Drupal website
     Education:
       - institution: East Carolina University
         location: Greenville, NC
