@@ -1,5 +1,3 @@
-# RenderCV supplies Typst; no LaTeX installation is needed.
-RENDERCV = uv tool run --python 3.13 --from 'rendercv[full]==2.8' rendercv
 # Without SOURCE or VARIANT, build the default variant through the same pipeline.
 SOURCE ?=
 VARIANT ?= $(if $(strip $(SOURCE)),,default)
@@ -41,11 +39,8 @@ endif
 pdf watch check-layout:
 	ruby scripts/resume_variant.rb $@ "$(VARIANT)"
 else
-pdf:
-	$(RENDERCV) render "$(SOURCE)" --pdf-path build/resume.pdf
-
-watch:
-	$(RENDERCV) render "$(SOURCE)" --pdf-path build/resume.pdf --watch
+pdf watch:
+	ruby scripts/resume_variant.rb $@-source "$(SOURCE)"
 
 # Fresh diagnostic render; never approves an old PDF.
 check-layout:

@@ -299,7 +299,7 @@ class ResumeVariantTest < Minitest::Test
   def test_watch_rebuilds_directly_on_edits_and_opens_preview_only_once
     commands = []
     launches = []
-    runner = ->(command, name) { commands << [command, name]; true }
+    runner = ->(command, name) { commands << [command, name]; ResumeVariant.pdf_path(name) }
     launcher = ->(path) { launches << path; true }
     _output, errors = capture_io do
       stub_variant(:execute, runner) do
@@ -319,7 +319,7 @@ class ResumeVariantTest < Minitest::Test
   def test_watch_recovers_from_a_failed_build_without_reopening_preview
     attempts = 0
     launches = 0
-    runner = ->(_command, _name) { attempts += 1; attempts != 2 }
+    runner = ->(_command, name) { attempts += 1; attempts == 2 ? false : ResumeVariant.pdf_path(name) }
     _output, errors = capture_io do
       stub_variant(:execute, runner) do
         stub_variant(:launch_preview, ->(_path) { launches += 1; true }) do
@@ -336,11 +336,11 @@ class ResumeVariantTest < Minitest::Test
 
   def test_watch_recovers_from_transient_file_and_yaml_errors
     attempts = 0
-    runner = lambda do |_command, _name|
+    runner = lambda do |_command, name|
       attempts += 1
       raise Psych::Exception, 'Synthetic invalid YAML' if attempts == 1
 
-      true
+      ResumeVariant.pdf_path(name)
     end
     launches = 0
     _output, errors = capture_io do
@@ -361,7 +361,7 @@ class ResumeVariantTest < Minitest::Test
     launches = 0
     launcher = ->(_path) { launches += 1; launches > 1 }
     _output, errors = capture_io do
-      stub_variant(:execute, true) do
+      stub_variant(:execute, ResumeVariant.pdf_path('full-stack')) do
         stub_variant(:launch_preview, launcher) do
           with_watch_snapshots([:initial, :edited, :another_edit]) do
             assert ResumeVariant.watch('full-stack')
@@ -373,39 +373,73 @@ class ResumeVariantTest < Minitest::Test
     assert_includes errors, 'Preview launch failed'
   end
 
-  def test_pdf_paths_use_resume_filename_and_keep_variants_isolated
+  def test_pdf_paths_use_variant_names_by_default_and_keep_audits_separate
     ResumeVariant.names.each do |name|
-      assert_equal File.join(ResumeVariant::ROOT, 'build', 'variants', name, 'resume.pdf'),
-                   ResumeVariant.pdf_path(name)
-      assert_equal File.join(ResumeVariant::ROOT, 'build', 'layout-audit', name, 'resume.pdf'),
+      assert_equal File.join(@fixture_root, 'build', "brandonmathis-#{name}.pdf"), ResumeVariant.pdf_path(name)
+      assert_equal File.join(@fixture_root, 'build', 'layout-audit', name, 'resume.pdf'),
                    ResumeVariant.pdf_path(name, audited: true)
     end
   end
 
-  def test_watch_renderer_writes_the_displayed_file_without_copying_or_auditing
-    with_project do |root|
-      composer = ResumeVariant.method(:compose)
-      compose_fixture = ->(name) { composer.call(name, root: root) }
-      builds = []
-      runner = lambda do |*arguments, **options|
-        assert_equal ResumeVariant::RENDER, arguments[0...-2]
-        assert_equal 'render', arguments[-2]
-        source = arguments.last
-        settings = load_yaml(source)['settings']['render_command']
-        path = File.join(File.dirname(source), settings['pdf_path'])
-        File.write(path, 'Synthetic renderer output')
-        builds << path
+  def test_slug_is_build_metadata_and_is_not_inherited
+    baseline_path = File.join(@fixture_root, 'variants/default.yml')
+    baseline = load_yaml(baseline_path).merge('slug' => 'general')
+    File.write(baseline_path, YAML.dump(baseline))
+    assert_equal 'brandonmathis-general.pdf', File.basename(ResumeVariant.pdf_path('default'))
+    assert_equal 'brandonmathis-full-stack.pdf', File.basename(ResumeVariant.pdf_path('full-stack'))
+    %w[default full-stack].each do |name|
+      refute load_yaml(ResumeVariant.compose(name)).key?('slug')
+    end
+  end
+
+  def test_rejects_unsafe_and_duplicate_output_slugs
+    [nil, '../escape', '', 'Bad Name', 'double--hyphen'].each do |slug|
+      write_overlay(@fixture_root, { 'slug' => slug, 'sections' => {} })
+      assert_raises(ArgumentError) { ResumeVariant.pdf_path('full-stack') }
+    end
+    write_overlay(@fixture_root, { 'slug' => 'default', 'sections' => {} })
+    error = assert_raises(ArgumentError) { ResumeVariant.pdf_path('default') }
+    assert_includes error.message, 'Duplicate output slug "default": default, full-stack'
+  end
+
+  def test_pdf_keeps_only_the_named_draft_even_when_a_rebuild_fails
+    write_overlay(@fixture_root, { 'slug' => 'custom-slug', 'sections' => {} })
+    expected = File.join(@fixture_root, 'build/brandonmathis-custom-slug.pdf')
+    success = true
+    runner = lambda do |*arguments, **options|
+      assert_equal ResumeVariant::RENDER, arguments[0...-2]
+      assert_equal 'render', arguments[-2]
+      source = arguments.last
+      settings = load_yaml(source)['settings']['render_command']
+      File.write(File.join(File.dirname(source), settings['typst_path']), 'Synthetic Typst')
+      File.write(File.join(File.dirname(source), settings['pdf_path']), success ? 'Valid PDF' : 'Partial PDF')
+      success
+    end
+    stub_variant(:system, runner) do
+      capture_io { assert_equal expected, ResumeVariant.execute('pdf', 'full-stack') }
+      success = false
+      refute ResumeVariant.execute('pdf', 'full-stack')
+    end
+    assert_equal 'Valid PDF', File.read(expected)
+    assert_equal [File.basename(expected)], Dir.children(File.dirname(expected))
+  end
+
+  def test_standalone_keeps_its_pdf_path_but_puts_typst_in_temporary_storage
+    %w[pdf-source watch-source].each do |command|
+      typst = nil
+      runner = lambda do |*arguments, chdir:|
+        assert_equal @fixture_root, chdir
+        assert_equal 'example/tailored.yaml', arguments.fetch(arguments.index('render') + 1)
+        assert_equal 'build/resume.pdf', arguments.fetch(arguments.index('--pdf-path') + 1)
+        assert_equal command == 'watch-source', arguments.include?('--watch')
+        typst = arguments.fetch(arguments.index('--typst-path') + 1)
+        File.write(typst, 'Synthetic Typst')
         true
       end
-      stub_variant(:compose, compose_fixture) do
-        stub_variant(:system, runner) do
-          assert ResumeVariant.execute('pdf', 'full-stack')
-        end
+      stub_variant(:system, runner) do
+        assert ResumeVariant.run([command, 'example/tailored.yaml'])
       end
-      expected = File.join(root, 'build/variants/full-stack/resume.pdf')
-      assert_equal [expected], builds
-      assert_equal 'Synthetic renderer output', File.read(expected)
-      refute File.exist?(File.join(root, 'build/variants/full-stack/full-stack.pdf'))
+      refute File.exist?(File.dirname(typst))
     end
   end
 
@@ -418,8 +452,8 @@ class ResumeVariantTest < Minitest::Test
         refute_equal previous, current, "Must notice edits to #{relative}"
         previous = current
       end
-      FileUtils.mkdir_p(File.join(root, 'build/variants/full-stack'))
-      File.write(File.join(root, 'build/variants/full-stack/resume.pdf'), 'Synthetic generated PDF')
+      FileUtils.mkdir_p(File.join(root, 'build'))
+      File.write(File.join(root, 'build/brandonmathis-full-stack.pdf'), 'Synthetic generated PDF')
       assert_equal previous, ResumeVariant.fingerprint('full-stack', root: root)
     end
   end
@@ -476,8 +510,11 @@ class ResumeVariantTest < Minitest::Test
       output, error, status = make_dry_run(command, 'SOURCE=tailored.yaml')
       assert status.success?, error
       assert_includes output, 'tailored.yaml'
-      refute_includes output, 'resume_variant.rb'
-      assert_includes output, '--pdf-path build/resume.pdf' unless command == 'check-layout'
+      if command == 'check-layout'
+        assert_includes output, 'check_layout.rb --source'
+      else
+        assert_includes output, "resume_variant.rb #{command}-source"
+      end
       output, error, status = make_dry_run(command, 'SOURCE=tailored.yaml', 'VARIANT=default')
       refute status.success?
       assert_empty output

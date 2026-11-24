@@ -32,30 +32,40 @@ On macOS:
 
 ```sh
 brew install uv poppler
-make pdf
-open build/variants/default/resume.pdf
+make pdf       # Build only the default variant
+make open      # Open that draft PDF in Preview
 ```
 
 The Makefile uses **RenderCV 2.8** with Python 3.13 through `uv tool run`; uv provisions Python and dependencies as needed. First use requires internet access for the runtime, fonts, and Typst packages. RenderCV includes its Typst compiler. The design uses the **Helvetica** family supplied by macOS; other systems need that font installed. The audit rejects font fallback rather than silently changing the appearance. The auditor also needs Ruby with REXML (`gem install rexml` if missing); tests need Minitest (`gem install minitest` if missing).
 
-Generated files are ignored by Git:
+### Commands and output paths
 
-- `build/variants/default/resume.pdf` — searchable, tagged default PDF.
-- `build/variants/default/default.typ` — generated Typst; inspect, but do not edit.
-- `build/variants/<name>/<name>.yaml` — generated, fully resolved RenderCV input; never edit.
+`make` and `make pdf` build **only `default`**, at `build/brandonmathis-default.pdf`. Use **`make pdfs`** to build all variants, including `build/brandonmathis-tpm.pdf` for `technical-product-owner`. Run `make variants` to list the variant names used in commands.
 
-Builds produce PDFs only; Markdown, HTML, and PNG exports are disabled (`dont_generate_*` in `settings.render_command`, also forced for variants).
+| Command | What it does | PDF location |
+| --- | --- | --- |
+| `make pdf [<name>]` | Builds one unaudited draft. | `build/brandonmathis-<slug>.pdf` |
+| `make watch [<name>]` | Builds and opens a draft in macOS Preview, then rebuilds on edits. Ctrl-C stops it. | `build/brandonmathis-<slug>.pdf` |
+| `make open [<name>]` | Opens an existing draft in Preview without rebuilding or auditing. | `build/brandonmathis-<slug>.pdf` |
+| `make check-layout [<name>]` | Renders a fresh PDF and checks its layout without changing the draft. | `build/layout-audit/<name>/resume.pdf` |
+| `make preview [<name>]` | Runs the layout check and opens its fresh PDF in Preview only if it passes. Does not refresh the draft. | `build/layout-audit/<name>/resume.pdf` |
+| `make pdfs` | Builds drafts for all variants, including `default`. | `build/brandonmathis-<slug>.pdf` for each variant |
+| `make check-layouts` | Runs a fresh layout check for each variant. | `build/layout-audit/<name>/resume.pdf` for each variant |
+| `make previews` | Checks and opens each variant's PDF in Preview. | `build/layout-audit/<name>/resume.pdf` for each variant |
 
-```sh
-make watch       # Re-render on changes; Ctrl-C to stop
-make clean       # Remove build output, not source or reference PDFs
-```
+Brackets mark an optional name; omit it to select `default`. For example, `make pdf technical-product-owner` and `make pdf VARIANT=technical-product-owner` build the same variant. Use a positional name with one command, or `VARIANT=...` with multiple commands (e.g. `make pdf check-layout VARIANT=technical-product-owner`). Bulk commands discover variants automatically, include `default`, and stop on the first failure.
+
+Variant draft builds leave only the PDF: the resolved YAML, copied templates, and generated Typst are temporary. To inspect the resolved YAML without rendering, run `make compose [<name>]`; it writes `build/variants/<name>/<name>.yaml` and prints its path. Layout audits still keep Typst alongside their diagnostic artifacts. Generated files are ignored by Git; `make clean` removes the repository's entire `build/` directory, including old draft filenames and audit artifacts, not sources or reference PDFs. Run `make test-variants` for variant tooling tests, or `make test` for both variant and layout tests.
+
+#### Standalone YAML
+
+There is no root `resume.yaml`. To render a standalone RenderCV file instead of a variant, use `make pdf SOURCE=path/to/tailored.yaml` or `make watch SOURCE=path/to/tailored.yaml`. Both write `build/resume.pdf` **relative to the YAML file's directory**, not necessarily the repository root, and generate Typst in a temporary directory. Standalone watch uses RenderCV's watcher and does not open Preview. `make check-layout SOURCE=path/to/tailored.yaml` writes its audit under `build/layout-audit/tailored/` in the repository. Do not combine `SOURCE` and `VARIANT`.
 
 ## Edit or tailor
 
 Edit `cv` in `variants/default.yml` for shared baseline changes. Each section is a list of RenderCV entries; each `highlights` item is a bullet. Text supports Markdown links, bold, and italics. Use plain `&` instead of LaTeX `\&`; quote YAML strings containing `: ` or `#`.
 
-`design` controls typography and spacing; `settings.render_command` controls output paths. Keep the two-page contract:
+`design` controls typography and spacing. The variant utility sets the generated output paths. Keep the two-page contract:
 
 1. Page one: name/contact details, Summary, and **all** Recent Work Experience.
 2. Page two: Education and Leadership & Community Activities (plus any supporting sections).
@@ -71,12 +81,17 @@ Do **not** copy the entire baseline for each audience. The flow is:
 ```text
 variants/default.yml → variants/<name>.yml (inherits: default)
     + classic/ (shared templates)
-    → build/variants/<name>/<name>.yaml (generated RenderCV input)
-    → build/variants/<name>/resume.pdf
-    → fresh layout audit → visual inspection → publish
+    → resolved RenderCV input
+    ├─ make pdf → build/brandonmathis-<slug>.pdf (draft)
+    └─ make check-layout → build/layout-audit/<name>/resume.pdf
+                           → visual inspection → publish
 ```
 
-`default` is the complete RenderCV document and the only variant currently included. Run `make variants` to discover the variants in your checkout rather than relying on a fixed list. Each variant has its own output folder; every built PDF is named `resume.pdf`.
+#### Customize the PDF filename
+
+Set a top-level `slug:` in a variant YAML file to change the part after `brandonmathis-`. For example, `slug: tpm` in `variants/technical-product-owner.yml` produces `build/brandonmathis-tpm.pdf` when you run `make pdf technical-product-owner`.
+
+If omitted, the slug is the variant filename without `.yml` or `.yaml` (`default` for `variants/default.yml`). Slugs are not inherited. Use lowercase letters and digits, with single hyphens between words. Slugs must be unique across variants. They do not change the name used in Make commands or audit paths. Changing a slug does not delete the older PDF.
 
 #### Create a variant
 
@@ -93,40 +108,6 @@ An overlay may also set an optional single-line `headline:` (for example `headli
 
 Parents are variant names, not paths or filenames. An overlay can inherit from another overlay (for example `inherits: example-role`, after creating that parent); chains resolve parent-first and must ultimately reach `default`. Missing parents, unsafe names, and inheritance cycles fail before rendering. Both `.yml` and `.yaml` variant files are supported, but duplicate names across extensions are rejected. Keep new source files as `.yml`.
 
-#### Build and inspect variants
-
-After creating the example overlay:
-
-```sh
-make variants                          # Discover available variants
-make pdf                               # Build default
-make preview default                   # Render, audit, and open the audited default PDF
-make pdf example-role                  # Build the example variant
-make pdf VARIANT=example-role           # Equivalent explicit selection
-make compose example-role              # Inspect resolved YAML without rendering
-make watch example-role                # Rebuild resume.pdf on edits; open Preview once
-make check-layout example-role         # Fresh audit of the composed source
-make preview example-role              # Render once, audit, and open the audited PDF in Preview
-make open example-role                 # Open existing build PDF without rebuilding or auditing
-open build/variants/example-role/resume.pdf
-```
-
-Bulk commands discover all variants, including `default`:
-
-```sh
-make pdfs            # Build every variant
-make check-layouts   # Audit every variant; stop on first failure
-make previews        # Render, audit, and open each variant; stop on failure
-make test-variants   # Fast composition/guardrail regression tests
-make test            # Variant tests plus existing layout tests
-```
-
-For `preview`, `open`, `pdf`, `watch`, `check-layout`, and `compose`, you can use either `make <command> <variant>` or `make <command> VARIANT=<variant>`. For example, `make watch example-role` updates a live preview as you edit after that variant has been created. Use one command with a positional variant; for multiple commands, keep `VARIANT=...` (e.g. `make pdf check-layout VARIANT=example-role`). Unknown variants and conflicting selections fail before running.
-
-`preview` defaults to `default`. The audit renders once and, if it passes, `preview` opens `build/layout-audit/<variant>/resume.pdf`. A failed audit never opens an old PDF. **Opening a preview is not visual approval:** inspect both pages before publishing. `preview` does not refresh the draft PDF. Use `make pdf <variant>` to generate that separate file; `make open <variant>` opens it as-is. Both `preview` and `open` use macOS Preview and report launch failures. `previews` discovers variants automatically and stops at the first failed audit or launch.
-
-All single-variant commands default to `default` when no variant is selected, using the same composition, build, and audit pipeline as other variants. The default PDF is `build/variants/default/resume.pdf`; its audit is under `build/layout-audit/default/`. There is no root `resume.yaml` to edit or render. `SOURCE=tailored.yaml` remains available for `pdf`, `watch`, and `check-layout` with a standalone RenderCV file; do not combine `SOURCE` with an explicit `VARIANT`. Standalone builds and watches write `build/resume.pdf` relative to the source file.
-
 ### Live preview
 
 ```sh
@@ -136,13 +117,11 @@ make watch example-role
 # Ctrl-C to stop
 ```
 
-The variant watcher builds `build/variants/<variant>/resume.pdf` directly and opens it in macOS Preview once. It polls default, every overlay in the selected inheritance chain, and shared templates once per second and rebuilds that same PDF whenever their contents change. The watcher does not copy PDFs, replace them with audit artifacts, or repeatedly reopen the viewer. Preview can retain a stale view even after a successful rebuild; close and reopen `resume.pdf` if changes are not visible. For dependable automatic reloads, Skim supports checking for file changes and reloading automatically; the current watcher still opens Preview.
+The variant watcher builds `build/brandonmathis-<slug>.pdf` and opens it in macOS Preview once per output filename. It polls default, every overlay in the selected inheritance chain, and shared templates once per second, and replaces the draft only after a successful render. Preview can retain a stale view even after a successful rebuild; close it and use `make open <name>` if changes are not visible. For dependable automatic reloads, Skim supports checking for file changes and reloading automatically; the current watcher still opens Preview.
 
 Live output is an **unaudited working draft**: layout failures do not suppress updates. Use `make preview <variant>` or `make check-layout <variant>` and inspect both pages before publishing. Invalid YAML and renderer errors are logged, and the watcher keeps running so corrected edits can rebuild. Edits made during a build are picked up on the next poll. Restart the watcher after changing the watcher script itself; an already-running Ruby process otherwise keeps its old code.
 
 Variant section overrides still apply: changes to an overridden section in `variants/default.yml` will not change that variant's copy. Shared design changes and non-overridden sections are inherited normally.
-
-No extra viewer or dependencies are required. Plain `make watch` uses this same watcher for `default`; `make watch SOURCE=tailored.yaml` uses RenderCV's standalone render-only watcher.
 
 **When copy changes are requested later:**
 
@@ -178,13 +157,6 @@ Artifacts are saved under `build/layout-audit/<source-stem>/`: `resume.pdf`, `re
 pdftoppm -scale-to 1600 -png build/layout-audit/default/resume.pdf build/layout-audit/default/page
 ```
 
-Variant audit artifacts are isolated under `build/layout-audit/<name>/`. For the hypothetical `example-role` variant, after creating its overlay:
-
-```sh
-make check-layout VARIANT=example-role
-pdftoppm -scale-to 1600 -png build/layout-audit/example-role/resume.pdf build/layout-audit/example-role/page
-```
-
-Inspect **both** page images and read that directory's `report.json` and `compile.log`. Variant build PDFs and baseline/reference PDFs are not overwritten by an audit.
+For another variant, pass its name to `make check-layout` and replace `default` in the paths above. Inspect **both** page images and read that directory's `report.json` and `compile.log`. Use `make preview <name>` instead of `make check-layout <name>` if you want Preview to open the audited PDF automatically.
 
 The full workflow and troubleshooting order are in `.agents/skills/resume-layout/SKILL.md`.

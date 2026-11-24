@@ -2,11 +2,13 @@
 # Compose content-only overlays; never maintain a second layout source.
 require 'yaml'
 require 'fileutils'
+require 'tmpdir'
 
 module ResumeVariant
   ROOT = File.expand_path('..', __dir__)
   RENDER = ['uv', 'tool', 'run', '--python', '3.13', '--from', 'rendercv[full]==2.8', 'rendercv'].freeze
   AUDITOR = File.join(ROOT, '.agents/skills/resume-layout/scripts/check_layout.rb')
+  SAFE_NAME = /\A[a-z0-9]+(?:-[a-z0-9]+)*\z/
 
   def self.names(root = ROOT)
     names = Dir.glob(File.join(root, 'variants', '*.{yml,yaml}')).map { |path| File.basename(path, '.*') }
@@ -17,9 +19,23 @@ module ResumeVariant
   end
 
   def self.validate_name(name, root: ROOT)
-    unless name.is_a?(String) && /\A[a-z0-9]+(?:-[a-z0-9]+)*\z/.match?(name) && names(root).include?(name)
+    unless name.is_a?(String) && SAFE_NAME.match?(name) && names(root).include?(name)
       raise ArgumentError, "Unknown variant #{name.inspect}; choose: #{names(root).join(', ')}"
     end
+  end
+
+  def self.variant_path(name, root)
+    Dir.glob(File.join(root, 'variants', "#{name}.{yml,yaml}")).fetch(0)
+  end
+
+  def self.slug(name, data)
+    return name unless data.is_a?(Hash) && data.key?('slug')
+
+    value = data['slug']
+    unless value.is_a?(String) && SAFE_NAME.match?(value)
+      raise ArgumentError, "Invalid slug for #{name}: use lowercase letters, digits, and single hyphens between words."
+    end
+    value
   end
 
   # Return the complete inheritance chain in parent-first order. Parent names
@@ -30,8 +46,9 @@ module ResumeVariant
       raise ArgumentError, "Circular variant inheritance: #{(ancestors + [name]).join(' -> ')}"
     end
 
-    path = Dir.glob(File.join(root, 'variants', "#{name}.{yml,yaml}")).fetch(0)
+    path = variant_path(name, root)
     data = YAML.safe_load_file(path)
+    slug(name, data)
     if name == 'default'
       unless data.is_a?(Hash) && !data.key?('inherits') &&
              %w[cv design locale settings].all? { |key| data[key].is_a?(Hash) } && data['cv']['sections'].is_a?(Hash)
@@ -41,8 +58,8 @@ module ResumeVariant
     end
 
     unless data.is_a?(Hash) && data.key?('inherits') && data['sections'].is_a?(Hash) &&
-           (data.keys - %w[inherits sections headline]).empty?
-      raise ArgumentError, 'A variant must contain inherits and a sections mapping, with an optional headline; design, identity, locale, and settings are shared.'
+           (data.keys - %w[inherits sections headline slug]).empty?
+      raise ArgumentError, 'A variant must contain inherits and a sections mapping, with an optional headline and slug; design, identity, locale, and settings are shared.'
     end
 
     sources(data['inherits'], root: root, ancestors: ancestors + [name]) + [[path, data]]
@@ -72,12 +89,12 @@ module ResumeVariant
     end
   end
 
-  def self.compose(name, root: ROOT)
+  def self.compose(name, root: ROOT, directory: File.join(root, 'build', 'variants', name))
     chain = sources(name, root: root)
     data = chain.first.last
+    data.delete('slug') # Build metadata, not part of RenderCV's configuration.
     chain.drop(1).each { |_, overlay| apply_overlay(data, overlay) }
 
-    directory = File.join(root, 'build', 'variants', name)
     FileUtils.mkdir_p(directory)
     # RenderCV resolves local templates beside its input. Refresh this generated
     # copy on every compose so it cannot become an independently maintained theme.
@@ -99,10 +116,38 @@ module ResumeVariant
   end
 
   def self.pdf_path(name, audited: false)
-    if audited
-      File.join(ROOT, 'build', 'layout-audit', name, 'resume.pdf')
-    else
-      File.join(ROOT, 'build', 'variants', name, 'resume.pdf')
+    return File.join(ROOT, 'build', 'layout-audit', name, 'resume.pdf') if audited
+
+    validate_name(name)
+    slugs = names.to_h { |variant| [variant, slug(variant, YAML.safe_load_file(variant_path(variant, ROOT)))] }
+    value = slugs.fetch(name)
+    owners = slugs.select { |_, other_slug| other_slug == value }.keys
+    raise ArgumentError, "Duplicate output slug #{value.inspect}: #{owners.join(', ')}" if owners.size > 1
+
+    File.join(ROOT, 'build', "brandonmathis-#{value}.pdf")
+  end
+
+  def self.build_pdf(name)
+    path = pdf_path(name)
+    build_dir = File.dirname(path)
+    FileUtils.mkdir_p(build_dir)
+    Dir.mktmpdir('.resume-build-', build_dir) do |directory|
+      source = compose(name, directory: directory)
+      return false unless system(*RENDER, 'render', source, chdir: ROOT)
+
+      # Publish only a successful render. Staging on the same filesystem allows atomic replacement.
+      File.rename(File.join(directory, 'resume.pdf'), path)
+    end
+    puts "PDF: #{path}"
+    path
+  end
+
+  def self.render_standalone(source, watch: false)
+    Dir.mktmpdir('resume-source-') do |directory|
+      args = ['render', source, '--pdf-path', 'build/resume.pdf',
+              '--typst-path', File.join(directory, 'resume.typ')]
+      args << '--watch' if watch
+      system(*RENDER, *args, chdir: ROOT)
     end
   end
 
@@ -131,15 +176,14 @@ module ResumeVariant
       return open_pdf(name, audited: true)
     end
 
-    source = compose(name)
     case command
     when 'compose'
-      puts source
+      puts compose(name)
       true
     when 'pdf'
-      system(*RENDER, 'render', source, chdir: ROOT)
+      build_pdf(name)
     when 'check-layout'
-      system('ruby', AUDITOR, '--source', source, chdir: ROOT)
+      system('ruby', AUDITOR, '--source', compose(name), chdir: ROOT)
     else
       raise ArgumentError, "Unknown command: #{command}"
     end
@@ -153,22 +197,24 @@ module ResumeVariant
 
   def self.watch(name)
     validate_name(name)
-    warn "Watching #{name}; rebuilding #{pdf_path(name)} on edits. Ctrl-C to stop."
+    warn "Watching #{name}; rebuilding its draft PDF on edits. Ctrl-C to stop."
     warn "Live output is an unaudited draft; run `make check-layout #{name}` before publishing."
     # Watch actual sources, not generated output. Capture before rendering so
     # edits made during a build are picked up on the next pass.
     previous = nil
-    opened = false
+    opened_path = nil
     loop do
       begin
         current = fingerprint(name)
         if current != previous
           previous = current
-          if execute('pdf', name)
-            path = pdf_path(name)
-            unless opened
-              opened = launch_preview(path)
-              warn 'Preview launch failed; still watching for edits.' unless opened
+          if (path = execute('pdf', name))
+            if path != opened_path
+              if launch_preview(path)
+                opened_path = path
+              else
+                warn 'Preview launch failed; still watching for edits.'
+              end
             end
             warn "Rebuilt: #{path} (unaudited draft)."
           else
@@ -186,12 +232,17 @@ module ResumeVariant
 
   def self.run(arguments)
     command, name, *extra = arguments
+    if %w[pdf-source watch-source].include?(command)
+      raise ArgumentError, 'Set SOURCE to a standalone RenderCV YAML file.' if name.to_s.empty? || !extra.empty?
+
+      return render_standalone(name, watch: command == 'watch-source')
+    end
     if command == 'list' && name.nil?
       puts names
       return true
     end
     unless name && extra.empty? && %w[compose pdf check-layout watch preview open].include?(command)
-      raise ArgumentError, 'Usage: resume_variant.rb list | {compose|pdf|check-layout|watch|preview|open} VARIANT'
+      raise ArgumentError, 'Usage: resume_variant.rb list | {compose|pdf|check-layout|watch|preview|open} VARIANT | {pdf-source|watch-source} SOURCE'
     end
     command == 'watch' ? watch(name) : execute(command, name)
   rescue ArgumentError, KeyError, Psych::Exception, SystemCallError => error
