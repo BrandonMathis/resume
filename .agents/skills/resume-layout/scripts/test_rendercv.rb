@@ -60,7 +60,13 @@ class RenderCVIntegrationTest < Minitest::Test
         data['design']['colors']['links'] = '#123456'
         data['design']['header']['connections']['hyperlink'] = true
         data['design']['header']['connections']['show_icons'] = show_icons
-        data['cv']['sections']['Summary'][0] += ' [Body link](https://example.com/body).'
+        # Extra header rows must not make link assertions depend on how full the live resume is.
+        sections = data['cv']['sections']
+        sections['Summary'] = ['Synthetic summary with a [body link](https://example.com/body).']
+        sections['Recent Work Experience'] = [{
+          'company' => 'Example employer', 'position' => 'Engineer',
+          'highlights' => ['Built a synthetic example.', 'Reviewed the result.']
+        }]
         File.write(source, YAML.dump(data))
         result, report = render(source, artifact)
         if show_icons

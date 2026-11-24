@@ -110,7 +110,8 @@ module ResumeVariant
     validate_name(name)
     path = pdf_path(name, audited: audited)
     unless File.file?(path)
-      raise ArgumentError, "PDF not found: #{path}. Run `make preview #{name}` to build and audit it."
+      command = audited ? "make check-layout #{name}" : "make pdf #{name}"
+      raise ArgumentError, "PDF not found: #{path}. Run `#{command}` to generate it."
     end
 
     launch_preview(path)
@@ -124,9 +125,9 @@ module ResumeVariant
     # Opening existing output must not compose, render, or alter any source.
     return open_pdf(name) if command == 'open'
     if command == 'preview'
-      return false unless execute('pdf', name) && execute('check-layout', name)
+      # The audit renders its own fresh PDF; a separate draft render is unnecessary.
+      return false unless execute('check-layout', name)
 
-      # Open the exact fresh audit artifact, never stale build output.
       return open_pdf(name, audited: true)
     end
 

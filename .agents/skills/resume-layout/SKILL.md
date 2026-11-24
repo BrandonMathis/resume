@@ -1,7 +1,7 @@
 ---
 name: resume-layout
 description: Finalize RenderCV resumes as two readable, balanced pages with a comfortably filled first page, clear section spacing, and all professional experience on page one. Measure both overflow and unused space; preserve approved typography and make only the smallest authorized adjustment. Run at final PDF handoff or for an explicitly requested layout audit, not for each edit or draft build.
-compatibility: Requires uv (RenderCV 2.8 with Python 3.13), Helvetica, Ruby with REXML, and Poppler tools (pdftohtml, pdftotext, and pdftoppm). Legacy TeX audits additionally require Tectonic or pdfLaTeX.
+compatibility: Requires uv (RenderCV 2.8 with Python 3.13), Helvetica, Ruby with REXML, and Poppler tools (pdftohtml, pdftotext, and pdftoppm).
 ---
 
 # Resume layout: readable, balanced, and full
@@ -43,7 +43,7 @@ Missing required content, such as a summary, is a failure to resolve with the us
 
 ## 3. Protect typography and margins
 
-The locked baseline is in `policy.json`; its `*_tex_pt` names also support legacy audits.
+The locked baseline is in `policy.json`, in Typst/PDF points (1/72 inch).
 
 | Element | Required baseline |
 | --- | --- |
@@ -56,9 +56,9 @@ The locked baseline is in `policy.json`; its `*_tex_pt` names also support legac
 
 RenderCV's `design.typography.line_spacing: 2pt` is the gap between text frames, not the total baseline distance. The preamble fixes `top-edge: 0.8em, bottom-edge: -0.2em`: a 10 pt frame plus 2 pt leading gives 12 pt baselines. The negative bottom edge locates descenders; it is not negative spacing. Preserve this frame and leading.
 
-Do not change font size or baseline distance to fill space or fix overflow. A user-requested larger body size requires explicit approval, a deliberate policy change, and a separately scoped assessment of content capacity. Do not quietly weaken policy to obtain a pass. Typst/PDF points are 1/72 inch; legacy TeX points are 1/72.27 inch, so equal nominal sizes are not physically identical.
+Do not change font size or baseline distance to fill space or fix overflow. A user-requested larger body size requires explicit approval, a deliberate policy change, and a separately scoped assessment of content capacity. Do not quietly weaken policy to obtain a pass.
 
-Keep Helvetica and adequate contrast; missing fonts are a dependency blocker, not permission for fallback. Do not use smaller local body text, condensed fonts, negative tracking, glyph scaling, reduced line height, negative vertical space, hidden/white text, or multi-column packing. Legacy TeX restrictions include `\small`, `\footnotesize`, `\resizebox`, `\scalebox`, and reduced `\baselinestretch`/`\linespread`. Review executable template overrides manually; the checker cannot interpret every possible layout trick.
+Keep Helvetica and adequate contrast; missing fonts are a dependency blocker, not permission for fallback. Do not use smaller local body text, condensed fonts, negative tracking, glyph scaling, reduced line height, negative vertical space, hidden/white text, or multi-column packing. Review executable template overrides manually; the checker cannot interpret every possible layout trick.
 
 Current margins already meet the minimum. Do not enlarge margins to disguise unused space or reduce them below the floor to fit content.
 
@@ -175,8 +175,6 @@ The checker uses pinned RenderCV 2.8 with Python 3.13, builds in a temporary dir
 Read the report and compiler log. Exit `0` means automated checks passed; `1` means layout/readability violations; `2` means a dependency, renderer, extraction, or unsupported-source blocker. A failed artifact is diagnostic, not approved; never substitute a stale PDF.
 
 Automated checks cover page count/size, blank pages, name/header, section order and placement including continuation lines, explicit supporting-section split, fonts/sizes, margins, and rendered body-row spacing. Headings come from `cv.sections`: use **Summary**, **Professional Summary**, or **Profile**, and an experience heading containing **Experience** or **Employment**. Unknown/unmatched headings must be resolved, not bypassed.
-
-Legacy `--source resume.tex` support compiles fresh TeX with Tectonic or pdfLaTeX and requires literal `\resumesection{...}` headings plus an explicit `\newpage` or `\clearpage` before supporting sections. The frozen reference lacks a summary and is not approved for publication.
 
 ## 7. Review the result and hand off the exact PDF
 

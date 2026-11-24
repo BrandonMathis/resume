@@ -7,7 +7,7 @@ class ResumeLayoutTest < Minitest::Test
 
   def setup
     @policy = JSON.parse(File.read(ResumeLayout::POLICY_PATH))
-    @metrics = { 'font' => 10, 'baseline' => 12, 'left' => 36.135, 'right' => 36.135, 'top' => 36.135, 'bottom' => 36.135 }
+    @metrics = { 'font' => 10, 'baseline' => 12, 'left' => 36, 'right' => 36, 'top' => 36, 'bottom' => 36 }
     @front = [
       ['Brandon Mathis', 17], ['Contact details', 9], ['Summary', 12],
       ['Engineering leader.', 10], ['Recent Work Experience', 12],
@@ -19,7 +19,7 @@ class ResumeLayoutTest < Minitest::Test
     ]
   end
 
-  def xml(pages, spacing: 15)
+  def xml(pages, spacing: 12)
     document = REXML::Document.new
     root = document.add_element('pdf2xml')
     [9, 10, 12, 17].each { |size| root.add_element('fontspec', { 'id' => size.to_s, 'size' => size.to_s, 'family' => 'ABCDEF+Helvetica' }) }
@@ -38,7 +38,7 @@ class ResumeLayoutTest < Minitest::Test
 
   def audit(pages = [@front, @back], **overrides)
     ResumeLayout::Audit.new(@policy).analyze(**{
-      xml: xml(pages), headings: HEADINGS, metrics: @metrics, log: '', explicit_break: true
+      xml: xml(pages), headings: HEADINGS, metrics: @metrics, explicit_break: true
     }.merge(overrides))
   end
 
@@ -116,8 +116,12 @@ class ResumeLayoutTest < Minitest::Test
     assert_includes codes(audit(explicit_break: false)), 'explicit_break'
   end
 
-  def test_overfull_box
-    assert_includes codes(audit(log: 'Overfull \\hbox (12.0pt too wide)')), 'overfull_box'
+  def test_rejects_legacy_tex_source
+    source = File.join(ResumeLayout::ROOT, 'resume.tex')
+    result = nil
+    _output, error = capture_io { result = ResumeLayout.run(['--source', source]) }
+    assert_equal 2, result
+    assert_includes error, 'Expected a RenderCV .yaml or .yml source.'
   end
 
   def test_unmatched_heading_fails_closed
@@ -163,7 +167,6 @@ class ResumeLayoutTest < Minitest::Test
     assert_equal 10, metrics['font']
     assert_equal 12, metrics['baseline']
     assert_equal 36, metrics['left']
-    assert_equal 1, metrics['point_scale']
     assert_in_delta 72, ResumeLayout.typst_points('2.54cm'), 0.001
   end
 

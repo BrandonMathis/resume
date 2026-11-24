@@ -22,10 +22,6 @@ module ResumeLayout
     text.unicode_normalize(:nfkc).downcase.gsub(/[^\p{Alnum}]/, '')
   end
 
-  def self.plain_heading(text)
-    text.gsub(/\\([&%_$#{}])/, '\\1').gsub('~', ' ')
-  end
-
   def self.kind(heading)
     return :summary if /\A(summary|professional summary|profile)\z/i.match?(heading)
     return :experience if /experience|employment/i.match?(heading)
@@ -38,7 +34,7 @@ module ResumeLayout
       @policy = policy
     end
 
-    def analyze(xml:, headings:, metrics:, log:, explicit_break:, headline: nil)
+    def analyze(xml:, headings:, metrics:, explicit_break:, headline: nil)
       issues = []
       add = lambda do |code, message, details = {}|
         issues << { code: code, message: message }.merge(details)
@@ -52,12 +48,10 @@ module ResumeLayout
       REXML::XPath.each(document, '//fontspec') do |font|
         fonts[font.attributes['id']] = Float(font.attributes['size'])
       end
-      if metrics['point_scale'] == 1
-        families = REXML::XPath.match(document, '//fontspec').map { |font| font.attributes['family'].to_s.split('+').last }
-        unexpected = families.uniq.reject { |family| family == @policy.fetch('font_family') }
-        unless unexpected.empty?
-          add.call('font_family', "Expected #{@policy.fetch('font_family')}; found #{unexpected.join(', ')}. Install the required font; do not accept silent fallback.")
-        end
+      families = REXML::XPath.match(document, '//fontspec').map { |font| font.attributes['family'].to_s.split('+').last }
+      unexpected = families.uniq.reject { |family| family == @policy.fetch('font_family') }
+      unless unexpected.empty?
+        add.call('font_family', "Expected #{@policy.fetch('font_family')}; found #{unexpected.join(', ')}. Install the required font; do not accept silent fallback.")
       end
       add.call('page_count', "Expected #{@policy.fetch('pages')} pages; got #{pages.length}.") unless pages.length == @policy.fetch('pages')
       [:summary, :experience].each do |kind|
@@ -71,7 +65,7 @@ module ResumeLayout
         add.call('section_order', 'Required order: summary, experience, then supporting sections.')
       end
 
-      expected_metrics = { 'font' => 'body_tex_pt', 'baseline' => 'baseline_tex_pt' }
+      expected_metrics = { 'font' => 'body_pt', 'baseline' => 'baseline_pt' }
       expected_metrics.each do |metric, key|
         value = metrics.fetch(metric)
         expected = @policy.fetch(key)
@@ -80,13 +74,11 @@ module ResumeLayout
         end
       end
       %w[left right top bottom].each do |side|
-        # TeX points are 1/72.27 inch, unlike PDF's 1/72 inch.
-        inches = metrics.fetch(side) / (72 / metrics.fetch('point_scale', 72 / 72.27))
+        inches = metrics.fetch(side) / 72.0
         if inches < @policy.fetch('minimum_margin_inches') - 0.001
           add.call('margin', "#{side.capitalize} margin is #{inches.round(3)} in; minimum is #{@policy.fetch('minimum_margin_inches')} in.")
         end
       end
-      add.call('overfull_box', 'Compiler reported an overfull box; inspect the log and rendered pages.') if /Overfull \\[hv]box/.match?(log)
 
       section = 'Header'
       spans = Hash.new { |hash, key| hash[key] = [] }
@@ -128,24 +120,24 @@ module ResumeLayout
           headline_line = section == 'Header' && headline && normalized == ResumeLayout.normalize(headline)
           headline_pages << number if headline_line
           font_key = if heading
-                       'section_tex_pt'
+                       'section_pt'
                      elsif section == 'Header'
-                       if name then 'name_tex_pt'
-                       elsif headline_line then 'headline_tex_pt'
-                       else 'contact_tex_pt'
+                       if name then 'name_pt'
+                       elsif headline_line then 'headline_pt'
+                       else 'contact_pt'
                        end
                      else
-                       'body_tex_pt'
+                       'body_pt'
                      end
-          # Poppler reports integer PDF-point sizes. Allow only its rounding error.
+          # Allow for Poppler's rounding of extracted font sizes.
           actual = fonts.fetch(node.attributes['font'])
-          expected = @policy.fetch(font_key) * metrics.fetch('point_scale', 72 / 72.27)
+          expected = @policy.fetch(font_key)
           if (actual - expected).abs > 0.55
             bad_fonts[[section, actual, font_key]] ||= text[0, 120]
           end
           x = Float(node.attributes['left'])
           y = Float(node.attributes['top'])
-          body_line_positions[number] << y if font_key == 'body_tex_pt'
+          body_line_positions[number] << y if font_key == 'body_pt'
           right = x + Float(node.attributes['width'])
           bottom = y + Float(node.attributes['height'])
           margin = @policy.fetch('minimum_margin_inches') * 72
@@ -153,19 +145,17 @@ module ResumeLayout
           bounds << number if x < margin - 2 || y < margin - 2 || right > width - margin + 2 || bottom > height - margin + 2
         end
       end
-      if metrics['point_scale'] == 1
-        # Poppler caps zoom at 3x; normalize to 1/3pt precision.
-        # Adjacent body rows may have extra list/entry spacing, never less than 12pt.
-        gaps = body_line_positions.values.flat_map do |positions|
-          positions.uniq.sort.each_cons(2).map { |first, last| last - first }
-        end
-        baseline = @policy.fetch('baseline_tex_pt')
-        if gaps.any? { |gap| gap < baseline - 0.35 }
-          add.call('rendered_baseline', "Body rows are closer than the locked #{baseline} pt baseline.")
-        end
-        unless gaps.any? { |gap| (gap - baseline).abs <= 0.35 }
-          add.call('rendered_baseline', 'Could not verify the configured baseline in the rendered PDF.')
-        end
+      # Poppler caps zoom at 3x; normalize to 1/3pt precision.
+      # Adjacent body rows may have extra list/entry spacing, never less than 12pt.
+      gaps = body_line_positions.values.flat_map do |positions|
+        positions.uniq.sort.each_cons(2).map { |first, last| last - first }
+      end
+      baseline = @policy.fetch('baseline_pt')
+      if gaps.any? { |gap| gap < baseline - 0.35 }
+        add.call('rendered_baseline', "Body rows are closer than the locked #{baseline} pt baseline.")
+      end
+      unless gaps.any? { |gap| (gap - baseline).abs <= 0.35 }
+        add.call('rendered_baseline', 'Could not verify the configured baseline in the rendered PDF.')
       end
       headings.each do |heading|
         add.call('unmatched_heading', "Could not locate rendered heading: #{heading.inspect}. Manual validation/checker support is required.") unless observed_headings.include?(heading)
@@ -191,7 +181,7 @@ module ResumeLayout
         sections: spans,
         normal_font_pt: metrics.fetch('font'),
         normal_baseline_pt: metrics.fetch('baseline'),
-        point_unit: metrics['point_scale'] == 1 ? 'Typst/PDF pt (1/72 inch)' : 'TeX pt (1/72.27 inch)',
+        point_unit: 'Typst/PDF pt (1/72 inch)',
         issues: issues,
         visual_review: 'Required; not performed by this script.'
       }
@@ -228,8 +218,7 @@ module ResumeLayout
     top, bottom = edges.first.map { |edge| Float(edge) }
     metrics = {
       'font' => font,
-      'baseline' => (top - bottom) * font + typst_points(value.call('typography-line-spacing')),
-      'point_scale' => 1
+      'baseline' => (top - bottom) * font + typst_points(value.call('typography-line-spacing'))
     }
     %w[left right top bottom].each do |side|
       metrics[side] = typst_points(value.call("page-#{side}-margin"))
@@ -285,7 +274,7 @@ module ResumeLayout
       FileUtils.cp(typst_path, File.join(artifact_dir, 'resume.typ'))
       xml = precise_xml(pdf, chdir: temp)
       report = Audit.new(policy).analyze(xml: xml, headings: headings, metrics: metrics,
-                                        log: log, explicit_break: explicit_break, headline: headline)
+                                        explicit_break: explicit_break, headline: headline)
       report[:source] = source
       report[:pdf] = pdf
       report_path = File.join(artifact_dir, 'report.json')
@@ -311,7 +300,7 @@ module ResumeLayout
   def self.run(arguments)
     options = {}
     parser = OptionParser.new do |opts|
-      opts.banner = 'Usage: check_layout.rb [--source path/to/resolved.yaml|resume.tex] (default: composed default variant)'
+      opts.banner = 'Usage: check_layout.rb [--source path/to/resolved.yaml] (default: composed default variant)'
       opts.on('--source PATH', 'Source to compile and audit') { |path| options[:source] = path }
     end
     parser.parse!(arguments)
@@ -322,84 +311,11 @@ module ResumeLayout
     end
     source = File.expand_path(options.fetch(:source))
     raise "Source does not exist: #{source}" unless File.file?(source)
+    raise 'Expected a RenderCV .yaml or .yml source.' unless %w[.yaml .yml].include?(File.extname(source))
     raise 'Install Poppler (brew install poppler) for pdftohtml.' unless available?('pdftohtml')
-    return run_rendercv(source) if %w[.yaml .yml].include?(File.extname(source))
-    raise 'Expected a RenderCV .yaml/.yml or legacy .tex source.' unless File.extname(source) == '.tex'
-    compiler = %w[tectonic pdflatex].find { |command| available?(command) }
-    raise 'Install Tectonic or pdfLaTeX to build the source.' unless compiler
 
-    policy = JSON.parse(File.read(POLICY_PATH))
-    content = File.read(source).gsub(/(?<!\\)%.*$/, '')
-    body = content.split('\\begin{document}', 2).fetch(1).split('\\end{document}', 2).first
-    headings = body.scan(/\\resumesection\s*\{([^{}]*)\}/).flatten.map { |text| plain_heading(text) }
-    supporting = nil
-    body.to_enum(:scan, /\\resumesection\s*\{([^{}]*)\}/).each do
-      match = Regexp.last_match
-      if kind(plain_heading(match[1])) == :supporting
-        supporting = match
-        break
-      end
-      supporting = nil
-    end
-    explicit_break = supporting && /\\(?:newpage|clearpage)\s*\z/.match?(body[0...supporting.begin(0)])
-    artifact_dir = File.join(ROOT, 'build', 'layout-audit', File.basename(source, '.tex'))
-    FileUtils.mkdir_p(artifact_dir)
-    # Clear stale success/diagnostic artifacts before attempting this fresh build.
-    %w[resume.pdf compile.log report.json].each { |file| FileUtils.rm_f(File.join(artifact_dir, file)) }
-    Dir.mktmpdir('resume-layout-') do |temp|
-      wrapper = File.join(temp, 'layout-audit.tex')
-      tex_metrics = {
-        'font' => '\\f@size',
-        'baseline' => '\\the\\baselineskip',
-        'left' => '\\the\\dimexpr1in+\\oddsidemargin\\relax',
-        'right' => '\\the\\dimexpr\\paperwidth-1in-\\oddsidemargin-\\textwidth\\relax',
-        'top' => '\\the\\dimexpr1in+\\topmargin+\\headheight+\\headsep\\relax',
-        'bottom' => '\\the\\dimexpr\\paperheight-1in-\\topmargin-\\headheight-\\headsep-\\textheight\\relax'
-      }
-      hooks = tex_metrics.map { |key, value| "  \\typeout{RESUME-AUDIT:#{key}=#{value}}%" }.join("\n")
-      File.write(wrapper, "\\makeatletter\n\\AtBeginDocument{%\n#{hooks}\n}\n\\makeatother\n\\input{\\detokenize{#{source}}}\n")
-      command = if compiler == 'tectonic'
-                  [compiler, '--keep-logs', '--outdir', temp, wrapper]
-                else
-                  [compiler, '-interaction=nonstopmode', '-halt-on-error', "-output-directory=#{temp}", wrapper]
-                end
-      output = run_command(*command, chdir: File.dirname(source))
-      output += run_command(*command, chdir: File.dirname(source)) if compiler == 'pdflatex'
-      log_path = File.join(temp, 'layout-audit.log')
-      log = File.file?(log_path) ? File.read(log_path) : output
-      File.write(File.join(artifact_dir, 'compile.log'), log)
-      metrics = tex_metrics.keys.to_h do |key|
-        value = log[/RESUME-AUDIT:#{key}=(-?[\d.]+)/, 1]
-        raise "Missing TeX measurement: #{key}" unless value
-
-        [key, Float(value)]
-      end
-      pdf = File.join(artifact_dir, 'resume.pdf')
-      FileUtils.cp(File.join(temp, 'layout-audit.pdf'), pdf)
-      xml = run_command('pdftohtml', '-xml', '-i', '-stdout', '-zoom', '1', pdf, chdir: File.dirname(source))
-      report = Audit.new(policy).analyze(xml: xml, headings: headings, metrics: metrics, log: log, explicit_break: explicit_break)
-      report[:source] = source
-      report[:pdf] = pdf
-      report_path = File.join(artifact_dir, 'report.json')
-      File.write(report_path, JSON.pretty_generate(report) + "\n")
-      puts "#{report[:status]}: #{report[:page_count]} pages; body #{report[:normal_font_pt]} pt / #{report[:normal_baseline_pt]} pt baseline"
-      report[:sections].each { |label, pages| puts "  #{label}: page(s) #{pages.join(', ')}" }
-      report[:issues].each do |issue|
-        puts "  FAIL [#{issue[:code]}] #{issue[:message]}"
-        puts "    #{issue[:excerpt]}" if issue[:excerpt]
-      end
-      puts "PDF: #{pdf}\nReport: #{report_path}\nVisual inspection is still required."
-      if report[:issues].any?
-        puts 'Suggested order: shorten/merge bullets, summarize older roles, then reduce positive section/list gaps. Preserve fonts, baseline spacing, and margins.'
-      end
-      report[:issues].empty? ? 0 : 1
-    end
+    run_rendercv(source)
   rescue StandardError, LoadError => error
-    if artifact_dir && File.directory?(artifact_dir)
-      File.write(File.join(artifact_dir, 'report.json'), JSON.pretty_generate({ status: 'BLOCKED', error: error.message }) + "\n")
-      log_path = File.join(artifact_dir, 'compile.log')
-      File.write(log_path, error.message + "\n") unless File.file?(log_path)
-    end
     warn "BLOCKED: #{error.message}"
     2
   end

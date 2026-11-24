@@ -9,9 +9,12 @@ class ResumeVariantTest < Minitest::Test
   def setup
     @original_root = ResumeVariant::ROOT
     @fixture_root = Dir.mktmpdir('resume-builder-test-')
-    %w[Makefile classic variants].each do |path|
+    %w[Makefile classic].each do |path|
       FileUtils.cp_r(File.join(@original_root, path), @fixture_root)
     end
+    # Copy only the baseline; tailored overlays are explicit test fixtures.
+    FileUtils.mkdir_p(File.join(@fixture_root, 'variants'))
+    FileUtils.cp(File.join(@original_root, 'variants/default.yml'), File.join(@fixture_root, 'variants'))
     %w[enhanced-kimi-k3 full-stack react-native].each do |name|
       File.write(File.join(@fixture_root, 'variants', "#{name}.yml"), "inherits: default\nsections: {}\n")
     end
@@ -28,12 +31,6 @@ class ResumeVariantTest < Minitest::Test
   def with_project
     Dir.mktmpdir('resume-variants-') do |root|
       %w[classic variants].each { |directory| FileUtils.cp_r(File.join(ResumeVariant::ROOT, directory), root) }
-      # Test composition mechanics against empty overlays, independent of live tailored copy.
-      Dir.glob(File.join(root, 'variants', '*.yml')).each do |path|
-        next if File.basename(path) == 'default.yml'
-
-        File.write(path, "inherits: default\nsections: {}\n")
-      end
       yield root
     end
   end
@@ -205,7 +202,7 @@ class ResumeVariantTest < Minitest::Test
     ResumeVariant.define_singleton_method(method, original)
   end
 
-  def test_preview_builds_then_audits_then_opens_the_audited_pdf
+  def test_preview_only_renders_through_the_auditor_and_opens_its_pdf
     Dir.mktmpdir('resume-preview-') do |directory|
       pdf = File.join(directory, 'reviewed.pdf')
       File.write(pdf, 'Synthetic PDF fixture; not rendered')
@@ -215,36 +212,39 @@ class ResumeVariantTest < Minitest::Test
         paths << [name, audited]
         pdf
       end
+      compositions = []
+      compose = lambda do |name|
+        compositions << name
+        '/tmp/synthetic-full-stack.yaml'
+      end
       runner = ->(*arguments, **options) { calls << arguments; true }
-      stub_variant(:compose, '/tmp/synthetic-full-stack.yaml') do
+      stub_variant(:compose, compose) do
         stub_variant(:pdf_path, path_lookup) do
           stub_variant(:system, runner) do
             assert ResumeVariant.execute('preview', 'full-stack')
           end
         end
       end
-      assert_equal [*ResumeVariant::RENDER, 'render', '/tmp/synthetic-full-stack.yaml'], calls[0]
-      assert_equal ['ruby', ResumeVariant::AUDITOR, '--source', '/tmp/synthetic-full-stack.yaml'], calls[1]
-      assert_equal ['open', '-a', 'Preview', pdf], calls[2]
+      assert_equal [
+        ['ruby', ResumeVariant::AUDITOR, '--source', '/tmp/synthetic-full-stack.yaml'],
+        ['open', '-a', 'Preview', pdf]
+      ], calls
+      assert_equal ['full-stack'], compositions
       assert_equal [['full-stack', true]], paths
     end
   end
 
-  def test_preview_never_opens_after_build_or_audit_failure
-    [0, 1].each do |failure_index|
-      calls = []
-      runner = lambda do |*arguments, **options|
-        calls << arguments
-        calls.length - 1 != failure_index
-      end
-      stub_variant(:compose, '/tmp/synthetic-full-stack.yaml') do
+  def test_preview_never_opens_after_audit_failure
+    calls = []
+    runner = ->(*arguments, **options) { calls << arguments; false }
+    stub_variant(:compose, '/tmp/synthetic-full-stack.yaml') do
+      stub_variant(:pdf_path, ->(*) { flunk 'A failed audit must not look up a PDF to open' }) do
         stub_variant(:system, runner) do
           refute ResumeVariant.execute('preview', 'full-stack')
         end
       end
-      assert_equal failure_index + 1, calls.length
-      refute calls.any? { |arguments| arguments.first == 'open' }
     end
+    assert_equal [['ruby', ResumeVariant::AUDITOR, '--source', '/tmp/synthetic-full-stack.yaml']], calls
   end
 
   def test_open_uses_existing_build_without_composing_or_rendering
@@ -273,7 +273,7 @@ class ResumeVariantTest < Minitest::Test
     stub_variant(:pdf_path, '/nonexistent-resume-test/output.pdf') do
       stub_variant(:system, ->(*) { flunk 'must not launch Preview' }) do
         error = assert_raises(ArgumentError) { ResumeVariant.execute('open', 'full-stack') }
-        assert_includes error.message, 'make preview full-stack'
+        assert_includes error.message, 'make pdf full-stack'
         assert_raises(ArgumentError) { ResumeVariant.execute('open', '../resume') }
       end
     end

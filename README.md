@@ -20,9 +20,8 @@ ruby knowledge-base/tools/validate.rb       # Check evidence references and arch
 - `scripts/resume_variant.rb` — composes overlays with the baseline and runs the shared build/audit workflow.
 - `classic/Preamble.j2.typ` — local RenderCV template override for the explicit page break before Education and fixed body line height.
 - `classic/Header.j2.typ` — header rule and a scoped Typst link renderer: plain email, bold contact links using `design.colors.links`. RenderCV still supplies escaped contact text, icons, and ordering; no generated-code string parsing is used. Body links keep RenderCV's normal styling. Review the link wrapper when upgrading RenderCV.
-- `resume.tex` — retained pre-migration reference; do not edit it for new resumes.
-- `Brandon Resume 2026 Q3.pdf`, `Fullstack Brandon Resume 2026.pdf` — original references, unchanged.
-- `phantom wallet suggested-changes.md` — existing notes, unchanged.
+- `resume.tex` — frozen pre-migration reference; not used for builds or audits.
+- [`pdf-archive/`](pdf-archive/) — the two original reference PDFs, unchanged.
 - `.agents/skills/resume-layout/` — layout policy, fresh-render auditor, and regression tests.
 
 All original experience and community bullets, roles, dates, and quantified results are retained. A short summary, grounded in the existing experience, was added to satisfy the layout contract. LaTeX escapes were removed and date/contact formatting normalized.
@@ -101,13 +100,13 @@ After creating the example overlay:
 ```sh
 make variants                          # Discover available variants
 make pdf                               # Build default
-make preview default                   # Build, audit, and open default
+make preview default                   # Render, audit, and open the audited default PDF
 make pdf example-role                  # Build the example variant
 make pdf VARIANT=example-role           # Equivalent explicit selection
 make compose example-role              # Inspect resolved YAML without rendering
 make watch example-role                # Rebuild resume.pdf on edits; open Preview once
 make check-layout example-role         # Fresh audit of the composed source
-make preview example-role              # Build, audit, and open the fresh audit PDF in Preview
+make preview example-role              # Render once, audit, and open the audited PDF in Preview
 make open example-role                 # Open existing build PDF without rebuilding or auditing
 open build/variants/example-role/resume.pdf
 ```
@@ -117,16 +116,16 @@ Bulk commands discover all variants, including `default`:
 ```sh
 make pdfs            # Build every variant
 make check-layouts   # Audit every variant; stop on first failure
-make previews        # Build, audit, and open every variant; stop on failure
+make previews        # Render, audit, and open each variant; stop on failure
 make test-variants   # Fast composition/guardrail regression tests
 make test            # Variant tests plus existing layout tests
 ```
 
 For `preview`, `open`, `pdf`, `watch`, `check-layout`, and `compose`, you can use either `make <command> <variant>` or `make <command> VARIANT=<variant>`. For example, `make watch example-role` updates a live preview as you edit after that variant has been created. Use one command with a positional variant; for multiple commands, keep `VARIANT=...` (e.g. `make pdf check-layout VARIANT=example-role`). Unknown variants and conflicting selections fail before running.
 
-`preview` defaults to `default` and opens `build/layout-audit/<variant>/resume.pdf` only after both the build and fresh automated audit succeed. A failed audit never opens an old PDF. **Opening a preview is not visual approval:** inspect both pages before publishing. `open` likewise defaults to `default`; it opens `build/variants/<variant>/resume.pdf` as-is, which may be stale, and reports an error if missing. Both use macOS Preview and report launch failures. `previews` discovers variants automatically and stops at the first failed build, audit, or launch.
+`preview` defaults to `default`. The audit renders once and, if it passes, `preview` opens `build/layout-audit/<variant>/resume.pdf`. A failed audit never opens an old PDF. **Opening a preview is not visual approval:** inspect both pages before publishing. `preview` does not refresh the draft PDF. Use `make pdf <variant>` to generate that separate file; `make open <variant>` opens it as-is. Both `preview` and `open` use macOS Preview and report launch failures. `previews` discovers variants automatically and stops at the first failed audit or launch.
 
-All single-variant commands default to `default` when no variant is selected, using the same composition, build, and audit pipeline as other variants. The default PDF is `build/variants/default/resume.pdf`; its audit is under `build/layout-audit/default/`. There is no root `resume.yaml` to edit or render. `SOURCE=tailored.yaml` remains available for standalone/legacy `pdf`, `watch`, and `check-layout` commands; do not combine `SOURCE` with an explicit `VARIANT`. Standalone builds and watches write `build/resume.pdf` relative to the source file.
+All single-variant commands default to `default` when no variant is selected, using the same composition, build, and audit pipeline as other variants. The default PDF is `build/variants/default/resume.pdf`; its audit is under `build/layout-audit/default/`. There is no root `resume.yaml` to edit or render. `SOURCE=tailored.yaml` remains available for `pdf`, `watch`, and `check-layout` with a standalone RenderCV file; do not combine `SOURCE` with an explicit `VARIANT`. Standalone builds and watches write `build/resume.pdf` relative to the source file.
 
 ### Live preview
 
@@ -151,11 +150,9 @@ No extra viewer or dependencies are required. Plain `make watch` uses this same 
 2. For audience-specific changes, copy only the relevant section's complete list from the resolved parent's `cv.sections` into the variant's `sections` mapping, then edit that list. For example, to tailor only the summary, copy the current `Summary` list into `sections.Summary` in `variants/example-role.yml`. Start with the actual inherited wording, not a stale example.
 3. A section override **replaces its whole list**; arrays are never concatenated or merged by position. Untouched sections continue to inherit. Once overridden, a section no longer receives baseline copy updates: review it deliberately when shared facts change. Delete an override to restore inheritance.
 4. New/renamed headings belong in the baseline and shared template/audit policy, not individual overlays. Unknown headings, empty section lists, empty or multi-line headlines, missing `inherits`, and overlay-level design/settings/name/contact overrides are rejected. RenderCV validates the entries themselves.
-5. Build, audit, and visually inspect each changed variant before publishing. Different copy lengths can overflow even though the layout is identical. Never fix a variant by introducing a private layout or shrinking type.
+5. Audit and visually inspect each changed variant before publishing. Different copy lengths can overflow even though the layout is identical. Never fix a variant by introducing a private layout or shrinking type.
 
 For another audience, repeat the creation steps with a lowercase, hyphenated name such as `another-role`. Generated YAML and template copies under `build/` are disposable; never edit them. `make clean` removes them without touching overlays.
-
-The legacy TeX source remains in Git for comparison; it is not another active source of truth.
 
 ## Update skills
 
@@ -173,7 +170,7 @@ make check-layout
 
 The Ruby checker always renders **fresh YAML** in a temporary output directory, then extracts the actual PDF. It checks exactly two nonempty US Letter pages, section order and page spans (including experience continuations), the explicit break, typography, font family, rendered body-row spacing, and minimum margins. It does not modify build-path PDFs or the original PDFs. Missing dependencies or unsupported measurements fail closed. The existing REXML dependency-error handling is preserved.
 
-Artifacts are saved under `build/layout-audit/<source-stem>/`: `resume.pdf`, `resume.typ`, `compile.log`, and `report.json`. Exit codes: `0` automated pass, `1` layout violation, `2` blocked/error. Legacy `.tex` audits remain available with `--source resume.tex` if Tectonic or pdfLaTeX is installed; the old source lacks a summary and is not the approved resume.
+Artifacts are saved under `build/layout-audit/<source-stem>/`: `resume.pdf`, `resume.typ`, `compile.log`, and `report.json`. Exit codes: `0` automated pass, `1` layout violation, `2` blocked/error.
 
 **A successful build or automated pass is not visual approval.** Read the report and compiler log, render every actual page, and inspect for clipping, collisions, stranded headings, crowded text, and awkward wrapping:
 

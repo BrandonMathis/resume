@@ -1,14 +1,6 @@
 # macOS
 .DS_Store
 
-# Generated RenderCV output and legacy LaTeX build artifacts
+# Generated RenderCV output
 /rendercv_output/
 /build/
-*.aux
-*.fdb_latexmk
-*.fls
-*.log
-*.out
-*.synctex.gz
-*.toc
-/resume.pdf
