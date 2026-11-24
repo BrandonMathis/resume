@@ -1,0 +1,63 @@
+inherits: default
+headline: Technical Product Owner
+sections:
+  Summary:
+    - >-
+      Technical product owner and engineer with 16+ years of experience building web and mobile products for startups and large enterprises.
+      Works with customers and stakeholders to clarify requirements and turn them into well-defined features engineering teams can build and validate.
+      Brings over a decade of experience integrating AI into products, along with recent experience helping teams adopt AI-assisted software development lifecycles.
+  Recent Work Experience:
+    - company: This Dot Labs
+      location: Raleigh, NC (remote)
+      position: Engineering Lead
+      start_date: 2024-10
+      end_date: present
+      highlights:
+        - Hands-on Engineering Lead for client projects including OpenAI, HUDL, Skylight Social, and Primerica
+        - Led architecture and implementation for Hudl’s React web and hybrid mobile migrations, verifying feature parity and helping deliver FastDraw, FastScout, and FastRecruit by a hard six-month deadline for NBA, NCAA, and WNBA teams
+        - Partnered with Skylight Social's founders to build and launch a Mark Cuban-backed short-form video app on AT Protocol, using React Native and Expo for iOS and Android; the app onboarded 55,000+ users in its first 24 hours
+        - Helped build Skylight's Swift/Kotlin video editor via Expo Modules and ship daily OTA releases via Expo Updates
+        - Host The Context Window podcast, interviewing engineers from OpenAI and Clerk on coding agents and LLMs; spoke at All Things Open and Chain React on web, mobile, and AI-enabled software development and SDLC best practices
+    - company: vTestify
+      location: Raleigh, NC
+      position: Principal Engineer & Contract CTO
+      start_date: 2019-08
+      end_date: 2024-12
+      highlights:
+        - Architected and built a remote deposition platform for the U.S. legal industry using React, Node.js, and Ruby on Rails
+        - Drove 10x revenue growth by scaling WebRTC conferencing capacity and building enterprise white-label solutions
+        - Built document management tools for uploads, PDF processing, and annotation; integrated Web Audio API with OpenAI Whisper for real-time multichannel transcription synced to video for timestamp-based navigation
+        - Integrated OpenAI through LangChain and built vector-backed retrieval-augmented generation (RAG) workflows
+        - Worked with customers, Sales, and Product to define and build tailored features that helped win new business
+        - Led creation of hiring and team management processes to support rapid growth during COVID-19 pandemic
+    - company: Mathis LLC
+      location: Raleigh, NC
+      position: Freelance Full-Stack Engineer
+      start_date: 2017-11
+      end_date: 2019-12
+      highlights:
+        - Operated as an independent contract-for-hire software engineer specializing in building web and mobile products
+        - Built custom software for companies such as McKesson, Dana-Farber, Duke Health, Moog Music, and MAC Cosmetics
+        - Worked directly with stakeholders and business owners to turn business needs into full-stack web and mobile applications using JavaScript, React, React Native, PHP, Python, Ruby on Rails, Go, Docker, and REST APIs
+        - Provided expert training services for company teams looking to upskill their engineers into development tools
+    - company: Smashing Boxes
+      location: Raleigh, NC
+      position: Lead Software Engineer -- Director of Technology
+      start_date: 2014-08
+      end_date: 2017-11
+      highlights:
+        - Advanced to Director, leading quality, staffing, and delivery for 30+ frontend, backend, and mobile engineers
+        - Partnered with Sales on contracts, solution architecture, and estimates, guiding clients from pitch through delivery
+        - Collaborated with design, customers, and stakeholders to build flagship React, Ruby on Rails, and iOS/Swift apps
+        - Helped build Taperole, a company-wide DevOps deployment toolkit using Ruby and Ansible, adding PostgreSQL backups, Ruby on Rails update support, automatic CVE resolution, and TLS certificate-renewal fixes
+    - company: Assetricity LLC
+      location: Raleigh, NC
+      position: Software Engineer
+      start_date: 2009-07
+      end_date: 2014-08
+      highlights:
+        - Built condition-based maintenance software in Java and Ruby on Rails deployed in IBM WebSphere via JRuby
+        - Attended ISO 15926 standards committee meetings to report back to technical teams and support when needed
+        - Built an Ember.js/JavaScript P&ID viewer for chemical and petroleum gas refinery layout specifications
+        - Created XML schemas (XSD) to reinforce XML data structures dictated by ISO standards committees
+        - Maintained internal Java Ruby, and Javascript applications and the company’s Drupal website
