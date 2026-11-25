@@ -175,7 +175,7 @@ design:
     space_below: 8pt
   sections:
     allow_page_break: true
-    space_between_regular_entries: 10pt
+    space_between_regular_entries: 7.5pt
     show_time_spans_in: []
   entries:
     date_and_location_width: 145pt
@@ -187,7 +187,7 @@ design:
       bullet: '•'
       space_left: 5pt
       space_above: 3pt
-      space_between_items: 1.5pt
+      space_between_items: 0.75pt
       space_between_bullet_and_text: 5pt
   templates:
     experience_entry:
