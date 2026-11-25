@@ -127,19 +127,40 @@ module ResumeVariant
     File.join(ROOT, 'build', "brandonmathis-#{value}.pdf")
   end
 
-  def self.build_pdf(name)
+  def self.build_pdf(name, paths_only: false)
     path = pdf_path(name)
-    build_dir = File.dirname(path)
-    FileUtils.mkdir_p(build_dir)
-    Dir.mktmpdir('.resume-build-', build_dir) do |directory|
+    FileUtils.mkdir_p(File.dirname(path))
+    Dir.mktmpdir('resume-build-') do |directory|
       source = compose(name, directory: directory)
-      return false unless system(*RENDER, 'render', source, chdir: ROOT)
-
-      # Publish only a successful render. Staging on the same filesystem allows atomic replacement.
-      File.rename(File.join(directory, 'resume.pdf'), path)
+      # Typst and the composed input stay in temp; RenderCV overwrites the final PDF directly.
+      command = [*RENDER, 'render', source, '--pdf-path', path]
+      if paths_only
+        log = File.join(directory, 'render.log')
+        unless system(*command, chdir: ROOT, out: log, err: [:child, :out])
+          warn File.read(log)
+          return false
+        end
+      else
+        success = system(*command, chdir: ROOT)
+        # RenderCV's banner has no trailing newline.
+        puts
+        return false unless success
+      end
+      raise ArgumentError, "RenderCV did not produce a PDF at #{path}" unless File.size?(path)
     end
-    puts "PDF: #{path}"
     path
+  end
+
+  def self.build_pdfs(variants, paths_only:)
+    paths = variants.map do |name|
+      path = build_pdf(name, paths_only: paths_only)
+      return false unless path
+
+      puts path if paths_only
+      path.delete_prefix("#{ROOT}/")
+    end
+    puts "Built resumes: #{paths.join(', ')}" unless paths_only
+    true
   end
 
   def self.render_standalone(source, watch: false)
@@ -180,8 +201,6 @@ module ResumeVariant
     when 'compose'
       puts compose(name)
       true
-    when 'pdf'
-      build_pdf(name)
     when 'check-layout'
       system('ruby', AUDITOR, '--source', compose(name), chdir: ROOT)
     else
@@ -208,7 +227,7 @@ module ResumeVariant
         current = fingerprint(name)
         if current != previous
           previous = current
-          if (path = execute('pdf', name))
+          if (path = build_pdf(name))
             if path != opened_path
               if launch_preview(path)
                 opened_path = path
@@ -231,7 +250,17 @@ module ResumeVariant
   end
 
   def self.run(arguments)
-    command, name, *extra = arguments
+    command, *parameters = arguments
+    if %w[pdf pdfs].include?(command)
+      paths_only = parameters.last == '--paths-only'
+      parameters.pop if paths_only
+      if command == 'pdf' && parameters.size == 1
+        return build_pdfs(parameters, paths_only: paths_only)
+      elsif command == 'pdfs' && parameters.empty?
+        return build_pdfs(names, paths_only: paths_only)
+      end
+    end
+    name, *extra = parameters
     if %w[pdf-source watch-source].include?(command)
       raise ArgumentError, 'Set SOURCE to a standalone RenderCV YAML file.' if name.to_s.empty? || !extra.empty?
 
@@ -241,8 +270,8 @@ module ResumeVariant
       puts names
       return true
     end
-    unless name && extra.empty? && %w[compose pdf check-layout watch preview open].include?(command)
-      raise ArgumentError, 'Usage: resume_variant.rb list | {compose|pdf|check-layout|watch|preview|open} VARIANT | {pdf-source|watch-source} SOURCE'
+    unless name && extra.empty? && %w[compose check-layout watch preview open].include?(command)
+      raise ArgumentError, 'Usage: resume_variant.rb list | pdf VARIANT [--paths-only] | pdfs [--paths-only] | {compose|check-layout|watch|preview|open} VARIANT | {pdf-source|watch-source} SOURCE'
     end
     command == 'watch' ? watch(name) : execute(command, name)
   rescue ArgumentError, KeyError, Psych::Exception, SystemCallError => error

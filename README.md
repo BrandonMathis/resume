@@ -55,7 +55,17 @@ The Makefile uses **RenderCV 2.8** with Python 3.13 through `uv tool run`; uv pr
 
 Brackets mark an optional name; omit it to select `default`. For example, `make pdf technical-product-owner` and `make pdf VARIANT=technical-product-owner` build the same variant. Use a positional name with one command, or `VARIANT=...` with multiple commands (e.g. `make pdf check-layout VARIANT=technical-product-owner`). Bulk commands discover variants automatically, include `default`, and stop on the first failure.
 
-Variant draft builds leave only the PDF: the resolved YAML, copied templates, and generated Typst are temporary. To inspect the resolved YAML without rendering, run `make compose [<name>]`; it writes `build/variants/<name>/<name>.yaml` and prints its path. Layout audits still keep Typst alongside their diagnostic artifacts. Generated files are ignored by Git; `make clean` removes the repository's entire `build/` directory, including old draft filenames and audit artifacts, not sources or reference PDFs. Run `make test-variants` for variant tooling tests, or `make test` for both variant and layout tests.
+Variant draft builds write directly to `build/brandonmathis-<slug>.pdf` and overwrite it on rebuild, without keeping older versions. The resolved YAML, copied templates, and generated Typst stay in the system temporary directory and are removed when the build finishes. To inspect the resolved YAML without rendering, run `make compose [<name>]`; it writes `build/variants/<name>/<name>.yaml` and prints its path. Layout audits still keep Typst alongside their diagnostic artifacts. Generated files are ignored by Git; `make clean` removes the repository's entire `build/` directory, including old draft filenames and audit artifacts, not sources or reference PDFs. Run `make test-variants` for variant tooling tests, or `make test` for both variant and layout tests.
+
+Normal `make pdf` and `make pdfs` show RenderCV’s build output and finish with a `Built resumes:` line listing the final PDF paths relative to the repository. The Typst path shown in RenderCV’s banner is temporary.
+
+#### Use from a script
+
+```sh
+pdf="$(make -s pdf VARIANT=technical-product-owner)" || exit $?
+```
+
+`make -s pdf` prints just the absolute PDF path on success. `make -s pdfs` prints one path per successful build. Check the exit status before using the output; render failures are reported on stderr. These commands do not open a viewer or run a layout audit.
 
 #### Standalone YAML
 
@@ -117,7 +127,7 @@ make watch example-role
 # Ctrl-C to stop
 ```
 
-The variant watcher builds `build/brandonmathis-<slug>.pdf` and opens it in macOS Preview once per output filename. It polls default, every overlay in the selected inheritance chain, and shared templates once per second, and replaces the draft only after a successful render. Preview can retain a stale view even after a successful rebuild; close it and use `make open <name>` if changes are not visible. For dependable automatic reloads, Skim supports checking for file changes and reloading automatically; the current watcher still opens Preview.
+The variant watcher builds `build/brandonmathis-<slug>.pdf` and opens it in macOS Preview once per output filename. It polls default, every overlay in the selected inheritance chain, and shared templates once per second, and renders to the same draft path on each rebuild. Preview can retain a stale view even after a successful rebuild; close it and use `make open <name>` if changes are not visible. For dependable automatic reloads, Skim supports checking for file changes and reloading automatically; the current watcher still opens Preview.
 
 Live output is an **unaudited working draft**: layout failures do not suppress updates. Use `make preview <variant>` or `make check-layout <variant>` and inspect both pages before publishing. Invalid YAML and renderer errors are logged, and the watcher keeps running so corrected edits can rebuild. Edits made during a build are picked up on the next poll. Restart the watcher after changing the watcher script itself; an already-running Ruby process otherwise keeps its old code.
 

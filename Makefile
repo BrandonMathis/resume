@@ -6,6 +6,8 @@ VARIANT ?= $(if $(strip $(SOURCE)),,default)
 COMMANDS := pdf watch check-layout preview open variants compose pdfs check-layouts previews test-variants test-layout test clean
 VARIANT_COMMANDS := pdf watch check-layout preview open compose
 VARIANTS := $(basename $(notdir $(wildcard variants/*.yml variants/*.yaml)))
+# GNU Make puts short flags (without a dash) before long options in MAKEFLAGS.
+PDF_OUTPUT = $(if $(findstring s,$(filter-out -%,$(firstword $(MAKEFLAGS)))),--paths-only)
 
 # Accept `make preview full-stack` without swallowing typos or changing normal
 # multi-target invocations such as `make pdf check-layout VARIANT=full-stack`.
@@ -36,7 +38,10 @@ ifneq ($(strip $(VARIANT)),)
 ifneq ($(strip $(SOURCE)),)
 $(error Use VARIANT or SOURCE, not both)
 endif
-pdf watch check-layout:
+pdf:
+	ruby scripts/resume_variant.rb $@ "$(VARIANT)" $(PDF_OUTPUT)
+
+watch check-layout:
 	ruby scripts/resume_variant.rb $@ "$(VARIANT)"
 else
 pdf watch:
@@ -55,9 +60,13 @@ compose preview open:
 	ruby scripts/resume_variant.rb $@ "$(VARIANT)"
 
 # Discover variants rather than maintaining a second list in the Makefile.
-pdfs check-layouts previews:
-	@set -e; for variant in $$(ruby scripts/resume_variant.rb list); do \
-		$(MAKE) $(if $(filter pdfs,$@),pdf,$(if $(filter previews,$@),preview,check-layout)) VARIANT="$$variant"; \
+pdfs:
+	@ruby scripts/resume_variant.rb $@ $(PDF_OUTPUT)
+
+check-layouts previews:
+	@set -e; variants=$$(ruby scripts/resume_variant.rb list); \
+	for variant in $$variants; do \
+		$(MAKE) --no-print-directory $(if $(filter previews,$@),preview,check-layout) VARIANT="$$variant"; \
 	done
 
 test-variants:

@@ -299,10 +299,10 @@ class ResumeVariantTest < Minitest::Test
   def test_watch_rebuilds_directly_on_edits_and_opens_preview_only_once
     commands = []
     launches = []
-    runner = ->(command, name) { commands << [command, name]; ResumeVariant.pdf_path(name) }
+    runner = ->(name) { commands << name; ResumeVariant.pdf_path(name) }
     launcher = ->(path) { launches << path; true }
     _output, errors = capture_io do
-      stub_variant(:execute, runner) do
+      stub_variant(:build_pdf, runner) do
         stub_variant(:launch_preview, launcher) do
           with_watch_snapshots([:initial, :initial, :edited]) do
             assert ResumeVariant.watch('full-stack')
@@ -310,7 +310,7 @@ class ResumeVariantTest < Minitest::Test
         end
       end
     end
-    assert_equal [['pdf', 'full-stack']] * 2, commands
+    assert_equal ['full-stack'] * 2, commands
     assert_equal [ResumeVariant.pdf_path('full-stack')], launches
     assert_includes errors, 'Ctrl-C to stop'
     assert_includes errors, 'unaudited draft'
@@ -319,9 +319,9 @@ class ResumeVariantTest < Minitest::Test
   def test_watch_recovers_from_a_failed_build_without_reopening_preview
     attempts = 0
     launches = 0
-    runner = ->(_command, name) { attempts += 1; attempts == 2 ? false : ResumeVariant.pdf_path(name) }
+    runner = ->(name) { attempts += 1; attempts == 2 ? false : ResumeVariant.pdf_path(name) }
     _output, errors = capture_io do
-      stub_variant(:execute, runner) do
+      stub_variant(:build_pdf, runner) do
         stub_variant(:launch_preview, ->(_path) { launches += 1; true }) do
           with_watch_snapshots([:initial, :broken, :fixed]) do
             assert ResumeVariant.watch('full-stack')
@@ -336,7 +336,7 @@ class ResumeVariantTest < Minitest::Test
 
   def test_watch_recovers_from_transient_file_and_yaml_errors
     attempts = 0
-    runner = lambda do |_command, name|
+    runner = lambda do |name|
       attempts += 1
       raise Psych::Exception, 'Synthetic invalid YAML' if attempts == 1
 
@@ -344,7 +344,7 @@ class ResumeVariantTest < Minitest::Test
     end
     launches = 0
     _output, errors = capture_io do
-      stub_variant(:execute, runner) do
+      stub_variant(:build_pdf, runner) do
         stub_variant(:launch_preview, ->(_path) { launches += 1; true }) do
           with_watch_snapshots([Errno::ENOENT.new('Synthetic file save'), :broken, :fixed]) do
             assert ResumeVariant.watch('full-stack')
@@ -361,7 +361,7 @@ class ResumeVariantTest < Minitest::Test
     launches = 0
     launcher = ->(_path) { launches += 1; launches > 1 }
     _output, errors = capture_io do
-      stub_variant(:execute, ResumeVariant.pdf_path('full-stack')) do
+      stub_variant(:build_pdf, ResumeVariant.pdf_path('full-stack')) do
         stub_variant(:launch_preview, launcher) do
           with_watch_snapshots([:initial, :edited, :another_edit]) do
             assert ResumeVariant.watch('full-stack')
@@ -402,26 +402,62 @@ class ResumeVariantTest < Minitest::Test
     assert_includes error.message, 'Duplicate output slug "default": default, full-stack'
   end
 
-  def test_pdf_keeps_only_the_named_draft_even_when_a_rebuild_fails
+  def test_pdf_prints_one_path_and_overwrites_it_without_leaving_intermediates
     write_overlay(@fixture_root, { 'slug' => 'custom-slug', 'sections' => {} })
     expected = File.join(@fixture_root, 'build/brandonmathis-custom-slug.pdf')
-    success = true
-    runner = lambda do |*arguments, **options|
-      assert_equal ResumeVariant::RENDER, arguments[0...-2]
-      assert_equal 'render', arguments[-2]
-      source = arguments.last
+    versions = ['First PDF', 'Replacement PDF', nil]
+    temporary_directories = []
+    runner = lambda do |*arguments, out:, **options|
+      assert_equal ResumeVariant::RENDER, arguments[0...-4]
+      command, source, option, path = arguments.last(4)
+      assert_equal ['render', '--pdf-path', expected], [command, option, path]
+      directory = File.dirname(source)
+      temporary_directories << directory
+      refute directory.start_with?(File.join(@fixture_root, 'build') + '/')
       settings = load_yaml(source)['settings']['render_command']
-      File.write(File.join(File.dirname(source), settings['typst_path']), 'Synthetic Typst')
-      File.write(File.join(File.dirname(source), settings['pdf_path']), success ? 'Valid PDF' : 'Partial PDF')
-      success
+      File.write(File.join(directory, settings['typst_path']), 'Synthetic Typst')
+      version = versions.shift
+      File.write(out, version ? "Generated Typst in #{directory}" : 'Render failed: bad input')
+      return false unless version
+
+      File.write(path, version)
+      true
     end
     stub_variant(:system, runner) do
-      capture_io { assert_equal expected, ResumeVariant.execute('pdf', 'full-stack') }
-      success = false
-      refute ResumeVariant.execute('pdf', 'full-stack')
+      versions.first(2).each do |version|
+        stdout, stderr = capture_io { assert ResumeVariant.run(%w[pdf full-stack --paths-only]) }
+        assert_equal "#{expected}\n", stdout
+        assert_empty stderr
+        assert_equal version, File.read(expected)
+      end
+      stdout, stderr = capture_io { refute ResumeVariant.run(%w[pdf full-stack --paths-only]) }
+      assert_empty stdout
+      assert_includes stderr, 'Render failed: bad input'
     end
-    assert_equal 'Valid PDF', File.read(expected)
+    assert temporary_directories.none? { |directory| File.exist?(directory) }
     assert_equal [File.basename(expected)], Dir.children(File.dirname(expected))
+  end
+
+  def test_normal_pdf_output_keeps_renderer_messages_and_ends_with_one_relative_summary
+    write_overlay(@fixture_root, { 'slug' => 'custom-slug', 'sections' => {} })
+    runner = lambda do |*arguments, chdir:|
+      assert_equal @fixture_root, chdir
+      path = arguments.last
+      print "RenderCV: #{File.basename(path)}"
+      File.write(path, 'Synthetic PDF')
+      true
+    end
+    stub_variant(:system, runner) do
+      stdout, stderr = capture_io { assert ResumeVariant.run(%w[pdf full-stack]) }
+      assert_equal "RenderCV: brandonmathis-custom-slug.pdf\nBuilt resumes: build/brandonmathis-custom-slug.pdf\n", stdout
+      assert_empty stderr
+
+      stdout, stderr = capture_io { assert ResumeVariant.run(%w[pdfs]) }
+      paths = %w[default enhanced-kimi-k3 custom-slug react-native].map { |slug| "build/brandonmathis-#{slug}.pdf" }
+      expected = paths.map { |path| "RenderCV: #{File.basename(path)}" }
+      assert_equal expected + ["Built resumes: #{paths.join(', ')}"], stdout.lines(chomp: true)
+      assert_empty stderr
+    end
   end
 
   def test_standalone_keeps_its_pdf_path_but_puts_typst_in_temporary_storage
